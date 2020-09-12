@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Artificial Intelligence34149/1928/2021/1/95 | Artificial Intelligence 34149/1928/2021/1/95</title>
+  <title>Hoofdstuk 10 Artificiële Neurale Netwerken (ANN’s) | Artificial Intelligence 34149/1928/2021/1/95</title>
   <meta name="description" content="Artificial intelligence course at the AP University College." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Artificial Intelligence34149/1928/2021/1/95 | Artificial Intelligence 34149/1928/2021/1/95" />
+  <meta property="og:title" content="Hoofdstuk 10 Artificiële Neurale Netwerken (ANN’s) | Artificial Intelligence 34149/1928/2021/1/95" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Artificial Intelligence34149/1928/2021/1/95 | Artificial Intelligence 34149/1928/2021/1/95" />
+  <meta name="twitter:title" content="Hoofdstuk 10 Artificiële Neurale Netwerken (ANN’s) | Artificial Intelligence 34149/1928/2021/1/95" />
   
   <meta name="twitter:description" content="Artificial intelligence course at the AP University College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="getting-started.html"/>
+<link rel="prev" href="de-percetron.html"/>
+<link rel="next" href="rapporteren.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -254,23 +254,137 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Artificial Intelligence<br><small>34149/1928/2021/1/95</small></h1>
-<p class="author"><em>David D’Haese</em></p>
-<p class="date"><em>Gepubliceerd op 2020-09-13 00:01:15</em></p>
+<div id="artificiële-neurale-netwerken-anns" class="section level1">
+<h1><span class="header-section-number">Hoofdstuk 10</span> Artificiële Neurale Netwerken (ANN’s)</h1>
+<div id="inleiding-tot-anns" class="section level2">
+<h2><span class="header-section-number">10.1</span> Inleiding tot ANN’s</h2>
+<p>Een artificieel neuraal netwerk (ANN) kan gezien worden als een samenstelling van individuele perceptronen zodat de uitvoer van de ene perceptron de invoer van een andere wordt. Maar de neuronen worden niet kris-kras door elkaar geplaatst, maar worden georganiseerd in zogenaamde lagen (eng: <em>layers</em>). In een feed-forward netwerk resulteert dit in een <a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">gerichte acyclische graaf</a> (eng: <em>directed acyclic graph</em>) van noden of neuronen. Laten we een eenvoudig voorbeeld bekijken. In het hoofdstuk rond de perceptron hebben we <em>Iris setosa</em> bloemen weten te onderscheiden van andere soorten op basis van twee eigenschappen, namelijk de lengte en breedte van de kelkbladeren. Als we nu eens proberen de drie soorten te onderscheiden. Met één perceptron lukt het niet, want herinner je dat een perceptron enkel lineair gescheiden punten-wolken kan onderscheiden en een lijn zal telkens maar leiden tot een uitkomst met twee mogelijke categorieën.</p>
+<p>Doordat we nu meerdere uitkomsten hebben moeten we voor elke uitkomst een node (neuron, perceptron) voorzien. De invoer van deze 3 uitkomst-noden (“neuronen in de uitvoer laag”, eng: <em>output-layer</em>) is verbonden met de uitvoer van de 2 invoer-laag neuronen (omdat er twee eigenschappen zijn). Zo ziet het nieuwe netwerk er uit:</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="artificiële-neurale-netwerken-anns.html#cb84-1"></a><span class="kw">library</span>(neuralnet)</span>
+<span id="cb84-2"><a href="artificiële-neurale-netwerken-anns.html#cb84-2"></a></span>
+<span id="cb84-3"><a href="artificiële-neurale-netwerken-anns.html#cb84-3"></a>nn =<span class="st"> </span><span class="kw">neuralnet</span>(Species <span class="op">~</span><span class="st"> </span>Sepal.Length <span class="op">+</span><span class="st"> </span>Sepal.Width,</span>
+<span id="cb84-4"><a href="artificiële-neurale-netwerken-anns.html#cb84-4"></a>  <span class="dt">data =</span> iris, <span class="dt">hidden =</span> <span class="dv">0</span>, <span class="dt">linear.output =</span> <span class="ot">TRUE</span>) </span>
+<span id="cb84-5"><a href="artificiële-neurale-netwerken-anns.html#cb84-5"></a>nn <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">plot</span>(<span class="dt">rep =</span> <span class="st">&quot;best&quot;</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:nn-iris-0"></span>
+<img src="_main_files/figure-html/nn-iris-0-1.png" alt="Een ANN om op basis van twee eigenschappen van de kelkbladeren van iris-bloemen drie soorten (setosa, vericolor en virginica) te onderscheiden. Dit netwerk heeft enkel een invoer- en een uivoerlaag. De ‘Error’ geeft de nauwkeurigheid weer. ‘Steps’ het aantal doorlopen epochs." width="672" />
+<p class="caption">
+Figuur 10.1: Een ANN om op basis van twee eigenschappen van de kelkbladeren van iris-bloemen drie soorten (<em>setosa</em>, <em>vericolor</em> en <em>virginica</em>) te onderscheiden. Dit netwerk heeft enkel een invoer- en een uivoerlaag. De ‘Error’ geeft de nauwkeurigheid weer. ‘Steps’ het aantal doorlopen epochs.
+</p>
 </div>
-<div id="about-this-course" class="section level1">
-<h1><span class="header-section-number">Hoofdstuk 1</span> About this course</h1>
-<p>TODO: Nog in t %&gt;% %&gt;% e vullen</p>
 
+<p>Uit het bovenstaand netwerk kunnen we het volgende aflezen:</p>
+<ul>
+<li>Het bestaat uit twee lagen, een invoer-laag (eng: <em>input layer</em>) en een uitvoer-laag (eng: <em>output layer</em>)</li>
+<li>Het leeralgoritme heeft 2251 epochs nodig gehad om tot een stabiele oplossing te komen</li>
+<li>De totale fout die gemaakt wordt, is recht evenredig met <span class="math inline">\(\approx 26.4\,mm^2\)</span></li>
+<li>Of een bloem van de soort <em>Iris setosa</em> is heeft te maken met zowel de lengte als de breedte van het kelkblad, zij het in omgekeerde verhouding</li>
+<li>Vooral de breedte van het kelkblad bepaald of de bloem een <em>versicolor</em> is terwijl het eerder de lengte is dat bepaald of het een <em>virginica</em> is.</li>
+</ul>
+<p>De resultaten van bovenstaand netwerk kunnen als matrix <span class="math inline">\(\mathbf{\theta}\)</span> worden weergegeven. Laten we deze matrix voor de volledigheid eens bekijken:</p>
+<p><span class="math display">\[\theta=\begin{bmatrix}
+0.768&amp;1.790&amp;-1.565 \\
+-0.374&amp;0.014&amp;0.360 \\
+0.572&amp;-0.504&amp;-0.067 \\
+\end{bmatrix}\]</span></p>
+<p>De totale fout waarvan hierboven sprake is, is evenredig met de som van de kwadraten van de deviaties tussen <span class="math inline">\(y\)</span> en <span class="math inline">\(\hat{y}\)</span> (Formule <a href="diagnose.html#eq:kwadratensom">(8.1)</a>).</p>
+<p>Behalve een invoer-laag en een uitvoer-laag, kan een netwerk ook worden opgebouwd uit tussenliggende <em>verborgen lagen</em> (eng: <em>hidden layers</em>). Figuur <a href="artificiële-neurale-netwerken-anns.html#fig:nn-iris-1">10.2</a> laat zien wat er gebeurt indien we aan het Iris-netwerk een verborgen laag toevoegen met daarin 3 noden.</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="artificiële-neurale-netwerken-anns.html#cb85-1"></a><span class="kw">library</span>(neuralnet)</span>
+<span id="cb85-2"><a href="artificiële-neurale-netwerken-anns.html#cb85-2"></a></span>
+<span id="cb85-3"><a href="artificiële-neurale-netwerken-anns.html#cb85-3"></a>nn =<span class="st"> </span><span class="kw">neuralnet</span>(Species <span class="op">~</span><span class="st"> </span>Sepal.Length <span class="op">+</span><span class="st"> </span>Sepal.Width,</span>
+<span id="cb85-4"><a href="artificiële-neurale-netwerken-anns.html#cb85-4"></a>  <span class="dt">data =</span> iris, <span class="dt">hidden =</span> <span class="dv">3</span>, <span class="dt">linear.output =</span> <span class="ot">TRUE</span>) </span>
+<span id="cb85-5"><a href="artificiële-neurale-netwerken-anns.html#cb85-5"></a>nn <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">plot</span>(<span class="dt">rep =</span> <span class="st">&quot;best&quot;</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:nn-iris-1"></span>
+<img src="_main_files/figure-html/nn-iris-1-1.png" alt="Idem als voor Figuur 10.1, maar nu met toevoeging van een verborgen laag met 3 neuronen." width="672" />
+<p class="caption">
+Figuur 10.2: Idem als voor Figuur <a href="artificiële-neurale-netwerken-anns.html#fig:nn-iris-0">10.1</a>, maar nu met toevoeging van een verborgen laag met 3 neuronen.
+</p>
+</div>
+
+<p>Merk op dat de totale fout <span class="math inline">\(E\)</span> nu kleiner is geworden, maar dat betekent nog niet dat dit een goed idee is om de extra verborgen laag inderdaad toe te voegen.</p>
+
+<div class="exercise">
+<span id="exr:goed-idee-tussenlaag" class="exercise"><strong>Oefening 10.1  </strong></span>Het toevoegen van een extra verborgen laag in ons model zorgt ervoor dat de totale fout op de Iris dataset verkleint. Maar dat betekent nog niet dat het een goed idee is om een laag toe te voegen. Waarom niet? Leg uit in eigen woorden.
+</div>
+
+</div>
+<div id="feed-forward-anns-ff-anns" class="section level2">
+<h2><span class="header-section-number">10.2</span> Feed-forward ANNs (FF-ANNs)</h2>
+<p>We geen nu iets formeler moeten zijn in wat de regels rond een ANN zijn en hoe een ANN aan zijn oplossing komt. Om te beginnen leggen we de regels vast voor de noden en connectoren (pijlen) een FF-ANN:</p>
+
+<div class="definition">
+<p><span id="def:ff-ann-noden" class="definition"><strong>Stelling 10.1  </strong></span><strong>Noden</strong>:</p>
+<ul>
+<li>De <em>invoer-laag</em> is verplicht en bevat één node voor elke feature</li>
+<li>De <em>uitvoer-laag</em> is ook verplicht en bevat één node voor <em>elke categorie van de uitkomst</em></li>
+<li>Verborgen lagen zijn optioneel</li>
+<li>Het aantal noden in de verborgen lagen is bij realistische situaties met vele features meestal veel kleiner dan het aantal features zodat de invoer a.h.w. gecomprimeerd wordt</li>
+<li>Elke laag, behalve de uitvoer-laag, heeft een speciale afwijking-node (eng: <em>bias-node</em>) die de constante waarde 1 bevat
+</div></li>
+</ul>
+
+<div class="definition">
+<p><span id="def:ff-ann-connectoren" class="definition"><strong>Stelling 10.2  </strong></span><strong>Connectoren</strong>:</p>
+<ul>
+<li>In een FF-ANN mogen connectoren niet twee noden van dezelfde laag verbinden</li>
+<li>Bovendien moet de zin van de connectoren lopen van invoer-laag naar uitvoerlaag en nooit andersom</li>
+<li>Het is niet zo dat alle node van de ene laag moeten verbonden zijn met alle noden van de volgende laag
+</div></li>
+</ul>
+<p>Hoe werkt ANN nu eigenlijk? Wel, als je het perceptron begrijpt is er eigenlijk niet veel aan. De waarden van de invoer-laag zijn uiteraard gekend. Voor elke andere laag in het netwerk bekom je de nieuwe waarden door de waarden uit de voorgaande laag te vermenigvuldigen (via inwendig product) met de bijhorende gewichten:</p>
+<p><span class="math display" id="eq:layer-matrix-multiplication">\[\begin{equation}
+  z_\ell=\mathbf{x_\ell}\cdot\mathbf{\theta_\ell} \\
+  \hat{y}_\ell=t(z_\ell) \\
+  \ell\subset\{2, 3,..,L\}
+  \tag{10.1}
+\end{equation}\]</span></p>
+<p>Komt het FF-ANN leeralgoritme aan de laatste laag van het netwerk aan, dan wordt de geschatte uitkomst <span class="math inline">\(\hat{y}\)</span> vergeleken met de werkelijke uitkomst <span class="math inline">\(y\)</span> en op basis daarvan de gewichten aangepast.</p>
+</div>
+<div id="types-neuronen" class="section level2">
+<h2><span class="header-section-number">10.3</span> Types neuronen</h2>
+<p>Tot hier toe hebben we uitsluitend lineaire neuronen besproken, maar om complexere problemen te kunnen afhandelen was er een manier nodig om een niet-lineaire respons in de neuronen in te bouwen. Dit doen we door van de transformatie functie <span class="math inline">\(t(z)\)</span> een niet-lineaire functie te maken. Het type transformatie-functie bepaald dan ook het type neuron. Er zijn vele types lineaire en niet-lineaire neuronen, maar enkel de meest courante worden hieronder visueel weergegeven.</p>
+<div class="figure"><span id="fig:sigmoid-neuron"></span>
+<img src="_main_files/figure-html/sigmoid-neuron-1.png" alt="Vier neuron-types gebaseerd op hun transformatie- functies \(t(z)\). De functie voor de sigmoïd is \(\frac{1}{1+e^{-z}}\), die van het tanh neuron type is uiteraard \(tanh(x)\) en die voor het Restricted Linear Unit neuron (ReLU) is \(max(0, z)\)." width="672" />
+<p class="caption">
+Figuur 10.3: Vier neuron-types gebaseerd op hun transformatie- functies <span class="math inline">\(t(z)\)</span>. De functie voor de sigmoïd is <span class="math inline">\(\frac{1}{1+e^{-z}}\)</span>, die van het <em>tanh</em> neuron type is uiteraard <span class="math inline">\(tanh(x)\)</span> en die voor het Restricted Linear Unit neuron (ReLU) is <span class="math inline">\(max(0, z)\)</span>.
+</p>
+</div>
+
+<p>Sommige restricties gelden voor alle neuronen binnen een laag. Zo is er de zogenaamde <em>softmax</em>-type uitvoer-laag. Hierbij stellen de neuronen binnen die laag een kansverdeling voor en moet bijgevolg de som van de neuronen op exact 1 uitkomen:</p>
+<p><span class="math display" id="eq:softmax">\[\begin{equation}
+  \hat{y}_\ell=\frac{e^{z_\ell}}{\sum_{\ell}{e^{z_\ell}}}
+  \tag{10.2}
+\end{equation}\]</span></p>
+</div>
+<div id="backpropagation" class="section level2">
+<h2><span class="header-section-number">10.4</span> Backpropagation</h2>
+<p>Tijdens het trainen van meerlagige ANNs maken we gebruik van het <em>backpropagation algoritme</em> (zie <span class="citation">Rumelhart et al. (<a href="#ref-rumelhart1986" role="doc-biblioref">1986</a>)</span>) een voorbeeld van <a href="https://en.wikipedia.org/wiki/Dynamic_programming">dynamisch programmeren</a> (eng: <em>dynamic programming</em>). Hieronder zijn de stappen uiteengezet:</p>
+<ol style="list-style-type: decimal">
+<li>Na de initialisatie, waarbij beginwaarden aan de parameters worden toegekend, doorlopen we de lagen één voor één af te beginnen bij de eerste laag na de invoerlaag. Bij elke laag berekenen we <span class="math inline">\(x_{k+1}=t_k(f(x_k)), k\subset\{1,..,K-1\}\)</span>, waarbij <span class="math inline">\(t-k\)</span> de verliesfunctie is voor die bepaalde laag.</li>
+<li>Nu pas beginnen we met de backpropagation. Te vertrekken deze keer van de uitvoerlaag, berekenen we de restterm <span class="math inline">\(\varepsilon\)</span>.</li>
+<li>Nu berekenen we voor elke laag, van laatste naar tweede, de afgeleiden <span class="math inline">\(\frac{\partial{E_n}}{\partial\theta_{n-1}}\)</span> (eng: <em>error derivatives</em>) die aangeeft hoeveel de restterm van een laag verandert naarmate de parameters van de neuronen uit de vorige laag veranderen</li>
+<li>Invullen van de leersnelheid geeft ons de nieuwe parameter waarden en wekunnen voort naar de volgende epoch</li>
+</ol>
+<p>Zie de blog van Jay Prakash voor een uitgewekt voorbeeld en de precies berekening van de afgeleiden (<span class="citation">Prakash (<a href="#ref-Prakash2017" role="doc-biblioref">2017</a>)</span>).</p>
+<p>TODO: <a href="http://neuralnetworksanddeeplearning.com/chap1.html" class="uri">http://neuralnetworksanddeeplearning.com/chap1.html</a></p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Prakash2017">
+<p>Prakash, J., 2017. Back-propagation is very simple. Who made it complicated ? [WWW Document] <em>[Online; accessed 2020-11-07]</em>. URL <a href="https://medium.com/@14prakash/back-propagation-is-very-simple-who-made-it-complicated-97b794c97e5c">https://medium.com/@14prakash/back-propagation-is-very-simple-who-made-it-complicated-97b794c97e5c</a></p>
+</div>
+<div id="ref-rumelhart1986">
+<p>Rumelhart, D.E., Hinton, G.E., Williams, R.J., 1986. Learning representations by back-propagating errors. nature 323, 533–536.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="getting-started.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="de-percetron.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rapporteren.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Artificial Intelligence34149/1928/2021/1/95 | Artificial Intelligence 34149/1928/2021/1/95</title>
+  <title>A Inwendig product, matrix-vermenigvuldiging, vectoren en tensoren | Artificial Intelligence 34149/1928/2021/1/95</title>
   <meta name="description" content="Artificial intelligence course at the AP University College." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Artificial Intelligence34149/1928/2021/1/95 | Artificial Intelligence 34149/1928/2021/1/95" />
+  <meta property="og:title" content="A Inwendig product, matrix-vermenigvuldiging, vectoren en tensoren | Artificial Intelligence 34149/1928/2021/1/95" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Artificial Intelligence34149/1928/2021/1/95 | Artificial Intelligence 34149/1928/2021/1/95" />
+  <meta name="twitter:title" content="A Inwendig product, matrix-vermenigvuldiging, vectoren en tensoren | Artificial Intelligence 34149/1928/2021/1/95" />
   
   <meta name="twitter:description" content="Artificial intelligence course at the AP University College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="getting-started.html"/>
+<link rel="prev" href="rapporteren.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -254,14 +254,93 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Artificial Intelligence<br><small>34149/1928/2021/1/95</small></h1>
-<p class="author"><em>David D’Haese</em></p>
-<p class="date"><em>Gepubliceerd op 2020-09-13 00:01:15</em></p>
+<div id="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren" class="section level1">
+<h1><span class="header-section-number">A</span> Inwendig product, matrix-vermenigvuldiging, vectoren en tensoren</h1>
+<p>De perceptron is een leeralgoritme dat de ‘gewichten’ <span class="math inline">\(\theta\)</span> probeert te vinden die na vermenigvuldiging met de invoer <span class="math inline">\(x\)</span> de uitkomst <span class="math inline">\(y\)</span> tracht te benaderen met <span class="math inline">\(\hat{y}\)</span>.</p>
+<p><span class="math display" id="eq:perceptron-appendix">\[\begin{equation}
+  f(x, \theta)=\sum_{i=0}^{n}{\theta_ix_i}
+  \tag{A.1}
+\end{equation}\]</span></p>
+<p>Deze bewerking komt overeen met het <a href="https://nl.wikipedia.org/wiki/Inwendig_product">inwendig product</a> van de matrix <span class="math inline">\(\mathbf{x}\)</span> met de vector <span class="math inline">\(\mathbf{\theta}\)</span>:</p>
+<p><span class="math display" id="eq:inwendig-product">\[\begin{equation}
+  \mathbf{x}\cdot\mathbf{\theta}
+  \tag{A.2}
+\end{equation}\]</span></p>
+<p>Nemen we <code>iris</code> dataset uit een vorige <a href="de-percetron.html#casestudy-onderscheiden-van-setosa">casestudy</a>, dan ziet de invoer van een neuraal netwerk <span class="math inline">\(\mathbf{x}\)</span> er als volgt uit:</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html#cb87-1"></a>x &lt;-<span class="st"> </span>iris[, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">cbind</span>(<span class="st">&quot;Bias&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), .) <span class="op">%&gt;%</span><span class="st"> </span>as.matrix</span></code></pre></div>
+<p><span class="math display">\[\mathbf{x}=\begin{bmatrix}
+1.0&amp;5.1&amp;3.5 \\
+1.0&amp;4.9&amp;3.0 \\
+1.0&amp;4.7&amp;3.2 \\
+1.0&amp;4.6&amp;3.1 \\
+1.0&amp;5.0&amp;3.6 \\
+1.0&amp;5.4&amp;3.9 \\
+\vdots&amp;\vdots&amp;\vdots \\
+\end{bmatrix}\]</span></p>
+<p>De eerste kolom is de nep-variabele waarvan sprake is in Stelling <a href="artificiële-neurale-netwerken-anns.html#def:ff-ann-noden">10.1</a>. Nemen we hier nu de eerste rij uit, dan krijgen we een geannoteerde [<em>vector</em>](<a href="https://nl.wikipedia.org/wiki/Vector_(wiskunde)" class="uri">https://nl.wikipedia.org/wiki/Vector_(wiskunde)</a>. In R doen we dit:</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html#cb88-1"></a>x[<span class="dv">1</span>,]</span></code></pre></div>
+<pre><code>##         Bias Sepal.Length  Sepal.Width 
+##          1.0          5.1          3.5</code></pre>
+<p>Wiskundigen gaan een vector echter meestal voorstellen als een kolomvector. Datawetenschappers houden er dan weer van om een vector als <em>rijvector</em> voor te stellen. Dat heeft te maken met het feit dat het aantal variabelen vaak veel kleiner is dan het aantal instanties en, zoals hierboven voor <span class="math inline">\(\mathbf{x}\)</span> gedaan werd, de matrix gemakkelijker weer te geven is. Hier gaan we de wiskundige weergave volgen, maar het resultaat moet hetzelfde zijn. We bekomen een kolomvector door deze eerste rij te <a href="https://nl.wikipedia.org/wiki/Getransponeerde_matrix"><em>transponeren</em></a>, i.e. we maken van de rijen kolommen:</p>
+<p><span class="math display">\[\mathbf{x^T_1}=\begin{bmatrix}
+1.0 \\
+5.1 \\
+3.5 \\
+\end{bmatrix}\]</span></p>
+<p>We kunnen deze vector interpreteren als een pijl in een 3-dimensionaal assenstelsel vertrekkende van de oorsprong en met de punt ter hoogte van 1 op de as <code>Bias</code>, 5.1 richting as <code>Sepal.Length</code> en 3.5 richting <code>Sepal.Width</code>:</p>
+<iframe width="100%" height="650px" src="img/vector.html" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" style="border:0px;">
+</iframe>
+<p>Maar opgelet:</p>
+
+<div class="definition">
+<span id="def:vector" class="definition"><strong>Stelling A.1  </strong></span>Het typeert een vector dat het uit waarden bestaat die elke op hun eigen dimensie in een <span class="math inline">\(p\)</span>-dimensionale ruimte geprojecteerd kunnen worden en dat het niet afhangt van de set van eenheidsvectoren of van coördinatenstelsel.
 </div>
-<div id="about-this-course" class="section level1">
-<h1><span class="header-section-number">Hoofdstuk 1</span> About this course</h1>
-<p>TODO: Nog in t %&gt;% %&gt;% e vullen</p>
+
+<p>Nu gaan we over naar de parameters. Uit het resultaat van het eenvoudigste artificieel neuraal netwerk uit de § <a href="artificiële-neurale-netwerken-anns.html#inleiding-tot-anns">Inleiding tot ANN’s</a> halen we de parameters die nodig zijn voor het berekenen van de uitvoer-node voor de uitkomst <em>setosa</em>:</p>
+<p><span class="math display">\[\mathbf{\theta_{setosa}^T}=\begin{bmatrix}
+0.773&amp;-0.374&amp;0.571 \\
+\end{bmatrix}\]</span></p>
+<p>Dit noemen we een covector of <a href="https://nl.wikipedia.org/wiki/Lineaire_functionaal">lineaire functionaal</a>.</p>
+
+<div class="definition">
+<span id="def:covector" class="definition"><strong>Stelling A.2  </strong></span>Het typeert een covector om niet uitgedrukt te kunnen worden in bepaalde eenheden. Covectoren zijn dus eenheidsloos en dienen als lineaire afbeelding (eng: <em>linear map</em>) om een vector te transformeren naar een andere vector. Het is de veralgemening van deze in elkaar transformeerbare vectoren die met <em>tensoren</em> noemt en de term “tensorflow” komt voort uit het het herhaaldelijk moeten uitvoeren van deze transformaties.
+</div>
+
+<p>Er rest ons nu alleen maar de matrix-vermenigvuldiging uit te voeren. Dit doen volgens het schema in Figuur <a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html#fig:matrix-vermenigvuldiging">A.1</a>. Deze figuur laat meteen de veralgemeende situatie zien waarbij meerdere parameter vectoren en meerdere instanties betrokken zijn. Inderdaad, alle waarden voor <span class="math inline">\(z\)</span> binnen eenzelfde laag kunnen doormiddel van één bewerking tegelijk berekend worden.</p>
+<div class="figure"><span id="fig:matrix-vermenigvuldiging"></span>
+<img src="img/matrix-vermenigvuldiging.svg" alt="Matrix-vermenigvuldiging van. De vermenigvuldiging van twee matrices kan kan dus enkel indien het aantal kolommen van de eerste matrix overeenkomt met het aantal rijen van de tweede. (gebaseerd op deze afbeeldingr)"  />
+<p class="caption">
+Figuur A.1: Matrix-vermenigvuldiging van. De vermenigvuldiging van twee matrices kan kan dus enkel indien het aantal kolommen van de eerste matrix overeenkomt met het aantal rijen van de tweede. (gebaseerd op <a href="https://nl.wikipedia.org/wiki/Matrixvermenigvuldiging#/media/Bestand:Matrix_multiplication_diagram.PNG">deze afbeeldingr</a>)
+</p>
+</div>
+
+<p>Nu kunnen we terug de wiskundige wereld verlaten en de datawetenschapper wereld betreden, en kunnen de dat kantelen (transponeren) van de matrices vergeten. In R voer je een matrix-vermenigvuldiging uit door middel van de <code>%*%</code> operator:</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html#cb90-1"></a><span class="kw">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb90-2"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html#cb90-2"></a>x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">15</span>, <span class="dv">10</span>, <span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">matrix</span>(<span class="dv">5</span>, <span class="dv">3</span>)</span>
+<span id="cb90-3"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html#cb90-3"></a>theta &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">6</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">matrix</span>(<span class="dv">3</span>, <span class="dv">2</span>)</span>
+<span id="cb90-4"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html#cb90-4"></a>z &lt;-<span class="st"> </span>x <span class="op">%*%</span><span class="st"> </span>theta</span></code></pre></div>
+<p><span class="math display">\[z=\mathbf{x}\cdot\mathbf{\theta}=\begin{bmatrix}
+14.1&amp;9.7&amp;13.9 \\
+8.3&amp;14.5&amp;16.9 \\
+11.1&amp;9.7&amp;5.8 \\
+11.9&amp;16.1&amp;9.2 \\
+11.2&amp;9.8&amp;9.6 \\
+\end{bmatrix}\cdot\begin{bmatrix}
+0.7&amp;0.7 \\
+0.8&amp;0.0 \\
+0.4&amp;0.8 \\
+\end{bmatrix}=\begin{bmatrix}
+1.4&amp;2.0 \\
+1.7&amp;1.5 \\
+-0.3&amp;-0.9 \\
+2.0&amp;0.2 \\
+0.2&amp;0.2 \\
+\end{bmatrix}\]</span></p>
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-49" class="exercise"><strong>Oefening A.1  </strong></span>Probeer nu zelf voor het eerste neuraal netwerk uit § <a href="artificiële-neurale-netwerken-anns.html#inleiding-tot-anns">Inleiding tot ANN’s</a> de resultaten in <code>nn$net.result</code> te bekomen door de invoergegevens te vermenigvuldigen met de parameters in <code>nn$weights</code>.
+</div>
+
 
 </div>
             </section>
@@ -269,8 +348,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-
-<a href="getting-started.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="rapporteren.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

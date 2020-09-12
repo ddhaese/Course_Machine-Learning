@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Artificial Intelligence34149/1928/2021/1/95 | Artificial Intelligence 34149/1928/2021/1/95</title>
+  <title>Hoofdstuk 7 Manipuleren van data | Artificial Intelligence 34149/1928/2021/1/95</title>
   <meta name="description" content="Artificial intelligence course at the AP University College." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Artificial Intelligence34149/1928/2021/1/95 | Artificial Intelligence 34149/1928/2021/1/95" />
+  <meta property="og:title" content="Hoofdstuk 7 Manipuleren van data | Artificial Intelligence 34149/1928/2021/1/95" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Artificial Intelligence34149/1928/2021/1/95 | Artificial Intelligence 34149/1928/2021/1/95" />
+  <meta name="twitter:title" content="Hoofdstuk 7 Manipuleren van data | Artificial Intelligence 34149/1928/2021/1/95" />
   
   <meta name="twitter:description" content="Artificial intelligence course at the AP University College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="getting-started.html"/>
+<link rel="prev" href="data-exploratie.html"/>
+<link rel="next" href="diagnose.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -254,23 +254,157 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Artificial Intelligence<br><small>34149/1928/2021/1/95</small></h1>
-<p class="author"><em>David D’Haese</em></p>
-<p class="date"><em>Gepubliceerd op 2020-09-13 00:01:15</em></p>
+<div id="manipuleren-van-data" class="section level1">
+<h1><span class="header-section-number">Hoofdstuk 7</span> Manipuleren van data</h1>
+<div id="transformations" class="section level2">
+<h2><span class="header-section-number">7.1</span> Transformations</h2>
+<p>Data generally needs to be transformed somehow. There are several possible reasons to transform the data:</p>
+<ul>
+<li>Adopt the naming conventions of the EDM (Enterprise Data Model)</li>
+<li>Standardize primary and foreign keys</li>
+<li>Avoid confusion and ambiguity by human or by machines</li>
+<li>Abide by the rules of the statistical software or other software</li>
+<li>Adopt to good practices in the field</li>
+<li>Adhere to standardizations of regulatory bodies</li>
+</ul>
 </div>
-<div id="about-this-course" class="section level1">
-<h1><span class="header-section-number">Hoofdstuk 1</span> About this course</h1>
-<p>TODO: Nog in t %&gt;% %&gt;% e vullen</p>
+<div id="subsetting-or-slicing" class="section level2">
+<h2><span class="header-section-number">7.2</span> Subsetting or Slicing</h2>
+<div class="figure">
+<img src="Media/Subsetting.png" alt="" />
+<p class="caption">Subsetting</p>
+</div>
+<p>These actions can simply be summarized as filtering out instances and/or features of a data table. Which features to remove has typically been decided already early in the EDA. Sometimes, however, there are sometimes justifications for removing instances as well:</p>
+<ul>
+<li>Contains many outliers that can be explained or that are beyond doubt</li>
+<li>The instance is otherwise unreliable even without outliers</li>
+<li>The instance must be removed for privacy reasons</li>
+<li>The instance falls outside the scope of the DWH</li>
+</ul>
+</div>
+<div id="booleaans-masker" class="section level2">
+<h2><span class="header-section-number">7.3</span> Booleaans masker</h2>
+<p>Een booleaans masker is gewoon een vector of lijst van booleaanse waarden die gebruikt kunnen worden om uit data frames en data tables die rijen te selecteren die overeenkomen met <code>TRUE</code> in het masker.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="manipuleren-van-data.html#cb49-1"></a><span class="kw">include_graphics</span>(<span class="st">&quot;img/masker.svg&quot;</span>)</span></code></pre></div>
+<p><img src="img/masker.svg" /><!-- --></p>
+</div>
+<div id="grouping-and-aggregation" class="section level2">
+<h2><span class="header-section-number">7.4</span> Grouping and Aggregation</h2>
+<p>Upon Grouping the data table according to one or more features, the other variables need to be aggregated en this can be done using:</p>
+<ul>
+<li>Selection (first, last, second value, …)</li>
+<li>Measures of central tendency (mean, median, …)</li>
+<li>Measures of dispersion (variance, range, standard deviation, IQR, …)</li>
+<li>Extremes (min, max)</li>
+<li>Counts (Count, unique count, sum, majority vote, counts of missing values, …)</li>
+</ul>
+</div>
+<div id="transforming-text" class="section level2">
+<h2><span class="header-section-number">7.5</span> Transforming text</h2>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Transformation</th>
+<th>Example</th>
+<th>Possible justification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Change Encoding</td>
+<td><code>UTF16</code> → <code>UTF8</code></td>
+<td>Avoid software incompatibilities</td>
+</tr>
+<tr class="even">
+<td>Change Casing</td>
+<td><code>"tfr523"</code> → <code>"TFR523"</code></td>
+<td>Avoid confusing and allow for proper comparison</td>
+</tr>
+<tr class="odd">
+<td>Trim</td>
+<td><code>" TFR523"</code> → <code>" TFR523"</code></td>
+<td>Ensure proper identification &amp; comparison</td>
+</tr>
+<tr class="even">
+<td>Add Leading zeroes</td>
+<td><code>"653"</code>, <code>"61"</code>, … → <code>"0653"</code>, <code>"0061"</code>, …</td>
+<td>Avoid str/num confusion by humans and machines</td>
+</tr>
+<tr class="odd">
+<td>Add prefix</td>
+<td><code>"0653"</code> → <code>"UHR0653"</code></td>
+<td>Avoid confusion with other IDs</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="re-scaling-numerical-values" class="section level2">
+<h2><span class="header-section-number">7.6</span> Re-Scaling Numerical Values</h2>
+<p>Here are some of the countless different types of re-scaling:</p>
+<ul>
+<li><a href="https://www.medcalc.org/manual/_help/images/logtransformation.png">Logarithm</a></li>
+<li><a href="https://miro.medium.com/max/1244/1*vEiAxU_mVmFIOvf-xzTolw.png">Logit-transform</a></li>
+<li>Normalization to a fixed maximum value</li>
+<li>Standardization (to a mean of 0 and a variance of 1)</li>
+<li>Division by another field (e.g. <code>Quantity_By_Month / Days_Per_Month</code>, <code>Revenue_By_Store / Sold_By_Store</code>, <code>Quantity / Weight_Per_Unit</code>, …)</li>
+<li>Multiplication (e.g. <code>Quantity x Unit_Price</code>, <code>Quantity x Unit_Cost</code>)</li>
+<li>Subtraction (e.g. <code>Sales_value – Sales_cost</code>)</li>
+</ul>
+</div>
+<div id="discretizations" class="section level2">
+<h2><span class="header-section-number">7.7</span> Discretizations</h2>
+<p>Is going from continuous data to more discrete data. Here are some examples:</p>
+<ul>
+<li>Rounding ([2.25, 2.35] → [2.2, 2.4])</li>
+<li>Binning (<a href="https://docs.tibco.com/pub/sfire-bauthor/7.5.0/doc/html/en-US/GUID-DE9E9072-F026-4E05-BB89-6AB803917351-display.png">here</a> and <a href="https://blogs.sas.com/content/iml/files/2013/07/bin2d2.png">here</a>)</li>
+</ul>
+<p>Mind that discretization always leads to loss of information.</p>
+</div>
+<div id="information-content" class="section level2">
+<h2><span class="header-section-number">7.8</span> Information Content</h2>
+<p>The information of a feature or an entire data set can be measured using indices such as the Shannon Entropy or the limiting density of discrete points.</p>
+</div>
+<div id="reformatting-type-conversion-casting-or-coercion" class="section level2">
+<h2><span class="header-section-number">7.9</span> Reformatting, Type Conversion, Casting or Coercion</h2>
+<p>Examples:</p>
+<ul>
+<li>String to Integer or vice versa</li>
+<li>Reformatting date to ISO-8601 (<code>"07/04/2008</code> → <code>"2007-07-04" (YYYY-MM-DD)</code>)</li>
+</ul>
+</div>
+<div id="changing-numerical-values" class="section level2">
+<h2><span class="header-section-number">7.10</span> Changing numerical Values</h2>
+<p>Far more invasive then re-scaling is when the data is changed based on some custom algorithm. An example hereof is the removal of a drift in the data (de-trending). Similarly, seasonal effects in time series data can be compensated away. Such changes can obviously impact the outcome of the analysis significantly and needs thorough justification.</p>
+</div>
+<div id="changing-category-names" class="section level2">
+<h2><span class="header-section-number">7.11</span> Changing Category Names</h2>
+<p>This is sometimes called <strong>recoding</strong> or <strong>refactorization</strong> and only affects nominal features. It serves to adhere to EDM, to the standards of the DWH and to ensure compatibility across data sets. Alternatively, it simply ensures that misspelled category names are being corrected and alternative spellings are being merged.</p>
+</div>
+<div id="imputation" class="section level2">
+<h2><span class="header-section-number">7.12</span> Imputation</h2>
+<p>Imputation is the completion of missing data. Depending of the patterns the ‘holes’ in the data display or on prior knowledge, separate techniques exist to fill in the blanks.</p>
+</div>
+<div id="onbehandeld" class="section level2">
+<h2><span class="header-section-number">7.13</span> Onbehandeld</h2>
+<p>De volgende onderwerpen werden niet behandeld, ik hoor het graag als jullie individueel of als groep hier meer over willen leren:</p>
+<ul>
+<li>Anonimiseren en pseudonimiseren</li>
+</ul>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="getting-started.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-exploratie.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="diagnose.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

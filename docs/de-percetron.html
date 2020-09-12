@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Hoofdstuk 9 De percetron | Artificial Intelligence 34149/1928/2021/1/95</title>
+  <meta name="description" content="Artificial intelligence course at the AP University College." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Hoofdstuk 9 De percetron | Artificial Intelligence 34149/1928/2021/1/95" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Artificial intelligence course at the AP University College." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Hoofdstuk 9 De percetron | Artificial Intelligence 34149/1928/2021/1/95" />
+  
+  <meta name="twitter:description" content="Artificial intelligence course at the AP University College." />
+  
+
+<meta name="author" content="David D’Haese" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="diagnose.html"/>
+<link rel="next" href="artificiële-neurale-netwerken-anns.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css\ai.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About this course</a></li>
+<li class="chapter" data-level="2" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>2</b> Getting Started</a><ul>
+<li class="chapter" data-level="2.1" data-path="getting-started.html"><a href="getting-started.html#git"><i class="fa fa-check"></i><b>2.1</b> Git</a></li>
+<li class="chapter" data-level="2.2" data-path="getting-started.html"><a href="getting-started.html#computations-using-gpu"><i class="fa fa-check"></i><b>2.2</b> Computations using GPU</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started.html"><a href="getting-started.html#installing-cuda-optional"><i class="fa fa-check"></i><b>2.3</b> Installing CUDA (optional)</a></li>
+<li class="chapter" data-level="2.4" data-path="getting-started.html"><a href="getting-started.html#the-r-language"><i class="fa fa-check"></i><b>2.4</b> The R language</a></li>
+<li class="chapter" data-level="2.5" data-path="getting-started.html"><a href="getting-started.html#python"><i class="fa fa-check"></i><b>2.5</b> Python</a></li>
+<li class="chapter" data-level="2.6" data-path="getting-started.html"><a href="getting-started.html#rstudio"><i class="fa fa-check"></i><b>2.6</b> RStudio</a></li>
+<li class="chapter" data-level="2.7" data-path="getting-started.html"><a href="getting-started.html#installing-tensorflow"><i class="fa fa-check"></i><b>2.7</b> Installing Tensorflow</a></li>
+<li class="chapter" data-level="2.8" data-path="getting-started.html"><a href="getting-started.html#installation-steps-that-worked-for-the-author"><i class="fa fa-check"></i><b>2.8</b> Installation steps that worked for the author</a></li>
+<li class="chapter" data-level="2.9" data-path="getting-started.html"><a href="getting-started.html#package-plan"><i class="fa fa-check"></i><b>2.9</b> Package Plan</a></li>
+<li class="chapter" data-level="2.10" data-path="getting-started.html"><a href="getting-started.html#test-tensorflow"><i class="fa fa-check"></i><b>2.10</b> Test tensorflow</a></li>
+<li class="chapter" data-level="2.11" data-path="getting-started.html"><a href="getting-started.html#waar-vind-ik-leeralgoritmen"><i class="fa fa-check"></i><b>2.11</b> Waar vind ik leeralgoritmen</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html"><i class="fa fa-check"></i><b>3</b> Inleiding tot de cursus</a><ul>
+<li class="chapter" data-level="3.1" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#in-een-notedop"><i class="fa fa-check"></i><b>3.1</b> In een notedop</a></li>
+<li class="chapter" data-level="3.2" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#leerdoelen"><i class="fa fa-check"></i><b>3.2</b> Leerdoelen</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="leren-uit-data.html"><a href="leren-uit-data.html"><i class="fa fa-check"></i><b>4</b> Leren uit data</a><ul>
+<li class="chapter" data-level="4.1" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-leerproces"><i class="fa fa-check"></i><b>4.1</b> Het leerproces</a></li>
+<li class="chapter" data-level="4.2" data-path="leren-uit-data.html"><a href="leren-uit-data.html#de-evolutie-van-het-machinaal-leren"><i class="fa fa-check"></i><b>4.2</b> De evolutie van het machinaal leren</a></li>
+<li class="chapter" data-level="4.3" data-path="leren-uit-data.html"><a href="leren-uit-data.html#intelligentie"><i class="fa fa-check"></i><b>4.3</b> Intelligentie</a></li>
+<li class="chapter" data-level="4.4" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-model"><i class="fa fa-check"></i><b>4.4</b> Het model</a></li>
+<li class="chapter" data-level="4.5" data-path="leren-uit-data.html"><a href="leren-uit-data.html#doelfunctie"><i class="fa fa-check"></i><b>4.5</b> Doelfunctie</a></li>
+<li class="chapter" data-level="4.6" data-path="leren-uit-data.html"><a href="leren-uit-data.html#mnist-dataset"><i class="fa fa-check"></i><b>4.6</b> MNIST dataset</a></li>
+<li class="chapter" data-level="4.7" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-resultaat-van-mnist-analyse"><i class="fa fa-check"></i><b>4.7</b> Het resultaat van MNIST analyse</a></li>
+<li class="chapter" data-level="4.8" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-mnist-model"><i class="fa fa-check"></i><b>4.8</b> Het MNIST model</a></li>
+<li class="chapter" data-level="4.9" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-leerproces-voor-begeleid-ml"><i class="fa fa-check"></i><b>4.9</b> Het leerproces voor begeleid ML</a></li>
+<li class="chapter" data-level="4.10" data-path="leren-uit-data.html"><a href="leren-uit-data.html#de-onderdelen-van-een-model"><i class="fa fa-check"></i><b>4.10</b> De onderdelen van een model</a></li>
+<li class="chapter" data-level="4.11" data-path="leren-uit-data.html"><a href="leren-uit-data.html#hyperparameters"><i class="fa fa-check"></i><b>4.11</b> Hyperparameters</a></li>
+<li class="chapter" data-level="4.12" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-leeralgoritme"><i class="fa fa-check"></i><b>4.12</b> Het leeralgoritme</a></li>
+<li class="chapter" data-level="4.13" data-path="leren-uit-data.html"><a href="leren-uit-data.html#model-complexiteit"><i class="fa fa-check"></i><b>4.13</b> Model complexiteit</a></li>
+<li class="chapter" data-level="4.14" data-path="leren-uit-data.html"><a href="leren-uit-data.html#comprimeren-door-middel-van-een-ml-model"><i class="fa fa-check"></i><b>4.14</b> Comprimeren door middel van een ML model</a></li>
+<li class="chapter" data-level="4.15" data-path="leren-uit-data.html"><a href="leren-uit-data.html#leren-versus-ontwerp"><i class="fa fa-check"></i><b>4.15</b> Leren versus ontwerp</a></li>
+<li class="chapter" data-level="4.16" data-path="leren-uit-data.html"><a href="leren-uit-data.html#leren-versus-onthouden"><i class="fa fa-check"></i><b>4.16</b> Leren versus onthouden</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>5</b> Data</a><ul>
+<li class="chapter" data-level="5.1" data-path="data.html"><a href="data.html#data-voor-ml"><i class="fa fa-check"></i><b>5.1</b> Data voor ML</a></li>
+<li class="chapter" data-level="5.2" data-path="data.html"><a href="data.html#wat-is-data"><i class="fa fa-check"></i><b>5.2</b> Wat is data</a></li>
+<li class="chapter" data-level="5.3" data-path="data.html"><a href="data.html#soorten-data"><i class="fa fa-check"></i><b>5.3</b> Soorten data</a></li>
+<li class="chapter" data-level="5.4" data-path="data.html"><a href="data.html#externe-databronnen"><i class="fa fa-check"></i><b>5.4</b> Externe databronnen</a></li>
+<li class="chapter" data-level="5.5" data-path="data.html"><a href="data.html#data-genereren"><i class="fa fa-check"></i><b>5.5</b> Data Genereren</a></li>
+<li class="chapter" data-level="5.6" data-path="data.html"><a href="data.html#de-analyse-dataset"><i class="fa fa-check"></i><b>5.6</b> De analyse dataset</a></li>
+<li class="chapter" data-level="5.7" data-path="data.html"><a href="data.html#soorten-variabelen"><i class="fa fa-check"></i><b>5.7</b> Soorten variabelen</a></li>
+<li class="chapter" data-level="5.8" data-path="data.html"><a href="data.html#nominal-scale-data"><i class="fa fa-check"></i><b>5.8</b> Nominal-Scale Data</a></li>
+<li class="chapter" data-level="5.9" data-path="data.html"><a href="data.html#ordinal-scale-data"><i class="fa fa-check"></i><b>5.9</b> Ordinal-Scale Data</a></li>
+<li class="chapter" data-level="5.10" data-path="data.html"><a href="data.html#circular-scale"><i class="fa fa-check"></i><b>5.10</b> Circular-Scale</a></li>
+<li class="chapter" data-level="5.11" data-path="data.html"><a href="data.html#censoring"><i class="fa fa-check"></i><b>5.11</b> Censoring</a></li>
+<li class="chapter" data-level="5.12" data-path="data.html"><a href="data.html#tijd-en-ruimte"><i class="fa fa-check"></i><b>5.12</b> Tijd en ruimte</a></li>
+<li class="chapter" data-level="5.13" data-path="data.html"><a href="data.html#toegang-tot-data"><i class="fa fa-check"></i><b>5.13</b> Toegang tot data</a></li>
+<li class="chapter" data-level="5.14" data-path="data.html"><a href="data.html#het-codeboek"><i class="fa fa-check"></i><b>5.14</b> Het codeboek</a></li>
+<li class="chapter" data-level="5.15" data-path="data.html"><a href="data.html#data-leackage"><i class="fa fa-check"></i><b>5.15</b> Data leackage</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-exploratie.html"><a href="data-exploratie.html"><i class="fa fa-check"></i><b>6</b> Data exploratie</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-exploratie.html"><a href="data-exploratie.html#principes-van-data-exploratie"><i class="fa fa-check"></i><b>6.1</b> Principes van data exploratie</a></li>
+<li class="chapter" data-level="6.2" data-path="data-exploratie.html"><a href="data-exploratie.html#stappen-in-data-exploratie"><i class="fa fa-check"></i><b>6.2</b> Stappen in data exploratie</a></li>
+<li class="chapter" data-level="6.3" data-path="data-exploratie.html"><a href="data-exploratie.html#voorbeeld-data-exploratie"><i class="fa fa-check"></i><b>6.3</b> Voorbeeld data exploratie</a></li>
+<li class="chapter" data-level="6.4" data-path="data-exploratie.html"><a href="data-exploratie.html#univariate-verdelingen"><i class="fa fa-check"></i><b>6.4</b> Univariate verdelingen</a></li>
+<li class="chapter" data-level="6.5" data-path="data-exploratie.html"><a href="data-exploratie.html#correlatie-tussen-twee-variabelen"><i class="fa fa-check"></i><b>6.5</b> Correlatie tussen twee variabelen</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html"><i class="fa fa-check"></i><b>7</b> Manipuleren van data</a><ul>
+<li class="chapter" data-level="7.1" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#transformations"><i class="fa fa-check"></i><b>7.1</b> Transformations</a></li>
+<li class="chapter" data-level="7.2" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#subsetting-or-slicing"><i class="fa fa-check"></i><b>7.2</b> Subsetting or Slicing</a></li>
+<li class="chapter" data-level="7.3" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#booleaans-masker"><i class="fa fa-check"></i><b>7.3</b> Booleaans masker</a></li>
+<li class="chapter" data-level="7.4" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#grouping-and-aggregation"><i class="fa fa-check"></i><b>7.4</b> Grouping and Aggregation</a></li>
+<li class="chapter" data-level="7.5" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#transforming-text"><i class="fa fa-check"></i><b>7.5</b> Transforming text</a></li>
+<li class="chapter" data-level="7.6" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#re-scaling-numerical-values"><i class="fa fa-check"></i><b>7.6</b> Re-Scaling Numerical Values</a></li>
+<li class="chapter" data-level="7.7" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#discretizations"><i class="fa fa-check"></i><b>7.7</b> Discretizations</a></li>
+<li class="chapter" data-level="7.8" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#information-content"><i class="fa fa-check"></i><b>7.8</b> Information Content</a></li>
+<li class="chapter" data-level="7.9" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#reformatting-type-conversion-casting-or-coercion"><i class="fa fa-check"></i><b>7.9</b> Reformatting, Type Conversion, Casting or Coercion</a></li>
+<li class="chapter" data-level="7.10" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#changing-numerical-values"><i class="fa fa-check"></i><b>7.10</b> Changing numerical Values</a></li>
+<li class="chapter" data-level="7.11" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#changing-category-names"><i class="fa fa-check"></i><b>7.11</b> Changing Category Names</a></li>
+<li class="chapter" data-level="7.12" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#imputation"><i class="fa fa-check"></i><b>7.12</b> Imputation</a></li>
+<li class="chapter" data-level="7.13" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#onbehandeld"><i class="fa fa-check"></i><b>7.13</b> Onbehandeld</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="diagnose.html"><a href="diagnose.html"><i class="fa fa-check"></i><b>8</b> Diagnose</a><ul>
+<li class="chapter" data-level="8.1" data-path="diagnose.html"><a href="diagnose.html#leren-leven-met-de-onzekerheid"><i class="fa fa-check"></i><b>8.1</b> Leren leven met de onzekerheid</a></li>
+<li class="chapter" data-level="8.2" data-path="diagnose.html"><a href="diagnose.html#meten-van-de-prestatie-van-een-model"><i class="fa fa-check"></i><b>8.2</b> Meten van de prestatie van een model</a></li>
+<li class="chapter" data-level="8.3" data-path="diagnose.html"><a href="diagnose.html#training--validatie--en-test-set"><i class="fa fa-check"></i><b>8.3</b> Training-, validatie- en test-set</a></li>
+<li class="chapter" data-level="8.4" data-path="diagnose.html"><a href="diagnose.html#cross-validatie"><i class="fa fa-check"></i><b>8.4</b> Cross-validatie</a></li>
+<li class="chapter" data-level="8.5" data-path="diagnose.html"><a href="diagnose.html#de-verliesfunctie"><i class="fa fa-check"></i><b>8.5</b> De verliesfunctie</a></li>
+<li class="chapter" data-level="8.6" data-path="diagnose.html"><a href="diagnose.html#gradiënt-afdaling"><i class="fa fa-check"></i><b>8.6</b> Gradiënt afdaling</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="de-percetron.html"><a href="de-percetron.html"><i class="fa fa-check"></i><b>9</b> De percetron</a><ul>
+<li class="chapter" data-level="9.1" data-path="de-percetron.html"><a href="de-percetron.html#historiek"><i class="fa fa-check"></i><b>9.1</b> Historiek</a></li>
+<li class="chapter" data-level="9.2" data-path="de-percetron.html"><a href="de-percetron.html#de-anatomie-van-de-perceptron"><i class="fa fa-check"></i><b>9.2</b> De anatomie van de perceptron</a></li>
+<li class="chapter" data-level="9.3" data-path="de-percetron.html"><a href="de-percetron.html#casestudy-onderscheiden-van-setosa"><i class="fa fa-check"></i><b>9.3</b> Casestudy: Onderscheiden van setosa</a></li>
+<li class="chapter" data-level="9.4" data-path="de-percetron.html"><a href="de-percetron.html#de-perceptron-klasse"><i class="fa fa-check"></i><b>9.4</b> De perceptron klasse</a></li>
+<li class="chapter" data-level="9.5" data-path="de-percetron.html"><a href="de-percetron.html#de-perceptron-functies"><i class="fa fa-check"></i><b>9.5</b> De perceptron functies</a></li>
+<li class="chapter" data-level="9.6" data-path="de-percetron.html"><a href="de-percetron.html#het-leeralgoritme-van-de-perceptron"><i class="fa fa-check"></i><b>9.6</b> Het leeralgoritme van de perceptron</a></li>
+<li class="chapter" data-level="9.7" data-path="de-percetron.html"><a href="de-percetron.html#trainen-van-de-perceptron"><i class="fa fa-check"></i><b>9.7</b> Trainen van de perceptron</a></li>
+<li class="chapter" data-level="9.8" data-path="de-percetron.html"><a href="de-percetron.html#voorspellen-van-de-iris-soort"><i class="fa fa-check"></i><b>9.8</b> Voorspellen van de iris soort</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="artificiële-neurale-netwerken-anns.html"><a href="artificiële-neurale-netwerken-anns.html"><i class="fa fa-check"></i><b>10</b> Artificiële Neurale Netwerken (ANN’s)</a><ul>
+<li class="chapter" data-level="10.1" data-path="artificiële-neurale-netwerken-anns.html"><a href="artificiële-neurale-netwerken-anns.html#inleiding-tot-anns"><i class="fa fa-check"></i><b>10.1</b> Inleiding tot ANN’s</a></li>
+<li class="chapter" data-level="10.2" data-path="artificiële-neurale-netwerken-anns.html"><a href="artificiële-neurale-netwerken-anns.html#feed-forward-anns-ff-anns"><i class="fa fa-check"></i><b>10.2</b> Feed-forward ANNs (FF-ANNs)</a></li>
+<li class="chapter" data-level="10.3" data-path="artificiële-neurale-netwerken-anns.html"><a href="artificiële-neurale-netwerken-anns.html#types-neuronen"><i class="fa fa-check"></i><b>10.3</b> Types neuronen</a></li>
+<li class="chapter" data-level="10.4" data-path="artificiële-neurale-netwerken-anns.html"><a href="artificiële-neurale-netwerken-anns.html#backpropagation"><i class="fa fa-check"></i><b>10.4</b> Backpropagation</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="rapporteren.html"><a href="rapporteren.html"><i class="fa fa-check"></i><b>11</b> Rapporteren</a><ul>
+<li class="chapter" data-level="11.1" data-path="rapporteren.html"><a href="rapporteren.html#reproduceerbaarheid"><i class="fa fa-check"></i><b>11.1</b> Reproduceerbaarheid</a></li>
+<li class="chapter" data-level="11.2" data-path="rapporteren.html"><a href="rapporteren.html#beduidende-cijfers"><i class="fa fa-check"></i><b>11.2</b> Beduidende cijfers</a></li>
+<li class="chapter" data-level="11.3" data-path="rapporteren.html"><a href="rapporteren.html#representativiteit-en-randvoorwaarden"><i class="fa fa-check"></i><b>11.3</b> Representativiteit en randvoorwaarden</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><i class="fa fa-check"></i><b>A</b> Inwendig product, matrix-vermenigvuldiging, vectoren en tensoren</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Artificial Intelligence<br><small>34149/1928/2021/1/95</small></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="de-percetron" class="section level1">
+<h1><span class="header-section-number">Hoofdstuk 9</span> De percetron</h1>
+<div id="historiek" class="section level2">
+<h2><span class="header-section-number">9.1</span> Historiek</h2>
+<p>De perceptron is gebaseerde op een wiskundige beschrijving van het dierlijk neuron. De uitvinding van de perceptron wordt toegekend aan <a href="https://en.wikipedia.org/wiki/Frank_Rosenblatt">Frank Rosenblatt</a> die in 1957 een leeralgoritme programmeerde op een IBM 704 computer.</p>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/IBM_704_mainframe.gif" alt="" />
+<p class="caption">IBM 704 computer</p>
+</div>
+<p>In de <a href="https://www.nytimes.com/1958/07/08/archives/new-navy-device-learns-by-doing-psychologist-shows-embryo-of.html">New York Times van 8 Juli 1958</a> verscheen:</p>
+<p><q>The Navy revealed the embryo of an electronic computer today that it expects will be able to walk, talk, see, write, reproduce itself and be conscious of its existence.</q></p>
+<p>Al snel werd er hardware gemaakt om het algoritme efficiënt uit te voeren, de zogenaamde Mark I Perceptron machine</p>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/en/5/52/Mark_I_perceptron.jpeg" alt="" />
+<p class="caption">Mark I Perceptron machine</p>
+</div>
+</div>
+<div id="de-anatomie-van-de-perceptron" class="section level2">
+<h2><span class="header-section-number">9.2</span> De anatomie van de perceptron</h2>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="de-percetron.html#cb64-1"></a><span class="kw">include_graphics</span>(<span class="st">&quot;img/neuron.png&quot;</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:neuron"></span>
+<img src="img/neuron.png" alt="De anatomie van het neuron en de overeenkomstige node van een neuraal netwerk. In het dierlijke neuron (boven) krijgt het cellichaam (eng: cell body) allerlei invoer van verscheidene locaties. In dit cellichaam vindt de integratie plaats (sommatie) en transformatie waarna het signaal (in de vorm van een zogenaamde actiepotentiaal) langsheen het axon reist naar het axon-uiteinde (eng: synaptic terminals). In een neuraal netwerk zijn de axon-uiteinden verbonden met de dendrieten (eng: dendrites) van een ander neuron. In een perceptron (onder) wordt de invoer (\(x\)) gewogen en geïntegreerd tot één getal (\(z\)) dat getransformeerd kan worden alvorens het wordt als uitvoer (\(y\)) wordt vrijgegeven. Bron: Commons (2013)." width="409" />
+<p class="caption">
+Figuur 9.1: De anatomie van het neuron en de overeenkomstige node van een neuraal netwerk. In het dierlijke neuron (boven) krijgt het cellichaam (eng: <em>cell body</em>) allerlei invoer van verscheidene locaties. In dit cellichaam vindt de integratie plaats (sommatie) en transformatie waarna het signaal (in de vorm van een zogenaamde actiepotentiaal) langsheen het axon reist naar het axon-uiteinde (eng: <em>synaptic terminals</em>). In een neuraal netwerk zijn de axon-uiteinden verbonden met de dendrieten (eng: <em>dendrites</em>) van een ander neuron. In een perceptron (onder) wordt de invoer (<span class="math inline">\(x\)</span>) gewogen en geïntegreerd tot één getal (<span class="math inline">\(z\)</span>) dat getransformeerd kan worden alvorens het wordt als uitvoer (<span class="math inline">\(y\)</span>) wordt vrijgegeven. Bron: <span class="citation">Commons (<a href="#ref-neuron" role="doc-biblioref">2013</a>)</span>.
+</p>
+</div>
+
+<p>Naar analogie met het biologisch neuron is de functie van een perceptron om complexe invoer om de ene of andere manier te reduceren tot één getal (<span class="math inline">\(z\)</span>; zie Formule <a href="de-percetron.html#eq:perceptron">(9.1)</a>).</p>
+<p><span class="math display" id="eq:perceptron">\[\begin{equation}
+	\mathbb{R}^n\rightarrow\mathbb{R}\\
+  z=f(x, \theta)=\sum_{i=0}^{n}{\theta_ix_i}
+  \tag{9.1}
+\end{equation}\]</span></p>
+<p>In een tweede functie wordt dit resultaat nog eens getransformeerd tot de voorspelling <span class="math inline">\(\hat{y}\)</span>. Één voorbeeld van zulk een transformatie is <a href="https://nl.wikipedia.org/wiki/Signum_(wiskunde)">het signum</a> (eng:<em>sign function</em>):</p>
+<p><span class="math display" id="eq:perceptron-transformatie">\[\begin{equation}
+	\hat{y}=t(z)=
+	\begin{cases}
+	-1\,als\,z&lt;0\\
+	1\,als\,z\geq0
+	\end{cases}
+  \tag{9.2}
+\end{equation}\]</span></p>
+<p>Er zijn tal van andere transformaties mogelijk.zoals de <a href="https://nl.wikipedia.org/wiki/Heaviside-functie">heaviside-functie</a> die nul geeft indien <span class="math inline">\(z&lt;0\)</span> en 1 in alle andere gevallen.</p>
+</div>
+<div id="casestudy-onderscheiden-van-setosa" class="section level2">
+<h2><span class="header-section-number">9.3</span> Casestudy: Onderscheiden van setosa</h2>
+<p>De beste manier vaak om iets te begrijpen is om de code te zien, toch? Op basis van een vereenvoudigd voorbeeld gebaseerd op de blog van Simone Alberto Peirone (<span class="citation">Peirone (<a href="#ref-perceptron-scratch" role="doc-biblioref">2007</a>)</span>) gaan we een leeralgoritme uit het niets opbouwen. Dit kan hier alleen omdat het om een uiterst eenvoudig leeralgoritme gaat, de perceptron.</p>
+<p>In de beroemde iris dataset worden een aantal eigenschappen van drie sterk gelijkende iris soorten verzameld. We kwamen deze dataset eerder al tegen in het hoofdstuk rond <a href="#model-coplexiteit">model complexiteit</a>.</p>
+<div class="figure"><span id="fig:iris"></span>
+<img src="img/iris.png" alt="De drie soort van de iris dataset. Bron: Szczecinkowaty (2007), Mayfield (2005), Mayfield (2007)." width="440" />
+<p class="caption">
+Figuur 9.2: De drie soort van de iris dataset. Bron: <span class="citation">Szczecinkowaty (<a href="#ref-iris-setosa" role="doc-biblioref">2007</a>)</span>, <span class="citation">Mayfield (<a href="#ref-iris-versicolor" role="doc-biblioref">2005</a>)</span>, <span class="citation">Mayfield (<a href="#ref-iris-virginica" role="doc-biblioref">2007</a>)</span>.
+</p>
+</div>
+
+<p>Als we twee eigenschappen van de iris bloemen, namelijk de lengte (<span class="math inline">\(l\)</span>) en breedte (<span class="math inline">\(b\)</span>) van het kelkblad, tegenover elkaar uitzetten, dan kunnen we de setosa soort van de andere twee onderscheiden:</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="de-percetron.html#cb65-1"></a><span class="kw">data</span>(iris)</span>
+<span id="cb65-2"><a href="de-percetron.html#cb65-2"></a></span>
+<span id="cb65-3"><a href="de-percetron.html#cb65-3"></a><span class="kw">plot</span>(Sepal.Length <span class="op">~</span><span class="st"> </span>Sepal.Width, <span class="dt">data =</span> iris, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">cex =</span> <span class="fl">.8</span>,</span>
+<span id="cb65-4"><a href="de-percetron.html#cb65-4"></a>	<span class="dt">col =</span> <span class="dv">1</span> <span class="op">+</span><span class="st"> </span>(Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>),</span>
+<span id="cb65-5"><a href="de-percetron.html#cb65-5"></a>	 <span class="dt">xlab =</span> <span class="kw">expression</span>(<span class="st">&quot;Kelkblad breedte &quot;</span><span class="op">~</span><span class="kw">italic</span>(b)<span class="op">~</span><span class="st">&quot; (mm)&quot;</span>),</span>
+<span id="cb65-6"><a href="de-percetron.html#cb65-6"></a>	 <span class="dt">ylab =</span> <span class="kw">expression</span>(<span class="st">&quot;Kelkblad lengte &quot;</span><span class="op">~</span><span class="kw">italic</span>(l)<span class="op">~</span><span class="st">&quot; (mm)&quot;</span>),</span>
+<span id="cb65-7"><a href="de-percetron.html#cb65-7"></a>	<span class="dt">main =</span> <span class="st">&quot;Setosa vs {versicolor, virginica}&quot;</span>)</span>
+<span id="cb65-8"><a href="de-percetron.html#cb65-8"></a></span>
+<span id="cb65-9"><a href="de-percetron.html#cb65-9"></a><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;{versicolor, virginica}&quot;</span>, <span class="st">&quot;setosa&quot;</span>),</span>
+<span id="cb65-10"><a href="de-percetron.html#cb65-10"></a>  <span class="dt">col =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">pch =</span> <span class="dv">19</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:iris-scheiden"></span>
+<img src="_main_files/figure-html/iris-scheiden-1.png" alt="Twee eigenschappen van iris bloemen (kelkblad lengte en breedte) tegenover elkaar uitgezet om een onderscheid te maken tussen Iris setosa en de twee andere soorten Iris versicolor en Iris virginica." width="672" />
+<p class="caption">
+Figuur 9.3: Twee eigenschappen van iris bloemen (kelkblad lengte en breedte) tegenover elkaar uitgezet om een onderscheid te maken tussen <em>Iris setosa</em> en de twee andere soorten <em>Iris versicolor</em> en <em>Iris virginica</em>.
+</p>
+</div>
+
+<p>In dit twee-dimensionaal geval zouden we dat evengoed manueel kunnen doen, maar dit geldt niet voor hogere dimensies (i.e. méér variabelen). Daarom gaan we alsnog gebruik maken van een perceptron. We doen dit omdat het perceptron natuurlijk de eenvoudigste vorm van een neuraal netwerk is, maar weet dat een perceptron slechts in een beperkt aantal gevallen geschikt is.</p>
+
+<div class="definition">
+<span id="def:def-perceptron" class="definition"><strong>Stelling 9.1  </strong></span>De perceptron is een leeralgoritme dat enkel geschikt is voor het onderscheiden van twee klassen (binaire outcome) en indien beide klassen lineair onderscheidbaar zijn (eng: <em>linearly separable</em>).
+</div>
+
+</div>
+<div id="de-perceptron-klasse" class="section level2">
+<h2><span class="header-section-number">9.4</span> De perceptron klasse</h2>
+<p>We gaan de perceptron in Python coderen, al zullen de resultaten in R worden onderzocht (zie ### om te begrijpen waarom).</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb66-1"><a href="de-percetron.html#cb66-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb66-2"><a href="de-percetron.html#cb66-2"></a></span>
+<span id="cb66-3"><a href="de-percetron.html#cb66-3"></a><span class="kw">class</span> Perceptron:</span>
+<span id="cb66-4"><a href="de-percetron.html#cb66-4"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, learning_rate <span class="op">=</span> <span class="fl">0.1</span>, iteration_count <span class="op">=</span> <span class="dv">50</span>):</span>
+<span id="cb66-5"><a href="de-percetron.html#cb66-5"></a>    <span class="va">self</span>.learning_rate <span class="op">=</span> learning_rate</span>
+<span id="cb66-6"><a href="de-percetron.html#cb66-6"></a>    <span class="va">self</span>.iteration_count <span class="op">=</span> iteration_count</span>
+<span id="cb66-7"><a href="de-percetron.html#cb66-7"></a>    <span class="va">self</span>.theta_0 <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb66-8"><a href="de-percetron.html#cb66-8"></a>    <span class="va">self</span>.theta <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb66-9"><a href="de-percetron.html#cb66-9"></a>    <span class="va">self</span>.errs <span class="op">=</span> []</span></code></pre></div>
+<p>De <code>Perceptron</code> klasse wordt geïnitialiseerd met de hyperparameters <code>learning_rate</code> en <code>n-iter</code>. De <code>learning_rate</code> (nl: <em>leersnelheid</em>) is een correctiefactor waarmee de gewichten <span class="math inline">\(\theta_i\)</span> worden vermenigvuldigd indien de uitkomst van de instantie fout is. <code>iteration_count</code> geeft aan hoeveel cycli het leeralgoritme moet volbrengen. <code>theta_0</code> en <code>theta</code> zijn de <em>parameters</em> en <code>theta_o</code> is een constante <span class="math inline">\(\theta_0\)</span> die aan de formule <a href="de-percetron.html#eq:perceptron">(9.1)</a>) kan worden toegevoegd (zie Formule <a href="de-percetron.html#eq:perceptron-constante">(9.3)</a> en komt in het tweedimensionaal geval neer op een asafsnede (eng: <em>intercept</em>). Deze constante wordt echter meestal weggelaten omdat het erop neerkomt dat een extra berekende variabele <span class="math inline">\(x_0\)</span> wordt toegevoegd, bestaande uit allemaal enen, waarvoor dan een overeenkomstige <span class="math inline">\(\theta_0\)</span> wordt voorzien.</p>
+<p><span class="math display" id="eq:perceptron-constante">\[\begin{equation}
+  f(x,\theta)=\theta_0+\sum_{i=1}^{n}{\theta_ix_i}
+  \tag{9.3}
+\end{equation}\]</span></p>
+<p>In de interne variabele <code>errs</code> worden het aantal fouten bewaard die bij elke cyclus gemaakt worden. Hiermee kunnen we het verloop van de performantie van het leeralgoritme opvolgen of achteraf reconstrueren.</p>
+<p>Hoewel in bovenstaande code hier nog geen gebruik van wordt gemaakt, zorgt de geïmporteerde <a href="https://numpy.org/"><code>numpy</code> module</a> (onder alias <code>np</code>) ervoor dat er vlot met vectoren en matrices gerekend kan worden.</p>
+</div>
+<div id="de-perceptron-functies" class="section level2">
+<h2><span class="header-section-number">9.5</span> De perceptron functies</h2>
+<p>We zagen twee functies die de eigenlijke kern vormen van de perceptron: <span class="math inline">\(f\)</span> en <span class="math inline">\(t\)</span>. Laten we deze als <a href="https://stackoverflow.com/questions/155609/whats-the-difference-between-a-method-and-a-function">methoden</a> toevoegen:</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb67-1"><a href="de-percetron.html#cb67-1"></a><span class="kw">class</span> Perceptron:</span>
+<span id="cb67-2"><a href="de-percetron.html#cb67-2"></a>  [...]</span>
+<span id="cb67-3"><a href="de-percetron.html#cb67-3"></a></span>
+<span id="cb67-4"><a href="de-percetron.html#cb67-4"></a>  <span class="kw">def</span> f(<span class="va">self</span>, x: np.array) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb67-5"><a href="de-percetron.html#cb67-5"></a>    <span class="cf">return</span> np.dot(x, <span class="va">self</span>.theta) <span class="op">+</span> <span class="va">self</span>.theta_0</span>
+<span id="cb67-6"><a href="de-percetron.html#cb67-6"></a>  </span>
+<span id="cb67-7"><a href="de-percetron.html#cb67-7"></a>  <span class="kw">def</span> t(<span class="va">self</span>, z: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb67-8"><a href="de-percetron.html#cb67-8"></a>    <span class="cf">return</span> np.where(z <span class="op">&gt;=</span> <span class="fl">0.0</span>, <span class="dv">1</span>, <span class="dv">-1</span>)</span></code></pre></div>
+<p>Met de <a href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html?highlight=dot#numpy.dot"><code>np.dot</code></a> functie berekenen we het <a href="https://nl.wikipedia.org/wiki/Inwendig_product">inwendig product</a> tussen de matrix <span class="math inline">\(x\)</span> en de vector <span class="math inline">\(\theta\)</span>. Zie <a href="#inwendig-product-van-twee-vectoren">Appendix</a> voor meer uitleg hierover.</p>
+</div>
+<div id="het-leeralgoritme-van-de-perceptron" class="section level2">
+<h2><span class="header-section-number">9.6</span> Het leeralgoritme van de perceptron</h2>
+<p>De rest van de noodzakelijke code is a.h.w. van administratieve aard:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb68-1"><a href="de-percetron.html#cb68-1"></a><span class="kw">def</span> fit(<span class="va">self</span>, x: np.array, y: np.array):</span>
+<span id="cb68-2"><a href="de-percetron.html#cb68-2"></a>    <span class="va">self</span>.theta <span class="op">=</span> np.zeros(x.shape[<span class="dv">1</span>])</span>
+<span id="cb68-3"><a href="de-percetron.html#cb68-3"></a></span>
+<span id="cb68-4"><a href="de-percetron.html#cb68-4"></a>    <span class="cf">for</span> iteration <span class="kw">in</span> <span class="bu">range</span>(<span class="va">self</span>.iteration_count):</span>
+<span id="cb68-5"><a href="de-percetron.html#cb68-5"></a>        err_iter <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb68-6"><a href="de-percetron.html#cb68-6"></a>        <span class="cf">for</span> xi, yi <span class="kw">in</span> <span class="bu">zip</span>(x, y):</span>
+<span id="cb68-7"><a href="de-percetron.html#cb68-7"></a>            update <span class="op">=</span> <span class="va">self</span>.learning_rate <span class="op">*</span> (yi <span class="op">-</span> <span class="va">self</span>.t(<span class="va">self</span>.f(xi)))</span>
+<span id="cb68-8"><a href="de-percetron.html#cb68-8"></a>            <span class="va">self</span>.theta_0 <span class="op">+=</span> update</span>
+<span id="cb68-9"><a href="de-percetron.html#cb68-9"></a>            <span class="va">self</span>.theta <span class="op">+=</span> update <span class="op">*</span> xi</span>
+<span id="cb68-10"><a href="de-percetron.html#cb68-10"></a>            err_iter <span class="op">+=</span> <span class="bu">int</span>(update <span class="op">!=</span> <span class="fl">0.0</span>)</span>
+<span id="cb68-11"><a href="de-percetron.html#cb68-11"></a>        <span class="va">self</span>.errs.append(err_iter)</span></code></pre></div>
+<p>Laten we de code even overlopen.</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb69-1"><a href="de-percetron.html#cb69-1"></a><span class="va">self</span>.theta <span class="op">=</span> np.zeros(x.shape[<span class="dv">1</span>])</span></code></pre></div>
+<p>Voor elke instantie in de invoer matrix <span class="math inline">\(x\)</span> wordt er een gewicht <span class="math inline">\(\theta_i\)</span> voorzien en op nul geïnitialiseerd. <code>shape</code> geeft de dimensies terug van een matrix en de eerste waarde geeft het aantal rijen.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb70-1"><a href="de-percetron.html#cb70-1"></a><span class="cf">for</span> iteration <span class="kw">in</span> <span class="bu">range</span>(<span class="va">self</span>.iteration_count):</span>
+<span id="cb70-2"><a href="de-percetron.html#cb70-2"></a>    err_iter <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb70-3"><a href="de-percetron.html#cb70-3"></a>    <span class="cf">for</span> xi, yi <span class="kw">in</span> <span class="bu">zip</span>(x, y):</span>
+<span id="cb70-4"><a href="de-percetron.html#cb70-4"></a>        <span class="co"># Updaten van de gewichten en aantal fouten tellen</span></span>
+<span id="cb70-5"><a href="de-percetron.html#cb70-5"></a>    <span class="va">self</span>.errs.append(err_iter)</span></code></pre></div>
+<p>Tijdens elke cyclus wordt het aantal foute voorspellingen binnen de cyclus bijgehouden. De <code>zip</code> functie plakt telkens de werkelijke uitkomst aan een instantie. In ons geval zal <span class="math inline">\(x_1\)</span> bestaan uit de breedte van de kelkbladeren van de irissen en <span class="math inline">\(x_2\)</span> de lengte van de kelkbladeren bevatten. Dus, stel breedte = 3.5mm, lengte = 5.1mm en soort = <em>setosa</em>, dan verwachten we de eerste keer dat de compiler in de lus <code>python for xi, yi in zip(x, y):</code> terecht komt de volgende waarden:</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb71-1"><a href="de-percetron.html#cb71-1"></a>xi <span class="op">=</span> [<span class="fl">3.5</span>, <span class="fl">5.1</span>]</span>
+<span id="cb71-2"><a href="de-percetron.html#cb71-2"></a>yi <span class="op">=</span> <span class="dv">1</span></span></code></pre></div>
+<p>Binnen in deze lus, wordt er berekend met hoeveel de parameters moeten worden verminderd:</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb72-1"><a href="de-percetron.html#cb72-1"></a>update <span class="op">=</span> <span class="va">self</span>.learning_rate <span class="op">*</span> (yi <span class="op">-</span> <span class="va">self</span>.t(<span class="va">self</span>.f(xi)))</span></code></pre></div>
+<p>Stel dat het leeralgoritme voor een bepaalde instantie <code>1</code> voorspelt, maar dat de werkelijke uitkomst <code>-1</code> is, dan worden de parameters <em>vermeerderd</em> met de fractie</p>
+<p>hetgeen overeenkomt met <span class="math inline">\(0.1\cdot\left(-1\cdot-1\right)=-0.2\)</span> voor een leersnelheid van <span class="math inline">\(0.1\)</span>. Met andere woorden, de parameters worden <em>verminderd</em> met één vijfde van hun waarde. Stel nu dat het leeralgoritme het juist had, dan wordt <code>update</code> gelijkgesteld aan <span class="math inline">\(0.1\cdot\left(1\cdot-1\right)=0\)</span> en blijven de parameters onveranderd.</p>
+<p>En dit was het! Hier is de volledige werkende Python code:</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb73-1"><a href="de-percetron.html#cb73-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb73-2"><a href="de-percetron.html#cb73-2"></a></span>
+<span id="cb73-3"><a href="de-percetron.html#cb73-3"></a><span class="kw">class</span> Perceptron:</span>
+<span id="cb73-4"><a href="de-percetron.html#cb73-4"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, learning_rate <span class="op">=</span> <span class="fl">0.1</span>, iteration_count <span class="op">=</span> <span class="dv">10</span>):</span>
+<span id="cb73-5"><a href="de-percetron.html#cb73-5"></a>    <span class="va">self</span>.learning_rate <span class="op">=</span> learning_rate</span>
+<span id="cb73-6"><a href="de-percetron.html#cb73-6"></a>    <span class="va">self</span>.iteration_count <span class="op">=</span> iteration_count</span>
+<span id="cb73-7"><a href="de-percetron.html#cb73-7"></a>    <span class="va">self</span>.theta_0 <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb73-8"><a href="de-percetron.html#cb73-8"></a>    <span class="va">self</span>.theta <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb73-9"><a href="de-percetron.html#cb73-9"></a>    <span class="va">self</span>.errs <span class="op">=</span> []</span>
+<span id="cb73-10"><a href="de-percetron.html#cb73-10"></a></span>
+<span id="cb73-11"><a href="de-percetron.html#cb73-11"></a>  <span class="kw">def</span> f(<span class="va">self</span>, x: np.array) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb73-12"><a href="de-percetron.html#cb73-12"></a>    <span class="cf">return</span> np.dot(x, <span class="va">self</span>.theta) <span class="op">+</span> <span class="va">self</span>.theta_0</span>
+<span id="cb73-13"><a href="de-percetron.html#cb73-13"></a></span>
+<span id="cb73-14"><a href="de-percetron.html#cb73-14"></a>  <span class="kw">def</span> t(<span class="va">self</span>, z: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
+<span id="cb73-15"><a href="de-percetron.html#cb73-15"></a>    <span class="cf">return</span> np.where(z <span class="op">&gt;=</span> <span class="fl">0.0</span>, <span class="dv">1</span>, <span class="dv">-1</span>)</span>
+<span id="cb73-16"><a href="de-percetron.html#cb73-16"></a></span>
+<span id="cb73-17"><a href="de-percetron.html#cb73-17"></a>  <span class="kw">def</span> fit(<span class="va">self</span>, x: np.array, y: np.array):</span>
+<span id="cb73-18"><a href="de-percetron.html#cb73-18"></a>    <span class="va">self</span>.theta <span class="op">=</span> np.zeros(x.shape[<span class="dv">1</span>])</span>
+<span id="cb73-19"><a href="de-percetron.html#cb73-19"></a></span>
+<span id="cb73-20"><a href="de-percetron.html#cb73-20"></a>    <span class="cf">for</span> iteration <span class="kw">in</span> <span class="bu">range</span>(<span class="va">self</span>.iteration_count):</span>
+<span id="cb73-21"><a href="de-percetron.html#cb73-21"></a>      err_iter <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb73-22"><a href="de-percetron.html#cb73-22"></a>      <span class="cf">for</span> xi, yi <span class="kw">in</span> <span class="bu">zip</span>(x, y):</span>
+<span id="cb73-23"><a href="de-percetron.html#cb73-23"></a>        update <span class="op">=</span> <span class="va">self</span>.learning_rate <span class="op">*</span> (yi <span class="op">-</span> <span class="va">self</span>.t(<span class="va">self</span>.f(xi)))</span>
+<span id="cb73-24"><a href="de-percetron.html#cb73-24"></a>        <span class="va">self</span>.theta_0 <span class="op">+=</span> update</span>
+<span id="cb73-25"><a href="de-percetron.html#cb73-25"></a>        <span class="va">self</span>.theta <span class="op">+=</span> update <span class="op">*</span> xi</span>
+<span id="cb73-26"><a href="de-percetron.html#cb73-26"></a>        err_iter <span class="op">+=</span> <span class="bu">int</span>(update <span class="op">!=</span> <span class="fl">0.0</span>)</span>
+<span id="cb73-27"><a href="de-percetron.html#cb73-27"></a>      <span class="va">self</span>.errs.append(err_iter)</span></code></pre></div>
+</div>
+<div id="trainen-van-de-perceptron" class="section level2">
+<h2><span class="header-section-number">9.7</span> Trainen van de perceptron</h2>
+<p>De tijd is aangebroken om de perceptron te trainen met de data van de iris bloemen. Het enige wat we nog willen doen is de invoergegevens standaardiseren, i.e. de zogenaamde <a href="https://nl.wikipedia.org/wiki/Z-score">Z-score</a> berekenen. Let wel deze Z <em>heeft niets te maken</em> met de <span class="math inline">\(z\)</span> die we eerder zagen.</p>
+<p><span class="math display" id="eq:z-score">\[\begin{equation}
+  Z=\frac{x_j-\mu_j}{\sigma_j}
+  \tag{9.4}
+\end{equation}\]</span></p>
+<p>Elke variabele <span class="math inline">\(x_j\)</span> wordt in dit process eerst verminderd met het gemiddelde voor die variabele <span class="math inline">\(\mu_j\)</span> en daarna gedeeld door de standaardafwijking van die variabele <span class="math inline">\(\sigma_j\)</span>. Wat de Z-score in feite doet is elke waarde transformeren naar het aantal standaardafwijkingen het verwijderd is van het gemiddelde.</p>
+<p>De reden dat we de standaardisatie uitvoeren is omdat de lengte en de breedte van de kelkbladen een andere schaal hebben en daar kan dit eenvoudige leeralgoritme moeilijk mee overweg. Maar opgelet, het nemen van het gemiddelde en de standaardafwijking van een feature veronderstelt dat deze zich (toch ongeveer) normaal verdeeld. In de paragraaf over <a href="data-exploratie.html#univariate-verdelingen">Univariate verdelingen</a> staat beschreven hoe we een verdeling snel visueel kunnen controleren:</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="de-percetron.html#cb74-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)</span>
+<span id="cb74-2"><a href="de-percetron.html#cb74-2"></a></span>
+<span id="cb74-3"><a href="de-percetron.html#cb74-3"></a>iris<span class="op">$</span>Sepal.Width <span class="op">%&gt;%</span><span class="st"> </span>density <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">plot</span> (<span class="dt">main =</span> <span class="st">&quot;Kelkblad breedte&quot;</span>)</span>
+<span id="cb74-4"><a href="de-percetron.html#cb74-4"></a>iris<span class="op">$</span>Sepal.Length <span class="op">%&gt;%</span><span class="st"> </span>density <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">plot</span> (<span class="dt">main =</span> <span class="st">&quot;Kelkblad lengte&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/iris-normaal-1.png" width="672" /></p>
+<p>Toegegeven, de verdelingen wijken enigszins af van de normaalverdeling, maar het belangrijkste is dat beide variabelen ten minste unimodaal zijn, i.e. één ‘piek’ bezitten in hun verdeling. Dus een standaardisatie lijkt gelegitimeerd. De onderstaande code verzamelt de invoer en de uitkomsten en voert de standaardisatie door in R met de functie <code>base::scale</code>:</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="de-percetron.html#cb75-1"></a>x_all &lt;-<span class="st"> </span>iris[, <span class="kw">c</span>(<span class="st">&quot;Sepal.Width&quot;</span>, <span class="st">&quot;Sepal.Length&quot;</span>)] <span class="op">%&gt;%</span></span>
+<span id="cb75-2"><a href="de-percetron.html#cb75-2"></a><span class="st">  </span>as.matrix <span class="op">%&gt;%</span><span class="st"> </span>scale</span>
+<span id="cb75-3"><a href="de-percetron.html#cb75-3"></a></span>
+<span id="cb75-4"><a href="de-percetron.html#cb75-4"></a>y_all &lt;-<span class="st"> </span>(<span class="dv">2</span> <span class="op">*</span><span class="st"> </span>(iris<span class="op">$</span>Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>)) <span class="op">-</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb75-5"><a href="de-percetron.html#cb75-5"></a></span>
+<span id="cb75-6"><a href="de-percetron.html#cb75-6"></a>x_all <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">cbind</span>(y_all) <span class="op">%&gt;%</span><span class="st"> </span>head</span></code></pre></div>
+<pre><code>##      Sepal.Width Sepal.Length y_all
+## [1,]  1.01560199   -0.8976739     1
+## [2,] -0.13153881   -1.1392005     1
+## [3,]  0.32731751   -1.3807271     1
+## [4,]  0.09788935   -1.5014904     1
+## [5,]  1.24503015   -1.0184372     1
+## [6,]  1.93331463   -0.5353840     1</code></pre>
+<p>Er rest nu alleen nog het algoritme te trainen. Hiervoor gaan we de invoer data randomiseren in een training- en een test-set in de verhouding <span class="math inline">\(3:1\)</span>.</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb77-1"><a href="de-percetron.html#cb77-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb77-2"><a href="de-percetron.html#cb77-2"></a></span>
+<span id="cb77-3"><a href="de-percetron.html#cb77-3"></a>x_train, x_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
+<span id="cb77-4"><a href="de-percetron.html#cb77-4"></a>  r.x_all, r.y_all, test_size <span class="op">=</span> <span class="fl">0.25</span>, random_state <span class="op">=</span> <span class="dv">42</span>)</span></code></pre></div>
+<p>De eigenlijke training gebeurt als volgt:</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb78-1"><a href="de-percetron.html#cb78-1"></a>model <span class="op">=</span> Perceptron(learning_rate <span class="op">=</span> <span class="fl">0.001</span>)</span>
+<span id="cb78-2"><a href="de-percetron.html#cb78-2"></a>model.fit(x_train, y_train)</span></code></pre></div>
+<p>Laten we eens kijken hoe het aantal mis-classificaties evolueerde over de verschillende cycli (deze cycli worden in ANN-wereld <em>epochs</em> genoemd):</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="de-percetron.html#cb79-1"></a>py<span class="op">$</span>model<span class="op">$</span>errs <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">plot</span>(<span class="dt">type =</span> <span class="st">&quot;b&quot;</span>, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">cex =</span> <span class="fl">.8</span>,</span>
+<span id="cb79-2"><a href="de-percetron.html#cb79-2"></a>  <span class="dt">ylab =</span> <span class="st">&quot;# fouten per epoch&quot;</span>, <span class="dt">xlab  =</span> <span class="st">&quot;Epoch&quot;</span>,</span>
+<span id="cb79-3"><a href="de-percetron.html#cb79-3"></a>  <span class="dt">main =</span> <span class="st">&quot;Evolutie misclassificaties&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/misclassificaties-1.png" width="672" /></p>
+<p>Nu kunnen we de scheidingslijn in beeld brengen. Eerst maken we een raster. Voor elke punt in dit raster zullen we een voorspelling maken:</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="de-percetron.html#cb80-1"></a>x1_lim &lt;-<span class="st"> </span>x_all[, <span class="dv">1</span>] <span class="op">%&gt;%</span><span class="st"> </span>range</span>
+<span id="cb80-2"><a href="de-percetron.html#cb80-2"></a>x2_lim &lt;-<span class="st"> </span>x_all[, <span class="dv">2</span>] <span class="op">%&gt;%</span><span class="st"> </span>range</span>
+<span id="cb80-3"><a href="de-percetron.html#cb80-3"></a></span>
+<span id="cb80-4"><a href="de-percetron.html#cb80-4"></a>grid_x &lt;-<span class="st"> </span><span class="kw">seq</span>(x1_lim[<span class="dv">1</span>], x1_lim[<span class="dv">2</span>], <span class="dt">l =</span> <span class="dv">100</span>)</span>
+<span id="cb80-5"><a href="de-percetron.html#cb80-5"></a>grid_y &lt;-<span class="st"> </span><span class="kw">seq</span>(x2_lim[<span class="dv">1</span>], x2_lim[<span class="dv">2</span>], <span class="dt">l =</span> <span class="dv">100</span>)</span>
+<span id="cb80-6"><a href="de-percetron.html#cb80-6"></a></span>
+<span id="cb80-7"><a href="de-percetron.html#cb80-7"></a>grid &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">x =</span> grid_x, <span class="dt">y =</span> grid_y) <span class="op">%&gt;%</span><span class="st"> </span>as.matrix</span>
+<span id="cb80-8"><a href="de-percetron.html#cb80-8"></a></span>
+<span id="cb80-9"><a href="de-percetron.html#cb80-9"></a>grid_z &lt;-<span class="st"> </span>py<span class="op">$</span>model<span class="op">$</span><span class="kw">t</span>(py<span class="op">$</span>model<span class="op">$</span><span class="kw">f</span>(grid))</span></code></pre></div>
+<p>Nu plotten we de (gestandaardiseerd) data met de scheidingslijn (eng: <em>boundary line</em>) en duiden we de gebieden aan die, volgens het model, tot <em>Iris setosa</em> behoort of niet:</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="de-percetron.html#cb81-1"></a><span class="kw">plot</span>(x_all[, <span class="dv">2</span>] <span class="op">~</span><span class="st"> </span>x_all[, <span class="dv">1</span>], <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">cex =</span> <span class="fl">.8</span>,</span>
+<span id="cb81-2"><a href="de-percetron.html#cb81-2"></a>  <span class="dt">col =</span> <span class="dv">1</span> <span class="op">+</span><span class="st"> </span>(iris<span class="op">$</span>Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>),</span>
+<span id="cb81-3"><a href="de-percetron.html#cb81-3"></a>  <span class="dt">xlab =</span> <span class="st">&quot;Kelkblad breedte (gestand.)&quot;</span>,</span>
+<span id="cb81-4"><a href="de-percetron.html#cb81-4"></a>  <span class="dt">ylab =</span> <span class="st">&quot;Kelkblad lengte (gestand.)&quot;</span>,</span>
+<span id="cb81-5"><a href="de-percetron.html#cb81-5"></a>  <span class="dt">main =</span> <span class="st">&quot;Setosa vs {versicolor, virginica}&quot;</span>)</span>
+<span id="cb81-6"><a href="de-percetron.html#cb81-6"></a></span>
+<span id="cb81-7"><a href="de-percetron.html#cb81-7"></a><span class="kw">curve</span>((py<span class="op">$</span>model<span class="op">$</span>theta[<span class="dv">1</span>] <span class="op">*</span><span class="st"> </span>x <span class="op">+</span><span class="st"> </span>py<span class="op">$</span>model<span class="op">$</span>theta_<span class="dv">0</span>) <span class="op">/</span><span class="st"> </span><span class="op">-</span>py<span class="op">$</span>model<span class="op">$</span>theta[<span class="dv">2</span>], <span class="dt">add =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb81-8"><a href="de-percetron.html#cb81-8"></a></span>
+<span id="cb81-9"><a href="de-percetron.html#cb81-9"></a><span class="kw">points</span>(grid[, <span class="dv">1</span>], grid[, <span class="dv">2</span>], <span class="dt">pch =</span> <span class="st">&quot;.&quot;</span>, <span class="dt">col =</span> <span class="dv">1</span> <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>grid_z) <span class="op">/</span><span class="st"> </span><span class="dv">2</span>)</span>
+<span id="cb81-10"><a href="de-percetron.html#cb81-10"></a></span>
+<span id="cb81-11"><a href="de-percetron.html#cb81-11"></a><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;{versicolor, virginica}&quot;</span>, <span class="st">&quot;setosa&quot;</span>),</span>
+<span id="cb81-12"><a href="de-percetron.html#cb81-12"></a>  <span class="dt">col =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">pch =</span> <span class="dv">19</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/iris-preds-1.png" width="672" /></p>
+<p>Merk nog eens op dat het resultaat van ML inderdaad een functie is. In dit geval moet je de twee functies <span class="math inline">\(f\)</span> en <span class="math inline">\(t\)</span> achtereenvolgens uitvoeren. In de praktijk worden beide meestal verpakt in een functie <code>predict</code>, maar hier is ervoor gekozen om de functies gescheiden te houden, kwestie om de relatie te behouden met de Formules <a href="de-percetron.html#eq:perceptron">(9.1)</a> en <a href="de-percetron.html#eq:perceptron-transformatie">(9.2)</a>.</p>
+</div>
+<div id="voorspellen-van-de-iris-soort" class="section level2">
+<h2><span class="header-section-number">9.8</span> Voorspellen van de iris soort</h2>
+<p>Laten we nu het model gebruiken om een voorspelling te maken op ongeziene data.</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb82-1"><a href="de-percetron.html#cb82-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score</span>
+<span id="cb82-2"><a href="de-percetron.html#cb82-2"></a></span>
+<span id="cb82-3"><a href="de-percetron.html#cb82-3"></a><span class="bu">print</span>(accuracy_score(model.t(model.f(x_test)), y_test))</span></code></pre></div>
+<pre><code>## 1.0</code></pre>
+<p>Een perfect resultaat!</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-neuron">
+<p>Commons, W., 2013. Multipolar neuron [WWW Document] <em>[Online; accessed 2020-11-07]</em>. URL <a href="https://upload.wikimedia.org/wikipedia/commons/1/10/Blausen_0657_MultipolarNeuron.png">https://upload.wikimedia.org/wikipedia/commons/1/10/Blausen_0657_MultipolarNeuron.png</a></p>
+</div>
+<div id="ref-iris-virginica">
+<p>Mayfield, F., 2007. Image of iris virginica shrevei at the james woodworth prairie preserve - a bud and a single flower at full bloom [WWW Document] <em>[Online; accessed 2020-11-07]</em>. URL <a href="https://commons.wikimedia.org/wiki/File:Iris_virginica.jpg">https://commons.wikimedia.org/wiki/File:Iris_virginica.jpg</a></p>
+</div>
+<div id="ref-iris-versicolor">
+<p>Mayfield, F., 2005. Blue flag flower close-up (iris versicolor) at the forillon national park of canada [WWW Document] <em>[Online; accessed 2020-11-07]</em>. URL <a href="https://commons.wikimedia.org/wiki/File:Iris_versicolor_3.jpg">https://commons.wikimedia.org/wiki/File:Iris_versicolor_3.jpg</a></p>
+</div>
+<div id="ref-perceptron-scratch">
+<p>Peirone, S.A., 2007. Image of iris setosa in botanical garden in poznań [WWW Document] <em>[Online; accessed 2020-11-07]</em>. URL <a href="https://commons.wikimedia.org/wiki/File:Kosaciec_szczecinkowaty_Iris_setosa.jpg">https://commons.wikimedia.org/wiki/File:Kosaciec_szczecinkowaty_Iris_setosa.jpg</a></p>
+</div>
+<div id="ref-iris-setosa">
+<p>Szczecinkowaty, K., 2007. Image of iris setosa in botanical garden in poznań [WWW Document] <em>[Online; accessed 2020-11-07]</em>. URL <a href="https://commons.wikimedia.org/wiki/File:Kosaciec_szczecinkowaty_Iris_setosa.jpg">https://commons.wikimedia.org/wiki/File:Kosaciec_szczecinkowaty_Iris_setosa.jpg</a></p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="diagnose.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="artificiële-neurale-netwerken-anns.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

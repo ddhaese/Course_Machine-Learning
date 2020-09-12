@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Artificial Intelligence34149/1928/2021/1/95 | Artificial Intelligence 34149/1928/2021/1/95</title>
+  <title>Hoofdstuk 11 Rapporteren | Artificial Intelligence 34149/1928/2021/1/95</title>
   <meta name="description" content="Artificial intelligence course at the AP University College." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Artificial Intelligence34149/1928/2021/1/95 | Artificial Intelligence 34149/1928/2021/1/95" />
+  <meta property="og:title" content="Hoofdstuk 11 Rapporteren | Artificial Intelligence 34149/1928/2021/1/95" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Artificial Intelligence34149/1928/2021/1/95 | Artificial Intelligence 34149/1928/2021/1/95" />
+  <meta name="twitter:title" content="Hoofdstuk 11 Rapporteren | Artificial Intelligence 34149/1928/2021/1/95" />
   
   <meta name="twitter:description" content="Artificial intelligence course at the AP University College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="getting-started.html"/>
+<link rel="prev" href="artificiële-neurale-netwerken-anns.html"/>
+<link rel="next" href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -254,23 +254,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Artificial Intelligence<br><small>34149/1928/2021/1/95</small></h1>
-<p class="author"><em>David D’Haese</em></p>
-<p class="date"><em>Gepubliceerd op 2020-09-13 00:01:15</em></p>
+<div id="rapporteren" class="section level1">
+<h1><span class="header-section-number">Hoofdstuk 11</span> Rapporteren</h1>
+<div id="reproduceerbaarheid" class="section level2">
+<h2><span class="header-section-number">11.1</span> Reproduceerbaarheid</h2>
+<p>Als wetenschapper moet je ervoor zorgen dat je analyses reproduceerbaar zijn. Dit houdt in dat elke andere datawetenschapper in staat moet zijn om vertrekkende van de zelfde data, juist hetzelfde resultaat te bekomen. Ten eerste betekent dit dat de brongegevens beschikbaar moet kunnen worden gemaakt. Op zijn minst moet de datawetenschapper meegeven <em>hoe</em> je aan de gegevens kunt geraken. Ten tweede moet het duidelijk zijn op welke subset van de data er gewerkt is. Bij uitbreiding moet de volledige <em>data-flow</em> uit de doeken worden gedaan. Zijn er processen die een willekeurig element hebben, zoals het randomiseren in een training- en test-set of het gebruik van leeralgoritmen die een random element hebben zoals <a href="https://en.wikipedia.org/wiki/Random_forest#:~:text=Random%20forests%20or%20random%20decision,prediction%20(regression)%20of%20the%20individual">random forests</a>.</p>
 </div>
-<div id="about-this-course" class="section level1">
-<h1><span class="header-section-number">Hoofdstuk 1</span> About this course</h1>
-<p>TODO: Nog in t %&gt;% %&gt;% e vullen</p>
+<div id="beduidende-cijfers" class="section level2">
+<h2><span class="header-section-number">11.2</span> Beduidende cijfers</h2>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="rapporteren.html#cb86-1"></a><span class="kw">include_graphics</span>(<span class="st">&quot;img/Eiffeltoren.png&quot;</span>)</span></code></pre></div>
+<p><img src="img/Eiffeltoren.png" width="301" /></p>
+<p>Significante of beduidende cijfers (eng. <em>significant figures</em>) zijn die cijfers van een <em>getal</em> die informatie overdragen. bijvoorbeeld, bij het <em>getal</em> <code>12.345</code> veronderstel je (zonder verdere context) dat het 5 beduidende <em>cijfers</em> (eng: <em>digits</em>) heeft. Vertelt iemand je dat de Eiffeltoren 324.00248975 m hoog is, dan weet je natuurlijk dat niet elk cijfer hiervan significant kan zijn, alleen al omdat door de thermale expansie de hoogte van de Eiffeltoren in de winter en de zomer meer dan 10 centimeter kan verschillen. Het is natuurlijk misleidend om niet-beduidende cijfers te rapporteren. De Eiffeltoren is dus 324 m hoog, zonder meer. Het exacte aantal beduidende cijfers kan je statistisch bepalen als je een over een toepasselijke steekproef van de meting beschikt en de tussenstappen van de berekeningen kent (cfr. <em>foutenpropagatie</em>), maar zou ons hier te ver leiden en een echte vuistregel is er niet. Het is een kwestie om het onderscheidend vermogen in te schatten van de grootheid in kwestie en daar rekening mee te houden. Bijvoorbeeld, een model geeft de voorspelling van een gemiddelde reistijd van 56.25 minuten. Wat moet je rapporteren? Wel, op een halve minuut steekt het niet, dus 56.2 minuten is zeker voldoende.</p>
+
+<div class="corollary">
+<span id="cor:afronding" class="corollary"><strong>Nerd alert 11.1  </strong></span>Wacht eens? Moet je dit getal niet <em>afronden</em> naar 56.3 in plaats van afkappen tot 56.2? Het antwoord is ja en neen. Ja, je moet hier afronden, niet afkappen. Neen, <code>round(56.25, 1)</code> = 56.2, niet 56.3! Lees hier meer over door <code>?round</code> in te geven.
+</div>
 
 </div>
+<div id="representativiteit-en-randvoorwaarden" class="section level2">
+<h2><span class="header-section-number">11.3</span> Representativiteit en randvoorwaarden</h2>
+<p>Heel kort: de datawetenschapper moet erover waken dat de representativiteit bekend is voor de opdrachtgever. Dit omdat deze zich vaak niet bewust is van het feit dat de data niet 100 % representatief zijn voor de werkelijkheid. Dit doe je gewoon door tijdens gesprekken of in rapporten hier duidelijk over te communiceren. Er zijn vaak ook andere randvoorwaarden die vermeld dienen te worden tijdens het bekijken van de resultaten van een leeralgoritme. Hieronder zijn een aantal voorbeelden om dit duidelijk te maken, de vermelding van de voorwaarde staat telkens vetgedrukt:</p>
+<p><q>We kunnen met 75% zekerheid voorspellen of een student zal slagen voor het vak <strong>indien het gaat om vakken waarvan het cursusmateriaal van Digitap beschikbaar wordt gemaakt</strong></q></p>
+<p><q><strong>Indien we ervan uitgaan dat de ontbrekende data random verdeeld is over de dataset</strong> kan ik met 75% zekerheid voorspellen dat …</q></p>
+<p><q><strong>Als we er vanuit gaan dat het respons-gedrag op Facebook de komende maanden niet veranderd</strong> kunnen we voorspellen dat er vóór het eind van de maand nog een staking uitbreekt.</q></p>
+<p>Soms kunnen er door middel van statistische tests nagegaan worden of er inderdaad aan een aantal randvoorwaarden wordt voldaan. Daarom staat het wel professioneel als je deze ten alle tijde mee vermeldt.</p>
+
+</div>
+</div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="getting-started.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="artificiële-neurale-netwerken-anns.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

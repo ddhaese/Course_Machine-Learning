@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Artificial Intelligence34149/1928/2021/1/95 | Artificial Intelligence 34149/1928/2021/1/95</title>
+  <title>Hoofdstuk 2 Getting Started | Artificial Intelligence 34149/1928/2021/1/95</title>
   <meta name="description" content="Artificial intelligence course at the AP University College." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Artificial Intelligence34149/1928/2021/1/95 | Artificial Intelligence 34149/1928/2021/1/95" />
+  <meta property="og:title" content="Hoofdstuk 2 Getting Started | Artificial Intelligence 34149/1928/2021/1/95" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Artificial Intelligence34149/1928/2021/1/95 | Artificial Intelligence 34149/1928/2021/1/95" />
+  <meta name="twitter:title" content="Hoofdstuk 2 Getting Started | Artificial Intelligence 34149/1928/2021/1/95" />
   
   <meta name="twitter:description" content="Artificial intelligence course at the AP University College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="getting-started.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="inleiding-tot-de-cursus.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -254,23 +254,176 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Artificial Intelligence<br><small>34149/1928/2021/1/95</small></h1>
-<p class="author"><em>David D’Haese</em></p>
-<p class="date"><em>Gepubliceerd op 2020-09-13 00:01:15</em></p>
+<div id="getting-started" class="section level1">
+<h1><span class="header-section-number">Hoofdstuk 2</span> Getting Started</h1>
+<div id="git" class="section level2">
+<h2><span class="header-section-number">2.1</span> Git</h2>
+<p><a href="https://nl.wikipedia.org/wiki/Git_(software)">Git</a> is een versiebeheersysteem en samenwerkingstool.</p>
 </div>
-<div id="about-this-course" class="section level1">
-<h1><span class="header-section-number">Hoofdstuk 1</span> About this course</h1>
-<p>TODO: Nog in t %&gt;% %&gt;% e vullen</p>
+<div id="computations-using-gpu" class="section level2">
+<h2><span class="header-section-number">2.2</span> Computations using GPU</h2>
+<p>Computations using machines are typically being carried out using some kind of physical processing units. On many systems there are at least two types of processing units that can perform computations: CPUs (central processing units) and GPUs (graphics processing unit), the latter being originally employed for manipulation of images and for game development. While their constituent parts are similar, their architectures differ greatly:</p>
+<div class="figure"><span id="fig:cpu-gpu"></span>
+<img src="img/cpu_gpu.svg" alt="The high-level differences between CPUs and GPUs."  />
+<p class="caption">
+Figuur 2.1: The high-level differences between CPUs and GPUs.
+</p>
+</div>
 
+<p>In a CPU, the control and the cache are governed centrally in the number of arithmetic logic units (ALUs) is limited. In a GPU, control and cache are more distributed and there are many more ALUs. As a consequence, CPUs are more versatile, ‘smarter’ and faster and work best for singular but complex computations. GPUs, on the other hand, are better equipped to handle massive parallel tasks consisting of repetitive but simple computations.</p>
+</div>
+<div id="installing-cuda-optional" class="section level2">
+<h2><span class="header-section-number">2.3</span> Installing CUDA (optional)</h2>
+<p>In 2007 NVIDIA released CUDA® (<a href="https://nl.wikipedia.org/wiki/CUDA">Compute Unified Device Architecture</a>). CUDA is a parallel computing platform and programming model that enables dramatic increases in computing performance by harnessing the power of the GPU. You can download the platform from <a href="https://developer.nvidia.com/cuda-downloads">here</a>, but before you install it, check that your system is compatible and read the disclaimers provided. For Windows operating systems you can find additional information <a href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html">here</a>. Mind that the above is optional. You can run all the material provided in this course without the GPU computation option. If you plan to install CUDA anyway, make sure to check out the detailed <a href="getting-started.html#installation-steps-that-worked-for-the-author">installation steps that worked for the author</a> first.</p>
+</div>
+<div id="the-r-language" class="section level2">
+<h2><span class="header-section-number">2.4</span> The R language</h2>
+<p><a href="https://www.r-project.org/">R</a> is a <a href="https://en.wikipedia.org/wiki/Turing_completeness">turing-complete</a> programming language focusing on specifically on data analysis. It is the most popular among statisticians and data scientists and in comparison to Python it is often said to be the brains whereas Python is said to be the muscles (see <span class="citation">Upadhyay (<a href="#ref-RvsPython" role="doc-biblioref">2016</a>)</span>):</p>
+<div class="figure"><span id="fig:r-versus-python"></span>
+<img src="https://i0.wp.com/ucanalytics.com/blogs/wp-content/uploads/2015/10/Superman-Vs-Batman.jpg?w=582" alt="In an article on his channel called YOU CANalytics, Roopam Upadhyay has compared R with Batman and Python with Superman. Such a comparison is deemed to be opinionated, and I believe that some of the differences explained in the article are not unconditionally valid, but at least it debunks some of the long held beliefs about the R language." width="250px" />
+<p class="caption">
+Figuur 2.2: In an article on his channel called <em>YOU CANalytics</em>, Roopam Upadhyay has compared R with Batman and Python with Superman. Such a comparison is deemed to be opinionated, and I believe that some of the differences explained in the article are not unconditionally valid, but at least it debunks some of the long held beliefs about the R language.
+</p>
+</div>
+
+<p>For Windows systems, you can download the latest stable R version from <a href="https://cran.r-project.org/bin/windows/base/">here</a>. It comes with a number of very useful functions already in the<code>base</code> namespace Again, make sure to continue reading first to check the <a href="getting-started.html#installation-steps-that-worked-for-the-author">installation steps that worked for the author</a> below.</p>
+</div>
+<div id="python" class="section level2">
+<h2><span class="header-section-number">2.5</span> Python</h2>
+<p>Python is a general-purpose programming language developed by Guido Van Rossum. The previous paragraph already discusses the differences between R and Python. In addition, some resources or platforms will rely only on one of these two languages. For these reasons, it pays of for a prospective data-scientist to manage both.</p>
+
+<div class="theorem">
+<p><span id="thm:rossum" class="theorem"><strong>Persoonlijkheid 2.1  (Guido Van Rossum)  </strong></span><br/><img src="img/Guido_Van_Rossum.png" /></p>
+<em>Guido Van Rossum</em> is the father of Python. He developed the language in 1989 as a Dutch IT-specialist associated with the Mathematisch Centrum in Amsterdam, Netherlands. Originally meant as a low-threshold language for beginning programmers, it now trumps all other. See for yourself on <a href="https://trends.google.nl/trends/explore?cat=32&amp;date=today%205-y&amp;q=java,javascript,.NET,Python">Google trends</a>.
+</div>
+
+</div>
+<div id="rstudio" class="section level2">
+<h2><span class="header-section-number">2.6</span> RStudio</h2>
+<p>Rstudio was found by far to be the most valuable and student-friendly IDE (integrated development environment) for working professionally with data, not just in R, but also in Python, Julia and other (scripting) languages such as SQL and Stan. In addition, it is the easiest IDE for people who have limited computer experience. Installing RStudio is free for academic use. See <a href="https://rstudio.com" class="uri">https://rstudio.com</a> for more information, installation generally takes only a few minutes.</p>
+</div>
+<div id="installing-tensorflow" class="section level2">
+<h2><span class="header-section-number">2.7</span> Installing Tensorflow</h2>
+<p>Around 2005, Google released <a href="https://www.tensorflow.org/">Tensorflow®</a>. Tensorflow is an open-source Python library to aid with the development, training, building and releasing of machine learning models, particularly deep learning models. To install Tensorflow for Rstudio, visit <a href="https://tensorflow.rstudio.com/" class="uri">https://tensorflow.rstudio.com/</a> and read the instructions there. Check the installation steps used by the author below before you start.</p>
+</div>
+<div id="installation-steps-that-worked-for-the-author" class="section level2">
+<h2><span class="header-section-number">2.8</span> Installation steps that worked for the author</h2>
+<p>Every system is different, so the steps below might not work for you. With these and with the links provided above, you should be able to get up and running in no time. Here is the set of instructions that worked for me, starting from scratch on a Dell XPS 15 7590 with a Windows 10 Pro operating system. For Windows users, remember check the ‘set Path’ option during installation, if available, or set the path manually using the [command line]](<a href="https://www.windows-commandline.com/set-path-command-line/" class="uri">https://www.windows-commandline.com/set-path-command-line/</a>). Also, test each step before you go to the next.</p>
+<ol style="list-style-type: decimal">
+<li>Install <a href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.htm">CUDA</a> version 10.2.89_441.22 for Windows and test with <code>nvcc -V</code> anywhere at the command line prompt</li>
+<li>Install <a href="https://www.r-project.org/">R</a></li>
+<li>Install <a href="https://www.python.org/downloads/">Python</a></li>
+<li>Install <a href="https://rstudio.com">Rstudio</a></li>
+<li>Install <a href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> in a directory that contains <em>no spaces</em> (not automatically adding to Windows PATH variable as advised, but manually)</li>
+<li>Add a python environment, here called <code>tf</code> (in the <code>Scripts</code> sub-folder of Miniconda installation folder):</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="getting-started.html#cb1-1"></a><span class="op">&gt;</span> <span class="ex">conda</span> create -n tf</span>
+<span id="cb1-2"><a href="getting-started.html#cb1-2"></a><span class="ex">Collecting</span> package metadata (current_repodata.json)<span class="bu">:</span> done</span>
+<span id="cb1-3"><a href="getting-started.html#cb1-3"></a><span class="ex">Solving</span> environment: done</span>
+<span id="cb1-4"><a href="getting-started.html#cb1-4"></a></span>
+<span id="cb1-5"><a href="getting-started.html#cb1-5"></a>==<span class="op">&gt;</span> <span class="ex">WARNING</span>: A newer version of conda exists. <span class="op">&lt;</span>==</span>
+<span id="cb1-6"><a href="getting-started.html#cb1-6"></a>  <span class="ex">current</span> version: 4.8.3</span>
+<span id="cb1-7"><a href="getting-started.html#cb1-7"></a>  <span class="ex">latest</span> version: 4.8.4</span>
+<span id="cb1-8"><a href="getting-started.html#cb1-8"></a></span>
+<span id="cb1-9"><a href="getting-started.html#cb1-9"></a><span class="ex">Please</span> update conda by running</span>
+<span id="cb1-10"><a href="getting-started.html#cb1-10"></a></span>
+<span id="cb1-11"><a href="getting-started.html#cb1-11"></a>    $ <span class="ex">conda</span> update -n base -c defaults conda</span>
+<span id="cb1-12"><a href="getting-started.html#cb1-12"></a></span>
+<span id="cb1-13"><a href="getting-started.html#cb1-13"></a><span class="co">## Package Plan ##</span></span>
+<span id="cb1-14"><a href="getting-started.html#cb1-14"></a>  <span class="ex">environment</span> location: […]\envs\tf</span>
+<span id="cb1-15"><a href="getting-started.html#cb1-15"></a></span>
+<span id="cb1-16"><a href="getting-started.html#cb1-16"></a><span class="ex">Proceed</span> ([y]/n)<span class="ex">?</span> y</span>
+<span id="cb1-17"><a href="getting-started.html#cb1-17"></a></span>
+<span id="cb1-18"><a href="getting-started.html#cb1-18"></a><span class="ex">Preparing</span> transaction: done</span>
+<span id="cb1-19"><a href="getting-started.html#cb1-19"></a><span class="ex">Verifying</span> transaction: done</span>
+<span id="cb1-20"><a href="getting-started.html#cb1-20"></a><span class="ex">Executing</span> transaction: done</span>
+<span id="cb1-21"><a href="getting-started.html#cb1-21"></a><span class="co">#</span></span>
+<span id="cb1-22"><a href="getting-started.html#cb1-22"></a><span class="co"># To activate this environment, use</span></span>
+<span id="cb1-23"><a href="getting-started.html#cb1-23"></a><span class="co">#</span></span>
+<span id="cb1-24"><a href="getting-started.html#cb1-24"></a><span class="co">#     $ conda activate tf</span></span>
+<span id="cb1-25"><a href="getting-started.html#cb1-25"></a><span class="co">#</span></span>
+<span id="cb1-26"><a href="getting-started.html#cb1-26"></a><span class="co"># To deactivate an active environment, use</span></span>
+<span id="cb1-27"><a href="getting-started.html#cb1-27"></a><span class="co">#</span></span>
+<span id="cb1-28"><a href="getting-started.html#cb1-28"></a><span class="co">#     $ conda deactivate</span></span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li><p>Open RStudio and, using the console, install the helper package <code>tensorflow</code> that guides the installation:</p></li>
+<li><p>Still in RStudios console window, load the <code>tensorflow</code> package in memory (change <code>tf</code> if use you another environment name):</p></li>
+</ol>
+<p>Collecting package metadata (current_repodata.json): …working… done
+Solving environment: …working… done</p>
+</div>
+<div id="package-plan" class="section level2">
+<h2><span class="header-section-number">2.9</span> Package Plan</h2>
+<p>environment location: […]</p>
+<p>added / updated specs:
+- python=3.6</p>
+<p>The following packages will be downloaded:</p>
+<pre><code>package                    |            build
+---------------------------|-----------------
+certifi-2020.6.20          |   py36h9f0ad1d_0         152 KB  conda-forge
+pip-20.2.2                 |             py_0         1.1 MB  conda-forge
+python-3.6.11              |h6f26aa1_2_cpython        18.9 MB  conda-forge
+python_abi-3.6             |          1_cp36m           4 KB  conda-forge
+setuptools-49.6.0          |   py36h9f0ad1d_0         919 KB  conda-forge
+vc-14.1                    |       h869be7e_1           6 KB  conda-forge
+vs2015_runtime-14.16.27012 |       h30e32a0_2         2.2 MB  conda-forge
+wheel-0.35.1               |     pyh9f0ad1d_0          29 KB  conda-forge
+wincertstore-0.2           |        py36_1003          13 KB  conda-forge
+------------------------------------------------------------
+                                       Total:        23.3 MB</code></pre>
+<p>The following NEW packages will be INSTALLED:</p>
+<p>certifi conda-forge/win-64::certifi-2020.6.20-py36h9f0ad1d_0
+pip conda-forge/noarch::pip-20.2.2-py_0
+python conda-forge/win-64::python-3.6.11-h6f26aa1_2_cpython
+python_abi conda-forge/win-64::python_abi-3.6-1_cp36m
+setuptools conda-forge/win-64::setuptools-49.6.0-py36h9f0ad1d_0
+vc conda-forge/win-64::vc-14.1-h869be7e_1
+vs2015_runtime conda-forge/win-64::vs2015_runtime-14.16.27012-h30e32a0_2
+wheel conda-forge/noarch::wheel-0.35.1-pyh9f0ad1d_0
+wincertstore conda-forge/win-64::wincertstore-0.2-py36_1003</p>
+<p>[…]</p>
+<p>Collecting tf-nightly-gpu
+Downloading tf_nightly_gpu-2.4.0.dev20200822-cp36-cp36m-win_amd64.whl (282.9 MB)</p>
+<p>[…]</p>
+<p>Installation complete.</p>
+<p>Warning messages:
+1: In normalizePath(path.expand(path), winslash, mustWork) :
+path[1]=“[…]/python.exe”: Het systeem kan het opgegeven bestand niet vinden
+2: In normalizePath(path.expand(path), winslash, mustWork) :
+path[1]=“[…]/python.exe”: Het systeem kan het opgegeven bestand niet vinden</p>
+<p>Restarting R session…</p>
+<p>NVIDIA’s platforms and application frameworks enable developers to build a wide array of AI applications. Consider potential algorithmic bias when choosing or creating the models being deployed. Work with the model’s developer to ensure that it meets the requirements for the relevant industry and use case; that the necessary instruction and documentation are provided to understand error rates, confidence intervals, and results; and that the model is being used under the conditions and in the manner intended.</p>
+</div>
+<div id="test-tensorflow" class="section level2">
+<h2><span class="header-section-number">2.10</span> Test tensorflow</h2>
+</div>
+<div id="waar-vind-ik-leeralgoritmen" class="section level2">
+<h2><span class="header-section-number">2.11</span> Waar vind ik leeralgoritmen</h2>
+<p>Laten we even de theorie kort verlaten en ons met deze pragmatische vraag bezig houden. Waar kan je de verscheidene leeralgoritmen terugvinden? Je kan zo in sommige gevallen zoals voor een enkelvoudig <em>perceptron</em> zelf gewoon coderen, maar meestal worden de algoritmen gelukkig ter beschikking gesteld. Omdat wiskundigen eerder R gebruiken zullen de nieuwere leeralgoritmen gewoonlijk eerst in R verschijnen en pas later in Python. Bij het publiceren van nieuwe methoden wordt er immers vaak van de auteurs verwacht dat ze het algoritme als R pakket (eng: <em>package</em>) registreren en publiek ter beschikking stellen. Het Comprehensive R Archive Network (CRAN), dat de R pakketten beheert en erop toeziet dat de pakketten zowel wiskundig als programmatorisch aan bepaalde standaarden voldoet, stelt zogenaamde <em>task views</em> op met telken een overzicht van de pakketten die kunnen helpen bij een welbepaalde taak. Zoeken we naar “machine learning”, komen we op honderden pakketten uit van <code>ahaz</code> tot <code>xgboost</code><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> en vele van deze pakketten geven toegang tot tientallen verschillende typen leeralgoritmen. Maar dat is niet alles. Op de webpagina met het <a href="https://cran.r-project.org/web/views/">overzicht van alle task views</a>, vinden we bijvoorbeeld het onderwerp neurolinguïstisch programmeren (eng: <em>natural language processing</em>; NLP) met nog eens tientallen pakketten specifiek rond dit thema.</p>
+<p>Voor Python ontwikkeling verwijzen we voor leeralgoritmen naar <a href="https://scikit-learn.org/stable/">scikit-learn</a> en <a href="https://www.tensorflow.org/">Tensorflow</a>. Beide locaties bieden veel hulp voor beginnende datawetenschappers. Python biedt een aantal voordelen voor ML en het belangrijkste voordeel is misschien wel dat Python een algemene programmeertaal is waarmee je gemakkelijker volwaardige applicaties kunt maken of met hardware interfacen. De bewering dat Python ‘krachtiger’ of ‘performanter’ zou zijn dan R neem ik eerder met een korreltje zout. Op de weinige momenten waarop beide platformen op eerlijke wijze vergeleken worden is het verschil onbeduidend en bovendien moet je voornamelijk rekening houden met ontwikkeltijd en daar biedt Python zeker geen voordeel. Tenslotte vermeld ik hier nog even <a href="https://julialang.org/">Julia</a>, een opkomende taal waarin ML eenvoudiger moet worden.</p>
+<p>Merk op dat deze <code>train_test_split</code> helper-functie afkomstig is van de <a href="https://scikit-learn.org/stable/"><code>sklearn</code> module-bibliotheek</a>. Deze bibliotheek biedt een ruime gereedschapskist aan voor beginnende datawetenschappers. De naam komt trouwens van Science-kit <span class="math inline">\(\rightarrow\)</span> scikit <span class="math inline">\(\rightarrow\)</span> sk.</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-RvsPython">
+<p>Upadhyay, R., 2016. R vs python – a comparison [WWW Document] <em>Accessed: 2020-08-28</em>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>zie <a href="https://cran.r-project.org/web/views/MachineLearning.html" class="uri">https://cran.r-project.org/web/views/MachineLearning.html</a>.<a href="getting-started.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="getting-started.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="inleiding-tot-de-cursus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
