@@ -355,15 +355,18 @@ Figuur 3.1: Werking van Markdown. De platte tekst (links) wordt omgezet naar een
 </div>
 <div id="verwijzen-naar-deze-cursus" class="section level2">
 <h2><span class="header-section-number">3.4</span> Verwijzen naar deze cursus</h2>
+<p>In Bibtex-formaat:</p>
+<code>
 @online{dhaese2020machine-learning,<br>
-author = {D’Haese, David},<br>
-title = “Machine Learning”,<br>
-year = “2020”,<br>
-url = “<a href="https://ddhaese.github.io/machine-learning/" class="uri">https://ddhaese.github.io/machine-learning/</a>”,<br>
-note = "[Online; accessed <span>
-<script> document.write(new Date().toISOString());</script>
-<p>]"</span><br>
-}</p>
+    author = {D’Haese, David},<br>
+    title = “Machine Learning”,<br>
+    year = “2020”,<br>
+    url = “<a href="https://ddhaese.github.io/machine-learning/" class="uri">https://ddhaese.github.io/machine-learning/</a>”,<br>
+    note = "[Online; accessed <span>
+<script> document.write(new Date().toISOString().substring(0, 10) + ']"');</script>
+<p></span>}
+</code></p>
+<p>APA-formaat:</p>
 <p>D’Haese, D., 2020. Machine learning [WWW Document] [Online; accessed 2020-09-14]. URL <a href="https://ddhaese.github.io/machine-learning/" class="uri">https://ddhaese.github.io/machine-learning/</a></p>
 
 </div>
