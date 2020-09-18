@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Hoofdstuk 8 Diagnose | Artificial Intelligence 34149/1928/2021/1/95</title>
+  <title>Hoofdstuk 8 Diagnose | Machine Learning</title>
   <meta name="description" content="Artificial intelligence course at the AP University College." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Hoofdstuk 8 Diagnose | Artificial Intelligence 34149/1928/2021/1/95" />
+  <meta property="og:title" content="Hoofdstuk 8 Diagnose | Machine Learning" />
   <meta property="og:type" content="book" />
   
   
@@ -16,12 +16,12 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Hoofdstuk 8 Diagnose | Artificial Intelligence 34149/1928/2021/1/95" />
+  <meta name="twitter:title" content="Hoofdstuk 8 Diagnose | Machine Learning" />
   
   <meta name="twitter:description" content="Artificial intelligence course at the AP University College." />
   
 
-<meta name="author" content="David D’Haese" />
+<meta name="author" content="34142/1916/2021/1/38 David D’Haese" />
 
 
 
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="manipuleren-van-data.html"/>
-<link rel="next" href="de-percetron.html"/>
+<link rel="prev" href="inleiding-tot-artificiële-neurale-netwerken.html"/>
+<link rel="next" href="tensorflow.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -130,82 +130,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About this course</a></li>
-<li class="chapter" data-level="2" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>2</b> Getting Started</a><ul>
-<li class="chapter" data-level="2.1" data-path="getting-started.html"><a href="getting-started.html#git"><i class="fa fa-check"></i><b>2.1</b> Git</a></li>
-<li class="chapter" data-level="2.2" data-path="getting-started.html"><a href="getting-started.html#computations-using-gpu"><i class="fa fa-check"></i><b>2.2</b> Computations using GPU</a></li>
-<li class="chapter" data-level="2.3" data-path="getting-started.html"><a href="getting-started.html#installing-cuda-optional"><i class="fa fa-check"></i><b>2.3</b> Installing CUDA (optional)</a></li>
-<li class="chapter" data-level="2.4" data-path="getting-started.html"><a href="getting-started.html#the-r-language"><i class="fa fa-check"></i><b>2.4</b> The R language</a></li>
-<li class="chapter" data-level="2.5" data-path="getting-started.html"><a href="getting-started.html#python"><i class="fa fa-check"></i><b>2.5</b> Python</a></li>
-<li class="chapter" data-level="2.6" data-path="getting-started.html"><a href="getting-started.html#rstudio"><i class="fa fa-check"></i><b>2.6</b> RStudio</a></li>
-<li class="chapter" data-level="2.7" data-path="getting-started.html"><a href="getting-started.html#installing-tensorflow"><i class="fa fa-check"></i><b>2.7</b> Installing Tensorflow</a></li>
-<li class="chapter" data-level="2.8" data-path="getting-started.html"><a href="getting-started.html#installation-steps-that-worked-for-the-author"><i class="fa fa-check"></i><b>2.8</b> Installation steps that worked for the author</a></li>
-<li class="chapter" data-level="2.9" data-path="getting-started.html"><a href="getting-started.html#package-plan"><i class="fa fa-check"></i><b>2.9</b> Package Plan</a></li>
-<li class="chapter" data-level="2.10" data-path="getting-started.html"><a href="getting-started.html#test-tensorflow"><i class="fa fa-check"></i><b>2.10</b> Test tensorflow</a></li>
-<li class="chapter" data-level="2.11" data-path="getting-started.html"><a href="getting-started.html#waar-vind-ik-leeralgoritmen"><i class="fa fa-check"></i><b>2.11</b> Waar vind ik leeralgoritmen</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Summary</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html"><i class="fa fa-check"></i><b>3</b> Inleiding tot de cursus</a><ul>
-<li class="chapter" data-level="3.1" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#in-een-notedop"><i class="fa fa-check"></i><b>3.1</b> In een notedop</a></li>
-<li class="chapter" data-level="3.2" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#leerdoelen"><i class="fa fa-check"></i><b>3.2</b> Leerdoelen</a></li>
-<li class="chapter" data-level="3.3" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#cursus-vorm"><i class="fa fa-check"></i><b>3.3</b> Cursus vorm</a></li>
-<li class="chapter" data-level="3.4" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#voorbeeld"><i class="fa fa-check"></i><b>3.4</b> Voorbeeld</a></li>
+<li class="chapter" data-level="1" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html"><i class="fa fa-check"></i><b>1</b> Inleiding tot de cursus</a><ul>
+<li class="chapter" data-level="1.1" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#in-een-notedop"><i class="fa fa-check"></i><b>1.1</b> In een notedop</a></li>
+<li class="chapter" data-level="1.2" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#leerdoelen"><i class="fa fa-check"></i><b>1.2</b> Leerdoelen</a></li>
+<li class="chapter" data-level="1.3" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#cursus-vorm"><i class="fa fa-check"></i><b>1.3</b> Cursus vorm</a></li>
+<li class="chapter" data-level="1.4" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#licentie-voor-deze-cursus"><i class="fa fa-check"></i><b>1.4</b> Licentie voor deze cursus</a></li>
+<li class="chapter" data-level="1.5" data-path="inleiding-tot-de-cursus.html"><a href="inleiding-tot-de-cursus.html#verwijzen-naar-deze-cursus"><i class="fa fa-check"></i><b>1.5</b> Verwijzen naar deze cursus</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="leren-uit-data.html"><a href="leren-uit-data.html"><i class="fa fa-check"></i><b>4</b> Leren uit data</a><ul>
-<li class="chapter" data-level="4.1" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-leerproces"><i class="fa fa-check"></i><b>4.1</b> Het leerproces</a></li>
-<li class="chapter" data-level="4.2" data-path="leren-uit-data.html"><a href="leren-uit-data.html#de-evolutie-van-het-machinaal-leren"><i class="fa fa-check"></i><b>4.2</b> De evolutie van het machinaal leren</a></li>
-<li class="chapter" data-level="4.3" data-path="leren-uit-data.html"><a href="leren-uit-data.html#intelligentie"><i class="fa fa-check"></i><b>4.3</b> Intelligentie</a></li>
-<li class="chapter" data-level="4.4" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-model"><i class="fa fa-check"></i><b>4.4</b> Het model</a></li>
-<li class="chapter" data-level="4.5" data-path="leren-uit-data.html"><a href="leren-uit-data.html#doelfunctie"><i class="fa fa-check"></i><b>4.5</b> Doelfunctie</a></li>
-<li class="chapter" data-level="4.6" data-path="leren-uit-data.html"><a href="leren-uit-data.html#mnist-dataset"><i class="fa fa-check"></i><b>4.6</b> MNIST dataset</a></li>
-<li class="chapter" data-level="4.7" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-resultaat-van-mnist-analyse"><i class="fa fa-check"></i><b>4.7</b> Het resultaat van MNIST analyse</a></li>
-<li class="chapter" data-level="4.8" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-mnist-model"><i class="fa fa-check"></i><b>4.8</b> Het MNIST model</a></li>
-<li class="chapter" data-level="4.9" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-leerproces-voor-begeleid-ml"><i class="fa fa-check"></i><b>4.9</b> Het leerproces voor begeleid ML</a></li>
-<li class="chapter" data-level="4.10" data-path="leren-uit-data.html"><a href="leren-uit-data.html#de-onderdelen-van-een-model"><i class="fa fa-check"></i><b>4.10</b> De onderdelen van een model</a></li>
-<li class="chapter" data-level="4.11" data-path="leren-uit-data.html"><a href="leren-uit-data.html#hyperparameters"><i class="fa fa-check"></i><b>4.11</b> Hyperparameters</a></li>
-<li class="chapter" data-level="4.12" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-leeralgoritme"><i class="fa fa-check"></i><b>4.12</b> Het leeralgoritme</a></li>
-<li class="chapter" data-level="4.13" data-path="leren-uit-data.html"><a href="leren-uit-data.html#model-complexiteit"><i class="fa fa-check"></i><b>4.13</b> Model complexiteit</a></li>
-<li class="chapter" data-level="4.14" data-path="leren-uit-data.html"><a href="leren-uit-data.html#comprimeren-door-middel-van-een-ml-model"><i class="fa fa-check"></i><b>4.14</b> Comprimeren door middel van een ML model</a></li>
-<li class="chapter" data-level="4.15" data-path="leren-uit-data.html"><a href="leren-uit-data.html#leren-versus-ontwerp"><i class="fa fa-check"></i><b>4.15</b> Leren versus ontwerp</a></li>
-<li class="chapter" data-level="4.16" data-path="leren-uit-data.html"><a href="leren-uit-data.html#leren-versus-onthouden"><i class="fa fa-check"></i><b>4.16</b> Leren versus onthouden</a></li>
+<li class="chapter" data-level="2" data-path="leren-uit-data.html"><a href="leren-uit-data.html"><i class="fa fa-check"></i><b>2</b> Leren uit data</a><ul>
+<li class="chapter" data-level="2.1" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-leerproces"><i class="fa fa-check"></i><b>2.1</b> Het leerproces</a></li>
+<li class="chapter" data-level="2.2" data-path="leren-uit-data.html"><a href="leren-uit-data.html#de-evolutie-van-het-machinaal-leren"><i class="fa fa-check"></i><b>2.2</b> De evolutie van het machinaal leren</a></li>
+<li class="chapter" data-level="2.3" data-path="leren-uit-data.html"><a href="leren-uit-data.html#intelligentie"><i class="fa fa-check"></i><b>2.3</b> Intelligentie</a></li>
+<li class="chapter" data-level="2.4" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-model"><i class="fa fa-check"></i><b>2.4</b> Het model</a></li>
+<li class="chapter" data-level="2.5" data-path="leren-uit-data.html"><a href="leren-uit-data.html#doelfunctie"><i class="fa fa-check"></i><b>2.5</b> Doelfunctie</a></li>
+<li class="chapter" data-level="2.6" data-path="leren-uit-data.html"><a href="leren-uit-data.html#mnist-dataset"><i class="fa fa-check"></i><b>2.6</b> MNIST dataset</a></li>
+<li class="chapter" data-level="2.7" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-resultaat-van-mnist-analyse"><i class="fa fa-check"></i><b>2.7</b> Het resultaat van MNIST analyse</a></li>
+<li class="chapter" data-level="2.8" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-mnist-model"><i class="fa fa-check"></i><b>2.8</b> Het MNIST model</a></li>
+<li class="chapter" data-level="2.9" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-leerproces-voor-begeleid-ml"><i class="fa fa-check"></i><b>2.9</b> Het leerproces voor begeleid ML</a></li>
+<li class="chapter" data-level="2.10" data-path="leren-uit-data.html"><a href="leren-uit-data.html#de-onderdelen-van-een-model"><i class="fa fa-check"></i><b>2.10</b> De onderdelen van een model</a></li>
+<li class="chapter" data-level="2.11" data-path="leren-uit-data.html"><a href="leren-uit-data.html#hyperparameters"><i class="fa fa-check"></i><b>2.11</b> Hyperparameters</a></li>
+<li class="chapter" data-level="2.12" data-path="leren-uit-data.html"><a href="leren-uit-data.html#het-leeralgoritme"><i class="fa fa-check"></i><b>2.12</b> Het leeralgoritme</a></li>
+<li class="chapter" data-level="2.13" data-path="leren-uit-data.html"><a href="leren-uit-data.html#model-complexiteit"><i class="fa fa-check"></i><b>2.13</b> Model complexiteit</a></li>
+<li class="chapter" data-level="2.14" data-path="leren-uit-data.html"><a href="leren-uit-data.html#comprimeren-door-middel-van-een-ml-model"><i class="fa fa-check"></i><b>2.14</b> Comprimeren door middel van een ML model</a></li>
+<li class="chapter" data-level="2.15" data-path="leren-uit-data.html"><a href="leren-uit-data.html#leren-versus-ontwerp"><i class="fa fa-check"></i><b>2.15</b> Leren versus ontwerp</a></li>
+<li class="chapter" data-level="2.16" data-path="leren-uit-data.html"><a href="leren-uit-data.html#leren-versus-onthouden"><i class="fa fa-check"></i><b>2.16</b> Leren versus onthouden</a></li>
+<li class="chapter" data-level="2.17" data-path="leren-uit-data.html"><a href="leren-uit-data.html#onbegeleid-ml"><i class="fa fa-check"></i><b>2.17</b> Onbegeleid ML</a></li>
+<li class="chapter" data-level="2.18" data-path="leren-uit-data.html"><a href="leren-uit-data.html#conditionering"><i class="fa fa-check"></i><b>2.18</b> Conditionering</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>5</b> Data</a><ul>
-<li class="chapter" data-level="5.1" data-path="data.html"><a href="data.html#data-voor-ml"><i class="fa fa-check"></i><b>5.1</b> Data voor ML</a></li>
-<li class="chapter" data-level="5.2" data-path="data.html"><a href="data.html#wat-is-data"><i class="fa fa-check"></i><b>5.2</b> Wat is data</a></li>
-<li class="chapter" data-level="5.3" data-path="data.html"><a href="data.html#soorten-data"><i class="fa fa-check"></i><b>5.3</b> Soorten data</a></li>
-<li class="chapter" data-level="5.4" data-path="data.html"><a href="data.html#externe-databronnen"><i class="fa fa-check"></i><b>5.4</b> Externe databronnen</a></li>
-<li class="chapter" data-level="5.5" data-path="data.html"><a href="data.html#data-genereren"><i class="fa fa-check"></i><b>5.5</b> Data Genereren</a></li>
-<li class="chapter" data-level="5.6" data-path="data.html"><a href="data.html#de-analyse-dataset"><i class="fa fa-check"></i><b>5.6</b> De analyse dataset</a></li>
-<li class="chapter" data-level="5.7" data-path="data.html"><a href="data.html#soorten-variabelen"><i class="fa fa-check"></i><b>5.7</b> Soorten variabelen</a></li>
-<li class="chapter" data-level="5.8" data-path="data.html"><a href="data.html#nominal-scale-data"><i class="fa fa-check"></i><b>5.8</b> Nominal-Scale Data</a></li>
-<li class="chapter" data-level="5.9" data-path="data.html"><a href="data.html#ordinal-scale-data"><i class="fa fa-check"></i><b>5.9</b> Ordinal-Scale Data</a></li>
-<li class="chapter" data-level="5.10" data-path="data.html"><a href="data.html#circular-scale"><i class="fa fa-check"></i><b>5.10</b> Circular-Scale</a></li>
-<li class="chapter" data-level="5.11" data-path="data.html"><a href="data.html#censoring"><i class="fa fa-check"></i><b>5.11</b> Censoring</a></li>
-<li class="chapter" data-level="5.12" data-path="data.html"><a href="data.html#tijd-en-ruimte"><i class="fa fa-check"></i><b>5.12</b> Tijd en ruimte</a></li>
-<li class="chapter" data-level="5.13" data-path="data.html"><a href="data.html#toegang-tot-data"><i class="fa fa-check"></i><b>5.13</b> Toegang tot data</a></li>
-<li class="chapter" data-level="5.14" data-path="data.html"><a href="data.html#het-codeboek"><i class="fa fa-check"></i><b>5.14</b> Het codeboek</a></li>
-<li class="chapter" data-level="5.15" data-path="data.html"><a href="data.html#data-leackage"><i class="fa fa-check"></i><b>5.15</b> Data leackage</a></li>
+<li class="chapter" data-level="3" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>3</b> Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="data.html"><a href="data.html#data-voor-ml"><i class="fa fa-check"></i><b>3.1</b> Data voor ML</a></li>
+<li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#wat-is-data"><i class="fa fa-check"></i><b>3.2</b> Wat is data</a></li>
+<li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#soorten-data"><i class="fa fa-check"></i><b>3.3</b> Soorten data</a></li>
+<li class="chapter" data-level="3.4" data-path="data.html"><a href="data.html#externe-databronnen"><i class="fa fa-check"></i><b>3.4</b> Externe databronnen</a></li>
+<li class="chapter" data-level="3.5" data-path="data.html"><a href="data.html#data-genereren"><i class="fa fa-check"></i><b>3.5</b> Data Genereren</a></li>
+<li class="chapter" data-level="3.6" data-path="data.html"><a href="data.html#de-analyse-dataset"><i class="fa fa-check"></i><b>3.6</b> De analyse dataset</a></li>
+<li class="chapter" data-level="3.7" data-path="data.html"><a href="data.html#soorten-variabelen"><i class="fa fa-check"></i><b>3.7</b> Soorten variabelen</a></li>
+<li class="chapter" data-level="3.8" data-path="data.html"><a href="data.html#nominal-scale-data"><i class="fa fa-check"></i><b>3.8</b> Nominal-Scale Data</a></li>
+<li class="chapter" data-level="3.9" data-path="data.html"><a href="data.html#ordinal-scale-data"><i class="fa fa-check"></i><b>3.9</b> Ordinal-Scale Data</a></li>
+<li class="chapter" data-level="3.10" data-path="data.html"><a href="data.html#circular-scale"><i class="fa fa-check"></i><b>3.10</b> Circular-Scale</a></li>
+<li class="chapter" data-level="3.11" data-path="data.html"><a href="data.html#censoring"><i class="fa fa-check"></i><b>3.11</b> Censoring</a></li>
+<li class="chapter" data-level="3.12" data-path="data.html"><a href="data.html#tijd-en-ruimte"><i class="fa fa-check"></i><b>3.12</b> Tijd en ruimte</a></li>
+<li class="chapter" data-level="3.13" data-path="data.html"><a href="data.html#toegang-tot-data"><i class="fa fa-check"></i><b>3.13</b> Toegang tot data</a></li>
+<li class="chapter" data-level="3.14" data-path="data.html"><a href="data.html#het-codeboek"><i class="fa fa-check"></i><b>3.14</b> Het codeboek</a></li>
+<li class="chapter" data-level="3.15" data-path="data.html"><a href="data.html#data-leackage"><i class="fa fa-check"></i><b>3.15</b> Data leackage</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="data-exploratie.html"><a href="data-exploratie.html"><i class="fa fa-check"></i><b>6</b> Data exploratie</a><ul>
-<li class="chapter" data-level="6.1" data-path="data-exploratie.html"><a href="data-exploratie.html#principes-van-data-exploratie"><i class="fa fa-check"></i><b>6.1</b> Principes van data exploratie</a></li>
-<li class="chapter" data-level="6.2" data-path="data-exploratie.html"><a href="data-exploratie.html#stappen-in-data-exploratie"><i class="fa fa-check"></i><b>6.2</b> Stappen in data exploratie</a></li>
-<li class="chapter" data-level="6.3" data-path="data-exploratie.html"><a href="data-exploratie.html#voorbeeld-data-exploratie"><i class="fa fa-check"></i><b>6.3</b> Voorbeeld data exploratie</a></li>
-<li class="chapter" data-level="6.4" data-path="data-exploratie.html"><a href="data-exploratie.html#univariate-verdelingen"><i class="fa fa-check"></i><b>6.4</b> Univariate verdelingen</a></li>
-<li class="chapter" data-level="6.5" data-path="data-exploratie.html"><a href="data-exploratie.html#correlatie-tussen-twee-variabelen"><i class="fa fa-check"></i><b>6.5</b> Correlatie tussen twee variabelen</a></li>
+<li class="chapter" data-level="4" data-path="data-exploratie.html"><a href="data-exploratie.html"><i class="fa fa-check"></i><b>4</b> Data exploratie</a><ul>
+<li class="chapter" data-level="4.1" data-path="data-exploratie.html"><a href="data-exploratie.html#principes-van-data-exploratie"><i class="fa fa-check"></i><b>4.1</b> Principes van data exploratie</a></li>
+<li class="chapter" data-level="4.2" data-path="data-exploratie.html"><a href="data-exploratie.html#stappen-in-data-exploratie"><i class="fa fa-check"></i><b>4.2</b> Stappen in data exploratie</a></li>
+<li class="chapter" data-level="4.3" data-path="data-exploratie.html"><a href="data-exploratie.html#voorbeeld-data-exploratie"><i class="fa fa-check"></i><b>4.3</b> Voorbeeld data exploratie</a></li>
+<li class="chapter" data-level="4.4" data-path="data-exploratie.html"><a href="data-exploratie.html#univariate-verdelingen"><i class="fa fa-check"></i><b>4.4</b> Univariate verdelingen</a></li>
+<li class="chapter" data-level="4.5" data-path="data-exploratie.html"><a href="data-exploratie.html#correlatie-tussen-twee-variabelen"><i class="fa fa-check"></i><b>4.5</b> Correlatie tussen twee variabelen</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html"><i class="fa fa-check"></i><b>7</b> Manipuleren van data</a><ul>
-<li class="chapter" data-level="7.1" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#transformations"><i class="fa fa-check"></i><b>7.1</b> Transformations</a></li>
-<li class="chapter" data-level="7.2" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#subsetting-or-slicing"><i class="fa fa-check"></i><b>7.2</b> Subsetting or Slicing</a></li>
-<li class="chapter" data-level="7.3" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#booleaans-masker"><i class="fa fa-check"></i><b>7.3</b> Booleaans masker</a></li>
-<li class="chapter" data-level="7.4" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#grouping-and-aggregation"><i class="fa fa-check"></i><b>7.4</b> Grouping and Aggregation</a></li>
-<li class="chapter" data-level="7.5" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#transforming-text"><i class="fa fa-check"></i><b>7.5</b> Transforming text</a></li>
-<li class="chapter" data-level="7.6" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#re-scaling-numerical-values"><i class="fa fa-check"></i><b>7.6</b> Re-Scaling Numerical Values</a></li>
-<li class="chapter" data-level="7.7" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#discretizations"><i class="fa fa-check"></i><b>7.7</b> Discretizations</a></li>
-<li class="chapter" data-level="7.8" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#information-content"><i class="fa fa-check"></i><b>7.8</b> Information Content</a></li>
-<li class="chapter" data-level="7.9" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#reformatting-type-conversion-casting-or-coercion"><i class="fa fa-check"></i><b>7.9</b> Reformatting, Type Conversion, Casting or Coercion</a></li>
-<li class="chapter" data-level="7.10" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#changing-numerical-values"><i class="fa fa-check"></i><b>7.10</b> Changing numerical Values</a></li>
-<li class="chapter" data-level="7.11" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#changing-category-names"><i class="fa fa-check"></i><b>7.11</b> Changing Category Names</a></li>
-<li class="chapter" data-level="7.12" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#imputation"><i class="fa fa-check"></i><b>7.12</b> Imputation</a></li>
-<li class="chapter" data-level="7.13" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#onbehandeld"><i class="fa fa-check"></i><b>7.13</b> Onbehandeld</a></li>
+<li class="chapter" data-level="5" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html"><i class="fa fa-check"></i><b>5</b> Manipuleren van data</a><ul>
+<li class="chapter" data-level="5.1" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#transformations"><i class="fa fa-check"></i><b>5.1</b> Transformations</a></li>
+<li class="chapter" data-level="5.2" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#subsetting-or-slicing"><i class="fa fa-check"></i><b>5.2</b> Subsetting or Slicing</a></li>
+<li class="chapter" data-level="5.3" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#booleaans-masker"><i class="fa fa-check"></i><b>5.3</b> Booleaans masker</a></li>
+<li class="chapter" data-level="5.4" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#grouping-and-aggregation"><i class="fa fa-check"></i><b>5.4</b> Grouping and Aggregation</a></li>
+<li class="chapter" data-level="5.5" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#transforming-text"><i class="fa fa-check"></i><b>5.5</b> Transforming text</a></li>
+<li class="chapter" data-level="5.6" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#re-scaling-numerical-values"><i class="fa fa-check"></i><b>5.6</b> Re-Scaling Numerical Values</a></li>
+<li class="chapter" data-level="5.7" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#discretizations"><i class="fa fa-check"></i><b>5.7</b> Discretizations</a></li>
+<li class="chapter" data-level="5.8" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#information-content"><i class="fa fa-check"></i><b>5.8</b> Information Content</a></li>
+<li class="chapter" data-level="5.9" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#reformatting-type-conversion-casting-or-coercion"><i class="fa fa-check"></i><b>5.9</b> Reformatting, Type Conversion, Casting or Coercion</a></li>
+<li class="chapter" data-level="5.10" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#changing-numerical-values"><i class="fa fa-check"></i><b>5.10</b> Changing numerical Values</a></li>
+<li class="chapter" data-level="5.11" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#changing-category-names"><i class="fa fa-check"></i><b>5.11</b> Changing Category Names</a></li>
+<li class="chapter" data-level="5.12" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#imputation"><i class="fa fa-check"></i><b>5.12</b> Imputation</a></li>
+<li class="chapter" data-level="5.13" data-path="manipuleren-van-data.html"><a href="manipuleren-van-data.html#onbehandeld"><i class="fa fa-check"></i><b>5.13</b> Onbehandeld</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="de-percetron.html"><a href="de-percetron.html"><i class="fa fa-check"></i><b>6</b> De percetron</a><ul>
+<li class="chapter" data-level="6.1" data-path="de-percetron.html"><a href="de-percetron.html#historiek"><i class="fa fa-check"></i><b>6.1</b> Historiek</a></li>
+<li class="chapter" data-level="6.2" data-path="de-percetron.html"><a href="de-percetron.html#de-anatomie-van-de-perceptron"><i class="fa fa-check"></i><b>6.2</b> De anatomie van de perceptron</a></li>
+<li class="chapter" data-level="6.3" data-path="de-percetron.html"><a href="de-percetron.html#casestudy-onderscheiden-van-setosa"><i class="fa fa-check"></i><b>6.3</b> Casestudy: Onderscheiden van setosa</a></li>
+<li class="chapter" data-level="6.4" data-path="de-percetron.html"><a href="de-percetron.html#de-perceptron-klasse"><i class="fa fa-check"></i><b>6.4</b> De perceptron klasse</a></li>
+<li class="chapter" data-level="6.5" data-path="de-percetron.html"><a href="de-percetron.html#de-perceptron-functies"><i class="fa fa-check"></i><b>6.5</b> De perceptron functies</a></li>
+<li class="chapter" data-level="6.6" data-path="de-percetron.html"><a href="de-percetron.html#het-leeralgoritme-van-de-perceptron"><i class="fa fa-check"></i><b>6.6</b> Het leeralgoritme van de perceptron</a></li>
+<li class="chapter" data-level="6.7" data-path="de-percetron.html"><a href="de-percetron.html#trainen-van-de-perceptron"><i class="fa fa-check"></i><b>6.7</b> Trainen van de perceptron</a></li>
+<li class="chapter" data-level="6.8" data-path="de-percetron.html"><a href="de-percetron.html#voorspellen-van-de-iris-soort"><i class="fa fa-check"></i><b>6.8</b> Voorspellen van de iris soort</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html"><i class="fa fa-check"></i><b>7</b> Inleiding tot artificiële Neurale Netwerken</a><ul>
+<li class="chapter" data-level="7.1" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#geschakelde-perceptronen"><i class="fa fa-check"></i><b>7.1</b> Geschakelde perceptronen</a></li>
+<li class="chapter" data-level="7.2" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#feed-forward-anns-ff-anns"><i class="fa fa-check"></i><b>7.2</b> Feed-forward ANNs (FF-ANNs)</a></li>
+<li class="chapter" data-level="7.3" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#types-neuronen"><i class="fa fa-check"></i><b>7.3</b> Types neuronen</a></li>
+<li class="chapter" data-level="7.4" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#backpropagation"><i class="fa fa-check"></i><b>7.4</b> Backpropagation</a></li>
+<li class="chapter" data-level="7.5" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#werkstroom-deep-learning"><i class="fa fa-check"></i><b>7.5</b> Werkstroom deep learning</a></li>
+<li class="chapter" data-level="7.6" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#regularisatie"><i class="fa fa-check"></i><b>7.6</b> Regularisatie</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="diagnose.html"><a href="diagnose.html"><i class="fa fa-check"></i><b>8</b> Diagnose</a><ul>
 <li class="chapter" data-level="8.1" data-path="diagnose.html"><a href="diagnose.html#leren-leven-met-de-onzekerheid"><i class="fa fa-check"></i><b>8.1</b> Leren leven met de onzekerheid</a></li>
@@ -217,31 +227,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.7" data-path="diagnose.html"><a href="diagnose.html#stochastische-en-minibatch-gradiënt-afdaling"><i class="fa fa-check"></i><b>8.7</b> Stochastische en Minibatch gradiënt afdaling</a></li>
 <li class="chapter" data-level="8.8" data-path="diagnose.html"><a href="diagnose.html#uitwendige-invloed"><i class="fa fa-check"></i><b>8.8</b> Uitwendige invloed</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="de-percetron.html"><a href="de-percetron.html"><i class="fa fa-check"></i><b>9</b> De percetron</a><ul>
-<li class="chapter" data-level="9.1" data-path="de-percetron.html"><a href="de-percetron.html#historiek"><i class="fa fa-check"></i><b>9.1</b> Historiek</a></li>
-<li class="chapter" data-level="9.2" data-path="de-percetron.html"><a href="de-percetron.html#de-anatomie-van-de-perceptron"><i class="fa fa-check"></i><b>9.2</b> De anatomie van de perceptron</a></li>
-<li class="chapter" data-level="9.3" data-path="de-percetron.html"><a href="de-percetron.html#casestudy-onderscheiden-van-setosa"><i class="fa fa-check"></i><b>9.3</b> Casestudy: Onderscheiden van setosa</a></li>
-<li class="chapter" data-level="9.4" data-path="de-percetron.html"><a href="de-percetron.html#de-perceptron-klasse"><i class="fa fa-check"></i><b>9.4</b> De perceptron klasse</a></li>
-<li class="chapter" data-level="9.5" data-path="de-percetron.html"><a href="de-percetron.html#de-perceptron-functies"><i class="fa fa-check"></i><b>9.5</b> De perceptron functies</a></li>
-<li class="chapter" data-level="9.6" data-path="de-percetron.html"><a href="de-percetron.html#het-leeralgoritme-van-de-perceptron"><i class="fa fa-check"></i><b>9.6</b> Het leeralgoritme van de perceptron</a></li>
-<li class="chapter" data-level="9.7" data-path="de-percetron.html"><a href="de-percetron.html#trainen-van-de-perceptron"><i class="fa fa-check"></i><b>9.7</b> Trainen van de perceptron</a></li>
-<li class="chapter" data-level="9.8" data-path="de-percetron.html"><a href="de-percetron.html#voorspellen-van-de-iris-soort"><i class="fa fa-check"></i><b>9.8</b> Voorspellen van de iris soort</a></li>
+<li class="chapter" data-level="9" data-path="tensorflow.html"><a href="tensorflow.html"><i class="fa fa-check"></i><b>9</b> TensorFlow</a><ul>
+<li class="chapter" data-level="9.1" data-path="tensorflow.html"><a href="tensorflow.html#inleiding"><i class="fa fa-check"></i><b>9.1</b> Inleiding</a></li>
+<li class="chapter" data-level="9.2" data-path="tensorflow.html"><a href="tensorflow.html#basistaken-in-tensorflow"><i class="fa fa-check"></i><b>9.2</b> Basistaken in TensorFlow</a></li>
+<li class="chapter" data-level="9.3" data-path="tensorflow.html"><a href="tensorflow.html#convolutionele-neurale-netwerken"><i class="fa fa-check"></i><b>9.3</b> Convolutionele neurale netwerken</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="artificiële-neurale-netwerken-anns.html"><a href="artificiële-neurale-netwerken-anns.html"><i class="fa fa-check"></i><b>10</b> Artificiële Neurale Netwerken (ANN’s)</a><ul>
-<li class="chapter" data-level="10.1" data-path="artificiële-neurale-netwerken-anns.html"><a href="artificiële-neurale-netwerken-anns.html#inleiding-tot-anns"><i class="fa fa-check"></i><b>10.1</b> Inleiding tot ANN’s</a></li>
-<li class="chapter" data-level="10.2" data-path="artificiële-neurale-netwerken-anns.html"><a href="artificiële-neurale-netwerken-anns.html#feed-forward-anns-ff-anns"><i class="fa fa-check"></i><b>10.2</b> Feed-forward ANNs (FF-ANNs)</a></li>
-<li class="chapter" data-level="10.3" data-path="artificiële-neurale-netwerken-anns.html"><a href="artificiële-neurale-netwerken-anns.html#types-neuronen"><i class="fa fa-check"></i><b>10.3</b> Types neuronen</a></li>
-<li class="chapter" data-level="10.4" data-path="artificiële-neurale-netwerken-anns.html"><a href="artificiële-neurale-netwerken-anns.html#backpropagation"><i class="fa fa-check"></i><b>10.4</b> Backpropagation</a></li>
-<li class="chapter" data-level="10.5" data-path="artificiële-neurale-netwerken-anns.html"><a href="artificiële-neurale-netwerken-anns.html#werkstroom-deep-learning"><i class="fa fa-check"></i><b>10.5</b> Werkstroom deep learning</a></li>
-<li class="chapter" data-level="10.6" data-path="artificiële-neurale-netwerken-anns.html"><a href="artificiële-neurale-netwerken-anns.html#regularisatie"><i class="fa fa-check"></i><b>10.6</b> Regularisatie</a></li>
+<li class="chapter" data-level="10" data-path="rapporteren.html"><a href="rapporteren.html"><i class="fa fa-check"></i><b>10</b> Rapporteren</a><ul>
+<li class="chapter" data-level="10.1" data-path="rapporteren.html"><a href="rapporteren.html#reproduceerbaarheid"><i class="fa fa-check"></i><b>10.1</b> Reproduceerbaarheid</a></li>
+<li class="chapter" data-level="10.2" data-path="rapporteren.html"><a href="rapporteren.html#beduidende-cijfers"><i class="fa fa-check"></i><b>10.2</b> Beduidende cijfers</a></li>
+<li class="chapter" data-level="10.3" data-path="rapporteren.html"><a href="rapporteren.html#representativiteit-en-randvoorwaarden"><i class="fa fa-check"></i><b>10.3</b> Representativiteit en randvoorwaarden</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="rapporteren.html"><a href="rapporteren.html"><i class="fa fa-check"></i><b>11</b> Rapporteren</a><ul>
-<li class="chapter" data-level="11.1" data-path="rapporteren.html"><a href="rapporteren.html#reproduceerbaarheid"><i class="fa fa-check"></i><b>11.1</b> Reproduceerbaarheid</a></li>
-<li class="chapter" data-level="11.2" data-path="rapporteren.html"><a href="rapporteren.html#beduidende-cijfers"><i class="fa fa-check"></i><b>11.2</b> Beduidende cijfers</a></li>
-<li class="chapter" data-level="11.3" data-path="rapporteren.html"><a href="rapporteren.html#representativiteit-en-randvoorwaarden"><i class="fa fa-check"></i><b>11.3</b> Representativiteit en randvoorwaarden</a></li>
+<li class="chapter" data-level="11" data-path="speciale-neurale-netwerken.html"><a href="speciale-neurale-netwerken.html"><i class="fa fa-check"></i><b>11</b> Speciale neurale netwerken</a></li>
+<li class="chapter" data-level="12" data-path="ml-en-ethiek.html"><a href="ml-en-ethiek.html"><i class="fa fa-check"></i><b>12</b> ML en ethiek</a><ul>
+<li class="chapter" data-level="12.1" data-path="ml-en-ethiek.html"><a href="ml-en-ethiek.html#ethisch-ml"><i class="fa fa-check"></i><b>12.1</b> Ethisch ML</a></li>
+<li class="chapter" data-level="12.2" data-path="ml-en-ethiek.html"><a href="ml-en-ethiek.html#uitlegbare-ai"><i class="fa fa-check"></i><b>12.2</b> Uitlegbare AI</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><i class="fa fa-check"></i><b>A</b> Inwendig product, matrix-vermenigvuldiging, vectoren en tensoren</a></li>
+<li class="chapter" data-level="B" data-path="computations-using-gpu.html"><a href="computations-using-gpu.html"><i class="fa fa-check"></i><b>B</b> Computations using GPU</a></li>
+<li class="chapter" data-level="C" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>C</b> Installation</a><ul>
+<li class="chapter" data-level="C.1" data-path="installation.html"><a href="installation.html#installing-cuda-optional"><i class="fa fa-check"></i><b>C.1</b> Installing CUDA (optional)</a></li>
+<li class="chapter" data-level="C.2" data-path="installation.html"><a href="installation.html#the-r-language"><i class="fa fa-check"></i><b>C.2</b> The R language</a></li>
+<li class="chapter" data-level="C.3" data-path="installation.html"><a href="installation.html#python"><i class="fa fa-check"></i><b>C.3</b> Python</a></li>
+<li class="chapter" data-level="C.4" data-path="installation.html"><a href="installation.html#rstudio"><i class="fa fa-check"></i><b>C.4</b> RStudio</a></li>
+<li class="chapter" data-level="C.5" data-path="installation.html"><a href="installation.html#installing-tensorflow"><i class="fa fa-check"></i><b>C.5</b> Installing Tensorflow</a></li>
+<li class="chapter" data-level="C.6" data-path="installation.html"><a href="installation.html#installation-steps-that-worked-for-the-author"><i class="fa fa-check"></i><b>C.6</b> Installation steps that worked for the author</a></li>
+<li class="chapter" data-level="C.7" data-path="installation.html"><a href="installation.html#waar-vind-ik-hulp"><i class="fa fa-check"></i><b>C.7</b> Waar vind ik hulp</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>D</b> Git</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 </ul>
 
@@ -252,7 +265,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Artificial Intelligence<br><small>34149/1928/2021/1/95</small></a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Machine Learning</a>
           </h1>
         </div>
 
@@ -262,6 +275,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="diagnose" class="section level1">
 <h1><span class="header-section-number">Hoofdstuk 8</span> Diagnose</h1>
+
+<div class="lemma">
+<span id="lem:cross-validatie-lemma" class="lemma"><strong>Leerdoel 8.1  </strong></span>Onderkent de basisprincipes van data training &amp; Cross-validatie (<a href="inleiding-tot-de-cursus.html#leerdoelen"><em>EA_LD754</em></a>).
+</div>
+
+
+<div class="lemma">
+<span id="lem:risicos" class="lemma"><strong>Leerdoel 8.2  </strong></span>Herkent de risico’s van onvolledige en inaccurate data (<a href="inleiding-tot-de-cursus.html#leerdoelen"><em>EA_LD759</em></a>).
+</div>
+
+
+<div class="lemma">
+<span id="lem:diagnose" class="lemma"><strong>Leerdoel 8.3  </strong></span>Gebruikt een diagnostische toolset om de performantie van ML modellen te meten (<a href="inleiding-tot-de-cursus.html#leerdoelen"><em>EA_LD760</em></a>).
+</div>
+
+
+<div class="lemma">
+<span id="lem:performantie" class="lemma"><strong>Leerdoel 8.4  </strong></span>Evalueert op gepaste wijze de performantie van een algoritme. (<a href="inleiding-tot-de-cursus.html#leerdoelen"><em>EA_LD762</em></a>).
+</div>
+
 <div id="leren-leven-met-de-onzekerheid" class="section level2">
 <h2><span class="header-section-number">8.1</span> Leren leven met de onzekerheid</h2>
 <p>Misschien wel het belangrijkste aspect van ML is dat er nooit een garantie dat het gaat lukken. Vele mensen schijnen het hier erg moeilijk mee te hebben. Men zegt zegt al te vaak:</p>
@@ -271,7 +304,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Dat betekent nog niet dat voorspellen onmogelijk is. We gaan ons best doen om, als er een patroon in de data verborgen zit, deze er ook uit te krijgen.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-41" class="definition"><strong>Stelling 8.1  </strong></span>ML is geen toverkunst. Je kan <strong>nooit</strong> garanderen dat je een correcte voorspelling kan maken van iets wat nog niet geweten is.
+<span id="def:unnamed-chunk-40" class="definition"><strong>Stelling 8.1  </strong></span>ML is geen toverkunst. Je kan <strong>nooit</strong> garanderen dat je een correcte voorspelling kan maken van iets wat nog niet geweten is.
 </div>
 
 </div>
@@ -289,43 +322,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We begrijpen nu dat het trainen van een model en het testen van een model dient de gebeuren op afzonderlijke subsets van de data. Dus de oplossing is het opsplitsen van de data. De belangrijkste opsplitsing van data is die tussen de <em>training-set</em> en de <em>test-set</em>. De training set is de set van <em>instanties</em> (zie hoofdstuk over <a href="data.html#data">data</a> als je deze term niet kent) waarmee het leeralgoritme getraind zal worden. De test-set krijgt het leeralgoritme niet te zien tot op het laatste, wanneer de prestaties van het model getest worden. Ook de datawetenschapper mag de test-set in principe niet zien en in professionele omgevingen wordt dit ook letterlijk genomen en is er een tussenpersoon tussen data leverancier en datawetenschapper die voor de opsplitsing zorgt.</p>
 <p>Er zijn verschillende manieren om de opsplitsing te verwezenlijken. Meestal krijgt men te maken met een <em>randomisatie</em>, dat is een opsplitsing op willekeurige basis, maar waarbij enkel de relatieve grootte van de training- en test-set worden meegegeven.</p>
 <p>In R:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="diagnose.html#cb50-1"></a><span class="kw">data</span>(mtcars)</span>
-<span id="cb50-2"><a href="diagnose.html#cb50-2"></a></span>
-<span id="cb50-3"><a href="diagnose.html#cb50-3"></a><span class="kw">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb50-4"><a href="diagnose.html#cb50-4"></a>trn_msk &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="kw">nrow</span>(mtcars)) <span class="op">&lt;</span><span class="st"> </span><span class="fl">.75</span></span>
-<span id="cb50-5"><a href="diagnose.html#cb50-5"></a></span>
-<span id="cb50-6"><a href="diagnose.html#cb50-6"></a>trn &lt;-<span class="st"> </span>mtcars[trn_msk, ]</span>
-<span id="cb50-7"><a href="diagnose.html#cb50-7"></a>tst &lt;-<span class="st"> </span>mtcars[<span class="op">!</span>trn_msk, ]</span>
-<span id="cb50-8"><a href="diagnose.html#cb50-8"></a></span>
-<span id="cb50-9"><a href="diagnose.html#cb50-9"></a><span class="kw">cat</span>(<span class="st">&quot;mtcars: &quot;</span>, mtcars <span class="op">%&gt;%</span><span class="st"> </span>dim <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">paste0</span>(<span class="dt">collapse =</span> <span class="st">&quot; × &quot;</span>), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb50-10"><a href="diagnose.html#cb50-10"></a><span class="kw">cat</span>(<span class="st">&quot;trn: &quot;</span>, trn <span class="op">%&gt;%</span><span class="st"> </span>dim <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">paste0</span>(<span class="dt">collapse =</span> <span class="st">&quot; × &quot;</span>), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb50-11"><a href="diagnose.html#cb50-11"></a><span class="kw">cat</span>(<span class="st">&quot;tst: &quot;</span>, tst <span class="op">%&gt;%</span><span class="st"> </span>dim <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">paste0</span>(<span class="dt">collapse =</span> <span class="st">&quot; × &quot;</span>), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="diagnose.html#cb75-1"></a><span class="kw">data</span>(mtcars)</span>
+<span id="cb75-2"><a href="diagnose.html#cb75-2"></a></span>
+<span id="cb75-3"><a href="diagnose.html#cb75-3"></a><span class="kw">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb75-4"><a href="diagnose.html#cb75-4"></a>trn_msk &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="kw">nrow</span>(mtcars)) <span class="op">&lt;</span><span class="st"> </span><span class="fl">.75</span></span>
+<span id="cb75-5"><a href="diagnose.html#cb75-5"></a></span>
+<span id="cb75-6"><a href="diagnose.html#cb75-6"></a>trn &lt;-<span class="st"> </span>mtcars[trn_msk, ]</span>
+<span id="cb75-7"><a href="diagnose.html#cb75-7"></a>tst &lt;-<span class="st"> </span>mtcars[<span class="op">!</span>trn_msk, ]</span>
+<span id="cb75-8"><a href="diagnose.html#cb75-8"></a></span>
+<span id="cb75-9"><a href="diagnose.html#cb75-9"></a><span class="kw">cat</span>(<span class="st">&quot;mtcars: &quot;</span>, mtcars <span class="op">%&gt;%</span><span class="st"> </span>dim <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">paste0</span>(<span class="dt">collapse =</span> <span class="st">&quot; × &quot;</span>), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb75-10"><a href="diagnose.html#cb75-10"></a><span class="kw">cat</span>(<span class="st">&quot;trn: &quot;</span>, trn <span class="op">%&gt;%</span><span class="st"> </span>dim <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">paste0</span>(<span class="dt">collapse =</span> <span class="st">&quot; × &quot;</span>), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb75-11"><a href="diagnose.html#cb75-11"></a><span class="kw">cat</span>(<span class="st">&quot;tst: &quot;</span>, tst <span class="op">%&gt;%</span><span class="st"> </span>dim <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">paste0</span>(<span class="dt">collapse =</span> <span class="st">&quot; × &quot;</span>), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
 <p>De variabele <code>trn_msk</code> heet zo omdat het om een Booleaanse <em>masker</em> (eng: <em>mask</em>; zie § <a href="manipuleren-van-data.html#booleaans-masker">Booleaans masker</a>) gaat.</p>
 <p>In Python worden de features en de uitkomst (cfr. <a href="data.html#data">data</a>) meestal gescheiden gehouden (om dan vaak terug samen te brengen met <code>zip</code> :-)) en wordt er een helper-functie uit de <code>sklearn</code> bibliotheek aangeroepen:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="diagnose.html#cb51-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb51-2"><a href="diagnose.html#cb51-2"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_wine</span>
-<span id="cb51-3"><a href="diagnose.html#cb51-3"></a></span>
-<span id="cb51-4"><a href="diagnose.html#cb51-4"></a>X, y <span class="op">=</span> load_wine(return_X_y<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb51-5"><a href="diagnose.html#cb51-5"></a></span>
-<span id="cb51-6"><a href="diagnose.html#cb51-6"></a>X_trn, X_tst, y_trn, y_tst <span class="op">=</span> train_test_split(</span>
-<span id="cb51-7"><a href="diagnose.html#cb51-7"></a>  X, y, test_size <span class="op">=</span> <span class="fl">0.25</span>, random_state <span class="op">=</span> <span class="dv">42</span>)</span>
-<span id="cb51-8"><a href="diagnose.html#cb51-8"></a></span>
-<span id="cb51-9"><a href="diagnose.html#cb51-9"></a><span class="bu">print</span>(<span class="ss">f&quot;X: </span><span class="sc">{X.</span>shape<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb76-1"><a href="diagnose.html#cb76-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb76-2"><a href="diagnose.html#cb76-2"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_wine</span>
+<span id="cb76-3"><a href="diagnose.html#cb76-3"></a></span>
+<span id="cb76-4"><a href="diagnose.html#cb76-4"></a>X, y <span class="op">=</span> load_wine(return_X_y<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb76-5"><a href="diagnose.html#cb76-5"></a></span>
+<span id="cb76-6"><a href="diagnose.html#cb76-6"></a>X_trn, X_tst, y_trn, y_tst <span class="op">=</span> train_test_split(</span>
+<span id="cb76-7"><a href="diagnose.html#cb76-7"></a>  X, y, test_size <span class="op">=</span> <span class="fl">0.25</span>, random_state <span class="op">=</span> <span class="dv">42</span>)</span>
+<span id="cb76-8"><a href="diagnose.html#cb76-8"></a></span>
+<span id="cb76-9"><a href="diagnose.html#cb76-9"></a><span class="bu">print</span>(<span class="ss">f&quot;X: </span><span class="sc">{X.</span>shape<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
 <pre><code>## X: (178, 13)</code></pre>
-<div class="sourceCode" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb53-1"><a href="diagnose.html#cb53-1"></a><span class="bu">print</span>(<span class="ss">f&quot;y: </span><span class="sc">{y.</span>shape<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb78-1"><a href="diagnose.html#cb78-1"></a><span class="bu">print</span>(<span class="ss">f&quot;y: </span><span class="sc">{y.</span>shape<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
 <pre><code>## y: (178,)</code></pre>
-<div class="sourceCode" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb55-1"><a href="diagnose.html#cb55-1"></a><span class="bu">print</span>(<span class="ss">f&quot;X_trn: </span><span class="sc">{</span>X_trn<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb80-1"><a href="diagnose.html#cb80-1"></a><span class="bu">print</span>(<span class="ss">f&quot;X_trn: </span><span class="sc">{</span>X_trn<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
 <pre><code>## X_trn: (133, 13)</code></pre>
-<div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a href="diagnose.html#cb57-1"></a><span class="bu">print</span>(<span class="ss">f&quot;X_tst: </span><span class="sc">{</span>X_tst<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb82-1"><a href="diagnose.html#cb82-1"></a><span class="bu">print</span>(<span class="ss">f&quot;X_tst: </span><span class="sc">{</span>X_tst<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
 <pre><code>## X_tst: (45, 13)</code></pre>
-<div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb59-1"><a href="diagnose.html#cb59-1"></a><span class="bu">print</span>(<span class="ss">f&quot;X_trn: </span><span class="sc">{</span>y_trn<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb84-1"><a href="diagnose.html#cb84-1"></a><span class="bu">print</span>(<span class="ss">f&quot;X_trn: </span><span class="sc">{</span>y_trn<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
 <pre><code>## X_trn: (133,)</code></pre>
-<div class="sourceCode" id="cb61"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb61-1"><a href="diagnose.html#cb61-1"></a><span class="bu">print</span>(<span class="ss">f&quot;X_tst: </span><span class="sc">{</span>y_tst<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb86-1"><a href="diagnose.html#cb86-1"></a><span class="bu">print</span>(<span class="ss">f&quot;X_tst: </span><span class="sc">{</span>y_tst<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
 <pre><code>## X_tst: (45,)</code></pre>
 <p>Het argument <code>random_state</code> in Python en de <code>set.seed</code> functie in R dienen om dit proces, dat inherent willekeurig is, toch reproduceerbaar te maken (zie § rond <a href="rapporteren.html#reproduceerbaarheid">reproduceerbaarheid</a>). Zie dit <a href="https://en.wikipedia.org/wiki/Random_seed">Wikipedia artikel</a> om hier meer over te leren.</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-44" class="definition"><strong>Stelling 8.3  </strong></span>Regels rond de test set:</p>
+<p><span id="def:unnamed-chunk-43" class="definition"><strong>Stelling 8.3  </strong></span>Regels rond de test set:</p>
 <ul>
 <li>De test-set blijft <em>altijd</em> verborgen voor het leeralgoritme</li>
 <li>De test-set blijft verborgen voor de datawetenschapper en het model tot helemaal op het einde wanneer de prestatie van het model word gemeten</li>
@@ -333,11 +366,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div></li>
 </ul>
 <p>Voor tijdsreeksen en geografische data wordt er zelden van randomisatie gebruik gemaakt. Dat heeft te maken van de autocorrelatie (zie § <a href="data.html#tijd-en-ruimte">Tijd en ruimte</a>). In plaats daarvan worden hier ofwel een bepaald gebied of bepaalde tijdspanne als test-set uitgekozen. Bijvoorbeeld, voor een tijdsreeks:</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="diagnose.html#cb63-1"></a><span class="kw">library</span>(forecast)</span>
-<span id="cb63-2"><a href="diagnose.html#cb63-2"></a></span>
-<span id="cb63-3"><a href="diagnose.html#cb63-3"></a>USAccDeaths <span class="op">%&gt;%</span><span class="st"> </span>ets <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">forecast</span>(<span class="dt">h =</span> <span class="dv">48</span>) <span class="op">%&gt;%</span></span>
-<span id="cb63-4"><a href="diagnose.html#cb63-4"></a><span class="st">  </span><span class="kw">plot</span>(<span class="dt">ylab =</span> <span class="st">&quot;Monthly totals of accidental deaths in USA&quot;</span>)</span>
-<span id="cb63-5"><a href="diagnose.html#cb63-5"></a><span class="kw">abline</span>(<span class="dt">v =</span> <span class="dv">1979</span>, <span class="dt">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="diagnose.html#cb88-1"></a><span class="kw">library</span>(forecast)</span>
+<span id="cb88-2"><a href="diagnose.html#cb88-2"></a></span>
+<span id="cb88-3"><a href="diagnose.html#cb88-3"></a>USAccDeaths <span class="op">%&gt;%</span><span class="st"> </span>ets <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">forecast</span>(<span class="dt">h =</span> <span class="dv">48</span>) <span class="op">%&gt;%</span></span>
+<span id="cb88-4"><a href="diagnose.html#cb88-4"></a><span class="st">  </span><span class="kw">plot</span>(<span class="dt">ylab =</span> <span class="st">&quot;Monthly totals of accidental deaths in USA&quot;</span>)</span>
+<span id="cb88-5"><a href="diagnose.html#cb88-5"></a><span class="kw">abline</span>(<span class="dt">v =</span> <span class="dv">1979</span>, <span class="dt">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:forecast-usa-deaths"></span>
 <img src="_main_files/figure-html/forecast-usa-deaths-1.png" alt="Voorspelling van aantal Amerikaanse slachtoffers na 1979 (stippellijn). De grillige gekleurde lijn links van de stippellijn geeft het werkelijke aantal weer. De tegenhanger rechts van de stippellijn geeft de best mogelijke voorspelling weer na 1979. Het donkergrijze gebied geeft de 80%-predictie-interval weer en het lichtgrijze gebied de 90%-predictie interval. Dit type voorspelling-algoritmes (eng: forecasting algorythms) onderscheidt eerst de ruis (eng: error) van de trend en de periodiciteit (eng: seasonality), vandaar de naam ETS. (ANA) staat voor respectievelijk aan additieve ruis, geen trend (N van ‘No’) en een additieve periodiciteit." width="672" />
 <p class="caption">
@@ -382,7 +415,7 @@ Figuur 8.3: )Een model voorbeeld van hoe een cross-validatie strategie past binn
 <p>Naarmate dat het voorspelde resultaat <span class="math inline">\(\hat{y}\)</span> steeds meer begint af te wijken van het werkelijk resultaat <span class="math inline">\(y\)</span>, neemt de restterm <span class="math inline">\(\varepsilon\)</span> razendsnel toe (zie interactieve figuur hieronder) en het doel van het leeralgoritme is om de parameters <span class="math inline">\(\mathbf{\theta}\)</span> zodanig aan te passen dat de fout net zijn klein mogelijk wordt. Men zegt dat het doel is om de verliesfunctie te minimaliseren (eng: <em>minimize</em>).</p>
 <iframe width="100%" height="650px" src="img/convex.html" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" style="border:0px;">
 </iframe>
-<p>Een andere belangrijke verliesfunctie is de cross-entropie: Deze wordt gebruikt wanneer de uitkomst variabele een kansverdeling (eng: <em>probability distribution</em>) voorstel, i.e. wanneer de waarden voor de uitkomsten reële getallen getallen zijn in het bereiek <span class="math inline">\([0, 1]\)</span> en wanneer alle waarden voor de categorieën in de uitvoerlaag van het netwerk optellen tot 1. Deze laatste wordt gewaarborgt door de zogenaamde softmax restrictie (zie <a href="artificiële-neurale-netwerken-anns.html#types-neuronen">Types neuronen</a>).</p>
+<p>Een andere belangrijke verliesfunctie is de cross-entropie: Deze wordt gebruikt wanneer de uitkomst variabele een kansverdeling (eng: <em>probability distribution</em>) voorstel, i.e. wanneer de waarden voor de uitkomsten reële getallen getallen zijn in het bereiek <span class="math inline">\([0, 1]\)</span> en wanneer alle waarden voor de categorieën in de uitvoerlaag van het netwerk optellen tot 1. Deze laatste wordt gewaarborgt door de zogenaamde softmax restrictie (zie <a href="inleiding-tot-artificiële-neurale-netwerken.html#types-neuronen">Types neuronen</a>).</p>
 <p><span class="math display" id="eq:cross-entropie">\[\begin{equation}
   E(y, \hat{y})=-\frac1N\sum_{n=1}^{N}{\left[y_n\,log(\hat{y}_n) + (1-y) \,log(1-\hat{y})\right]}
   \tag{8.2}
@@ -392,7 +425,6 @@ Figuur 8.3: )Een model voorbeeld van hoe een cross-validatie strategie past binn
 <div id="gradiënt-afdaling" class="section level2">
 <h2><span class="header-section-number">8.6</span> Gradiënt afdaling</h2>
 <p>De bedoeling is om het laagste punt van de hierboven gedemonstreerde verliesfunctie te vinden. Indien het werkelijk om kwadratische verlies-oppervlakten zou gaan, dan was er geen probleem omdat met het laagste punt dan analytisch zou kunnen vinden, i.e. met een relatief eenvoudige matrix bewerking. Maar in werkelijkheid zijn de verliesfuncties grillig en meerdimensionaal (<a href="diagnose.html#fig:complexe-verlies-landschappen">8.5</a>). Dan is er een soort trial-and-error manier nodig om het laagste punt te vinden.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="diagnose.html#cb64-1"></a><span class="kw">include_graphics</span>(<span class="st">&quot;img/curve-vorm.svg&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:curve-vorm"></span>
 <img src="img/curve-vorm.svg" alt="Onderscheid tussen kwadratische, convexe en grillige functies, hier voor de eenvoud voorgesteld als abstracte twee-dimensionale functies."  />
 <p class="caption">
@@ -413,7 +445,7 @@ Figuur 8.5: Voorbeeld van een realistische geprojecteerde verlies-functie bekome
 <p>Wanneer we voldoende dicht komen bij het (lokaal) minimum van het verlies-oppervlakte, verwachten we dat de gradient in dat punt heel erg klein wordt. We zeggen dan dat het optimalisatie-algoritme <strong>convergeert</strong>. Wat ‘voldoende dicht’ precies moet zijn, wordt door de datawetenschapper bepaald en is meestal een arbitrair klein getal. Blijft tijdens het zoeken de gradient fluctueren, dan kan de datawetenschapper beslissen dat de zoektocht vroegtijdig gestaakt wordt alvorens er convergentie bereikt wordt. Er is immers niet altijd een garantie dat convergentie mogelijk is en zelfs als je optimalisatie-algoritme convergeert, heb je bij grillige oppervlakten nooit de garantie dat het lokaal minimum ook het globaal minimum is.</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-45" class="definition"><strong>Stelling 8.5  </strong></span>Bij complexe en grillige verlies-oppervlakten zal het vakk zo zijn dat er geen garanties gegeven kunnen worden dat het optimilsatie-algoritme convergeert of dat het gevonden minimum ook de best mogelijk oplossing is.
+<span id="def:unnamed-chunk-44" class="definition"><strong>Stelling 8.5  </strong></span>Bij complexe en grillige verlies-oppervlakten zal het vakk zo zijn dat er geen garanties gegeven kunnen worden dat het optimilsatie-algoritme convergeert of dat het gevonden minimum ook de best mogelijk oplossing is.
 </div>
 
 <p>Wiskundig kunnen we de gradiënt-afdaling van het optimalisatie-algoritme als volgt samenvatten:</p>
@@ -447,8 +479,8 @@ Figuur 8.5: Voorbeeld van een realistische geprojecteerde verlies-functie bekome
           </div>
         </div>
       </div>
-<a href="manipuleren-van-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="de-percetron.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="inleiding-tot-artificiële-neurale-netwerken.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tensorflow.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
