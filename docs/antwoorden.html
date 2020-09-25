@@ -212,6 +212,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="C.5" data-path="installation.html"><a href="installation.html#installing-tensorflow"><i class="fa fa-check"></i><b>C.5</b> Installing Tensorflow</a></li>
 <li class="chapter" data-level="C.6" data-path="installation.html"><a href="installation.html#installation-steps-that-worked-for-the-author"><i class="fa fa-check"></i><b>C.6</b> Installation steps that worked for the author</a></li>
 <li class="chapter" data-level="C.7" data-path="installation.html"><a href="installation.html#waar-vind-ik-hulp"><i class="fa fa-check"></i><b>C.7</b> Waar vind ik hulp</a></li>
+<li class="chapter" data-level="C.8" data-path="installation.html"><a href="installation.html#waar-vind-ik-leeralgoritmen-terugvinden"><i class="fa fa-check"></i><b>C.8</b> Waar vind ik leeralgoritmen terugvinden</a></li>
 </ul></li>
 <li class="chapter" data-level="D" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>D</b> Git</a></li>
 <li class="chapter" data-level="E" data-path="antwoorden.html"><a href="antwoorden.html"><i class="fa fa-check"></i><b>E</b> Antwoorden</a><ul>
@@ -240,22 +241,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="hoofdstuk-4" class="section level2">
 <h2><span class="header-section-number">E.1</span> Hoofdstuk 4</h2>
 <blockquote>
-<p>Oefening <a href="data-exploratie.html#exr:grafieftypes">4.2</a>.</p>
+<p>Oefening <a href="#exr:grafieftypes"><strong>??</strong></a>.</p>
 </blockquote>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="antwoorden.html#cb69-1"></a><span class="kw">library</span>(beeswarm)</span>
-<span id="cb69-2"><a href="antwoorden.html#cb69-2"></a><span class="kw">library</span>(vioplot)</span>
-<span id="cb69-3"><a href="antwoorden.html#cb69-3"></a></span>
-<span id="cb69-4"><a href="antwoorden.html#cb69-4"></a>rhDNase &lt;-<span class="st"> </span>rhDNase <span class="op">%&gt;%</span><span class="st"> </span>as.data.table</span>
-<span id="cb69-5"><a href="antwoorden.html#cb69-5"></a>bduur_log &lt;-<span class="st"> </span>rhDNase[,  <span class="kw">log</span>(ivstop <span class="op">-</span><span class="st"> </span>ivstart)]</span>
-<span id="cb69-6"><a href="antwoorden.html#cb69-6"></a>bduur_log &lt;-<span class="st"> </span>bduur_log[<span class="op">!</span><span class="kw">is.na</span>(bduur_log) <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.infinite</span>(bduur_log)]</span>
-<span id="cb69-7"><a href="antwoorden.html#cb69-7"></a></span>
-<span id="cb69-8"><a href="antwoorden.html#cb69-8"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">mar =</span> <span class="kw">rep</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="dt">xaxt =</span> <span class="st">&quot;n&quot;</span>)</span>
-<span id="cb69-9"><a href="antwoorden.html#cb69-9"></a></span>
-<span id="cb69-10"><a href="antwoorden.html#cb69-10"></a>bduur_log <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">dotchart</span>(<span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">lcolor =</span> <span class="ot">NA</span>)</span>
-<span id="cb69-11"><a href="antwoorden.html#cb69-11"></a>bduur_log <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">boxplot</span>(<span class="dt">horizontal =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb69-12"><a href="antwoorden.html#cb69-12"></a>bduur_log <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">beeswarm</span>(<span class="dt">horizontal =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb69-13"><a href="antwoorden.html#cb69-13"></a>bduur_log <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">vioplot</span>(<span class="dt">horizontal =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="antwoorden.html#cb18-1"></a><span class="kw">library</span>(beeswarm)</span>
+<span id="cb18-2"><a href="antwoorden.html#cb18-2"></a><span class="kw">library</span>(vioplot)</span>
+<span id="cb18-3"><a href="antwoorden.html#cb18-3"></a></span>
+<span id="cb18-4"><a href="antwoorden.html#cb18-4"></a>rhDNase &lt;-<span class="st"> </span>rhDNase <span class="op">%&gt;%</span><span class="st"> </span>as.data.table</span>
+<span id="cb18-5"><a href="antwoorden.html#cb18-5"></a>bduur_log &lt;-<span class="st"> </span>rhDNase[,  <span class="kw">log</span>(ivstop <span class="op">-</span><span class="st"> </span>ivstart)]</span>
+<span id="cb18-6"><a href="antwoorden.html#cb18-6"></a>bduur_log &lt;-<span class="st"> </span>bduur_log[<span class="op">!</span><span class="kw">is.na</span>(bduur_log) <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.infinite</span>(bduur_log)]</span>
+<span id="cb18-7"><a href="antwoorden.html#cb18-7"></a></span>
+<span id="cb18-8"><a href="antwoorden.html#cb18-8"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">mar =</span> <span class="kw">rep</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="dt">xaxt =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb18-9"><a href="antwoorden.html#cb18-9"></a></span>
+<span id="cb18-10"><a href="antwoorden.html#cb18-10"></a>bduur_log <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">dotchart</span>(<span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">lcolor =</span> <span class="ot">NA</span>)</span>
+<span id="cb18-11"><a href="antwoorden.html#cb18-11"></a>bduur_log <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">boxplot</span>(<span class="dt">horizontal =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb18-12"><a href="antwoorden.html#cb18-12"></a>bduur_log <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">beeswarm</span>(<span class="dt">horizontal =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb18-13"><a href="antwoorden.html#cb18-13"></a>bduur_log <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">vioplot</span>(<span class="dt">horizontal =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 
 </div>
 </div>
