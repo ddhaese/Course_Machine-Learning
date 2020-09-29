@@ -171,13 +171,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5" data-path="data.html"><a href="data.html#data-genereren"><i class="fa fa-check"></i><b>3.5</b> Data Genereren</a></li>
 <li class="chapter" data-level="3.6" data-path="data.html"><a href="data.html#de-analyse-dataset"><i class="fa fa-check"></i><b>3.6</b> De analyse dataset</a></li>
 <li class="chapter" data-level="3.7" data-path="data.html"><a href="data.html#soorten-variabelen"><i class="fa fa-check"></i><b>3.7</b> Soorten variabelen</a></li>
-<li class="chapter" data-level="3.8" data-path="data.html"><a href="data.html#nominal-scale-data"><i class="fa fa-check"></i><b>3.8</b> Nominal-Scale Data</a></li>
-<li class="chapter" data-level="3.9" data-path="data.html"><a href="data.html#ordinal-scale-data"><i class="fa fa-check"></i><b>3.9</b> Ordinal-Scale Data</a></li>
-<li class="chapter" data-level="3.10" data-path="data.html"><a href="data.html#circular-scale"><i class="fa fa-check"></i><b>3.10</b> Circular-Scale</a></li>
-<li class="chapter" data-level="3.11" data-path="data.html"><a href="data.html#censoring"><i class="fa fa-check"></i><b>3.11</b> Censoring</a></li>
-<li class="chapter" data-level="3.12" data-path="data.html"><a href="data.html#tijd-en-ruimte"><i class="fa fa-check"></i><b>3.12</b> Tijd en ruimte</a></li>
-<li class="chapter" data-level="3.13" data-path="data.html"><a href="data.html#toegang-tot-data"><i class="fa fa-check"></i><b>3.13</b> Toegang tot data</a></li>
-<li class="chapter" data-level="3.14" data-path="data.html"><a href="data.html#het-codeboek"><i class="fa fa-check"></i><b>3.14</b> Het codeboek</a></li>
+<li class="chapter" data-level="3.8" data-path="data.html"><a href="data.html#eng-nominal-scale-data"><i class="fa fa-check"></i><b>3.8</b> (Eng) Nominal-Scale Data</a></li>
+<li class="chapter" data-level="3.9" data-path="data.html"><a href="data.html#eng-dummy-variables"><i class="fa fa-check"></i><b>3.9</b> (Eng) Dummy Variables</a></li>
+<li class="chapter" data-level="3.10" data-path="data.html"><a href="data.html#eng-ordinal-scale-data"><i class="fa fa-check"></i><b>3.10</b> (Eng) Ordinal-Scale Data</a></li>
+<li class="chapter" data-level="3.11" data-path="data.html"><a href="data.html#eng-circular-scale"><i class="fa fa-check"></i><b>3.11</b> (Eng) Circular-Scale</a></li>
+<li class="chapter" data-level="3.12" data-path="data.html"><a href="data.html#eng-censoring"><i class="fa fa-check"></i><b>3.12</b> (Eng) Censoring</a></li>
+<li class="chapter" data-level="3.13" data-path="data.html"><a href="data.html#tijd-en-ruimte"><i class="fa fa-check"></i><b>3.13</b> Tijd en ruimte</a></li>
+<li class="chapter" data-level="3.14" data-path="data.html"><a href="data.html#toegang-tot-data"><i class="fa fa-check"></i><b>3.14</b> Toegang tot data</a></li>
+<li class="chapter" data-level="3.15" data-path="data.html"><a href="data.html#het-codeboek"><i class="fa fa-check"></i><b>3.15</b> Het codeboek</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-exploratie.html"><a href="data-exploratie.html"><i class="fa fa-check"></i><b>4</b> Data exploratie</a><ul>
 <li class="chapter" data-level="4.1" data-path="data-exploratie.html"><a href="data-exploratie.html#principes-van-data-exploratie"><i class="fa fa-check"></i><b>4.1</b> Principes van data exploratie</a></li>
@@ -256,28 +257,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>De datawetenschapper wil tijdens het controleren van een variabele de volgende eigenschappen onderzoeken:</p>
 <details>
-<summary><strong>D</strong> uidelijkheid</summary>Indien de betekenis van de variabele niet achterhaald kan worden, is het vaak veiliger die niet te gebruiken (heeft onder meer met data lekkage te maken)
+<summary><strong>D</strong> uidelijkheid</summary>Kan de betekenis van de variabele achterhaald worden? Zo niet, dan is het vaak veiliger de variabele niet te gebruiken.
 </details>
 <details>
-<summary><strong>I</strong> nformatief</summary>Indien er wel data is maar deze een te lage informatie inhoud heeft
+<summary><strong>I</strong> nformatief</summary>Is de informatie inhoud voldoende groot. Bijvoorbeeld, is het erg repetitieve data, dan is het misschien niet erg bruikbaar. Wordt mede bepaald door voorradigheid (zie hieronder).
 </details>
 <details>
-<summary><strong>P</strong> rivacy</summary>Indien de betrokken variabele het risico loopt om de privacy van de eindgebruiker te schenden volgens de opgestelde Privacy Impact Assessment (PIA) of volgens de Vlaamse of Federale wetgeving, dan mag je deze variabele simpelweg niet ontsluiten
+<summary><strong>P</strong> rivacy</summary>Loop je met de betrokken variabele het risico om de privacy van de eindgebruiker te schenden volgens de opgestelde Privacy Impact Assessment (PIA) of volgens de Vlaamse of Federale wetgeving, dan mag je deze variabele simpelweg niet ontsluiten.
 </details>
 <details>
-<summary><strong>K</strong> waliteit</summary>Indien om technische redenen de data niet bruikbaar zou zijn. Voorbeeld: te moeilijk om de data te ontrekken (bij bijv. vrije tekst), onvoldoende resolutie (bij metingen of afbeeldingen), té complex data type (bijv. circulaire), …
+<summary><strong>K</strong> waliteit</summary>Zijn er technische redenen om de data niet te kunnen gebruiken? Zijn de data moeilijk om te onttrekken (bij bijv. vrije tekst), is er onvoldoende resolutie (bij metingen of afbeeldingen), gaat het om een té complex data type (bijv. circulaire), …
 </details>
 <details>
-<summary><strong>E</strong> thiek</summary>Het onderwijs is niet immuun voor stereotypering op basis van geslacht, afkomst, leeftijd, enz…. Het trainen met tendentieuze data leidt tot een tendentieus algoritme. Om dit te voorkomen laat je best variabelen weg die mogelijk wel een zeker voorspellend vermogen hebben maar die de vooringenomenheid uit het verleden zou bevestigen. In dit geval rapporteer je waarom je die variabele niet wenst te gebruiken, zelfs als zou de wet het toelaten.
+<summary><strong>E</strong> thiek</summary>Het trainen met tendentieuze data leidt tot een tendentieus algoritme. Om dit te voorkomen, laat je best variabelen weg die mogelijk wel een zeker voorspellend vermogen hebben en privacy-gewijs perfect toelaatbaar zijn, maar die de vooringenomenheid uit het verleden zou bevestigen.
 </details>
 <details>
-<summary><strong>V</strong> oorradig</summary>Indien méér dan ±30% ontbreekt (NULL, NA, "", -1, …), kunnen vele leeralgortimen de data niet gebruiken
+<summary><strong>V</strong> oorradig</summary>Ontbreekt er méér dan ±30% van de waarden voor een bepaalde variabele (NULL, NA, "", -1, …), dan kunnen vele leeralgortimen de data niet gebruiken.
 </details>
 <details>
-<summary><strong>E</strong> chtheid</summary>Indien de data weinig betrouwbaar lijken in de zin dat ze vermoedelijk geen goede weerspiegeling zijn van de realiteit, i.e. ofwel vermoedelijk inaccurate data of niet representatief (bijv. slechts geldig voor beperkte subset)
+<summary><strong>E</strong> chtheid</summary>Het kan voorkomen dat de data weinig betrouwbaar lijken in de zin dat ze vermoedelijk geen goede weerspiegeling zijn van de realiteit, i.e. ofwel vermoedelijk inaccurate data of niet representatief (bijv. slechts geldig voor beperkte subset).
 </details>
 <details>
-<summary><strong>R</strong> elevantie</summary>Indien gegeven de doelstelling van het onderzoek er geen goede verantwoording (technisch noch functioneel) gevonden kan worden waarom deze variabele zou worden opgenomen (naar alle belanghebben zoals opdrachtgever en eindgebruiker algoritme), dan kan je deze ook beter niet gebruiken
+<summary><strong>R</strong> elevantie</summary>Gegeven de doelstelling van het onderzoek is het goed om je af te vragen of er wel een goede verantwoording (technisch noch functioneel) gevonden kan worden waarom deze variabele zou worden opgenomen. Hou hier best rekeneing met alle belanghebben zoals opdrachtgevers en eindgebruikers.
 </details>
 <p><img src="img/dipkever.png" width="50" style="display: block; margin: auto;" /></p>
 </div>
@@ -306,7 +307,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="exm:terrorism" class="example"><strong>Voorbeeld 4.1  </strong></span><strong>Vraag</strong>: Sommige mensen zeggen dat er steeds méér terrorisme is in de wereld. Andere zeggen dat er altijd al terrorisme heeft bestaan. Wie heeft er gelijk?
 </div>
 
-<p>Via de <a href="https://vincentarelbundock.github.io/Rdatasets/datasets.html">bovenstaande link</a> naar de standaard datasets vinden we twee datasets met het woordje “terrorism” in de titel. Ééntje heeft 206 rijen (<code>nkill.byCountryYr</code>), laten we die eens van naderbij bekijken:</p>
+<p><strong>Antwoord</strong>: Via de <a href="https://vincentarelbundock.github.io/Rdatasets/datasets.html">bovenstaande link</a> naar de standaard datasets vinden we twee datasets met het woordje “terrorism” in de titel. Ééntje heeft 206 rijen (<code>nkill.byCountryYr</code>), laten we die eens van naderbij bekijken:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="data-exploratie.html#cb1-1"></a><span class="kw">library</span>(Ecdat)</span>
 <span id="cb1-2"><a href="data-exploratie.html#cb1-2"></a><span class="kw">library</span>(magrittr)</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="data-exploratie.html#cb2-1"></a>?terrorism</span></code></pre></div>
@@ -317,11 +318,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>incidents.byCountryYr</code>: Aantal aanslagen per {Land × Jaartal}</p>
 <p><code>nkill.byCountryYr</code>: Aantal slachtoffers per {Land × Jaartal}</p>
 <p>Hierop lanceren we de vraag:</p>
-
-<div class="example">
-<span id="exm:unnamed-chunk-3" class="example"><strong>Voorbeeld 4.2  </strong></span><strong>Vraag terug</strong>: met ‘méér terrorisme’, bedoel je méér aanslagen of méér slachtoffers
-</div>
-
+<p><strong>Vraag terug</strong>: met ‘méér terrorisme’, bedoel je méér aanslagen of méér slachtoffers</p>
 <p>Stel dat de opdrachtgever het volgende antwoord geeft:</p>
 <p><strong>Antwoord terug</strong>: méér aanslagen</p>
 <p>We kunnen nu zowel de eerste als de tweede gebruiken. We kiezen de eerste omdat daarin meer informatie vervat zit. We hebben die extra informatie nu niet nodig, maar misschien later wel. Één instantie (een rij) komt overeen met een jaartal. We zien onmiddellijk dat we de volgende variabelen nodig hebben uit de <code>terrorism</code> dataset:</p>
@@ -355,16 +352,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="data-exploratie.html#cb12-1"></a>dat<span class="op">$</span>incidents <span class="op">%&gt;%</span></span>
 <span id="cb12-2"><a href="data-exploratie.html#cb12-2"></a>	<span class="kw">hist</span>(<span class="dt">main =</span> <span class="st">&quot;Verdeling aantal aanslagen&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;# aanslagen per jaar&quot;</span>,</span>
 <span id="cb12-3"><a href="data-exploratie.html#cb12-3"></a>		<span class="dt">ylab =</span> <span class="st">&quot;Frequentie&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="318px" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-8-1.png" width="318px" /></p>
 <p>Hierin zien we dat er in het totaal meer dan 30 jaren zijn met minder dan 5000 aanslagen per jaar wereldwijd en dat er 3 jaren zijn met meer dan 10 000 aanslagen.</p>
-<p>Dit was de K van DIPKEVER, we zetten onze tocht voort. Over ethiek: voor velen is dit natuurlijk een gevoelig onderwerp maar het weergeven van de aantallen aanslagen kan moeilijk als aanstootgevend worden gezien. Bovendien worden hier nog geen voorspellingen gemaakt, dus dat lijkt in orde. Er ontbreken geen data (dus voorradig). Het consortium rond de Studie van Terrorisme en Responsen op Terrorisme (START) is verantwoordelijk voor de data en gezien hun staat van dienst en academische publicaties waaronder sommige in in gerenommeerde tijdschriften, lijken ze op het eerste gezicht betrouwbaar (cfr. Echtheid). Tenslotte zijn de data ongetwijfeld relevant en daarmee slagen ze voor de volledige DIPKEVER test. Het onderlinge correleren van beide variabelen biedt hier geen meerwaarde.</p>
+<p>Dit was de K van DIPKEVER, we zetten onze tocht voort. Over ethiek: voor velen is dit natuurlijk een gevoelig onderwerp maar het weergeven van de aantallen aanslagen kan moeilijk als aanstootgevend worden gezien. Bovendien worden hier nog geen voorspellingen gemaakt, dus dat lijkt in orde. Er ontbreken geen data (dus voorradig). Het consortium rond de Studie van Terrorisme en Responsen op Terrorisme (START) is verantwoordelijk voor de data en gezien hun staat van dienst en academische publicaties waaronder sommige in gerenommeerde tijdschriften, lijken ze op het eerste gezicht betrouwbaar (cfr. Echtheid). Tenslotte zijn de data ongetwijfeld relevant en daarmee slagen ze voor de volledige DIPKEVER test. Het onderlinge correleren van beide variabelen biedt hier geen meerwaarde.</p>
 <p>De exploratiefase is voorbij. Het volstaat ons nu om een grafiek op stellen waarbij het aantal aanslagen in de tijd wordt gevolgd:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="data-exploratie.html#cb13-1"></a>dat &lt;-<span class="st"> </span>dat[<span class="kw">order</span>(year)]</span>
 <span id="cb13-2"><a href="data-exploratie.html#cb13-2"></a>void &lt;-<span class="st"> </span>dat[, <span class="kw">plot</span>(incidents <span class="op">~</span><span class="st"> </span>year, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>,</span>
 <span id="cb13-3"><a href="data-exploratie.html#cb13-3"></a>	<span class="dt">main =</span> <span class="st">&quot;Verloop aantal aanslagen wereldwijd&quot;</span>,</span>
 <span id="cb13-4"><a href="data-exploratie.html#cb13-4"></a>	<span class="dt">xlab =</span> <span class="st">&quot;Kalenderjaar&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Aantal aanslagen per jaar&quot;</span>)]</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
-<p><em>Conclusie</em>: Ja, het aantal gerapporteerde terroristische aanslagen lijkt volgens de START (<span class="citation">Pape et al. (<a href="#ref-pape2014" role="doc-biblioref">2014</a>)</span>) toegenomen te zijn in de periode 2010 - 2015 ten opzichte van de periode 1970 - 2010.</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><strong>Conclusie</strong>: Ja, het aantal gerapporteerde terroristische aanslagen lijkt volgens de START (<span class="citation">Pape et al. (<a href="#ref-pape2014" role="doc-biblioref">2014</a>)</span>) toegenomen te zijn in de periode 2010 - 2015 ten opzichte van de periode 1970 - 2010.</p>
 </div>
 <div id="univariate-verdelingen" class="section level2">
 <h2><span class="header-section-number">4.4</span> Univariate verdelingen</h2>
@@ -379,7 +376,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 
 <div class="example">
-<span id="exm:unnamed-chunk-11" class="example"><strong>Voorbeeld 4.3  </strong></span>Laten we de dataset rhDNase van naderbij onderzoeken met als doel om uitsluitend naar de verdelingen te kijken.
+<span id="exm:unnamed-chunk-10" class="example"><strong>Voorbeeld 4.2  </strong></span>Laten we de dataset rhDNase van naderbij onderzoeken met als doel om uitsluitend naar de verdelingen te kijken.
 </div>
 
 <p>We beginnen met het laden van de dataset en het tonen van de interne structuur (<code>str</code>) van het object dat de data bevat</p>
@@ -399,23 +396,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  $ ivstop  : num  NA NA 75 NA NA NA NA 104 NA 22 ...</code></pre>
 <p>We gaan nu één voor één de variabelen af:</p>
 <ul>
-<li><code>id</code>: <em>subject id</em>. Is de identiteit en het heeft geen nut om hier een verdeling van de trekken.</li>
-<li><code>inst</code>: <em>enrolling institution</em>. Dit is een <code>integer</code>, dus dat lijkt niet te kloppen, want we verwachten een organisatie hier. We behandelen het dan ook als categorische (nominale) variabele (<code>factor</code> in R) en maken een staafdiagram (eng: <em>bar plot</em>). Er is geen betekenisvolle sortering mogelijk bij categorische variabelen, maar het is een goed gewoonte om te toch even van frequent naar minder frequent te sorteren om een zicht te krijgen om de curve die zo ontstaat.</li>
-</ul>
+<li><p><code>id</code>: <em>subject id</em>. Is de identiteit en het heeft geen nut om hier een verdeling van de trekken.</p></li>
+<li><p><code>inst</code>: <em>enrolling institution</em>. Dit is een <code>integer</code>, dus dat lijkt niet te kloppen, want we verwachten een organisatie hier. We behandelen het dan ook als categorische (nominale) variabele (<code>factor</code> in R) en maken een staafdiagram (eng: <em>bar plot</em>). Er is geen betekenisvolle sortering mogelijk bij categorische variabelen, maar het is een goed gewoonte om te toch even van frequent naar minder frequent te sorteren om een zicht te krijgen op de curve die zo ontstaat.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="data-exploratie.html#cb16-1"></a>rhDNase &lt;-<span class="st"> </span>rhDNase <span class="op">%&gt;%</span><span class="st"> </span>as.data.table</span>
 <span id="cb16-2"><a href="data-exploratie.html#cb16-2"></a>rhDNase[, inst <span class="op">:</span><span class="er">=</span><span class="st"> </span>inst <span class="op">%&gt;%</span><span class="st"> </span>factor]</span>
 <span id="cb16-3"><a href="data-exploratie.html#cb16-3"></a>rhDNase<span class="op">$</span>inst <span class="op">%&gt;%</span><span class="st"> </span>table <span class="op">%&gt;%</span><span class="st"> </span>sort <span class="op">%&gt;%</span><span class="st"> </span>rev <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb16-4"><a href="data-exploratie.html#cb16-4"></a>	<span class="kw">barplot</span>(<span class="dt">xlab =</span> <span class="st">&quot;Enrolling institution&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;# of instances&quot;</span>,</span>
 <span id="cb16-5"><a href="data-exploratie.html#cb16-5"></a>		<span class="dt">main =</span> <span class="st">&quot;Distribution of the institutions&quot;</span>, <span class="dt">cex.names =</span> <span class="fl">.6</span>, <span class="dt">las =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
-<p>Er zijn wel een aantal dominantere instituten maar die dominantie lijkt niet te extreem er blijft een goede verdeling tussen de verschillende instituten van grofweg 10-15 instanties per instituut.
-- <code>trt</code> <em>treatment arm: 0=placebo, 1= rhDNase</em> Een arm betekent hier een vertakking van de beslissingsboom die gebruikt wordt om patiënten in een bepaalde categorie te plaatsen. Zulke een binaire kan je evengoed met een staafdiagram voorstellen, maar hier heb je duidelijk een controle experiment (de placebo-arm) en volstaat het om de verhouding behandeld/placebo mee te geven omdat alle informatie van de verdeling hierin vervat zit:</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>Er zijn wel een aantal dominantere instituten maar die dominantie lijkt niet te extreem er blijft een goede verdeling tussen de verschillende instituten van grofweg 10-15 instanties per instituut.</p></li>
+<li><p><code>trt</code> <em>treatment arm: 0=placebo, 1= rhDNase</em> Een arm betekent hier een vertakking van de beslissingsboom die gebruikt wordt om patiënten in een bepaalde categorie te plaatsen. Zulke een binaire kan je evengoed met een staafdiagram voorstellen, maar hier heb je duidelijk een controle experiment (de placebo-arm) en volstaat het om de verhouding behandeld/placebo mee te geven omdat alle informatie van de verdeling hierin vervat zit:</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="data-exploratie.html#cb17-1"></a>rhDNase<span class="op">$</span>trt <span class="op">%&gt;%</span><span class="st"> </span>sum <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">divide_by</span>(rhDNase <span class="op">%&gt;%</span><span class="st"> </span>nrow) <span class="op">%&gt;%</span></span>
 <span id="cb17-2"><a href="data-exploratie.html#cb17-2"></a>	<span class="kw">multiply_by</span>(<span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb17-3"><a href="data-exploratie.html#cb17-3"></a>	<span class="kw">sprintf</span>(<span class="st">&quot;%.1f%%&quot;</span>, .)</span></code></pre></div>
 <pre><code>## [1] &quot;48.8%&quot;</code></pre>
-<p>Dit ligt héél dicht bij 50% en we kunnen dus zeggen dat de groepen mooi <em>gebalanceerd</em> zijn zoals het hoort
-- <code>entry.dt</code>: <em>date of entry into the study</em>. Uit de structuur zagen we al dat het formaat correct in ingesteld als datum. Een datum is <em>in theorie</em> een continue variabele omdat er tussen twee willekeurig gekozen tijdstippen oneindig veel nieuwe tijdstippen liggen. Bovendien heeft een datum geen betekenisvol nulpunt. Voor een continue variabele is een densiteit-diagram beter geschikt dan een histogram:</p>
+<p>Dit ligt héél dicht bij 50% en we kunnen dus zeggen dat de groepen mooi <em>gebalanceerd</em> zijn zoals het hoort</p></li>
+<li><p><code>entry.dt</code>: <em>date of entry into the study</em>. Uit de structuur zagen we al dat het formaat correct in ingesteld als datum. Een datum is <em>in theorie</em> een continue variabele omdat er tussen twee willekeurig gekozen tijdstippen oneindig veel nieuwe tijdstippen liggen. Bovendien heeft een datum geen betekenisvol nulpunt. Voor een continue variabele is een densiteit-diagram beter geschikt dan een histogram:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="data-exploratie.html#cb19-1"></a>rhDNase[, entry.dt.num <span class="op">:</span><span class="er">=</span><span class="st"> </span>entry.dt <span class="op">%&gt;%</span><span class="st"> </span>as.numeric]</span>
 <span id="cb19-2"><a href="data-exploratie.html#cb19-2"></a></span>
 <span id="cb19-3"><a href="data-exploratie.html#cb19-3"></a>rhDNase<span class="op">$</span>entry.dt.num <span class="op">%&gt;%</span><span class="st"> </span>density <span class="op">%&gt;%</span></span>
@@ -426,17 +422,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb19-8"><a href="data-exploratie.html#cb19-8"></a>	<span class="dt">labels =</span> rhDNase<span class="op">$</span>entry.dt <span class="op">%&gt;%</span><span class="st"> </span>pretty)</span>
 <span id="cb19-9"><a href="data-exploratie.html#cb19-9"></a></span>
 <span id="cb19-10"><a href="data-exploratie.html#cb19-10"></a>rhDNase<span class="op">$</span>entry.dt.num <span class="op">%&gt;%</span><span class="st"> </span>rug</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
-<p>Hier zien we dat de rekrutering van deelnemers voor de klinische studie na één maand op een laag pitje te hebben gestaan pas goed op gang is gekomen. De densiteit laat twee pieken zien (modi), we spreken van een <em>bimodale verdeling</em>.
-- <code>end.dt</code>: <em>date of last follow-up</em>. Is sterk gelijkend op het vorige. Laten we deze feature gebruiken om de loopduur van elke instantie te berekenen en de distributie hiervan in grafiek te zetten (zie Oefening <a href="data-exploratie.html#exr:distributie-loopduur">4.1</a>).</p>
-
+<p><img src="_main_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>Hier zien we dat de rekrutering van deelnemers voor de klinische studie na één maand op een laag pitje te hebben gestaan pas goed op gang is gekomen. De densiteit laat twee pieken zien (modi), we spreken van een <em>bimodale verdeling</em>.</p></li>
+<li><p><code>end.dt</code>: <em>date of last follow-up</em>. Is sterk gelijkend op het vorige. Laten we deze feature gebruiken om de loopduur van elke instantie te berekenen en de distributie hiervan in grafiek te zetten (zie Oefening <a href="data-exploratie.html#exr:distributie-loopduur">4.1</a>).</p>
+<p></p>
 <div class="exercise">
 <span id="exr:distributie-loopduur" class="exercise"><strong>Oefening 4.1  </strong></span>Probeer de distributie voor de loopduur per instantie in beeld te brengen en te beschrijven wat je ziet.
-</div>
-
-<ul>
-<li><code>ivstart</code> en <code>ivstop</code><em>days from enrollment to the start of IV antibiotics</em> en <em>days from enrollment to the cessation of IV antibiotics</em> (IV staat voor intraveneus) Deze laatste twee variabelen zijn weer verschillend: het gaat om discrete aantallen (<span class="math inline">\(\subset \mathbb{N}\)</span>), dus geen kommagetallen, maar, tegen de verwachting, wél negatief kunnen zijn. Bovendien zijn er erg veel ontbrekende waarden:</li>
-</ul>
+</div></li>
+<li><p><code>ivstart</code> en <code>ivstop</code><em>days from enrollment to the start of IV antibiotics</em> en <em>days from enrollment to the cessation of IV antibiotics</em> (IV staat voor intraveneus) Deze laatste twee variabelen zijn weer verschillend: het gaat om discrete aantallen (<span class="math inline">\(\subset \mathbb{N}\)</span>), dus geen kommagetallen, maar, tegen de verwachting, wél negatief kunnen zijn. Bovendien zijn er erg veel ontbrekende waarden:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="data-exploratie.html#cb20-1"></a>rhDNase<span class="op">$</span>ivstart <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">32</span>)</span></code></pre></div>
 <pre><code>##  [1]  NA  NA  65  NA  NA  NA  NA  90  NA   8  63  60  83  50  NA  99  35  71  NA
 ## [20]   8  NA  NA  NA  20  62  85  NA  13  51 166  37  65</code></pre>
@@ -449,7 +442,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb24-2"><a href="data-exploratie.html#cb24-2"></a>	<span class="dt">main =</span> <span class="st">&quot;Verdeling wachttijd voor behandeling&quot;</span>,</span>
 <span id="cb24-3"><a href="data-exploratie.html#cb24-3"></a>		<span class="dt">xlab =</span>  <span class="st">&quot;wachttijd&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;# instanties&quot;</span>)</span>
 <span id="cb24-4"><a href="data-exploratie.html#cb24-4"></a><span class="kw">abline</span>(<span class="dt">v =</span> <span class="dv">0</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p>We zien een verdeling die eerder uniform is dan wel normaal. Ook hier kunnen we nu de verdeling van de behandelingsduur in grafiek zetten:</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="data-exploratie.html#cb25-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)</span>
 <span id="cb25-2"><a href="data-exploratie.html#cb25-2"></a></span>
@@ -457,7 +450,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb25-4"><a href="data-exploratie.html#cb25-4"></a>	<span class="kw">hist</span> (<span class="dt">main =</span> <span class="st">&quot;Behandelingsduur&quot;</span>)</span>
 <span id="cb25-5"><a href="data-exploratie.html#cb25-5"></a>rhDNase[, ivstop <span class="op">-</span><span class="st"> </span>ivstart] <span class="op">%&gt;%</span><span class="st"> </span>log <span class="op">%&gt;%</span></span>
 <span id="cb25-6"><a href="data-exploratie.html#cb25-6"></a>	<span class="kw">hist</span>(<span class="dt">main =</span> <span class="st">&quot;ln(Behandelingsduur)&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p>De eerste grafiek laat zien dat de behandelingsduur nogal <a href="https://nl.wikipedia.org/wiki/Scheefheid">rechtsscheef</a> verdeeld is. De transformatie door middel van de natuurlijke logaritme (<span class="math inline">\(ln(x)=\,^elog(x)\)</span>) veranderd de verdeling in iets wat normaler lijkt. We zeggen dat de behandelingsduur <em>lognormaal</em> verdeeld lijkt te zijn. Laten we de theoretische curve erbij zetten om de afwijkingen tussen werkelijk en theoretisch te visualiseren:</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="data-exploratie.html#cb26-1"></a>bduur_log &lt;-<span class="st"> </span>rhDNase[,  <span class="kw">log</span>(ivstop <span class="op">-</span><span class="st"> </span>ivstart)]</span>
 <span id="cb26-2"><a href="data-exploratie.html#cb26-2"></a>bduur_log &lt;-<span class="st"> </span>bduur_log[<span class="op">!</span><span class="kw">is.na</span>(bduur_log) <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.infinite</span>(bduur_log)]</span>
@@ -470,17 +463,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb26-9"><a href="data-exploratie.html#cb26-9"></a>	<span class="dt">sd =</span> bduur_log <span class="op">%&gt;%</span><span class="st"> </span>sd)</span>
 <span id="cb26-10"><a href="data-exploratie.html#cb26-10"></a></span>
 <span id="cb26-11"><a href="data-exploratie.html#cb26-11"></a><span class="kw">lines</span>(x, y , <span class="dt">col =</span> <span class="dv">1</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p></li>
+</ul>
 <p>We kunnen verdelingen ook met andere grafiek-types in beeld brengen. De meest populaire zijn de <a href="https://nl.wikipedia.org/wiki/Boxplot">boxplot</a>, de {dot plot}(<a href="https://en.wikipedia.org/wiki/Dot_plot_(statistics)" class="uri">https://en.wikipedia.org/wiki/Dot_plot_(statistics)</a>), de <a href="https://www.r-statistics.com/2011/03/beeswarm-boxplot-and-plotting-it-with-r/#:~:text=A%20bee%20swarm%20plot%20is,controlling%20the%20characters%20and%20colors.">beeswarm plot</a> en de <a href="https://en.wikipedia.org/wiki/Violin_plot">violin plot</a>.</p>
 
 <div class="exercise">
-<p><span id="exr:grafieftypes" class="exercise"><strong>Oefening 4.2  </strong></span>Tracht de verdeling van de logaritmisch geschaalde behandelingsduur te visualiseren door middel van de functies <code>base::dotchart</code>, <code>base::boxplot</code>, <code>beeswarm::beeswarm</code> en <code>vioplot::vioplot</code>. De oplossing moet er zo uit zien:</p>
+<p><span id="exr:grafieftypes" class="exercise"><strong>Oefening 4.2  (Verdeling)  </strong></span>Tracht de verdeling van de logaritmisch geschaalde behandelingsduur te visualiseren door middel van de functies <code>base::dotchart</code>, <code>base::boxplot</code>, <code>beeswarm::beeswarm</code> en <code>vioplot::vioplot</code>. De oplossing moet er zo uit zien:</p>
 <div class="figure">
 <img src="img/eindresultaat-grafieftypes.png" alt="" />
 <p class="caption">Eindresultaat grafieftypes</p>
 </div>
 <blockquote>
-<p>Tip: Als je meer dan 300 characters nodig hebt voor heel deze oefening, weet je dat je te ver aan het zoeken bent.</p>
+<p>Tip: Als je meer dan 300 karakters nodig hebt voor heel deze oefening, weet je dat je te ver aan het zoeken bent.</p>
 </blockquote>
 <blockquote>
 Opgelet: de variabele <code>bduur_log</code> wordt voor deze oefening verwacht in scope te zijn.
@@ -511,19 +505,30 @@ Opgelet: de variabele <code>bduur_log</code> wordt voor deze oefening verwacht i
 <span id="cb27-19"><a href="data-exploratie.html#cb27-19"></a>		dat <span class="op">%&gt;%</span><span class="st"> </span>cor <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">extract</span>(<span class="dv">1</span>, <span class="dv">2</span>))))</span>
 <span id="cb27-20"><a href="data-exploratie.html#cb27-20"></a>}</span></code></pre></div>
 <div class="figure"><span id="fig:correl-demo"></span>
-<img src="_main_files/figure-html/correl-demo-1.png" alt="Demonstratie van de correlatie tussen twee variabelen. Merk op hoe de geschatte correlatie coëfficiënt de werkelijke benaderd. De covariantie matrix komt overeen met \[\begin{bmatrix}1 &amp; \rho\\\rho &amp; 1\end{bmatrix}\]" width="672" />
+<img src="_main_files/figure-html/correl-demo-1.png" alt="Demonstratie van de correlatie tussen twee variabelen. Merk op hoe de geschatte correlatie coëfficiënt de werkelijke benaderd. De covariantie matrix komt overeen met (\(\rho\) is de correlatiecoëfficiënt) \[\begin{bmatrix}1 &amp; \rho\\\rho &amp; 1\end{bmatrix}\]" width="672" />
 <p class="caption">
-Figuur 4.1: Demonstratie van de correlatie tussen twee variabelen. Merk op hoe de geschatte correlatie coëfficiënt de werkelijke benaderd. De covariantie matrix komt overeen met <span class="math display">\[\begin{bmatrix}1 &amp; \rho\\\rho &amp; 1\end{bmatrix}\]</span>
+Figuur 4.1: Demonstratie van de correlatie tussen twee variabelen. Merk op hoe de geschatte correlatie coëfficiënt de werkelijke benaderd. De covariantie matrix komt overeen met (<span class="math inline">\(\rho\)</span> is de correlatiecoëfficiënt) <span class="math display">\[\begin{bmatrix}1 &amp; \rho\\\rho &amp; 1\end{bmatrix}\]</span>
 </p>
 </div>
 
 
 <div class="remark">
-<p> <span class="remark"><em>Remark </em></span> <strong>Opgelet</strong>: een correlatie tussen twee variabelen is geen garantie voor een causaal verband. Bekijk deze kennis-clip om te begrijpen hoe je wel een causaal verband kan onderzoeken:</p>
+<p> <span class="remark"><em>Opmerking </em></span> <strong>Opgelet</strong>: een correlatie tussen twee variabelen is geen garantie voor een causaal verband. Bekijk deze kennis-clip om te begrijpen hoe je wel een causaal verband kan onderzoeken:</p>
 <iframe width="566" height="318" src="https://www.youtube.com/embed/HUti6vGctQM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 </div>
 
+
+<div class="exercise">
+<p><span id="exr:when-to-correlate" class="exercise"><strong>Oefening 4.3  (Wanneer corelleer)  </strong></span>Gegeven de volgende combinaties van verschillende soorten variabelen, wanneer mag je wél correleren:</p>
+<ul>
+<li>Nominaal vs numeriek discreet lineair</li>
+<li>Numeriek continu lineair vs Numeriek continu lineair</li>
+<li>Nominaal vs numeriek continu circulair</li>
+<li>Numeriek continu lineair vs numeriek continu circulair</li>
+<li>Numeriek continu lineair vs ordinaal
+</div></li>
+</ul>
 
 </div>
 </div>
