@@ -213,6 +213,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7" data-path="de-percetron.html"><a href="de-percetron.html#trainen-van-de-perceptron"><i class="fa fa-check"></i><b>6.7</b> Trainen van de perceptron</a></li>
 <li class="chapter" data-level="6.8" data-path="de-percetron.html"><a href="de-percetron.html#voorspellen-van-de-iris-soort"><i class="fa fa-check"></i><b>6.8</b> Voorspellen van de iris soort</a></li>
 </ul></li>
+<li class="chapter" data-level="7" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html"><i class="fa fa-check"></i><b>7</b> Inleiding tot Artificiële Neurale Netwerken</a><ul>
+<li class="chapter" data-level="7.1" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#geschakelde-perceptronen"><i class="fa fa-check"></i><b>7.1</b> Geschakelde perceptronen</a></li>
+<li class="chapter" data-level="7.2" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#feed-forward-anns-ff-anns"><i class="fa fa-check"></i><b>7.2</b> Feed-forward ANNs (FF-ANNs)</a></li>
+<li class="chapter" data-level="7.3" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#types-neuronen"><i class="fa fa-check"></i><b>7.3</b> Types neuronen</a></li>
+<li class="chapter" data-level="7.4" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#backpropagation"><i class="fa fa-check"></i><b>7.4</b> Backpropagation</a></li>
+<li class="chapter" data-level="7.5" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#de-verliesfunctie-en-kost-functies"><i class="fa fa-check"></i><b>7.5</b> De verliesfunctie en kost-functies</a></li>
+<li class="chapter" data-level="7.6" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#gradiënt-afdaling"><i class="fa fa-check"></i><b>7.6</b> Gradiënt afdaling</a></li>
+<li class="chapter" data-level="7.7" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#stochastische-en-minibatch-gradiënt-afdaling"><i class="fa fa-check"></i><b>7.7</b> Stochastische en Minibatch gradiënt afdaling</a></li>
+<li class="chapter" data-level="7.8" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#regularisatie"><i class="fa fa-check"></i><b>7.8</b> Regularisatie</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><i class="fa fa-check"></i><b>A</b> Inwendig product, matrix-vermenigvuldiging, vectoren en tensoren</a></li>
 <li class="chapter" data-level="B" data-path="computations-using-gpu.html"><a href="computations-using-gpu.html"><i class="fa fa-check"></i><b>B</b> Computations using GPU</a></li>
@@ -255,20 +265,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>Oefening <a href="data-exploratie.html#exr:grafieftypes">4.2</a>.</p>
 </blockquote>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="antwoorden.html#cb93-1"></a><span class="kw">library</span>(beeswarm)</span>
-<span id="cb93-2"><a href="antwoorden.html#cb93-2"></a><span class="kw">library</span>(vioplot)</span>
-<span id="cb93-3"><a href="antwoorden.html#cb93-3"></a></span>
-<span id="cb93-4"><a href="antwoorden.html#cb93-4"></a>rhDNase &lt;-<span class="st"> </span>rhDNase <span class="op">%&gt;%</span><span class="st"> </span>as.data.table</span>
-<span id="cb93-5"><a href="antwoorden.html#cb93-5"></a>bduur_log &lt;-<span class="st"> </span>rhDNase[,  <span class="kw">log</span>(ivstop <span class="op">-</span><span class="st"> </span>ivstart)]</span>
-<span id="cb93-6"><a href="antwoorden.html#cb93-6"></a>bduur_log &lt;-<span class="st"> </span>bduur_log[<span class="op">!</span><span class="kw">is.na</span>(bduur_log) <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.infinite</span>(bduur_log)]</span>
-<span id="cb93-7"><a href="antwoorden.html#cb93-7"></a></span>
-<span id="cb93-8"><a href="antwoorden.html#cb93-8"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">mar =</span> <span class="kw">rep</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="dt">xaxt =</span> <span class="st">&quot;n&quot;</span>)</span>
-<span id="cb93-9"><a href="antwoorden.html#cb93-9"></a></span>
-<span id="cb93-10"><a href="antwoorden.html#cb93-10"></a>bduur_log <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">dotchart</span>(<span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">lcolor =</span> <span class="ot">NA</span>)</span>
-<span id="cb93-11"><a href="antwoorden.html#cb93-11"></a>bduur_log <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">boxplot</span>(<span class="dt">horizontal =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb93-12"><a href="antwoorden.html#cb93-12"></a>bduur_log <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">beeswarm</span>(<span class="dt">horizontal =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb93-13"><a href="antwoorden.html#cb93-13"></a>bduur_log <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">vioplot</span>(<span class="dt">horizontal =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="antwoorden.html#cb95-1"></a><span class="kw">library</span>(beeswarm)</span>
+<span id="cb95-2"><a href="antwoorden.html#cb95-2"></a><span class="kw">library</span>(vioplot)</span>
+<span id="cb95-3"><a href="antwoorden.html#cb95-3"></a></span>
+<span id="cb95-4"><a href="antwoorden.html#cb95-4"></a>rhDNase &lt;-<span class="st"> </span>rhDNase <span class="op">%&gt;%</span><span class="st"> </span>as.data.table</span>
+<span id="cb95-5"><a href="antwoorden.html#cb95-5"></a>bduur_log &lt;-<span class="st"> </span>rhDNase[,  <span class="kw">log</span>(ivstop <span class="op">-</span><span class="st"> </span>ivstart)]</span>
+<span id="cb95-6"><a href="antwoorden.html#cb95-6"></a>bduur_log &lt;-<span class="st"> </span>bduur_log[<span class="op">!</span><span class="kw">is.na</span>(bduur_log) <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.infinite</span>(bduur_log)]</span>
+<span id="cb95-7"><a href="antwoorden.html#cb95-7"></a></span>
+<span id="cb95-8"><a href="antwoorden.html#cb95-8"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">mar =</span> <span class="kw">rep</span>(<span class="dv">1</span>, <span class="dv">4</span>), <span class="dt">xaxt =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb95-9"><a href="antwoorden.html#cb95-9"></a></span>
+<span id="cb95-10"><a href="antwoorden.html#cb95-10"></a>bduur_log <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">dotchart</span>(<span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">lcolor =</span> <span class="ot">NA</span>)</span>
+<span id="cb95-11"><a href="antwoorden.html#cb95-11"></a>bduur_log <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">boxplot</span>(<span class="dt">horizontal =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb95-12"><a href="antwoorden.html#cb95-12"></a>bduur_log <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">beeswarm</span>(<span class="dt">horizontal =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb95-13"><a href="antwoorden.html#cb95-13"></a>bduur_log <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">vioplot</span>(<span class="dt">horizontal =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
 
 </div>
 </div>

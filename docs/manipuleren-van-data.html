@@ -213,6 +213,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7" data-path="de-percetron.html"><a href="de-percetron.html#trainen-van-de-perceptron"><i class="fa fa-check"></i><b>6.7</b> Trainen van de perceptron</a></li>
 <li class="chapter" data-level="6.8" data-path="de-percetron.html"><a href="de-percetron.html#voorspellen-van-de-iris-soort"><i class="fa fa-check"></i><b>6.8</b> Voorspellen van de iris soort</a></li>
 </ul></li>
+<li class="chapter" data-level="7" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html"><i class="fa fa-check"></i><b>7</b> Inleiding tot Artificiële Neurale Netwerken</a><ul>
+<li class="chapter" data-level="7.1" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#geschakelde-perceptronen"><i class="fa fa-check"></i><b>7.1</b> Geschakelde perceptronen</a></li>
+<li class="chapter" data-level="7.2" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#feed-forward-anns-ff-anns"><i class="fa fa-check"></i><b>7.2</b> Feed-forward ANNs (FF-ANNs)</a></li>
+<li class="chapter" data-level="7.3" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#types-neuronen"><i class="fa fa-check"></i><b>7.3</b> Types neuronen</a></li>
+<li class="chapter" data-level="7.4" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#backpropagation"><i class="fa fa-check"></i><b>7.4</b> Backpropagation</a></li>
+<li class="chapter" data-level="7.5" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#de-verliesfunctie-en-kost-functies"><i class="fa fa-check"></i><b>7.5</b> De verliesfunctie en kost-functies</a></li>
+<li class="chapter" data-level="7.6" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#gradiënt-afdaling"><i class="fa fa-check"></i><b>7.6</b> Gradiënt afdaling</a></li>
+<li class="chapter" data-level="7.7" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#stochastische-en-minibatch-gradiënt-afdaling"><i class="fa fa-check"></i><b>7.7</b> Stochastische en Minibatch gradiënt afdaling</a></li>
+<li class="chapter" data-level="7.8" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#regularisatie"><i class="fa fa-check"></i><b>7.8</b> Regularisatie</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><i class="fa fa-check"></i><b>A</b> Inwendig product, matrix-vermenigvuldiging, vectoren en tensoren</a></li>
 <li class="chapter" data-level="B" data-path="computations-using-gpu.html"><a href="computations-using-gpu.html"><i class="fa fa-check"></i><b>B</b> Computations using GPU</a></li>
@@ -315,7 +325,7 @@ Figuur 5.1: Schematisch overzicht van het versnijden van een dataset.
 <h3><span class="header-section-number">5.1.2</span> Booleaans masker</h3>
 <p>Een booleaans masker is gewoon een vector of lijst van booleaanse waarden die gebruikt kunnen worden om uit data frames en data tables die rijen te selecteren die overeenkomen met <code>TRUE</code> in het masker.</p>
 <p><img src="img/masker.svg" /><!-- --></p>
-<p>In het Voorbeeld <a href="#exm:oef-versnijden-2"><strong>??</strong></a> werd er reeds van een masker gebruik gemaakt:</p>
+<p>In het Voorbeeld <a href="manipuleren-van-data.html#exm:vb-versnijden">5.1</a> werd er reeds van een masker gebruik gemaakt:</p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="manipuleren-van-data.html#cb55-1"></a>rode_wijn[,<span class="st">`</span><span class="dt">residual sugar</span><span class="st">`</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">50</span>)</span></code></pre></div>
 <pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [13]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE

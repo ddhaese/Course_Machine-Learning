@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="de-percetron.html"/>
+<link rel="prev" href="inleiding-tot-artificiële-neurale-netwerken.html"/>
 <link rel="next" href="computations-using-gpu.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -213,6 +213,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7" data-path="de-percetron.html"><a href="de-percetron.html#trainen-van-de-perceptron"><i class="fa fa-check"></i><b>6.7</b> Trainen van de perceptron</a></li>
 <li class="chapter" data-level="6.8" data-path="de-percetron.html"><a href="de-percetron.html#voorspellen-van-de-iris-soort"><i class="fa fa-check"></i><b>6.8</b> Voorspellen van de iris soort</a></li>
 </ul></li>
+<li class="chapter" data-level="7" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html"><i class="fa fa-check"></i><b>7</b> Inleiding tot Artificiële Neurale Netwerken</a><ul>
+<li class="chapter" data-level="7.1" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#geschakelde-perceptronen"><i class="fa fa-check"></i><b>7.1</b> Geschakelde perceptronen</a></li>
+<li class="chapter" data-level="7.2" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#feed-forward-anns-ff-anns"><i class="fa fa-check"></i><b>7.2</b> Feed-forward ANNs (FF-ANNs)</a></li>
+<li class="chapter" data-level="7.3" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#types-neuronen"><i class="fa fa-check"></i><b>7.3</b> Types neuronen</a></li>
+<li class="chapter" data-level="7.4" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#backpropagation"><i class="fa fa-check"></i><b>7.4</b> Backpropagation</a></li>
+<li class="chapter" data-level="7.5" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#de-verliesfunctie-en-kost-functies"><i class="fa fa-check"></i><b>7.5</b> De verliesfunctie en kost-functies</a></li>
+<li class="chapter" data-level="7.6" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#gradiënt-afdaling"><i class="fa fa-check"></i><b>7.6</b> Gradiënt afdaling</a></li>
+<li class="chapter" data-level="7.7" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#stochastische-en-minibatch-gradiënt-afdaling"><i class="fa fa-check"></i><b>7.7</b> Stochastische en Minibatch gradiënt afdaling</a></li>
+<li class="chapter" data-level="7.8" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#regularisatie"><i class="fa fa-check"></i><b>7.8</b> Regularisatie</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><i class="fa fa-check"></i><b>A</b> Inwendig product, matrix-vermenigvuldiging, vectoren en tensoren</a></li>
 <li class="chapter" data-level="B" data-path="computations-using-gpu.html"><a href="computations-using-gpu.html"><i class="fa fa-check"></i><b>B</b> Computations using GPU</a></li>
@@ -261,7 +271,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   \tag{A.2}
 \end{equation}\]</span></p>
 <p>Nemen we <code>iris</code> dataset uit een vorige <a href="de-percetron.html#casestudy-onderscheiden-van-setosa">casestudy</a>, dan ziet de invoer van een neuraal netwerk <span class="math inline">\(\mathbf{x}\)</span> er als volgt uit:</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html#cb76-1"></a>x &lt;-<span class="st"> </span>iris[, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">cbind</span>(<span class="st">&quot;Bias&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), .) <span class="op">%&gt;%</span><span class="st"> </span>as.matrix</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html#cb78-1"></a>x &lt;-<span class="st"> </span>iris[, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">cbind</span>(<span class="st">&quot;Bias&quot;</span> =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), .) <span class="op">%&gt;%</span><span class="st"> </span>as.matrix</span></code></pre></div>
 <p><span class="math display">\[\mathbf{x}=\begin{bmatrix}
 1.0&amp;5.1&amp;3.5 \\
 1.0&amp;4.9&amp;3.0 \\
@@ -272,7 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \vdots&amp;\vdots&amp;\vdots \\
 \end{bmatrix}\]</span></p>
 <p>De eerste kolom is de nep-variabele waarvan sprake zal zijn tijdens het bespreken van Feed-forward ANNs. Nemen we hier nu de eerste rij uit, dan krijgen we een geannoteerde [<em>vector</em>](<a href="https://nl.wikipedia.org/wiki/Vector_(wiskunde)" class="uri">https://nl.wikipedia.org/wiki/Vector_(wiskunde)</a>. In R doen we dit:</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html#cb77-1"></a>x[<span class="dv">1</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html#cb79-1"></a>x[<span class="dv">1</span>,]</span></code></pre></div>
 <pre><code>##         Bias Sepal.Length  Sepal.Width 
 ##          1.0          5.1          3.5</code></pre>
 <p>Wiskundigen gaan een vector echter meestal voorstellen als een kolomvector. Datawetenschappers houden er dan weer van om een vector als <em>rijvector</em> voor te stellen. Dat heeft te maken met het feit dat het aantal variabelen vaak veel kleiner is dan het aantal instanties en, zoals hierboven voor <span class="math inline">\(\mathbf{x}\)</span> gedaan werd, de matrix gemakkelijker weer te geven is. Hier gaan we de wiskundige weergave volgen, maar het resultaat moet hetzelfde zijn. We bekomen een kolomvector door deze eerste rij te <a href="https://nl.wikipedia.org/wiki/Getransponeerde_matrix"><em>transponeren</em></a>, i.e. we maken van de rijen kolommen:</p>
@@ -309,10 +319,10 @@ Figuur A.1: Matrix-vermenigvuldiging van. De vermenigvuldiging van twee matrices
 </div>
 
 <p>Nu kunnen we terug de wiskundige wereld verlaten en de datawetenschapper wereld betreden, en kunnen de dat kantelen (transponeren) van de matrices vergeten. In R voer je een matrix-vermenigvuldiging uit door middel van de <code>%*%</code> operator:</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html#cb79-1"></a><span class="kw">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb79-2"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html#cb79-2"></a>x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">15</span>, <span class="dv">10</span>, <span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">matrix</span>(<span class="dv">5</span>, <span class="dv">3</span>)</span>
-<span id="cb79-3"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html#cb79-3"></a>theta &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">6</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">matrix</span>(<span class="dv">3</span>, <span class="dv">2</span>)</span>
-<span id="cb79-4"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html#cb79-4"></a>z &lt;-<span class="st"> </span>x <span class="op">%*%</span><span class="st"> </span>theta</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html#cb81-1"></a><span class="kw">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb81-2"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html#cb81-2"></a>x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">15</span>, <span class="dv">10</span>, <span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">matrix</span>(<span class="dv">5</span>, <span class="dv">3</span>)</span>
+<span id="cb81-3"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html#cb81-3"></a>theta &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">6</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">matrix</span>(<span class="dv">3</span>, <span class="dv">2</span>)</span>
+<span id="cb81-4"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html#cb81-4"></a>z &lt;-<span class="st"> </span>x <span class="op">%*%</span><span class="st"> </span>theta</span></code></pre></div>
 <p><span class="math display">\[z=\mathbf{x}\cdot\mathbf{\theta}=\begin{bmatrix}
 14.1&amp;9.7&amp;13.9 \\
 8.3&amp;14.5&amp;16.9 \\
@@ -332,7 +342,7 @@ Figuur A.1: Matrix-vermenigvuldiging van. De vermenigvuldiging van twee matrices
 \end{bmatrix}\]</span></p>
 
 <div class="exercise">
-<span id="exr:unnamed-chunk-35" class="exercise"><strong>Oefening A.1  </strong></span>Probeer nu zelf voor het eerste neuraal netwerk uit § <a href="#inleiding-tot-anns">Inleiding tot ANN’s</a> de resultaten in <code>nn$net.result</code> te bekomen door de invoergegevens te vermenigvuldigen met de parameters in <code>nn$weights</code>.
+<span id="exr:unnamed-chunk-38" class="exercise"><strong>Oefening A.1  </strong></span>Probeer nu zelf voor het eerste neuraal netwerk uit § <a href="#inleiding-tot-anns">Inleiding tot ANN’s</a> de resultaten in <code>nn$net.result</code> te bekomen door de invoergegevens te vermenigvuldigen met de parameters in <code>nn$weights</code>.
 </div>
 
 </div>
@@ -341,7 +351,7 @@ Figuur A.1: Matrix-vermenigvuldiging van. De vermenigvuldiging van twee matrices
           </div>
         </div>
       </div>
-<a href="de-percetron.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="inleiding-tot-artificiële-neurale-netwerken.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="computations-using-gpu.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

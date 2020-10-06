@@ -31,7 +31,7 @@
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="manipuleren-van-data.html"/>
-<link rel="next" href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"/>
+<link rel="next" href="inleiding-tot-artificiële-neurale-netwerken.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -213,6 +213,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7" data-path="de-percetron.html"><a href="de-percetron.html#trainen-van-de-perceptron"><i class="fa fa-check"></i><b>6.7</b> Trainen van de perceptron</a></li>
 <li class="chapter" data-level="6.8" data-path="de-percetron.html"><a href="de-percetron.html#voorspellen-van-de-iris-soort"><i class="fa fa-check"></i><b>6.8</b> Voorspellen van de iris soort</a></li>
 </ul></li>
+<li class="chapter" data-level="7" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html"><i class="fa fa-check"></i><b>7</b> Inleiding tot Artificiële Neurale Netwerken</a><ul>
+<li class="chapter" data-level="7.1" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#geschakelde-perceptronen"><i class="fa fa-check"></i><b>7.1</b> Geschakelde perceptronen</a></li>
+<li class="chapter" data-level="7.2" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#feed-forward-anns-ff-anns"><i class="fa fa-check"></i><b>7.2</b> Feed-forward ANNs (FF-ANNs)</a></li>
+<li class="chapter" data-level="7.3" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#types-neuronen"><i class="fa fa-check"></i><b>7.3</b> Types neuronen</a></li>
+<li class="chapter" data-level="7.4" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#backpropagation"><i class="fa fa-check"></i><b>7.4</b> Backpropagation</a></li>
+<li class="chapter" data-level="7.5" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#de-verliesfunctie-en-kost-functies"><i class="fa fa-check"></i><b>7.5</b> De verliesfunctie en kost-functies</a></li>
+<li class="chapter" data-level="7.6" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#gradiënt-afdaling"><i class="fa fa-check"></i><b>7.6</b> Gradiënt afdaling</a></li>
+<li class="chapter" data-level="7.7" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#stochastische-en-minibatch-gradiënt-afdaling"><i class="fa fa-check"></i><b>7.7</b> Stochastische en Minibatch gradiënt afdaling</a></li>
+<li class="chapter" data-level="7.8" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#regularisatie"><i class="fa fa-check"></i><b>7.8</b> Regularisatie</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><i class="fa fa-check"></i><b>A</b> Inwendig product, matrix-vermenigvuldiging, vectoren en tensoren</a></li>
 <li class="chapter" data-level="B" data-path="computations-using-gpu.html"><a href="computations-using-gpu.html"><i class="fa fa-check"></i><b>B</b> Computations using GPU</a></li>
@@ -280,13 +290,13 @@ Figuur 6.3: De anatomie van het neuron en de overeenkomstige node van een neuraa
 </p>
 </div>
 
-<p>Naar analogie met het biologisch neuron is de functie van een perceptron om complexe invoer om de ene of andere manier te reduceren tot één getal (<span class="math inline">\(z\)</span>; zie Formule <a href="de-percetron.html#eq:perceptron">(6.1)</a>).</p>
+<p>Naar analogie met het biologisch neuron is de functie van een perceptron om complexe invoer om de ene of andere manier te reduceren tot één getal (<span class="math inline">\(z\)</span>; zie Formule <a href="de-percetron.html#eq:perceptron">(6.1)</a>). Dit getal wordt soms de <em>logit</em> van een neuron genoemd.</p>
 <p><span class="math display" id="eq:perceptron">\[\begin{equation}
 	\mathbb{R}^n\rightarrow\mathbb{R}\\
   z=g(x, \theta)=\sum_{i=0}^{n}{\theta_ix_i}
   \tag{6.1}
 \end{equation}\]</span></p>
-<p>In een tweede functie wordt dit resultaat nog eens getransformeerd tot de voorspelling <span class="math inline">\(\hat{y}\)</span>. Één voorbeeld van zulk een transformatie is <a href="https://nl.wikipedia.org/wiki/Signum_(wiskunde)">het signum</a> (eng:<em>sign function</em>):</p>
+<p>In een tweede functie, de zogenaamde <em>activatiefunctie</em> (eng: <em>activation function</em>), wordt dit resultaat nog eens getransformeerd tot de voorspelling <span class="math inline">\(\hat{y}\)</span>. Één voorbeeld van zulk een transformatie is <a href="https://nl.wikipedia.org/wiki/Signum_(wiskunde)">het signum</a> (eng:<em>sign function</em>):</p>
 <p><span class="math display" id="eq:perceptron-transformatie">\[\begin{equation}
 	\hat{y}=t(z)=
 	\begin{cases}
@@ -335,7 +345,7 @@ Figuur 6.5: Twee eigenschappen van iris bloemen (kelkblad lengte en breedte) teg
 </div>
 <div id="de-perceptron-klasse" class="section level2">
 <h2><span class="header-section-number">6.4</span> De perceptron klasse</h2>
-<p>We gaan de perceptron in Python coderen, al zullen de resultaten in R worden onderzocht (zie ### om te begrijpen waarom).</p>
+<p>We gaan de perceptron in Python coderen, terwijl de resultaten in R zullen worden onderzocht (zie de § <em>The R Language</em> in de Appendix om te begrijpen waarom).</p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb58-1"><a href="de-percetron.html#cb58-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb58-2"><a href="de-percetron.html#cb58-2"></a></span>
 <span id="cb58-3"><a href="de-percetron.html#cb58-3"></a><span class="kw">class</span> Perceptron:</span>
@@ -345,9 +355,9 @@ Figuur 6.5: Twee eigenschappen van iris bloemen (kelkblad lengte en breedte) teg
 <span id="cb58-7"><a href="de-percetron.html#cb58-7"></a>    <span class="va">self</span>.theta_0 <span class="op">=</span> <span class="fl">0.0</span></span>
 <span id="cb58-8"><a href="de-percetron.html#cb58-8"></a>    <span class="va">self</span>.theta <span class="op">=</span> <span class="va">None</span></span>
 <span id="cb58-9"><a href="de-percetron.html#cb58-9"></a>    <span class="va">self</span>.errs <span class="op">=</span> []</span></code></pre></div>
-<p>De <code>Perceptron</code> klasse wordt geïnitialiseerd met de hyperparameters <code>learning_rate</code> en <code>n-iter</code>. De <code>learning_rate</code> (nl: <em>leersnelheid</em>) is een correctiefactor waarmee de gewichten <span class="math inline">\(\theta_i\)</span> worden vermenigvuldigd indien de uitkomst van de instantie fout is. <code>iteration_count</code> geeft aan hoeveel cycli het leeralgoritme moet volbrengen. <code>theta_0</code> en <code>theta</code> zijn de <em>parameters</em> en <code>theta_o</code> is een constante <span class="math inline">\(\theta_0\)</span> die aan de formule <a href="de-percetron.html#eq:perceptron">(6.1)</a>) kan worden toegevoegd (zie Formule <a href="de-percetron.html#eq:perceptron-constante">(6.3)</a> en komt in het tweedimensionaal geval neer op een asafsnede (eng: <em>intercept</em>). Deze constante wordt echter meestal weggelaten omdat het erop neerkomt dat een extra berekende variabele <span class="math inline">\(x_0\)</span> wordt toegevoegd, bestaande uit allemaal enen, waarvoor dan een overeenkomstige <span class="math inline">\(\theta_0\)</span> wordt voorzien.</p>
+<p>De <code>Perceptron</code> klasse wordt geïnitialiseerd met de hyperparameters <code>learning_rate</code> en <code>n-iter</code>. De <code>learning_rate</code> (nl: <em>leersnelheid</em>) is een correctiefactor waarmee de gewichten <span class="math inline">\(\theta_i\)</span> worden vermenigvuldigd indien de uitkomst van de instantie fout is. <code>iteration_count</code> geeft aan hoeveel cycli het leeralgoritme moet volbrengen. <code>theta_0</code> en <code>theta</code> zijn de <em>parameters</em> en <code>theta_0</code> is een constante <span class="math inline">\(\theta_0\)</span> die aan de formule <a href="de-percetron.html#eq:perceptron">(6.1)</a>) kan worden toegevoegd (zie Formule <a href="de-percetron.html#eq:perceptron-constante">(6.3)</a> en komt in het tweedimensionaal geval neer op een asafsnede (eng: <em>intercept</em>). Deze constante wordt echter meestal weggelaten omdat het erop neerkomt dat een extra berekende variabele <span class="math inline">\(x_0\)</span> wordt toegevoegd, bestaande uit allemaal enen, waarvoor dan een overeenkomstige <span class="math inline">\(\theta_0\)</span> wordt voorzien.</p>
 <p><span class="math display" id="eq:perceptron-constante">\[\begin{equation}
-  f(x,\theta)=\theta_0+\sum_{i=1}^{n}{\theta_ix_i}
+  g(x,\theta)=\theta_0+\sum_{i=1}^{n}{\theta_ix_i}
   \tag{6.3}
 \end{equation}\]</span></p>
 <p>In de interne variabele <code>errs</code> worden het aantal fouten bewaard die bij elke cyclus gemaakt worden. Hiermee kunnen we het verloop van de performantie van het leeralgoritme opvolgen of achteraf reconstrueren.</p>
@@ -355,11 +365,11 @@ Figuur 6.5: Twee eigenschappen van iris bloemen (kelkblad lengte en breedte) teg
 </div>
 <div id="de-perceptron-functies" class="section level2">
 <h2><span class="header-section-number">6.5</span> De perceptron functies</h2>
-<p>We zagen twee functies die de eigenlijke kern vormen van de perceptron: <span class="math inline">\(f\)</span> en <span class="math inline">\(t\)</span>. Laten we deze als <a href="https://stackoverflow.com/questions/155609/whats-the-difference-between-a-method-and-a-function">methoden</a> toevoegen:</p>
+<p>We zagen twee functies die de eigenlijke kern vormen van de perceptron: <span class="math inline">\(g\)</span> en <span class="math inline">\(t\)</span>. Laten we deze als <a href="https://stackoverflow.com/questions/155609/whats-the-difference-between-a-method-and-a-function">methoden</a> toevoegen:</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb59-1"><a href="de-percetron.html#cb59-1"></a><span class="kw">class</span> Perceptron:</span>
 <span id="cb59-2"><a href="de-percetron.html#cb59-2"></a>  [...]</span>
 <span id="cb59-3"><a href="de-percetron.html#cb59-3"></a></span>
-<span id="cb59-4"><a href="de-percetron.html#cb59-4"></a>  <span class="kw">def</span> f(<span class="va">self</span>, x: np.array) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb59-4"><a href="de-percetron.html#cb59-4"></a>  <span class="kw">def</span> g(<span class="va">self</span>, x: np.array) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb59-5"><a href="de-percetron.html#cb59-5"></a>    <span class="cf">return</span> np.dot(x, <span class="va">self</span>.theta) <span class="op">+</span> <span class="va">self</span>.theta_0</span>
 <span id="cb59-6"><a href="de-percetron.html#cb59-6"></a>  </span>
 <span id="cb59-7"><a href="de-percetron.html#cb59-7"></a>  <span class="kw">def</span> t(<span class="va">self</span>, z: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
@@ -375,7 +385,7 @@ Figuur 6.5: Twee eigenschappen van iris bloemen (kelkblad lengte en breedte) teg
 <span id="cb60-4"><a href="de-percetron.html#cb60-4"></a>    <span class="cf">for</span> iteration <span class="kw">in</span> <span class="bu">range</span>(<span class="va">self</span>.iteration_count):</span>
 <span id="cb60-5"><a href="de-percetron.html#cb60-5"></a>        err_iter <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb60-6"><a href="de-percetron.html#cb60-6"></a>        <span class="cf">for</span> xi, yi <span class="kw">in</span> <span class="bu">zip</span>(x, y):</span>
-<span id="cb60-7"><a href="de-percetron.html#cb60-7"></a>            update <span class="op">=</span> <span class="va">self</span>.learning_rate <span class="op">*</span> (yi <span class="op">-</span> <span class="va">self</span>.t(<span class="va">self</span>.f(xi)))</span>
+<span id="cb60-7"><a href="de-percetron.html#cb60-7"></a>            update <span class="op">=</span> <span class="va">self</span>.learning_rate <span class="op">*</span> (yi <span class="op">-</span> <span class="va">self</span>.t(<span class="va">self</span>.g(xi)))</span>
 <span id="cb60-8"><a href="de-percetron.html#cb60-8"></a>            <span class="va">self</span>.theta_0 <span class="op">+=</span> update</span>
 <span id="cb60-9"><a href="de-percetron.html#cb60-9"></a>            <span class="va">self</span>.theta <span class="op">+=</span> update <span class="op">*</span> xi</span>
 <span id="cb60-10"><a href="de-percetron.html#cb60-10"></a>            err_iter <span class="op">+=</span> <span class="bu">int</span>(update <span class="op">!=</span> <span class="fl">0.0</span>)</span>
@@ -392,7 +402,7 @@ Figuur 6.5: Twee eigenschappen van iris bloemen (kelkblad lengte en breedte) teg
 <div class="sourceCode" id="cb63"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb63-1"><a href="de-percetron.html#cb63-1"></a>xi <span class="op">=</span> [<span class="fl">3.5</span>, <span class="fl">5.1</span>]</span>
 <span id="cb63-2"><a href="de-percetron.html#cb63-2"></a>yi <span class="op">=</span> <span class="dv">1</span></span></code></pre></div>
 <p>Binnen in deze lus, wordt er berekend met hoeveel de parameters moeten worden verminderd:</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb64-1"><a href="de-percetron.html#cb64-1"></a>update <span class="op">=</span> <span class="va">self</span>.learning_rate <span class="op">*</span> (yi <span class="op">-</span> <span class="va">self</span>.t(<span class="va">self</span>.f(xi)))</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb64-1"><a href="de-percetron.html#cb64-1"></a>update <span class="op">=</span> <span class="va">self</span>.learning_rate <span class="op">*</span> (yi <span class="op">-</span> <span class="va">self</span>.t(<span class="va">self</span>.g(xi)))</span></code></pre></div>
 <p>Stel dat het leeralgoritme voor een bepaalde instantie <code>1</code> voorspelt, maar dat de werkelijke uitkomst <code>-1</code> is, dan worden de parameters <em>vermeerderd</em> met de fractie</p>
 <p>hetgeen overeenkomt met <span class="math inline">\(0.1\cdot\left(-1\cdot-1\right)=-0.2\)</span> voor een leersnelheid van <span class="math inline">\(0.1\)</span>. Met andere woorden, de parameters worden <em>verminderd</em> met één vijfde van hun waarde. Stel nu dat het leeralgoritme het juist had, dan wordt <code>update</code> gelijkgesteld aan <span class="math inline">\(0.1\cdot\left(1\cdot-1\right)=0\)</span> en blijven de parameters onveranderd.</p>
 <p>En dit was het! Hier is de volledige werkende Python code:</p>
@@ -406,7 +416,7 @@ Figuur 6.5: Twee eigenschappen van iris bloemen (kelkblad lengte en breedte) teg
 <span id="cb65-8"><a href="de-percetron.html#cb65-8"></a>    <span class="va">self</span>.theta <span class="op">=</span> <span class="va">None</span></span>
 <span id="cb65-9"><a href="de-percetron.html#cb65-9"></a>    <span class="va">self</span>.errs <span class="op">=</span> []</span>
 <span id="cb65-10"><a href="de-percetron.html#cb65-10"></a></span>
-<span id="cb65-11"><a href="de-percetron.html#cb65-11"></a>  <span class="kw">def</span> f(<span class="va">self</span>, x: np.array) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
+<span id="cb65-11"><a href="de-percetron.html#cb65-11"></a>  <span class="kw">def</span> g(<span class="va">self</span>, x: np.array) <span class="op">-&gt;</span> <span class="bu">float</span>:</span>
 <span id="cb65-12"><a href="de-percetron.html#cb65-12"></a>    <span class="cf">return</span> np.dot(x, <span class="va">self</span>.theta) <span class="op">+</span> <span class="va">self</span>.theta_0</span>
 <span id="cb65-13"><a href="de-percetron.html#cb65-13"></a></span>
 <span id="cb65-14"><a href="de-percetron.html#cb65-14"></a>  <span class="kw">def</span> t(<span class="va">self</span>, z: <span class="bu">float</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
@@ -418,7 +428,7 @@ Figuur 6.5: Twee eigenschappen van iris bloemen (kelkblad lengte en breedte) teg
 <span id="cb65-20"><a href="de-percetron.html#cb65-20"></a>    <span class="cf">for</span> iteration <span class="kw">in</span> <span class="bu">range</span>(<span class="va">self</span>.iteration_count):</span>
 <span id="cb65-21"><a href="de-percetron.html#cb65-21"></a>      err_iter <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb65-22"><a href="de-percetron.html#cb65-22"></a>      <span class="cf">for</span> xi, yi <span class="kw">in</span> <span class="bu">zip</span>(x, y):</span>
-<span id="cb65-23"><a href="de-percetron.html#cb65-23"></a>        update <span class="op">=</span> <span class="va">self</span>.learning_rate <span class="op">*</span> (yi <span class="op">-</span> <span class="va">self</span>.t(<span class="va">self</span>.f(xi)))</span>
+<span id="cb65-23"><a href="de-percetron.html#cb65-23"></a>        update <span class="op">=</span> <span class="va">self</span>.learning_rate <span class="op">*</span> (yi <span class="op">-</span> <span class="va">self</span>.t(<span class="va">self</span>.g(xi)))</span>
 <span id="cb65-24"><a href="de-percetron.html#cb65-24"></a>        <span class="va">self</span>.theta_0 <span class="op">+=</span> update</span>
 <span id="cb65-25"><a href="de-percetron.html#cb65-25"></a>        <span class="va">self</span>.theta <span class="op">+=</span> update <span class="op">*</span> xi</span>
 <span id="cb65-26"><a href="de-percetron.html#cb65-26"></a>        err_iter <span class="op">+=</span> <span class="bu">int</span>(update <span class="op">!=</span> <span class="fl">0.0</span>)</span>
@@ -426,7 +436,7 @@ Figuur 6.5: Twee eigenschappen van iris bloemen (kelkblad lengte en breedte) teg
 </div>
 <div id="trainen-van-de-perceptron" class="section level2">
 <h2><span class="header-section-number">6.7</span> Trainen van de perceptron</h2>
-<p>De tijd is aangebroken om de perceptron te trainen met de data van de iris bloemen. Het enige wat we nog willen doen is de invoergegevens standaardiseren, i.e. de zogenaamde <a href="https://nl.wikipedia.org/wiki/Z-score">Z-score</a> berekenen. Let wel deze Z <em>heeft niets te maken</em> met de <span class="math inline">\(z\)</span> die we eerder zagen.</p>
+<p>De tijd is aangebroken om de perceptron te trainen met de data van de iris bloemen. Het enige wat we nog willen doen is de invoergegevens standaardiseren, i.e. de zogenaamde <a href="https://nl.wikipedia.org/wiki/Z-score">Z-score</a> berekenen. Let wel deze Z <em>heeft niets te maken</em> met de <span class="math inline">\(z\)</span> (de <em>logit</em>) die we eerder zagen.</p>
 <p><span class="math display" id="eq:z-score">\[\begin{equation}
   Z=\frac{x_j-\mu_j}{\sigma_j}
   \tag{6.4}
@@ -474,7 +484,7 @@ Figuur 6.5: Twee eigenschappen van iris bloemen (kelkblad lengte en breedte) teg
 <span id="cb72-6"><a href="de-percetron.html#cb72-6"></a></span>
 <span id="cb72-7"><a href="de-percetron.html#cb72-7"></a>grid &lt;-<span class="st"> </span><span class="kw">expand.grid</span>(<span class="dt">x =</span> grid_x, <span class="dt">y =</span> grid_y) <span class="op">%&gt;%</span><span class="st"> </span>as.matrix</span>
 <span id="cb72-8"><a href="de-percetron.html#cb72-8"></a></span>
-<span id="cb72-9"><a href="de-percetron.html#cb72-9"></a>grid_z &lt;-<span class="st"> </span>py<span class="op">$</span>model<span class="op">$</span><span class="kw">t</span>(py<span class="op">$</span>model<span class="op">$</span><span class="kw">f</span>(grid))</span></code></pre></div>
+<span id="cb72-9"><a href="de-percetron.html#cb72-9"></a>grid_z &lt;-<span class="st"> </span>py<span class="op">$</span>model<span class="op">$</span><span class="kw">t</span>(py<span class="op">$</span>model<span class="op">$</span><span class="kw">g</span>(grid))</span></code></pre></div>
 <p>Nu plotten we de (gestandaardiseerd) data met de scheidingslijn (eng: <em>boundary line</em>) en duiden we de gebieden aan die, volgens het model, tot <em>Iris setosa</em> behoort of niet:</p>
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="de-percetron.html#cb73-1"></a><span class="kw">plot</span>(x_all[, <span class="dv">2</span>] <span class="op">~</span><span class="st"> </span>x_all[, <span class="dv">1</span>], <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">cex =</span> <span class="fl">.8</span>,</span>
 <span id="cb73-2"><a href="de-percetron.html#cb73-2"></a>  <span class="dt">col =</span> <span class="dv">1</span> <span class="op">+</span><span class="st"> </span>(iris<span class="op">$</span>Species <span class="op">==</span><span class="st"> &quot;setosa&quot;</span>),</span>
@@ -496,15 +506,12 @@ Figuur 6.5: Twee eigenschappen van iris bloemen (kelkblad lengte en breedte) teg
 <p>Laten we nu het model gebruiken om een voorspelling te maken op ongeziene data.</p>
 <div class="sourceCode" id="cb74"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb74-1"><a href="de-percetron.html#cb74-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score</span>
 <span id="cb74-2"><a href="de-percetron.html#cb74-2"></a></span>
-<span id="cb74-3"><a href="de-percetron.html#cb74-3"></a><span class="bu">print</span>(accuracy_score(model.t(model.f(x_test)), y_test))</span></code></pre></div>
+<span id="cb74-3"><a href="de-percetron.html#cb74-3"></a><span class="bu">print</span>(accuracy_score(model.t(model.g(x_test)), y_test))</span></code></pre></div>
 <pre><code>## 1.0</code></pre>
 <p>Een perfect resultaat!</p>
 
 </div>
 </div>
-
-
-
 <h3>Bronvermelding</h3>
 <div id="refs" class="references">
 <div id="ref-neuron">
@@ -535,7 +542,7 @@ Figuur 6.5: Twee eigenschappen van iris bloemen (kelkblad lengte en breedte) teg
         </div>
       </div>
 <a href="manipuleren-van-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="inleiding-tot-artificiële-neurale-netwerken.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
