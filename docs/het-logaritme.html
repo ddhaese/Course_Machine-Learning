@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Machine Learning</title>
+  <title>A Het Logaritme | Machine Learning</title>
   <meta name="description" content="Artificial intelligence course at the AP University College." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Machine Learning" />
+  <meta property="og:title" content="A Het Logaritme | Machine Learning" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Machine Learning" />
+  <meta name="twitter:title" content="A Het Logaritme | Machine Learning" />
   
   <meta name="twitter:description" content="Artificial intelligence course at the AP University College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-
-<link rel="next" href="inleiding-tot-de-cursus.html"/>
+<link rel="prev" href="inleiding-tot-artificiële-neurale-netwerken.html"/>
+<link rel="next" href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -224,7 +224,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.8" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#regularisatie"><i class="fa fa-check"></i><b>7.8</b> Regularisatie</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="de-logaritme.html"><a href="de-logaritme.html"><i class="fa fa-check"></i><b>A</b> De Logaritme</a></li>
+<li class="chapter" data-level="A" data-path="het-logaritme.html"><a href="het-logaritme.html"><i class="fa fa-check"></i><b>A</b> Het Logaritme</a></li>
 <li class="chapter" data-level="B" data-path="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><i class="fa fa-check"></i><b>B</b> Inwendig product, matrix-vermenigvuldiging, vectoren en tensoren</a></li>
 <li class="chapter" data-level="C" data-path="computations-using-gpu.html"><a href="computations-using-gpu.html"><i class="fa fa-check"></i><b>C</b> Computations using GPU</a></li>
 <li class="chapter" data-level="D" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>D</b> Installation</a><ul>
@@ -259,63 +259,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Machine Learning</h1>
-<p class="author"><em>34142/1916/2021/1/38<br>David D’Haese</em></p>
-<p class="date"><em>Gepubliceerd op 2020-10-09<br><img class='cover' src='img/cover.png' alt='Juncus effusus'/><br>Juncus effusus L., Motic SMZ171<br><small>© 2020 David D’Haese</small></em></p>
-</div>
-<div id="summary" class="section level1 unnumbered">
-<h1>Summary</h1>
-<p>Machine learning course of the AP University College at Antwerp, Belgium. The course is in Dutch.</p>
-<div id="license" class="section level2 unnumbered">
-<h2>License</h2>
-<p>The content of this project including its source code is licensed under the GNU Affero General Public v3.0 license.</p>
-<table>
-<thead>
-<tr class="header">
-<th>You are allowed to…</th>
-<th>Under the conditions…</th>
-<th>You are <em>not</em> allowed to…</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span title="The licensed material and derivatives may be used for commercial purposes.">Commercial use</span></td>
-<td><span title="Source code must be made available when the licensed material is distributed.">Disclose source</span></td>
-<td><span title="This license includes a limitation of liability.">Liability</span></td>
-</tr>
-<tr class="even">
-<td><span title="The licensed material may be distributed.">Distribution</span></td>
-<td><span title="A copy of the license and copyright notice must be included with the licensed material.">License and copyright notice</span></td>
-<td><span title="This license explicitly states that it does NOT provide any warranty.">Warranty</span></td>
-</tr>
-<tr class="odd">
-<td><span title="The licensed material may be modified.">Modification</span></td>
-<td><span title="Users who interact with the licensed material via network are given the right to receive a copy of the source code.">Network use is distribution</span></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><span title="This license provides an express grant of patent rights from contributors.">Patent use</span></td>
-<td><span title="Modifications must be released under the same license when distributing the licensed material. In some cases a similar or related license may be used.">Same license</span></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><span title="The licensed material may be used and modified in private.">Private use</span></td>
-<td><span title="Changes made to the licensed material must be documented.">State changes</span></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-
-</div>
+<div id="het-logaritme" class="section level1">
+<h1><span class="header-section-number">A</span> Het Logaritme</h1>
+<p><img src="_main_files/figure-html/logaritme-1.png" width="672" /></p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="inleiding-tot-de-cursus.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="inleiding-tot-artificiële-neurale-netwerken.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -345,7 +299,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ddhaese/machine-learning-source/index.Rmd",
+"link": "https://github.com/ddhaese/machine-learning-source/98_Appendix.Rmd",
 "text": "Bron"
 },
 "download": null,
