@@ -223,6 +223,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.7" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#stochastische-en-minibatch-gradiënt-afdaling"><i class="fa fa-check"></i><b>7.7</b> Stochastische en Minibatch gradiënt afdaling</a></li>
 <li class="chapter" data-level="7.8" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#regularisatie"><i class="fa fa-check"></i><b>7.8</b> Regularisatie</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html"><i class="fa fa-check"></i><b>8</b> Convolutionele Neurale Netwerken (CNN)</a><ul>
+<li class="chapter" data-level="8.1" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#het-onstaan-van-machine-vision"><i class="fa fa-check"></i><b>8.1</b> Het onstaan van Machine Vision</a></li>
+<li class="chapter" data-level="8.2" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#waarom-vanilla-sgd-netwerken-ontoereikend-zijn"><i class="fa fa-check"></i><b>8.2</b> Waarom vanilla SGD netwerken ontoereikend zijn</a></li>
+<li class="chapter" data-level="8.3" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-cnn-filter"><i class="fa fa-check"></i><b>8.3</b> De CNN Filter</a></li>
+<li class="chapter" data-level="8.4" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-filter-binnen-een-nn"><i class="fa fa-check"></i><b>8.4</b> De filter binnen een NN</a></li>
+<li class="chapter" data-level="8.5" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#filter-als-compressor"><i class="fa fa-check"></i><b>8.5</b> Filter als compressor</a></li>
+<li class="chapter" data-level="8.6" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-stride-niet-opgeven"><i class="fa fa-check"></i><b>8.6</b> De <em>stride</em> niet opgeven</a></li>
+<li class="chapter" data-level="8.7" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-volledige-filter-laag"><i class="fa fa-check"></i><b>8.7</b> De volledige filter-laag</a></li>
+<li class="chapter" data-level="8.8" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#meerdere-filters-per-laag"><i class="fa fa-check"></i><b>8.8</b> Meerdere filters per laag</a></li>
+<li class="chapter" data-level="8.9" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#max-pooling"><i class="fa fa-check"></i><b>8.9</b> Max Pooling</a></li>
+<li class="chapter" data-level="8.10" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#samenstellen-van-cnns"><i class="fa fa-check"></i><b>8.10</b> Samenstellen van CNNs</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="de-logaritme.html"><a href="de-logaritme.html"><i class="fa fa-check"></i><b>A</b> De Logaritme</a></li>
 <li class="chapter" data-level="B" data-path="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><i class="fa fa-check"></i><b>B</b> Inwendig product, matrix-vermenigvuldiging, vectoren en tensoren</a></li>
@@ -276,7 +288,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Exploratieve Data Analyse (eng: <em>Exploratory Data Analysis</em>; EDA) zal de datawetenschapper helpen om twee hoofddoelen te bereiken</p>
 
 <div class="definition">
-<p><span id="def:unnamed-chunk-31" class="definition"><strong>Stelling 4.1  </strong></span>De twee hoofddoelen die de datawetenschapper voor ogen heeft tijden het exploreren van data zijn</p>
+<p><span id="def:unnamed-chunk-13" class="definition"><strong>Stelling 4.1  </strong></span>De twee hoofddoelen die de datawetenschapper voor ogen heeft tijden het exploreren van data zijn</p>
 <ul>
 <li><strong>Begrijpen</strong> van de data én van processen die tot de data geleid hebben</li>
 <li><strong>Controleren</strong> dat de dataset in zijn geheel maar ook elke variabele afzonderlijk aan een aantal eisen voldoet
@@ -379,7 +391,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="data-exploratie.html#cb37-1"></a>dat<span class="op">$</span>incidents <span class="op">%&gt;%</span></span>
 <span id="cb37-2"><a href="data-exploratie.html#cb37-2"></a>	<span class="kw">hist</span>(<span class="dt">main =</span> <span class="st">&quot;Verdeling aantal aanslagen&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;# aanslagen per jaar&quot;</span>,</span>
 <span id="cb37-3"><a href="data-exploratie.html#cb37-3"></a>		<span class="dt">ylab =</span> <span class="st">&quot;Frequentie&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-37-1.png" width="318px" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="318px" /></p>
 <p>Hierin zien we dat er in het totaal meer dan 30 jaren zijn met minder dan 5000 aanslagen per jaar wereldwijd en dat er 3 jaren zijn met meer dan 10 000 aanslagen.</p>
 <p>Dit was de K van DIPKEVER, we zetten onze tocht voort. Over ethiek: voor velen is dit natuurlijk een gevoelig onderwerp maar het weergeven van de aantallen aanslagen kan moeilijk als aanstootgevend worden gezien. Bovendien worden hier nog geen voorspellingen gemaakt, dus dat lijkt in orde. Er ontbreken geen data (dus voorradig). Het consortium rond de Studie van Terrorisme en Responsen op Terrorisme (START) is verantwoordelijk voor de data en gezien hun staat van dienst en academische publicaties waaronder sommige in gerenommeerde tijdschriften, lijken ze op het eerste gezicht betrouwbaar (cfr. Echtheid). Tenslotte zijn de data ongetwijfeld relevant en daarmee slagen ze voor de volledige DIPKEVER test. Het onderlinge correleren van beide variabelen biedt hier geen meerwaarde.</p>
 <p>De exploratiefase is voorbij. Het volstaat ons nu om een grafiek op stellen waarbij het aantal aanslagen in de tijd wordt gevolgd:</p>
@@ -387,7 +399,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb38-2"><a href="data-exploratie.html#cb38-2"></a>void &lt;-<span class="st"> </span>dat[, <span class="kw">plot</span>(incidents <span class="op">~</span><span class="st"> </span>year, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>,</span>
 <span id="cb38-3"><a href="data-exploratie.html#cb38-3"></a>	<span class="dt">main =</span> <span class="st">&quot;Verloop aantal aanslagen wereldwijd&quot;</span>,</span>
 <span id="cb38-4"><a href="data-exploratie.html#cb38-4"></a>	<span class="dt">xlab =</span> <span class="st">&quot;Kalenderjaar&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Aantal aanslagen per jaar&quot;</span>)]</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <p><strong>Conclusie</strong>: Ja, het aantal gerapporteerde terroristische aanslagen lijkt volgens de START (<span class="citation">Pape et al. (<a href="#ref-pape2014" role="doc-biblioref">2014</a>)</span>) toegenomen te zijn in de periode 2010 - 2015 ten opzichte van de periode 1970 - 2010.</p>
 </div>
 <div id="univariate-verdelingen" class="section level2">
@@ -403,7 +415,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 
 <div class="example">
-<span id="exm:unnamed-chunk-39" class="example"><strong>Voorbeeld 4.2  </strong></span>Laten we de dataset rhDNase van naderbij onderzoeken met als doel om uitsluitend naar de verdelingen te kijken.
+<span id="exm:unnamed-chunk-21" class="example"><strong>Voorbeeld 4.2  </strong></span>Laten we de dataset rhDNase van naderbij onderzoeken met als doel om uitsluitend naar de verdelingen te kijken.
 </div>
 
 <p>We beginnen met het laden van de dataset en het tonen van de interne structuur (<code>str</code>) van het object dat de data bevat</p>
@@ -416,8 +428,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  $ id      : int  1 2 3 4 5 6 7 8 9 10 ...
 ##  $ inst    : int  1 1 1 1 1 1 1 1 2 2 ...
 ##  $ trt     : int  1 1 0 1 0 1 0 0 1 0 ...
-##  $ entry.dt: Date, format: &quot;1992-03-20&quot; &quot;1992-03-24&quot; &quot;1992-03-24&quot; ...
-##  $ end.dt  : Date, format: &quot;1992-09-04&quot; &quot;1992-09-09&quot; &quot;1992-09-08&quot; ...
+##  $ entry.dt: Date, format: &quot;1992-03-20&quot; &quot;1992-03-24&quot; &quot;1992-03-24&quot; &quot;1992-03-26&quot; ...
+##  $ end.dt  : Date, format: &quot;1992-09-04&quot; &quot;1992-09-09&quot; &quot;1992-09-08&quot; &quot;1992-09-10&quot; ...
 ##  $ fev     : num  28.8 64 67.2 57.6 57.6 25.6 86.4 32 86.4 28.8 ...
 ##  $ ivstart : num  NA NA 65 NA NA NA NA 90 NA 8 ...
 ##  $ ivstop  : num  NA NA 75 NA NA NA NA 104 NA 22 ...</code></pre>
@@ -430,7 +442,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb41-3"><a href="data-exploratie.html#cb41-3"></a>rhDNase<span class="op">$</span>inst <span class="op">%&gt;%</span><span class="st"> </span>table <span class="op">%&gt;%</span><span class="st"> </span>sort <span class="op">%&gt;%</span><span class="st"> </span>rev <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb41-4"><a href="data-exploratie.html#cb41-4"></a>	<span class="kw">barplot</span>(<span class="dt">xlab =</span> <span class="st">&quot;Enrolling institution&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;# of instances&quot;</span>,</span>
 <span id="cb41-5"><a href="data-exploratie.html#cb41-5"></a>		<span class="dt">main =</span> <span class="st">&quot;Distribution of the institutions&quot;</span>, <span class="dt">cex.names =</span> <span class="fl">.6</span>, <span class="dt">las =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 <p>Er zijn wel een aantal dominantere instituten maar die dominantie lijkt niet te extreem er blijft een goede verdeling tussen de verschillende instituten van grofweg 10-15 instanties per instituut.</p></li>
 <li><p><code>trt</code> <em>treatment arm: 0=placebo, 1= rhDNase</em> Een arm betekent hier een vertakking van de beslissingsboom die gebruikt wordt om patiënten in een bepaalde categorie te plaatsen. Zulke een binaire kan je evengoed met een staafdiagram voorstellen, maar hier heb je duidelijk een controle experiment (de placebo-arm) en volstaat het om de verhouding behandeld/placebo mee te geven omdat alle informatie van de verdeling hierin vervat zit:</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="data-exploratie.html#cb42-1"></a>rhDNase<span class="op">$</span>trt <span class="op">%&gt;%</span><span class="st"> </span>sum <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">divide_by</span>(rhDNase <span class="op">%&gt;%</span><span class="st"> </span>nrow) <span class="op">%&gt;%</span></span>
@@ -449,7 +461,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb44-8"><a href="data-exploratie.html#cb44-8"></a>	<span class="dt">labels =</span> rhDNase<span class="op">$</span>entry.dt <span class="op">%&gt;%</span><span class="st"> </span>pretty)</span>
 <span id="cb44-9"><a href="data-exploratie.html#cb44-9"></a></span>
 <span id="cb44-10"><a href="data-exploratie.html#cb44-10"></a>rhDNase<span class="op">$</span>entry.dt.num <span class="op">%&gt;%</span><span class="st"> </span>rug</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 <p>Hier zien we dat de rekrutering van deelnemers voor de klinische studie na één maand op een laag pitje te hebben gestaan pas goed op gang is gekomen. De densiteit laat twee pieken zien (modi), we spreken van een <em>bimodale verdeling</em>.</p></li>
 <li><p><code>end.dt</code>: <em>date of last follow-up</em>. Is sterk gelijkend op het vorige. Laten we deze feature gebruiken om de loopduur van elke instantie te berekenen en de distributie hiervan in grafiek te zetten (zie Oefening <a href="data-exploratie.html#exr:distributie-loopduur">4.1</a>).</p>
 <p></p>
@@ -458,8 +470,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div></li>
 <li><p><code>ivstart</code> en <code>ivstop</code><em>days from enrollment to the start of IV antibiotics</em> en <em>days from enrollment to the cessation of IV antibiotics</em> (IV staat voor intraveneus) Deze laatste twee variabelen zijn weer verschillend: het gaat om discrete aantallen (<span class="math inline">\(\subset \mathbb{N}\)</span>), dus geen kommagetallen, maar, tegen de verwachting, wél negatief kunnen zijn. Bovendien zijn er erg veel ontbrekende waarden:</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data-exploratie.html#cb45-1"></a>rhDNase<span class="op">$</span>ivstart <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">32</span>)</span></code></pre></div>
-<pre><code>##  [1]  NA  NA  65  NA  NA  NA  NA  90  NA   8  63  60  83  50  NA  99  35  71  NA   8  NA  NA  NA  20  62
-## [26]  85  NA  13  51 166  37  65</code></pre>
+<pre><code>##  [1]  NA  NA  65  NA  NA  NA  NA  90  NA   8  63  60  83  50  NA  99  35  71  NA   8  NA  NA  NA  20  62  85  NA  13
+## [29]  51 166  37  65</code></pre>
 <div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data-exploratie.html#cb47-1"></a>rhDNase<span class="op">$</span>ivstart <span class="op">%&gt;%</span><span class="st"> </span>is.na <span class="op">%&gt;%</span><span class="st"> </span>table</span></code></pre></div>
 <pre><code>## .
 ## FALSE  TRUE 
@@ -469,7 +481,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb49-2"><a href="data-exploratie.html#cb49-2"></a>	<span class="dt">main =</span> <span class="st">&quot;Verdeling wachttijd voor behandeling&quot;</span>,</span>
 <span id="cb49-3"><a href="data-exploratie.html#cb49-3"></a>		<span class="dt">xlab =</span>  <span class="st">&quot;wachttijd&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;# instanties&quot;</span>)</span>
 <span id="cb49-4"><a href="data-exploratie.html#cb49-4"></a><span class="kw">abline</span>(<span class="dt">v =</span> <span class="dv">0</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 <p>We zien een verdeling die eerder uniform is dan wel normaal. Ook hier kunnen we nu de verdeling van de behandelingsduur in grafiek zetten:</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="data-exploratie.html#cb50-1"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)</span>
 <span id="cb50-2"><a href="data-exploratie.html#cb50-2"></a></span>
@@ -477,7 +489,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb50-4"><a href="data-exploratie.html#cb50-4"></a>	<span class="kw">hist</span> (<span class="dt">main =</span> <span class="st">&quot;Behandelingsduur&quot;</span>)</span>
 <span id="cb50-5"><a href="data-exploratie.html#cb50-5"></a>rhDNase[, ivstop <span class="op">-</span><span class="st"> </span>ivstart] <span class="op">%&gt;%</span><span class="st"> </span>log <span class="op">%&gt;%</span></span>
 <span id="cb50-6"><a href="data-exploratie.html#cb50-6"></a>	<span class="kw">hist</span>(<span class="dt">main =</span> <span class="st">&quot;ln(Behandelingsduur)&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 <p>De eerste grafiek laat zien dat de behandelingsduur nogal <a href="https://nl.wikipedia.org/wiki/Scheefheid">rechtsscheef</a> verdeeld is. De transformatie door middel van de natuurlijke logaritme (<span class="math inline">\(ln(x)=\,^elog(x)\)</span>) veranderd de verdeling in iets wat normaler lijkt. We zeggen dat de behandelingsduur <em>lognormaal</em> verdeeld lijkt te zijn. Laten we de theoretische curve erbij zetten om de afwijkingen tussen werkelijk en theoretisch te visualiseren:</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data-exploratie.html#cb51-1"></a>bduur_log &lt;-<span class="st"> </span>rhDNase[,  <span class="kw">log</span>(ivstop <span class="op">-</span><span class="st"> </span>ivstart)]</span>
 <span id="cb51-2"><a href="data-exploratie.html#cb51-2"></a>bduur_log &lt;-<span class="st"> </span>bduur_log[<span class="op">!</span><span class="kw">is.na</span>(bduur_log) <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.infinite</span>(bduur_log)]</span>
@@ -490,7 +502,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb51-9"><a href="data-exploratie.html#cb51-9"></a>	<span class="dt">sd =</span> bduur_log <span class="op">%&gt;%</span><span class="st"> </span>sd)</span>
 <span id="cb51-10"><a href="data-exploratie.html#cb51-10"></a></span>
 <span id="cb51-11"><a href="data-exploratie.html#cb51-11"></a><span class="kw">lines</span>(x, y , <span class="dt">col =</span> <span class="dv">1</span>, <span class="dt">lwd =</span> <span class="dv">3</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p></li>
+<p><img src="_main_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p></li>
 </ul>
 <p>We kunnen verdelingen ook met andere grafiek-types in beeld brengen. De meest populaire zijn de <a href="https://nl.wikipedia.org/wiki/Boxplot">boxplot</a>, de {dot plot}(<a href="https://en.wikipedia.org/wiki/Dot_plot_(statistics)" class="uri">https://en.wikipedia.org/wiki/Dot_plot_(statistics)</a>), de <a href="https://www.r-statistics.com/2011/03/beeswarm-boxplot-and-plotting-it-with-r/#:~:text=A%20bee%20swarm%20plot%20is,controlling%20the%20characters%20and%20colors.">beeswarm plot</a> en de <a href="https://en.wikipedia.org/wiki/Violin_plot">violin plot</a>.</p>
 

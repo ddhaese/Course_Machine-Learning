@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A De Logaritme | Machine Learning</title>
+  <title>Hoofdstuk 8 Convolutionele Neurale Netwerken | Machine Learning</title>
   <meta name="description" content="Artificial intelligence course at the AP University College." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A De Logaritme | Machine Learning" />
+  <meta property="og:title" content="Hoofdstuk 8 Convolutionele Neurale Netwerken | Machine Learning" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A De Logaritme | Machine Learning" />
+  <meta name="twitter:title" content="Hoofdstuk 8 Convolutionele Neurale Netwerken | Machine Learning" />
   
   <meta name="twitter:description" content="Artificial intelligence course at the AP University College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="convolutionele-neurale-netwerken-cnn.html"/>
-<link rel="next" href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"/>
+<link rel="prev" href="inleiding-tot-artificiële-neurale-netwerken.html"/>
+<link rel="next" href="de-logaritme.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,70 +52,6 @@
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
-<style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <link rel="stylesheet" href="css\course.css" type="text/css" />
 </head>
@@ -223,35 +159,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.7" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#stochastische-en-minibatch-gradiënt-afdaling"><i class="fa fa-check"></i><b>7.7</b> Stochastische en Minibatch gradiënt afdaling</a></li>
 <li class="chapter" data-level="7.8" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#regularisatie"><i class="fa fa-check"></i><b>7.8</b> Regularisatie</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html"><i class="fa fa-check"></i><b>8</b> Convolutionele Neurale Netwerken (CNN)</a><ul>
-<li class="chapter" data-level="8.1" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#het-onstaan-van-machine-vision"><i class="fa fa-check"></i><b>8.1</b> Het onstaan van Machine Vision</a></li>
-<li class="chapter" data-level="8.2" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#waarom-vanilla-sgd-netwerken-ontoereikend-zijn"><i class="fa fa-check"></i><b>8.2</b> Waarom vanilla SGD netwerken ontoereikend zijn</a></li>
-<li class="chapter" data-level="8.3" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-cnn-filter"><i class="fa fa-check"></i><b>8.3</b> De CNN Filter</a></li>
-<li class="chapter" data-level="8.4" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-filter-binnen-een-nn"><i class="fa fa-check"></i><b>8.4</b> De filter binnen een NN</a></li>
-<li class="chapter" data-level="8.5" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#filter-als-compressor"><i class="fa fa-check"></i><b>8.5</b> Filter als compressor</a></li>
-<li class="chapter" data-level="8.6" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-stride-niet-opgeven"><i class="fa fa-check"></i><b>8.6</b> De <em>stride</em> niet opgeven</a></li>
-<li class="chapter" data-level="8.7" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-volledige-filter-laag"><i class="fa fa-check"></i><b>8.7</b> De volledige filter-laag</a></li>
-<li class="chapter" data-level="8.8" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#meerdere-filters-per-laag"><i class="fa fa-check"></i><b>8.8</b> Meerdere filters per laag</a></li>
-<li class="chapter" data-level="8.9" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#max-pooling"><i class="fa fa-check"></i><b>8.9</b> Max Pooling</a></li>
-<li class="chapter" data-level="8.10" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#samenstellen-van-cnns"><i class="fa fa-check"></i><b>8.10</b> Samenstellen van CNNs</a></li>
+<li class="chapter" data-level="8" data-path="convolutionele-neurale-netwerken.html"><a href="convolutionele-neurale-netwerken.html"><i class="fa fa-check"></i><b>8</b> Convolutionele Neurale Netwerken</a><ul>
+<li class="chapter" data-level="8.1" data-path="convolutionele-neurale-netwerken.html"><a href="convolutionele-neurale-netwerken.html#het-onstaan-van-machine-vision"><i class="fa fa-check"></i><b>8.1</b> Het onstaan van Machine Vision</a></li>
+<li class="chapter" data-level="8.2" data-path="convolutionele-neurale-netwerken.html"><a href="convolutionele-neurale-netwerken.html#waarom-vanilla-sgd-nnetwerken-ontoereikend-zijn"><i class="fa fa-check"></i><b>8.2</b> Waarom vanilla SGD Nnetwerken ontoereikend zijn</a></li>
+<li class="chapter" data-level="8.3" data-path="convolutionele-neurale-netwerken.html"><a href="convolutionele-neurale-netwerken.html#test"><i class="fa fa-check"></i><b>8.3</b> Test</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="de-logaritme.html"><a href="de-logaritme.html"><i class="fa fa-check"></i><b>A</b> De Logaritme</a></li>
-<li class="chapter" data-level="B" data-path="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"><i class="fa fa-check"></i><b>B</b> Inwendig product, matrix-vermenigvuldiging, vectoren en tensoren</a></li>
-<li class="chapter" data-level="C" data-path="computations-using-gpu.html"><a href="computations-using-gpu.html"><i class="fa fa-check"></i><b>C</b> Computations using GPU</a></li>
-<li class="chapter" data-level="D" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>D</b> Installation</a><ul>
-<li class="chapter" data-level="D.1" data-path="installation.html"><a href="installation.html#installing-cuda-optional"><i class="fa fa-check"></i><b>D.1</b> Installing CUDA (optional)</a></li>
-<li class="chapter" data-level="D.2" data-path="installation.html"><a href="installation.html#the-r-language"><i class="fa fa-check"></i><b>D.2</b> The R language</a></li>
-<li class="chapter" data-level="D.3" data-path="installation.html"><a href="installation.html#python"><i class="fa fa-check"></i><b>D.3</b> Python</a></li>
-<li class="chapter" data-level="D.4" data-path="installation.html"><a href="installation.html#rstudio"><i class="fa fa-check"></i><b>D.4</b> RStudio</a></li>
-<li class="chapter" data-level="D.5" data-path="installation.html"><a href="installation.html#installing-tensorflow"><i class="fa fa-check"></i><b>D.5</b> Installing Tensorflow</a></li>
-<li class="chapter" data-level="D.6" data-path="installation.html"><a href="installation.html#installation-steps-that-worked-for-the-author"><i class="fa fa-check"></i><b>D.6</b> Installation steps that worked for the author</a></li>
-<li class="chapter" data-level="D.7" data-path="installation.html"><a href="installation.html#waar-vind-ik-hulp"><i class="fa fa-check"></i><b>D.7</b> Waar vind ik hulp</a></li>
-<li class="chapter" data-level="D.8" data-path="installation.html"><a href="installation.html#waar-vind-ik-leeralgoritmen-terugvinden"><i class="fa fa-check"></i><b>D.8</b> Waar vind ik leeralgoritmen terugvinden</a></li>
-</ul></li>
-<li class="chapter" data-level="E" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>E</b> Git</a></li>
-<li class="chapter" data-level="F" data-path="antwoorden.html"><a href="antwoorden.html"><i class="fa fa-check"></i><b>F</b> Antwoorden</a><ul>
-<li class="chapter" data-level="F.1" data-path="antwoorden.html"><a href="antwoorden.html#hoofdstuk-4"><i class="fa fa-check"></i><b>F.1</b> Hoofdstuk 4</a></li>
+<li class="chapter" data-level="A" data-path="de-logaritme.html"><a href="de-logaritme.html"><i class="fa fa-check"></i><b>A</b> De Logaritme</a><ul>
+<li class="chapter" data-level="A.1" data-path="de-logaritme.html"><a href="de-logaritme.html#installing-cuda-optional"><i class="fa fa-check"></i><b>A.1</b> Installing CUDA (optional)</a></li>
+<li class="chapter" data-level="A.2" data-path="de-logaritme.html"><a href="de-logaritme.html#the-r-language"><i class="fa fa-check"></i><b>A.2</b> The R language</a></li>
+<li class="chapter" data-level="A.3" data-path="de-logaritme.html"><a href="de-logaritme.html#python"><i class="fa fa-check"></i><b>A.3</b> Python</a></li>
+<li class="chapter" data-level="A.4" data-path="de-logaritme.html"><a href="de-logaritme.html#rstudio"><i class="fa fa-check"></i><b>A.4</b> RStudio</a></li>
+<li class="chapter" data-level="A.5" data-path="de-logaritme.html"><a href="de-logaritme.html#installing-tensorflow"><i class="fa fa-check"></i><b>A.5</b> Installing Tensorflow</a></li>
+<li class="chapter" data-level="A.6" data-path="de-logaritme.html"><a href="de-logaritme.html#installation-steps-that-worked-for-the-author"><i class="fa fa-check"></i><b>A.6</b> Installation steps that worked for the author</a></li>
+<li class="chapter" data-level="A.7" data-path="de-logaritme.html"><a href="de-logaritme.html#waar-vind-ik-hulp"><i class="fa fa-check"></i><b>A.7</b> Waar vind ik hulp</a></li>
+<li class="chapter" data-level="A.8" data-path="de-logaritme.html"><a href="de-logaritme.html#waar-vind-ik-leeralgoritmen-terugvinden"><i class="fa fa-check"></i><b>A.8</b> Waar vind ik leeralgoritmen terugvinden</a></li>
+<li class="chapter" data-level="A.9" data-path="de-logaritme.html"><a href="de-logaritme.html#hoofdstuk-4"><i class="fa fa-check"></i><b>A.9</b> Hoofdstuk 4</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bronvermelding.html"><a href="bronvermelding.html"><i class="fa fa-check"></i>Bronvermelding</a></li>
 </ul>
@@ -271,59 +194,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="de-logaritme" class="section level1">
-<h1><span class="header-section-number">A</span> De Logaritme</h1>
-<p>De logaritme is een functie en die als het omgekeerde van een exponentiële functie beschouwd kan worden:</p>
-<p><span class="math display">\[
-y = ^g\!log(x) \\
-g^y=x
-\]</span></p>
-<p>waarbij <span class="math inline">\(g\)</span> het grondtal is. Indien het niet meegegeven wordt, veronderstelt men dat <span class="math inline">\(g\)</span> gelijk is aan <span class="math inline">\(e = 2.718281828..\)</span> en komt de logaritme overeen met de <em>natuurlijk logaritme</em> dat in <em>België en sommige andere delen van de wereld</em> aangeduid wordt met <span class="math inline">\(ln(x)\)</span>.</p>
-<p>Een belangrijke reden om een variabele te transformeren met de logaritme is omdat de verdeling ervan een grote scheefheid vertoond waardoor:</p>
-<ol style="list-style-type: decimal">
-<li>de verdeling moeilijker te interpreteren is en</li>
-<li>de verdeling te sterk afwijkt van normaliteit, een assumptie waar erg veel statistieken van afhangen</li>
-</ol>
-<p>In het R pakket <code>MASS</code> vinden we een heel simpele dataset <code>mammals</code> met gemiddelde lichaamsgewichten en hersenen-massa’s. Deze data laat het probleem alsook het effect van de log-transformatie visueel zien:</p>
-<div class="figure"><span id="fig:logaritme"></span>
-<img src="_main_files/figure-html/logaritme-1.png" alt="Lichaamsgewichten alleenstaand als verdelingen (boven) of tegenover hersenen-massa’s (onder) in de lineaire schaal (links) of de logaritmische schaal (links). De blauwe balken geven het gemiddelde (volle blauwe lijn) weer ± standaardafwijking (blauwe stippellijnen)." width="672" />
+<div id="convolutionele-neurale-netwerken" class="section level1">
+<h1><span class="header-section-number">Hoofdstuk 8</span> Convolutionele Neurale Netwerken</h1>
+<div id="het-onstaan-van-machine-vision" class="section level2">
+<h2><span class="header-section-number">8.1</span> Het onstaan van Machine Vision</h2>
+<p>Computer Vision is een oude discipline die zich bezighoudt met het automatisch interpreteren van beelden en video. Oorspronkelijk was het doel van deze discipline om digitale beelden te bewerken (eng: <em>iage processing</em>) zodat er kenmerken (eng: <em>features</em>) geëxtraheerd konden worden. Een voorbeeld is het ontwikkelen van algoritmen voor het ontdekken van contrasterende randen (eng: <em>edge detection</em>). Voor gezichtsherkenning, bijvoorbeeld, was het idee dat je bijvoorbeeld de ogen van een gezicht kan herkennen door twee zwarte gebieden met daartussen een lichter gebied (van de neus). Hoewel dat inderdaad een logische benadering lijkt te zijn, blijkt dit in de praktijk toch ontoereikend (zie Figuur <a href="convolutionele-neurale-netwerken.html#fig:feature-selection">8.1</a>).</p>
+<div class="figure"><span id="fig:feature-selection"></span>
+<img src="img/feature-selection.png" alt="Negen gezichten. Hoewel men intuïtief kan veronderstellen dat ogen altijd donkerder zijn dan de neus en dus een gemakkelijke manier om het kenmerk ‘ogen’ te onderscheiden, blijkt dat toch niet zo eenvoudig. Hier is een snelle test uitgevoerd om dat idee te testen. Met het minimalistisch software-pakket IrfanView werd er ter hoogte van de ogen een selectie van 35 × 434 pixels gemaakt, omgezet naar grijswaarde en getransformeerd met het pixelize-algoritme met parameter 19. Bij een aantal gevallen zie je inderdaad het patroon donker-licht-licht-donker. Aan de meeste andere gezichten, misschien ten gevolge van het dragen van een bril of het bezitten van een andere huidskleur, zie je meteen dat deze procedure ontoereikend is. Deze gezichten werden gegenereerd door het algoritme van Tero Karras Karras et al. (2020). Voor alle duidelijkheid: het gaat hier dus niet om bestaande mensen." width="856" />
 <p class="caption">
-Figuur A.1: Lichaamsgewichten alleenstaand als verdelingen (boven) of tegenover hersenen-massa’s (onder) in de lineaire schaal (links) of de logaritmische schaal (links). De blauwe balken geven het gemiddelde (volle blauwe lijn) weer ± standaardafwijking (blauwe stippellijnen).
+Figuur 8.1: Negen gezichten. Hoewel men intuïtief kan veronderstellen dat ogen altijd donkerder zijn dan de neus en dus een gemakkelijke manier om het kenmerk ‘ogen’ te onderscheiden, blijkt dat toch niet zo eenvoudig. Hier is een snelle test uitgevoerd om dat idee te testen. Met het minimalistisch software-pakket IrfanView werd er ter hoogte van de ogen een selectie van 35 × 434 pixels gemaakt, omgezet naar grijswaarde en getransformeerd met het pixelize-algoritme met parameter 19. Bij een aantal gevallen zie je inderdaad het patroon donker-licht-licht-donker. Aan de meeste andere gezichten, misschien ten gevolge van het dragen van een bril of het bezitten van een andere huidskleur, zie je meteen dat deze procedure ontoereikend is. Deze gezichten werden gegenereerd door het <a href="https://thispersondoesnotexist.com/">algoritme</a> van Tero Karras <span class="citation">Karras et al. (<a href="#ref-karras2020analyzing" role="doc-biblioref">2020</a>)</span>. Voor alle duidelijkheid: het gaat hier dus niet om bestaande mensen.
 </p>
 </div>
 
-<p>Bedenk wel dat enkel <a href="https://nl.wikipedia.org/wiki/Positief_getal#:~:text=Getallen%20groter%20dan%20nul%20worden,dus%20noch%20positief%2C%20noch%20negatief.">strikt positieve</a> lineair-numerieke meetwaarden (<span class="math inline">\(\mathbb{R}^+\)</span>) voor een log-transformatie in aanmerking komen.</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="de-logaritme.html#cb78-1"></a><span class="kw">curve</span>(<span class="kw">log</span>(x), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">10</span>), <span class="dt">col =</span> dyad[<span class="dv">16</span>], <span class="dt">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb78-2"><a href="de-logaritme.html#cb78-2"></a><span class="kw">polygon</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">7</span>, <span class="dv">-7</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">-3</span>),</span>
-<span id="cb78-3"><a href="de-logaritme.html#cb78-3"></a>  <span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">density =</span> <span class="dv">10</span>, <span class="dt">col =</span> dyad[<span class="dv">16</span>])</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
-<p>Op internet kan je trucjes vinden om log-transformaties te doen op data die 0 waarden bevatten. Een voorbeeld van zo een trucje is om bij elke waarde ½ bij op te tellen. Zulke procedures kunnen helpen voor de visualisatie maar hebben vaak geen statistische grondslag, dus opgelet hiermee.</p>
-<p>We staan er niet meer bij stil hoe fantastisch het eigenlijk is om in een machine <code>log(2.34651)</code> te kunnen opgeven. Wil je weten hoe men vroeger logs berekende? Net als voor andere functies (<code>sin</code>, <code>tanh</code>, …) gebeurde dit aan de hand van tabellen:</p>
-<div class="figure"><span id="fig:log-tabellen"></span>
-<img src="img/log-tables.png" alt="Zo ging men vroeger te werk voor het berekenen van een logaritme!" width="432" />
+<p>Ondertussen behoort computer vision bijna volledig toe aan de discipline van ML. Inderdaad, met de opkomst van neurale netwerken was er een manier gevonden om de feature selectie-procedure volledig te automatiseren. Een van de belangrijkste vooruitgang in de ontwikkeling van convolutionele NN werd verwezenlijkt door Alex Krizhevsky <span class="citation">Krizhevsky et al. (<a href="#ref-krizhevsky2012imagenet" role="doc-biblioref">2012</a>)</span>. De details van zijn ontdekkingen gaan we in de volgende paragrafen bespreken, maar het is interessant te weten dat de ontdekkingen er gekomen zijn door de natuur na te bootsen, meer bepaald het gezichtsvermogen bij zoogdieren (zie Figuur <a href="convolutionele-neurale-netwerken.html#fig:cat-vision">8.2</a>).</p>
+
+<div class="theorem">
+<p><span id="thm:alex-krizhevsky" class="theorem"><strong>Persoonlijkheid 8.1  (Alex Krizhevsky)  </strong></span></p>
+<p><img src="img/Alex-Krizhevsky.png" /></p>
+<em>Alex Krizhevsky</em> won op spectaculaire wijze de <a href="http://image-net.org/challenges/LSVRC/">ImageNet competitie</a> van 2012 door een algoritme te ontwikkelen dat de bestaande accuraatheid van 73.9% (en waar elke honderste van een percent nog het verschil maakte) plots overtrof met een accuraatheid van 84%.
+</div>
+
+<div class="figure"><span id="fig:cat-vision"></span>
+<img src="img/cat-vision.png" alt="Spraakmakend experiment waarbij werd aangetoond dat sommige neuronen in de visuele cortex van huiskatten (maar dit geldt als model voor ander zoogdieren, waaronder de mens) enkel afgevuurd worden bij het zien van verticale lijnen Hubel and Wiesel (1959)." width="342" />
 <p class="caption">
-Figuur A.2: Zo ging men vroeger te werk voor het berekenen van een logaritme!
+Figuur 8.2: Spraakmakend experiment waarbij werd aangetoond dat sommige neuronen in de visuele cortex van huiskatten (maar dit geldt als model voor ander zoogdieren, waaronder de mens) enkel afgevuurd worden bij het zien van verticale lijnen <span class="citation">Hubel and Wiesel (<a href="#ref-hubel1959receptive" role="doc-biblioref">1959</a>)</span>.
 </p>
 </div>
 
+</div>
+<div id="waarom-vanilla-sgd-nnetwerken-ontoereikend-zijn" class="section level2">
+<h2><span class="header-section-number">8.2</span> Waarom vanilla SGD Nnetwerken ontoereikend zijn</h2>
+<p>Waarom zouden er voor beeldherkenning nieuwe algoritmen ontwikkeld moeten worden. We zagen eerder in deze cursus dat de cijfers van de MNIST dataset herkend kunnen worden door gebruik te maken van een standaard NN met standaard optimalisatie algoritmen (eng: <em>vanilla SGD</em>, <em>vanilla stochastic gradient descent</em>). Het probleem is de schaalbaarheid. De afbeeldingen van de MNIST dataset bestonden uit 28 pixels × 28 pixels in grijswaarden. De invoerlaag wordt dan al meteen 784 noden groot en het model bestond uit méér dan 100 000 parameters. Bedenk dan hoe groot het netwerk zou moeten worden voor de analyse van 4K video met 3840×2160 pixels aan 60 beelden per seconde.</p>
+<p>Het komt erop neer dat de <a href="https://nl.wikipedia.org/wiki/Grafentheorie#De_volledige_graaf">volledige geconnecteerde lagen</a> (eng: <em>fully-connected layers</em>) snel té zwaar worden voor onze huidige computers, een gevaar vormen voor overfitting en algemeen elektron-verspillend zijn. Het aantal parameters moet dus drastisch verlagen om het gebruik van NN voor real-time beeldherkenning mogelijk te maken. Een dropout regularisatie biedt hier onvoldoende soelaas omdat je hiermee te veel informatie negeert en belangrijke patronen mist die zich op kleine schaal manifesteren.</p>
+</div>
+<div id="test" class="section level2">
+<h2><span class="header-section-number">8.3</span> Test</h2>
+<iframe width="100%" height="650px" src="http://alexlenail.me/NN-SVG/AlexNet.html" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" style="border:0px;">
+</iframe>
+<!-- - Vanishing gradients -->
+<!-- TODO: http://neuralnetworksanddeeplearning.com/chap1.html -->
 
-<div class="exercise">
-<span id="exr:log-test" class="exercise"><strong>Oefening A.1  (Probeer het uit)  </strong></span>Maak nu zelf eens een vector van negen waarden gaande van <code>1E-4</code> tot <code>1E4</code> en neem de logaritme van deze vector.
+</div>
 </div>
 
 
-<div class="exercise">
-<span id="exr:anti-log" class="exercise"><strong>Oefening A.2  (Anti-log)  </strong></span>Deze paragraaf begon met de stelling dat de logaritme als het omgekeerde van een exponentiële functie kan beschouwd worden. Toon dat eens voor jezelf aan. Probeer eens zeer kleine en zeer grote waarden uit voor <span class="math inline">\(x\)</span> en probeer eens verschillende grondtallen uit.
-</div>
 
+<h3>Bronvermelding</h3>
+<div id="refs" class="references">
+<div id="ref-hubel1959receptive">
+<p>Hubel, D.H., Wiesel, T.N., 1959. Receptive fields of single neurones in the cat’s striate cortex. The Journal of physiology 148, 574.</p>
+</div>
+<div id="ref-karras2020analyzing">
+<p>Karras, T., Laine, S., Aittala, M., Hellsten, J., Lehtinen, J., Aila, T., 2020. Analyzing and improving the image quality of stylegan, in: Proceedings of the Ieee/Cvf Conference on Computer Vision and Pattern Recognition. pp. 8110–8119.</p>
+</div>
+<div id="ref-krizhevsky2012imagenet">
+<p>Krizhevsky, A., Sutskever, I., Hinton, G.E., 2012. Imagenet classification with deep convolutional neural networks, in: Advances in Neural Information Processing Systems. pp. 1097–1105.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="convolutionele-neurale-netwerken-cnn.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="inleiding-tot-artificiële-neurale-netwerken.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="de-logaritme.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -353,7 +287,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ddhaese/machine-learning-source/98_Appendix.Rmd",
+"link": "https://github.com/ddhaese/machine-learning-source/08_Convolutional_NN.Rmd",
 "text": "Bron"
 },
 "download": null,
@@ -364,20 +298,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A De Logaritme | Machine Learning</title>
+  <title>Hoofdstuk 8 Convolutionele Neurale Netwerken (CNN) | Machine Learning</title>
   <meta name="description" content="Artificial intelligence course at the AP University College." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A De Logaritme | Machine Learning" />
+  <meta property="og:title" content="Hoofdstuk 8 Convolutionele Neurale Netwerken (CNN) | Machine Learning" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A De Logaritme | Machine Learning" />
+  <meta name="twitter:title" content="Hoofdstuk 8 Convolutionele Neurale Netwerken (CNN) | Machine Learning" />
   
   <meta name="twitter:description" content="Artificial intelligence course at the AP University College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="convolutionele-neurale-netwerken-cnn.html"/>
-<link rel="next" href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"/>
+<link rel="prev" href="inleiding-tot-artificiële-neurale-netwerken.html"/>
+<link rel="next" href="de-logaritme.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -271,59 +271,182 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="de-logaritme" class="section level1">
-<h1><span class="header-section-number">A</span> De Logaritme</h1>
-<p>De logaritme is een functie en die als het omgekeerde van een exponentiële functie beschouwd kan worden:</p>
-<p><span class="math display">\[
-y = ^g\!log(x) \\
-g^y=x
-\]</span></p>
-<p>waarbij <span class="math inline">\(g\)</span> het grondtal is. Indien het niet meegegeven wordt, veronderstelt men dat <span class="math inline">\(g\)</span> gelijk is aan <span class="math inline">\(e = 2.718281828..\)</span> en komt de logaritme overeen met de <em>natuurlijk logaritme</em> dat in <em>België en sommige andere delen van de wereld</em> aangeduid wordt met <span class="math inline">\(ln(x)\)</span>.</p>
-<p>Een belangrijke reden om een variabele te transformeren met de logaritme is omdat de verdeling ervan een grote scheefheid vertoond waardoor:</p>
-<ol style="list-style-type: decimal">
-<li>de verdeling moeilijker te interpreteren is en</li>
-<li>de verdeling te sterk afwijkt van normaliteit, een assumptie waar erg veel statistieken van afhangen</li>
+<div id="convolutionele-neurale-netwerken-cnn" class="section level1">
+<h1><span class="header-section-number">Hoofdstuk 8</span> Convolutionele Neurale Netwerken (CNN)</h1>
+<div id="het-onstaan-van-machine-vision" class="section level2">
+<h2><span class="header-section-number">8.1</span> Het onstaan van Machine Vision</h2>
+<p>Computer vision is een oude discipline die zich bezighoudt met het automatisch interpreteren van onder andere stilstaande beelden en videobeelden. Oorspronkelijk was het doel van deze discipline om digitale beelden te bewerken (eng: <em>image processing</em>) zodat er kenmerken (eng: <em>features</em>) geëxtraheerd konden worden. Een voorbeeld is het ontwikkelen van algoritmen voor het ontdekken van contrasterende randen (eng: <em>edge detection</em>). Voor gezichtsherkenning, bijvoorbeeld, was het idee dat je de ogen van een gezicht kan herkennen door twee zwarte gebieden met daartussen een lichter gebied (van de neus). Hoewel dat inderdaad een logische benadering lijkt te zijn, blijkt dit in de praktijk toch ontoereikend (zie Figuur <a href="convolutionele-neurale-netwerken-cnn.html#fig:feature-selection">8.1</a>).</p>
+<div class="figure"><span id="fig:feature-selection"></span>
+<img src="img/feature-selection.png" alt="Negen gezichten. Men kan veronderstellen dat ogen altijd donkerder zijn dan de neus en dus een gemakkelijke manier om het kenmerk ‘ogen’ te onderscheiden. Hier wordt dit idee getest. Met het minimalistisch software-pakket IrfanView werd er ter hoogte van de ogen een selectie van 35 × 434 pixels gemaakt, omgezet naar grijswaarde en getransformeerd met het pixelize-algoritme met parameter 19. Bij een aantal gevallen zie je inderdaad het patroon donker-licht-licht-donker. Aan de meeste andere gezichten, misschien ten gevolge van het dragen van een bril of het bezitten van een andere huidskleur, zie je meteen dat deze procedure ontoereikend is. Deze gezichten werden gegenereerd door het algoritme van Tero Karras Karras et al. (2020). Voor alle duidelijkheid: het gaat hier dus niet om bestaande mensen." width="856" />
+<p class="caption">
+Figuur 8.1: Negen gezichten. Men kan veronderstellen dat ogen altijd donkerder zijn dan de neus en dus een gemakkelijke manier om het kenmerk ‘ogen’ te onderscheiden. Hier wordt dit idee getest. Met het minimalistisch software-pakket IrfanView werd er ter hoogte van de ogen een selectie van 35 × 434 pixels gemaakt, omgezet naar grijswaarde en getransformeerd met het pixelize-algoritme met parameter 19. Bij een aantal gevallen zie je inderdaad het patroon donker-licht-licht-donker. Aan de meeste andere gezichten, misschien ten gevolge van het dragen van een bril of het bezitten van een andere huidskleur, zie je meteen dat deze procedure ontoereikend is. Deze gezichten werden gegenereerd door het <a href="https://thispersondoesnotexist.com/">algoritme</a> van Tero Karras <span class="citation">Karras et al. (<a href="#ref-karras2020analyzing" role="doc-biblioref">2020</a>)</span>. Voor alle duidelijkheid: het gaat hier dus niet om bestaande mensen.
+</p>
+</div>
+
+<p>Ondertussen behoort computer vision bijna volledig toe aan de discipline van ML. Inderdaad, met de opkomst van neurale netwerken was er een manier gevonden om de feature selectie-procedure volledig te automatiseren. Een van de belangrijkste vooruitgang in de ontwikkeling van convolutionele NN werd verwezenlijkt door Alex Krizhevsky <span class="citation">Krizhevsky et al. (<a href="#ref-krizhevsky2012imagenet" role="doc-biblioref">2012</a>)</span>. De details van zijn ontdekkingen gaan we in de volgende paragrafen bespreken, maar het is interessant te weten dat de ontdekkingen er gekomen zijn door de natuur na te bootsen, meer bepaald het gezichtsvermogen bij zoogdieren (zie Figuur <a href="convolutionele-neurale-netwerken-cnn.html#fig:cat-vision">8.2</a>).</p>
+
+<div class="theorem">
+<p><span id="thm:alex-krizhevsky" class="theorem"><strong>Persoonlijkheid 8.1  (Alex Krizhevsky)  </strong></span></p>
+<p><img src="img/Alex-Krizhevsky.png" /></p>
+<em>Alex Krizhevsky</em> won op spectaculaire wijze de <a href="http://image-net.org/challenges/LSVRC/">ImageNet competitie</a> van 2012 door een algoritme te ontwikkelen dat de bestaande accuraatheid van 73.9% (en waar elke honderste van een percent nog het verschil maakte) plots overtrof met een accuraatheid van 84%.
+</div>
+
+<div class="figure"><span id="fig:cat-vision"></span>
+<img src="img/cat-vision.png" alt="Spraakmakend experiment waarbij werd aangetoond dat sommige neuronen in de visuele cortex van huiskatten (maar dit geldt als model voor ander zoogdieren, waaronder de mens) enkel afgevuurd worden bij het zien van verticale lijnen Hubel and Wiesel (1959)." width="100%" />
+<p class="caption">
+Figuur 8.2: Spraakmakend experiment waarbij werd aangetoond dat sommige neuronen in de visuele cortex van huiskatten (maar dit geldt als model voor ander zoogdieren, waaronder de mens) enkel afgevuurd worden bij het zien van verticale lijnen <span class="citation">Hubel and Wiesel (<a href="#ref-hubel1959receptive" role="doc-biblioref">1959</a>)</span>.
+</p>
+</div>
+
+</div>
+<div id="waarom-vanilla-sgd-netwerken-ontoereikend-zijn" class="section level2">
+<h2><span class="header-section-number">8.2</span> Waarom vanilla SGD netwerken ontoereikend zijn</h2>
+<p>Waarom zouden er voor beeldherkenning nieuwe algoritmen ontwikkeld moeten worden. We zagen eerder in deze cursus dat de cijfers van de MNIST dataset herkend kunnen worden door gebruik te maken van een standaard NN met standaard optimalisatie algoritmen (eng: <em>vanilla SGD</em>, <em>vanilla stochastic gradient descent</em>). Het probleem is de schaalbaarheid. De afbeeldingen van de MNIST dataset bestonden uit 28 pixels × 28 pixels in grijswaarden. De invoerlaag wordt dan al meteen 784 noden groot en het model bestond uit méér dan 100 000 parameters. Bedenk dan hoe groot het netwerk zou moeten worden voor de analyse van 4K video met 3840×2160 pixels aan 60 beelden per seconde.</p>
+<p>Het komt erop neer dat de volledige geconnecteerde lagen (eng: <em>fully-connected layers</em>) snel té zwaar worden voor onze huidige computers, een gevaar vormen voor overfitting en algemeen elektron-verspillend zijn. Het aantal parameters moet dus drastisch verlagen om het gebruik van NN voor real-time beeldherkenning mogelijk te maken. Een dropout regularisatie biedt hier onvoldoende soelaas omdat je hiermee te veel informatie negeert en belangrijke patronen mist die zich op kleine schaal manifesteren.</p>
+</div>
+<div id="de-cnn-filter" class="section level2">
+<h2><span class="header-section-number">8.3</span> De CNN Filter</h2>
+<p>Een van de elementen die convolutionele NN mogelijk maakte was het gebruik van filters. Een filter is een patroon waarmee een input wordt gescand. Laten we Figuur <a href="convolutionele-neurale-netwerken-cnn.html#fig:cnn-filter">8.3</a> grondig onderzoeken. Links wordt een eenvoudige afbeelding voorgesteld met afmetingen 8 pixels × 8 pixels × {0, 1}. Filter 1 stelt een verticale patroon voor, Filter 2 een horizontaal patroon. Tijdens de convolutie-operatie (voorgesteld met de symbolen ∗ of, indien het om circulaire data gaat, <span class="math inline">\(\circledast\)</span>) worden de filters a.h.w. over de afbeelding geschoven en telkens gecontroleerd in hoeverre de afbeelding op die locatie het patroon vertoont. In deze binaire filter is het resultaat van de convolutie een 1 telkens wanneer het patroon exact overeenkomt en een 0 als het niet perfect overeenkomt.</p>
+<div class="figure"><span id="fig:cnn-filter"></span>
+<img src="img/cnn-filter.svg" alt="De demonstratie van een CNN filter. In dit vereenvoudigd voorbeeld gaat het om een ‘binaire’ 2D filter in de zin dat het resultaat van een scan-operatie binaire is en dat de invoer 2-dimensionaal is. Zie tekst voor details. Deze figuur werd aangepast van figuur 5-6 uit Buduma and Locascio (2017)."  />
+<p class="caption">
+Figuur 8.3: De demonstratie van een CNN filter. In dit vereenvoudigd voorbeeld gaat het om een ‘binaire’ 2D filter in de zin dat het resultaat van een scan-operatie binaire is en dat de invoer 2-dimensionaal is. Zie tekst voor details. Deze figuur werd aangepast van figuur 5-6 uit <span class="citation">Buduma and Locascio (<a href="#ref-buduma" role="doc-biblioref">2017</a>)</span>.
+</p>
+</div>
+
+<p>In onderstaande video zien we de filter in actie. Merk op dat het resultaat van deze filter al iets complexer is zoals voorgesteld met de groene (meer positieve match) en rode kleuren (meer negatieve match; i.e. omgekeerd patroon). Na het toepassen van de filter wordt er een ReLU activatie functie toegepast en later een Pooling (zie later).</p>
+<iframe width="566" height="318" src="https://www.youtube.com/embed/f0t-OCG79-U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p><small>Dit is fragment uit de <a href="https://www.youtube.com/watch?v=Oqm9vsf_hvU">presentatie</a> van Otavio Good tijdens de TheAIConf in 2017</small></p>
+</div>
+<div id="de-filter-binnen-een-nn" class="section level2">
+<h2><span class="header-section-number">8.4</span> De filter binnen een NN</h2>
+<p>Hoe vertaalt dit zich nu naar een neuraal netwerk? In een NN stemt de filter operatie overeen met het meervoudig uitvoeren van inwendige producten tussen invoerlaag en filter-matrix. Het is belangrijk te begrijpen dat de filter gemeenschappelijk is voor de ganse filter-laag. Dat wilt zeggen dat elk neuron van de invoerlaag met dezelfde filter wordt vermenigvuldigd. De convolutie in dit verhaal vertaalt zich als een soort herhalingslus.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<div class="figure"><span id="fig:cnn-filter2"></span>
+<img src="img/cnn-filter2.svg" alt="In een NN stemt de filter operatie overeen met het meervoudig uitvoeren van inwendige producten tussen invoerlaag en filter-matrix."  />
+<p class="caption">
+Figuur 8.4: In een NN stemt de filter operatie overeen met het meervoudig uitvoeren van inwendige producten tussen invoerlaag en filter-matrix.
+</p>
+</div>
+
+</div>
+<div id="filter-als-compressor" class="section level2">
+<h2><span class="header-section-number">8.5</span> Filter als compressor</h2>
+<p>Omdat binnen een laag dezelfde filter wordt gebruikt voor alle inkomende connecties, beperkt men zeer sterk het aantal parameters:</p>
+<div class="figure"><span id="fig:cnn-filter3"></span>
+<img src="img/cnn-filter3.svg" alt="Een enkele filter heeft slechts een beperkt aantal parameters nodig. In werkelijkheid zal het iets meer dan 3 zijn, in dit voorbeeld, zie later in de tekst."  />
+<p class="caption">
+Figuur 8.5: Een enkele filter heeft slechts een beperkt aantal parameters nodig. In werkelijkheid zal het iets meer dan 3 zijn, in dit voorbeeld, zie later in de tekst.
+</p>
+</div>
+
+<p>Natuurlijk komt men niet toe met slechts één filter. Het is niet voldoende om enkel horizontale of verticale patronen te herkennen, misschien willen we ook krommen, schuine lijnen en dergelijke…. Het aantal filters neemt dan wel toe, maar niet langer exponentieel met toenemende grootte van de afbeeldingen.</p>
+</div>
+<div id="de-stride-niet-opgeven" class="section level2">
+<h2><span class="header-section-number">8.6</span> De <em>stride</em> niet opgeven</h2>
+<p>Er zijn (hyper)parameters die een filter kenmerken. De eerste die we hier bespreken is de <em>stride</em> (nl: letterlijk de <em>pas</em>; <em>stapgrootte</em>). Het geeft eenvoudigweg aan met welke frequentie de filter operatie moet uitgevoerd worden. Dit is weer een andere manier waarmee een filter het aantal neuronen weet te beperken, maar opgelet. Een stride &gt; 1 betekent dat je onvermijdelijk patronen gaat missen.</p>
+<div class="figure"><span id="fig:stride"></span>
+<img src="img/stride.svg" alt="De demonstratie van de stride hyperparameter van een filter."  />
+<p class="caption">
+Figuur 8.6: De demonstratie van de <em>stride</em> hyperparameter van een filter.
+</p>
+</div>
+
+<p>De tweede hyperparameter is de padding. Dit is de ‘dikte’ van de rand met nul-waarden die rond de ‘afbeelding’ van de input laag wordt aangebracht om ervoor te zorgen dat de filter operatie de dimensies niet wijzigt zoals het geval is in Figuur <a href="convolutionele-neurale-netwerken-cnn.html#fig:cnn-filter2">8.4</a>.</p>
+</div>
+<div id="de-volledige-filter-laag" class="section level2">
+<h2><span class="header-section-number">8.7</span> De volledige filter-laag</h2>
+<p>De filter-operatie vervangt de traditionele matrix-operatie die eerder aangeduid werd met functie <span class="math inline">\(g\)</span>. De output is echter niet een getal maar een zogenaamde <em>feature map</em>. Dat betekent dat er na de filter operatie nog steeds een activatiefunctie volgt. Dat is vaak een ReLU functie omdat deze de meest eenvoudige niet-lineaire functie is.</p>
+</div>
+<div id="meerdere-filters-per-laag" class="section level2">
+<h2><span class="header-section-number">8.8</span> Meerdere filters per laag</h2>
+<p>Als we meerdere filters kunnen hebben en elke filter genereert een feature map met gelijkaardige dimensies als de vorige laag in het netwerk, dan betekent dit dat de feature maps dus een extra dimensie hebben, i.e. in plaats van lagen (matrices), krijgen we blokken (3-dimensionele arrays).</p>
+<p>Bovendien, de filter die hierboven werd voorgesteld, was twee-dimensionaal. Dat is voldoende voor afbeeldingen in grijswaarden zoals de MNIST dataset. Werk je echter met RGB waarden, dan kan je iets bijzonder doen. Je kan een 3D filter definiëren van bijv. 4 pixels × 4 pixels × 3 kleurwaarden en de convolutie doorvoeren als voorheen, alleen nu in de derde dimensie.</p>
+<div class="figure"><span id="fig:2Dconv"></span>
+<img src="https://miro.medium.com/max/1750/1*K_OsaLGJ7I8cGlPvvWYJdg.png" alt="2D-convolutie met 3D filter. Bron: Kunlun Bai (2019)."  />
+<p class="caption">
+Figuur 8.7: 2D-convolutie met 3D filter. Bron: <span class="citation">Kunlun Bai (<a href="#ref-Kunlun" role="doc-biblioref">2019</a>)</span>.
+</p>
+</div>
+
+<p>We kunnen nu 2D beelden vervangen door 3D beelden (zoals MRI scans of dergelijke) of videobeelden (tijd is dan de derde dimensie) en dan kan de convolutie plaatsvinden 3-dimensies in plaats van 2, men spreekt dan ook van 3D convoluties.</p>
+<div class="figure"><span id="fig:3Dconv"></span>
+<img src="https://miro.medium.com/max/1750/1*wUVVgZnzBwYKgQyTBK_5sg.png" alt="3D-convolutie met 3D filter. Bron: Kunlun Bai (2019)."  />
+<p class="caption">
+Figuur 8.8: 3D-convolutie met 3D filter. Bron: <span class="citation">Kunlun Bai (<a href="#ref-Kunlun" role="doc-biblioref">2019</a>)</span>.
+</p>
+</div>
+
+</div>
+<div id="max-pooling" class="section level2">
+<h2><span class="header-section-number">8.9</span> Max Pooling</h2>
+<p>Hier kunnen we heel kort zijn, dit is letterlijk een soort beeld-compressie, behalve dan dat je telkens de maximum ‘pixel-waarde’ neemt i.p.v. een gemiddelde. Er bestaan dan ook <em>anti-aliasing</em> varianten.</p>
+<div class="figure"><span id="fig:max-pooling"></span>
+<img src="img/max-pooling.svg" alt="Demonstratie van Max pooling."  />
+<p class="caption">
+Figuur 8.9: Demonstratie van Max pooling.
+</p>
+</div>
+
+<p>Deze operatie wordt, indien beschouwd als onderdeel van een laag, altijd toegevoegd ná de activatiefunctie, We krijgen dus (<span class="math inline">\(m\)</span> = max pool):</p>
+<p><span class="math display">\[x_{out} = m(t(g(x_{in})))\]</span></p>
+<p>Vaak wordt deze echter als afzonderlijke laag beschouwd.</p>
+</div>
+<div id="samenstellen-van-cnns" class="section level2">
+<h2><span class="header-section-number">8.10</span> Samenstellen van CNNs</h2>
+<p>We kunnen nu meerdere lagen samenbrengen in een heus netwerk. Als we begrijpen dat een filter-operatie de informatie probeert te capteren, dat een ReLU-operatie (of andere activatie-functie) de informatie combineert en de max pool-operatie de informatie comprimeert, dan zijn de volgende regels niet al te onlogisch:</p>
+<ul>
+<li>De filter + activatie-functie vormen samen een zogenaamde convolutie laag</li>
+<li>De max-pool laag is niet verplicht</li>
+<li>De max-pool laag kan afzonderlijk voorkomen, zonder voorafgaande convolutie</li>
+<li>De max-pool-laag zal vaak voorkomen na een convolutie laag</li>
+<li>De combinatie van convolutie-laag en max-pool-laag wordt vaak meerdere keren na elkaar herhaald om telkens partonen met toenemende complexiteit te capteren</li>
+</ul>
+<iframe width="100%" height="650px" src="http://alexlenail.me/NN-SVG/AlexNet.html" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" style="border:0px;">
+</iframe>
+<p>Nog wat links:</p>
+<ul>
+<li><a href="https://towardsdatascience.com/how-to-visualize-convolutional-features-in-40-lines-of-code-70b7d87b0030">Visualisatie van CNN lagen</a></li>
+<li><a href="https://poloclub.github.io/cnn-explainer/#article-relu">Interactief voorbeeld</a></li>
+<li><a href="https://towardsdatascience.com/a-comprehensive-introduction-to-different-types-of-convolutions-in-deep-learning-669281e58215">Verdiepeing in verschillende soort CNNs</a></li>
+</ul>
+
+</div>
+</div>
+
+
+
+<h3>Bronvermelding</h3>
+<div id="refs" class="references">
+<div id="ref-buduma">
+<p>Buduma, N., Locascio, N., 2017. Fundamentals of deep learning: Designing next-generation machine intelligence algorithms. " O’Reilly Media, Inc.".</p>
+</div>
+<div id="ref-hubel1959receptive">
+<p>Hubel, D.H., Wiesel, T.N., 1959. Receptive fields of single neurones in the cat’s striate cortex. The Journal of physiology 148, 574.</p>
+</div>
+<div id="ref-karras2020analyzing">
+<p>Karras, T., Laine, S., Aittala, M., Hellsten, J., Lehtinen, J., Aila, T., 2020. Analyzing and improving the image quality of stylegan, in: Proceedings of the Ieee/Cvf Conference on Computer Vision and Pattern Recognition. pp. 8110–8119.</p>
+</div>
+<div id="ref-krizhevsky2012imagenet">
+<p>Krizhevsky, A., Sutskever, I., Hinton, G.E., 2012. Imagenet classification with deep convolutional neural networks, in: Advances in Neural Information Processing Systems. pp. 1097–1105.</p>
+</div>
+<div id="ref-Kunlun">
+<p>Kunlun Bai, 2019. A comprehensive introduction to different types of convolutions in deep learning towards intuitive understanding of convolutions through visualizations [WWW Document] <em>[Online; accessed 2020-10-14]</em>. URL <a href="https://upload.wikimedia.org/wikipedia/en/5/52/Mark_I_perceptron.jpeg">https://upload.wikimedia.org/wikipedia/en/5/52/Mark_I_perceptron.jpeg</a></p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>De densiteit waarvan sprake is in het hoofdstuk rond <a href="data-exploratie.html#data-exploratie">Data exploratie</a> is trouwens gelijkaardig aan deze filtering-operatie. In het Engels spreekt men van <em>Kernel Density Estimation</em> en de Kernel stemt overeen met de filter van het CNN. Voor meer informatie over de convolutie, verwijs ik naar <a href="https://nl.wikipedia.org/wiki/Convolutie">Wikipedia</a><a href="convolutionele-neurale-netwerken-cnn.html#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
-<p>In het R pakket <code>MASS</code> vinden we een heel simpele dataset <code>mammals</code> met gemiddelde lichaamsgewichten en hersenen-massa’s. Deze data laat het probleem alsook het effect van de log-transformatie visueel zien:</p>
-<div class="figure"><span id="fig:logaritme"></span>
-<img src="_main_files/figure-html/logaritme-1.png" alt="Lichaamsgewichten alleenstaand als verdelingen (boven) of tegenover hersenen-massa’s (onder) in de lineaire schaal (links) of de logaritmische schaal (links). De blauwe balken geven het gemiddelde (volle blauwe lijn) weer ± standaardafwijking (blauwe stippellijnen)." width="672" />
-<p class="caption">
-Figuur A.1: Lichaamsgewichten alleenstaand als verdelingen (boven) of tegenover hersenen-massa’s (onder) in de lineaire schaal (links) of de logaritmische schaal (links). De blauwe balken geven het gemiddelde (volle blauwe lijn) weer ± standaardafwijking (blauwe stippellijnen).
-</p>
-</div>
-
-<p>Bedenk wel dat enkel <a href="https://nl.wikipedia.org/wiki/Positief_getal#:~:text=Getallen%20groter%20dan%20nul%20worden,dus%20noch%20positief%2C%20noch%20negatief.">strikt positieve</a> lineair-numerieke meetwaarden (<span class="math inline">\(\mathbb{R}^+\)</span>) voor een log-transformatie in aanmerking komen.</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="de-logaritme.html#cb78-1"></a><span class="kw">curve</span>(<span class="kw">log</span>(x), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">10</span>), <span class="dt">col =</span> dyad[<span class="dv">16</span>], <span class="dt">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb78-2"><a href="de-logaritme.html#cb78-2"></a><span class="kw">polygon</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">7</span>, <span class="dv">-7</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">-3</span>),</span>
-<span id="cb78-3"><a href="de-logaritme.html#cb78-3"></a>  <span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">density =</span> <span class="dv">10</span>, <span class="dt">col =</span> dyad[<span class="dv">16</span>])</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
-<p>Op internet kan je trucjes vinden om log-transformaties te doen op data die 0 waarden bevatten. Een voorbeeld van zo een trucje is om bij elke waarde ½ bij op te tellen. Zulke procedures kunnen helpen voor de visualisatie maar hebben vaak geen statistische grondslag, dus opgelet hiermee.</p>
-<p>We staan er niet meer bij stil hoe fantastisch het eigenlijk is om in een machine <code>log(2.34651)</code> te kunnen opgeven. Wil je weten hoe men vroeger logs berekende? Net als voor andere functies (<code>sin</code>, <code>tanh</code>, …) gebeurde dit aan de hand van tabellen:</p>
-<div class="figure"><span id="fig:log-tabellen"></span>
-<img src="img/log-tables.png" alt="Zo ging men vroeger te werk voor het berekenen van een logaritme!" width="432" />
-<p class="caption">
-Figuur A.2: Zo ging men vroeger te werk voor het berekenen van een logaritme!
-</p>
-</div>
-
-
-<div class="exercise">
-<span id="exr:log-test" class="exercise"><strong>Oefening A.1  (Probeer het uit)  </strong></span>Maak nu zelf eens een vector van negen waarden gaande van <code>1E-4</code> tot <code>1E4</code> en neem de logaritme van deze vector.
-</div>
-
-
-<div class="exercise">
-<span id="exr:anti-log" class="exercise"><strong>Oefening A.2  (Anti-log)  </strong></span>Deze paragraaf begon met de stelling dat de logaritme als het omgekeerde van een exponentiële functie kan beschouwd worden. Toon dat eens voor jezelf aan. Probeer eens zeer kleine en zeer grote waarden uit voor <span class="math inline">\(x\)</span> en probeer eens verschillende grondtallen uit.
-</div>
-
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="convolutionele-neurale-netwerken-cnn.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="inleiding-tot-artificiële-neurale-netwerken.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="de-logaritme.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -353,7 +476,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ddhaese/machine-learning-source/98_Appendix.Rmd",
+"link": "https://github.com/ddhaese/machine-learning-source/08_Convolutional_NN.Rmd",
 "text": "Bron"
 },
 "download": null,
