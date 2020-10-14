@@ -224,7 +224,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.8" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#regularisatie"><i class="fa fa-check"></i><b>7.8</b> Regularisatie</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html"><i class="fa fa-check"></i><b>8</b> Convolutionele Neurale Netwerken (CNN)</a><ul>
-<li class="chapter" data-level="8.1" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#het-onstaan-van-machine-vision"><i class="fa fa-check"></i><b>8.1</b> Het onstaan van Machine Vision</a></li>
+<li class="chapter" data-level="8.1" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#het-onstaan-van-computer-vision"><i class="fa fa-check"></i><b>8.1</b> Het onstaan van Computer Vision</a></li>
 <li class="chapter" data-level="8.2" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#waarom-vanilla-sgd-netwerken-ontoereikend-zijn"><i class="fa fa-check"></i><b>8.2</b> Waarom vanilla SGD netwerken ontoereikend zijn</a></li>
 <li class="chapter" data-level="8.3" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-cnn-filter"><i class="fa fa-check"></i><b>8.3</b> De CNN Filter</a></li>
 <li class="chapter" data-level="8.4" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-filter-binnen-een-nn"><i class="fa fa-check"></i><b>8.4</b> De filter binnen een NN</a></li>
@@ -477,26 +477,27 @@ Figuur 7.7: Voorbeeld van een realistische geprojecteerde verlies-functie bekome
 </div>
 <div id="regularisatie" class="section level2">
 <h2><span class="header-section-number">7.8</span> Regularisatie</h2>
-<p><a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">Regularisatie</a> (eng: <em>regularization</em>) is een manier om het overfitten tegen te gaan. Het wordt algemeen gebruikt in ML en is niet bepaald specifiek voor neurale netwerken. Het is een heel eenvoudig principe. Het komt erop neer dat er aan de kost-functie een term wordt toegevoegd dat ervoor zorgt té complexe modellen worden afgestraft. Specifiek voor ANNs gaat het om een term die te grote gewichten <span class="math inline">\(\mathbf{\theta}\)</span> afstraft.</p>
+<p><a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">Regularisatie</a> (eng: <em>regularization</em>) is een manier om het overfitten tegen te gaan. Het wordt algemeen gebruikt in ML en is niet bepaald specifiek voor neurale netwerken. Het is een heel eenvoudig principe. Het komt erop neer dat er aan de kost-functie een term wordt toegevoegd dat ervoor zorgt té complexe modellen worden afgestraft.</p>
+<p>Specifiek voor ANNs gaat het om een term die te grote gewichten <span class="math inline">\(\mathbf{\theta}\)</span> afstraft.</p>
 <p><span class="math display" id="eq:regularisatie">\[\begin{equation}
-  \varepsilon&#39;=\varepsilon+\lambda \cdot f(\theta)
+  \varepsilon&#39;=\varepsilon+\lambda \cdot r(\theta)
   \tag{7.7}
 \end{equation}\]</span></p>
-<p>In de formule <a href="inleiding-tot-artificiële-neurale-netwerken.html#eq:regularisatie">(7.7)</a> dient <span class="math inline">\(f(\theta)\)</span> om de vorm aan te geven van de functie die toeneemt naarmate <span class="math inline">\(||\theta||\)</span> toeneemt en is <span class="math inline">\(\lambda\)</span> een hyperparameter die de sterkte aangeeft waarmee te grote parameters moeten worden afgestraft. Met <span class="math inline">\(\lambda=0\)</span> nemen we geen maatregelen tegen overfitting met alle gevolgen van dien. Een te grote <span class="math inline">\(\lambda\)</span>-waarde is ook nefast omdat het leerproces dan te fel gehinderd wordt.</p>
+<p>In de formule <a href="inleiding-tot-artificiële-neurale-netwerken.html#eq:regularisatie">(7.7)</a> dient <span class="math inline">\(r(\theta)\)</span> om de vorm aan te geven van de functie die toeneemt naarmate <span class="math inline">\(||\theta||\)</span> toeneemt en is <span class="math inline">\(\lambda\)</span> een hyperparameter die de sterkte aangeeft waarmee te grote parameters moeten worden afgestraft. Met <span class="math inline">\(\lambda=0\)</span> nemen we geen maatregelen tegen overfitting met alle gevolgen van dien. Een te grote <span class="math inline">\(\lambda\)</span>-waarde is ook nefast omdat het leerproces dan te fel gehinderd wordt.</p>
 <p>Er zijn meerdere regularisatie termen mogelijk. Een gangbare regularisatie is de zogenaamde L2 regularisatie. Dit is dus een regularisatie op basis van L2, de euclidische norm (Formule <a href="inleiding-tot-artificiële-neurale-netwerken.html#eq:euclidische-norm">(7.8)</a>).</p>
 <p><span class="math display" id="eq:euclidische-norm">\[\begin{equation}
-  f(\theta)=||\mathbf{\theta}||^2=\sqrt{\theta_1 ^ 2+\theta_2 ^ 2+..+\theta_n ^ 2}
+  r(\theta)=||\mathbf{\theta}||^2=\sqrt{\theta_1 ^ 2+\theta_2 ^ 2+..+\theta_n ^ 2}
   \tag{7.8}
 \end{equation}\]</span></p>
 <p>Omdat echter the vierkantswortel een vorm van schaling veroorzaakt en omdat <span class="math inline">\(\lambda\)</span> deze functie al overneemt gebruikt men meestal de volgende regularisatie-functie:</p>
 <p><span class="math display" id="eq:l2-regularisatie">\[\begin{equation}
-  f(\theta)=\frac12\lambda\sum{\theta^2}
+  r(\theta)=\frac12\lambda\sum{\theta^2}
   \tag{7.9}
 \end{equation}\]</span></p>
 <p>Bij elke epoch verkleinen de waarden van de parameters lineair naar nul. Daarom wordt er naar deze regularisatie verwezen met de term <em>weight decay</em>. Het gevolg is dat alle parameters a.h.w. de kans krijgen om een bijdrage te leveren in het maken van de voorspellingen.</p>
 <p>Een andere regularisatie term is de L<sub>1</sub> norm:</p>
 <p><span class="math display" id="eq:l1-regularisatie">\[\begin{equation}
-  f(\theta)=\lambda\sum{|\theta|}
+  r(\theta)=\lambda\sum{|\theta|}
   \tag{7.10}
 \end{equation}\]</span></p>
 <p>Deze regularisatie werkt dus in op de absolute waarde van de parameters. Als gevolg zullen er vele parameters tijdens de optimalisatie quasi nul worden (vergeet niet dat computers beperkt zijn in het weergeven van erg kleine getallen). Bijgevolg worden de parameters eruit gefilterd die onvoldoende bijdragen aan de voorspelling.</p>

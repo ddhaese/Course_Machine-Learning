@@ -224,7 +224,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.8" data-path="inleiding-tot-artificiële-neurale-netwerken.html"><a href="inleiding-tot-artificiële-neurale-netwerken.html#regularisatie"><i class="fa fa-check"></i><b>7.8</b> Regularisatie</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html"><i class="fa fa-check"></i><b>8</b> Convolutionele Neurale Netwerken (CNN)</a><ul>
-<li class="chapter" data-level="8.1" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#het-onstaan-van-machine-vision"><i class="fa fa-check"></i><b>8.1</b> Het onstaan van Machine Vision</a></li>
+<li class="chapter" data-level="8.1" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#het-onstaan-van-computer-vision"><i class="fa fa-check"></i><b>8.1</b> Het onstaan van Computer Vision</a></li>
 <li class="chapter" data-level="8.2" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#waarom-vanilla-sgd-netwerken-ontoereikend-zijn"><i class="fa fa-check"></i><b>8.2</b> Waarom vanilla SGD netwerken ontoereikend zijn</a></li>
 <li class="chapter" data-level="8.3" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-cnn-filter"><i class="fa fa-check"></i><b>8.3</b> De CNN Filter</a></li>
 <li class="chapter" data-level="8.4" data-path="convolutionele-neurale-netwerken-cnn.html"><a href="convolutionele-neurale-netwerken-cnn.html#de-filter-binnen-een-nn"><i class="fa fa-check"></i><b>8.4</b> De filter binnen een NN</a></li>
@@ -273,9 +273,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="convolutionele-neurale-netwerken-cnn" class="section level1">
 <h1><span class="header-section-number">Hoofdstuk 8</span> Convolutionele Neurale Netwerken (CNN)</h1>
-<div id="het-onstaan-van-machine-vision" class="section level2">
-<h2><span class="header-section-number">8.1</span> Het onstaan van Machine Vision</h2>
-<p>Computer vision is een oude discipline die zich bezighoudt met het automatisch interpreteren van onder andere stilstaande beelden en videobeelden. Oorspronkelijk was het doel van deze discipline om digitale beelden te bewerken (eng: <em>image processing</em>) zodat er kenmerken (eng: <em>features</em>) geëxtraheerd konden worden. Een voorbeeld is het ontwikkelen van algoritmen voor het ontdekken van contrasterende randen (eng: <em>edge detection</em>). Voor gezichtsherkenning, bijvoorbeeld, was het idee dat je de ogen van een gezicht kan herkennen door twee zwarte gebieden met daartussen een lichter gebied (van de neus). Hoewel dat inderdaad een logische benadering lijkt te zijn, blijkt dit in de praktijk toch ontoereikend (zie Figuur <a href="convolutionele-neurale-netwerken-cnn.html#fig:feature-selection">8.1</a>).</p>
+<div id="het-onstaan-van-computer-vision" class="section level2">
+<h2><span class="header-section-number">8.1</span> Het onstaan van Computer Vision</h2>
+<p>Computer vision is een oude discipline die zich bezighoudt met het automatisch interpreteren van onder andere stilstaande beelden en videobeelden. Oorspronkelijk was het doel van deze discipline om digitale beelden te bewerken (eng: <em>image processing</em>) zodat er kenmerken (eng: <em>features</em>) geëxtraheerd konden worden. Een voorbeeld is het ontwikkelen van algoritmen voor het ontdekken van contrasterende randen (eng: <em>edge detection</em>). Voor gezichtsherkenning, bijvoorbeeld, was het idee dat je de ogen van een gezicht kan herkennen aan twee donkere gebieden met daartussen een lichter gebied (van de neus). Hoewel dat inderdaad een logische benadering lijkt te zijn, blijkt dit in de praktijk toch ontoereikend (zie Figuur <a href="convolutionele-neurale-netwerken-cnn.html#fig:feature-selection">8.1</a>).</p>
 <div class="figure"><span id="fig:feature-selection"></span>
 <img src="img/feature-selection.png" alt="Negen gezichten. Men kan veronderstellen dat ogen altijd donkerder zijn dan de neus en dus een gemakkelijke manier om het kenmerk ‘ogen’ te onderscheiden. Hier wordt dit idee getest. Met het minimalistisch software-pakket IrfanView werd er ter hoogte van de ogen een selectie van 35 × 434 pixels gemaakt, omgezet naar grijswaarde en getransformeerd met het pixelize-algoritme met parameter 19. Bij een aantal gevallen zie je inderdaad het patroon donker-licht-licht-donker. Aan de meeste andere gezichten, misschien ten gevolge van het dragen van een bril of het bezitten van een andere huidskleur, zie je meteen dat deze procedure ontoereikend is. Deze gezichten werden gegenereerd door het algoritme van Tero Karras Karras et al. (2020). Voor alle duidelijkheid: het gaat hier dus niet om bestaande mensen." width="856" />
 <p class="caption">
@@ -390,7 +390,7 @@ Figuur 8.9: Demonstratie van Max pooling.
 
 <p>Deze operatie wordt, indien beschouwd als onderdeel van een laag, altijd toegevoegd ná de activatiefunctie, We krijgen dus (<span class="math inline">\(m\)</span> = max pool):</p>
 <p><span class="math display">\[x_{out} = m(t(g(x_{in})))\]</span></p>
-<p>Vaak wordt deze echter als afzonderlijke laag beschouwd.</p>
+<p>Soms wordt deze echter als afzonderlijke laag beschouwd.</p>
 </div>
 <div id="samenstellen-van-cnns" class="section level2">
 <h2><span class="header-section-number">8.10</span> Samenstellen van CNNs</h2>
@@ -400,9 +400,9 @@ Figuur 8.9: Demonstratie van Max pooling.
 <li>De max-pool laag is niet verplicht</li>
 <li>De max-pool laag kan afzonderlijk voorkomen, zonder voorafgaande convolutie</li>
 <li>De max-pool-laag zal vaak voorkomen na een convolutie laag</li>
-<li>De combinatie van convolutie-laag en max-pool-laag wordt vaak meerdere keren na elkaar herhaald om telkens partonen met toenemende complexiteit te capteren</li>
+<li>De combinatie van convolutie-laag en max-pool-laag wordt vaak meerdere keren na elkaar herhaald om telkens patronen met toenemende complexiteit te capteren</li>
 </ul>
-<iframe width="100%" height="650px" src="http://alexlenail.me/NN-SVG/AlexNet.html" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" style="border:0px;">
+<iframe width="100%" height="650px" src="https://alexlenail.me/NN-SVG/AlexNet.html" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" style="border:0px;">
 </iframe>
 <p>Nog wat links:</p>
 <ul>
@@ -410,6 +410,11 @@ Figuur 8.9: Demonstratie van Max pooling.
 <li><a href="https://poloclub.github.io/cnn-explainer/#article-relu">Interactief voorbeeld</a></li>
 <li><a href="https://towardsdatascience.com/a-comprehensive-introduction-to-different-types-of-convolutions-in-deep-learning-669281e58215">Verdiepeing in verschillende soort CNNs</a></li>
 </ul>
+
+<div class="exercise">
+<span id="exr:exploratie-cnn" class="exercise"><strong>Oefening 8.1  (Exploratie CNN)  </strong></span>Zoek één nieuwe toepassing van CNN op het internet. Geef hier een korte uitleg over wat je gevonden hebt + link naar de website.
+</div>
+
 
 </div>
 </div>
