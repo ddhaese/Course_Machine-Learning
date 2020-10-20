@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>E Installation | Machine Learning</title>
+  <title>B Normaliseren versus Standaardiseren | Machine Learning</title>
   <meta name="description" content="Artificial intelligence course at the AP University College." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="E Installation | Machine Learning" />
+  <meta property="og:title" content="B Normaliseren versus Standaardiseren | Machine Learning" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="E Installation | Machine Learning" />
+  <meta name="twitter:title" content="B Normaliseren versus Standaardiseren | Machine Learning" />
   
   <meta name="twitter:description" content="Artificial intelligence course at the AP University College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="computations-using-gpu.html"/>
-<link rel="next" href="git.html"/>
+<link rel="prev" href="de-logaritme.html"/>
+<link rel="next" href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -280,310 +280,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="installation" class="section level1">
-<h1><span class="header-section-number">E</span> Installation</h1>
-<div id="installing-cuda-optional" class="section level2">
-<h2><span class="header-section-number">E.1</span> Installing CUDA (optional)</h2>
-<p>In 2007 NVIDIA released CUDA® (<a href="https://nl.wikipedia.org/wiki/CUDA">Compute Unified Device Architecture</a>). CUDA is a parallel computing platform and programming model that enables dramatic increases in computing performance by harnessing the power of the GPU. You can download the platform from <a href="https://developer.nvidia.com/cuda-downloads">here</a>, but before you install it, check that your system is compatible and read the disclaimers provided. For Windows operating systems you can find additional information <a href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html">here</a>. Mind that the above is optional. You can run all the material provided in this course without the GPU computation option. If you plan to install CUDA anyway, make sure to check out the detailed <a href="installation.html#installation-steps-that-worked-for-the-author">installation steps that worked for the author</a> first.</p>
-</div>
-<div id="the-r-language" class="section level2">
-<h2><span class="header-section-number">E.2</span> The R language</h2>
-<p><a href="https://www.r-project.org/">R</a> is a <a href="https://en.wikipedia.org/wiki/Turing_completeness">turing-complete</a> programming language focusing on specifically on data analysis. It is the most popular among statisticians and data scientists and in comparison to Python it is often said to be the brains whereas Python is said to be the muscles (see <span class="citation">Upadhyay (<a href="#ref-RvsPython" role="doc-biblioref">2016</a>)</span>):</p>
-<div class="figure"><span id="fig:r-versus-python"></span>
-<img src="https://i0.wp.com/ucanalytics.com/blogs/wp-content/uploads/2015/10/Superman-Vs-Batman.jpg?w=582" alt="In an article on his channel called YOU CANalytics, Roopam Upadhyay has compared R with Batman and Python with Superman. Such a comparison is deemed to be opinionated, and I believe that some of the differences explained in the article are not unconditionally valid, but at least it debunks some of the long held beliefs about the R language." width="250px" />
-<p class="caption">
-Figuur E.1: In an article on his channel called <em>YOU CANalytics</em>, Roopam Upadhyay has compared R with Batman and Python with Superman. Such a comparison is deemed to be opinionated, and I believe that some of the differences explained in the article are not unconditionally valid, but at least it debunks some of the long held beliefs about the R language.
-</p>
+<div id="normaliseren-versus-standaardiseren" class="section level1">
+<h1><span class="header-section-number">B</span> Normaliseren versus Standaardiseren</h1>
+<p>Beide termen worden, vooral in de Engelstalige literatuur, door elkaar gehaald. Hier worden de meer statistische betekenissen van deze termen gehanteerd.</p>
+
+<div class="definition">
+<span id="def:normaliseren" class="definition"><strong>Stelling B.1  (Normaliseren)  </strong></span>Een <strong>normalisatie</strong> van een reeks getallen zorgt ervoor dat de getallen zich tussen een opgegeven <strong>minimum</strong> en een <strong>maximum</strong> waarde begeven.
 </div>
 
-<p>For Windows systems, you can download the latest stable R version from <a href="https://cran.r-project.org/bin/windows/base/">here</a>. It comes with a number of very useful functions already in the<code>base</code> namespace Again, make sure to continue reading first to check the <a href="installation.html#installation-steps-that-worked-for-the-author">installation steps that worked for the author</a> below.</p>
-</div>
-<div id="python" class="section level2">
-<h2><span class="header-section-number">E.3</span> Python</h2>
-<p>Python is a general-purpose programming language developed by Guido Van Rossum. The previous paragraph already discusses the differences between R and Python. In addition, some resources or platforms will rely only on one of these two languages. For these reasons, it pays of for a prospective data-scientist to manage both.</p>
 
-<div class="theorem">
-<p><span id="thm:rossum" class="theorem"><strong>Persoonlijkheid E.1  (Guido Van Rossum)  </strong></span><br/><img src="img/Guido_Van_Rossum.png" /></p>
-<em>Guido Van Rossum</em> is the father of Python. He developed the language in 1989 as a Dutch IT-specialist associated with the Mathematisch Centrum in Amsterdam, Netherlands. Originally meant as a low-threshold language for beginning programmers, it now trumps all other. See for yourself on <a href="https://trends.google.nl/trends/explore?cat=32&amp;date=today%205-y&amp;q=java,javascript,.NET,Python">Google trends</a>.
+<div class="definition">
+<span id="def:standaardiseren" class="definition"><strong>Stelling B.2  (Standaardiseren)  </strong></span>Een standaardisatie van een reeks getallen zorgt ervoor dat het gemiddelde van de reeks gelijk wordt aan 0 en de standaardafwijking gelijk wordt aan 1.
 </div>
 
-</div>
-<div id="rstudio" class="section level2">
-<h2><span class="header-section-number">E.4</span> RStudio</h2>
-<p>Rstudio was found by far to be the most valuable and student-friendly IDE (integrated development environment) for working professionally with data, not just in R, but also in Python, Julia and other (scripting) languages such as SQL and Stan. In addition, it is the easiest IDE for people who have limited computer experience. Installing RStudio is free for academic use. See <a href="https://rstudio.com" class="uri">https://rstudio.com</a> for more information, installation generally takes only a few minutes. Once installed, get acquainted with the IDE. See the book of Campbell for details on the IDE (<span class="citation">Campbell (<a href="#ref-campbell2019rstudio" role="doc-biblioref">2019</a>)</span>).</p>
-</div>
-<div id="installing-tensorflow" class="section level2">
-<h2><span class="header-section-number">E.5</span> Installing Tensorflow</h2>
-<p>Around 2005, Google released <a href="https://www.tensorflow.org/">Tensorflow®</a>. TensorFlow is an open-source Python library to aid with the development, training, building and releasing of machine learning models, particularly deep learning models. To install TensorFlow for Rstudio, visit <a href="https://tensorflow.rstudio.com/" class="uri">https://tensorflow.rstudio.com/</a> and read the instructions there. Check the installation steps used by the author below before you start.</p>
-</div>
-<div id="installation-steps-that-worked-for-the-author" class="section level2">
-<h2><span class="header-section-number">E.6</span> Installation steps that worked for the author</h2>
-<p>Every system is different, so the steps below might not work for you. With these and with the links provided above, you should be able to get up and running in no time. Here is the set of instructions that worked for me, starting from scratch on a Dell XPS 15 7590 with a Windows 10 Pro operating system. For Windows users, remember check the ‘set Path’ option during installation, if available, or set the path manually using the [command line]](<a href="https://www.windows-commandline.com/set-path-command-line/" class="uri">https://www.windows-commandline.com/set-path-command-line/</a>). Also, test each step before you go to the next.</p>
-<ol style="list-style-type: decimal">
-<li>(optional) Install <a href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.htm">CUDA</a> version 10.2.89_441.22 for Windows and test with <code>nvcc -V</code> anywhere at the command line prompt</li>
-<li>Install <a href="https://www.r-project.org/">R</a> and test by running the command <code>R --version</code> anywhere at the command line prompt</li>
-<li>Install <a href="https://www.python.org/downloads/">Python 3</a> and test by running the command <code>python --version</code> anywhere at the command line prompt</li>
-<li>Install <a href="https://rstudio.com">Rstudio</a> and check that the correct version of R is being linked to</li>
-<li>Install <a href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> in a directory that contains <em>no spaces</em> (not automatically adding to Windows PATH variable as advised, but manually) and test by running the command <code>conda --version</code> anywhere at the command line prompt</li>
-<li>Add a python environment, here called <code>tf</code> (in the <code>Scripts</code> sub-folder of Miniconda installation folder), read and follow the advise given (if any) and test afterwards with the command <code>conda info --envs</code> or <code>conda env list</code>:</li>
-</ol>
-<div class="sourceCode" id="cb93"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb93-1"><a href="installation.html#cb93-1"></a><span class="ex">conda</span> create -n tf</span></code></pre></div>
-<pre>
-Collecting package metadata (current_repodata.json): done
-Solving environment: done
-
-==> WARNING: A newer version of conda exists. <==
-  current version: 4.8.3
-  latest version: 4.8.4
-
-Please update conda by running
-
-    $ conda update -n base -c defaults conda
-
-  Package Plan ##
-  environment location: […]\envs\tf
-
-Proceed ([y]/n)? y
-
-Preparing transaction: done
-Verifying transaction: done
-Executing transaction: done
- 
-  To activate this environment, use
- 
-      $ conda activate tf
- 
-  To deactivate an active environment, use
- 
-      $ conda deactivate
-</pre>
-<ol start="7" style="list-style-type: decimal">
-<li>Open RStudio and, using the console, install the helper package <code>tensorflow</code> that guides the installation:</li>
-</ol>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="installation.html#cb94-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;tensorflow&quot;</span>)</span></code></pre></div>
-<pre>
-Installing package into […]
-(as ‘lib’ is unspecified)
-also installing the dependencies ‘rappdirs’, ‘config’, ‘reticulate’, ‘tfruns’
-
-trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.6/rappdirs_0.3.1.zip'
-Content type 'application/zip' length 87285 bytes (85 KB)
-downloaded 85 KB
-
-trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.6/config_0.3.zip'
-Content type 'application/zip' length 27334 bytes (26 KB)
-downloaded 26 KB
-
-trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.6/reticulate_1.16.zip'
-Content type 'application/zip' length 1742735 bytes (1.7 MB)
-downloaded 1.7 MB
-
-trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.6/tfruns_1.4.zip'
-Content type 'application/zip' length 1479931 bytes (1.4 MB)
-downloaded 1.4 MB
-
-trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.6/tensorflow_2.2.0.zip'
-Content type 'application/zip' length 145036 bytes (141 KB)
-downloaded 141 KB
-
-package ‘rappdirs’ successfully unpacked and MD5 sums checked
-package ‘config’ successfully unpacked and MD5 sums checked
-package ‘reticulate’ successfully unpacked and MD5 sums checked
-package ‘tfruns’ successfully unpacked and MD5 sums checked
-package ‘tensorflow’ successfully unpacked and MD5 sums checked
-
-The downloaded binary packages are in […]
-</pre>
-<ol start="8" style="list-style-type: decimal">
-<li>Still in RStudios console window, load the <code>tensorflow</code> package in memory (change <code>tf</code> if use you another environment name):</li>
-</ol>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="installation.html#cb95-1"></a><span class="kw">install_tensorflow</span>(<span class="dt">version =</span> <span class="st">&quot;nightly-gpu&quot;</span>, <span class="dt">envname =</span> <span class="st">&quot;tf&quot;</span>)</span></code></pre></div>
-<pre>Collecting package metadata (current_repodata.json): ...working... done<br>
-Solving environment: ...working... done
-
-  Package Plan ##
-
-  environment location: […]\envs\tf
-
-  added / updated specs:
-    - python=3.6
-
-
-The following packages will be downloaded:
-
-    package                    |            build
-    ---------------------------|-----------------
-    certifi-2020.6.20          |   py36h9f0ad1d_0         152 KB  conda-forge
-    pip-20.2.2                 |             py_0         1.1 MB  conda-forge
-    python-3.6.11              |h6f26aa1_2_cpython        18.9 MB  conda-forge
-    python_abi-3.6             |          1_cp36m           4 KB  conda-forge
-    setuptools-49.6.0          |   py36h9f0ad1d_0         919 KB  conda-forge
-    vc-14.1                    |       h869be7e_1           6 KB  conda-forge
-    vs2015_runtime-14.16.27012 |       h30e32a0_2         2.2 MB  conda-forge
-    wheel-0.35.1               |     pyh9f0ad1d_0          29 KB  conda-forge
-    wincertstore-0.2           |        py36_1003          13 KB  conda-forge
-    ------------------------------------------------------------
-                                           Total:        23.3 MB
-
-The following NEW packages will be INSTALLED:
-
-  certifi            conda-forge/win-64::certifi-2020.6.20-py36h9f0ad1d_0
-  pip                conda-forge/noarch::pip-20.2.2-py_0
-  python             conda-forge/win-64::python-3.6.11-h6f26aa1_2_cpython
-  python_abi         conda-forge/win-64::python_abi-3.6-1_cp36m
-  setuptools         conda-forge/win-64::setuptools-49.6.0-py36h9f0ad1d_0
-  vc                 conda-forge/win-64::vc-14.1-h869be7e_1
-  vs2015_runtime     conda-forge/win-64::vs2015_runtime-14.16.27012-h30e32a0_2
-  wheel              conda-forge/noarch::wheel-0.35.1-pyh9f0ad1d_0
-  wincertstore       conda-forge/win-64::wincertstore-0.2-py36_1003
-
-[…]
-
-Collecting tf-nightly-gpu
-  Downloading tf_nightly_gpu-2.4.0.dev20200822-cp36-cp36m-win_amd64.whl (282.9 MB)
-
-[…]
-
-Installation complete.
-
-Warning messages:
-1: In normalizePath(path.expand(path), winslash, mustWork) :
-  path[1]="[…]\Miniconda\envs\tf/python.exe": Het systeem kan het opgegeven bestand niet vinden
-2: In normalizePath(path.expand(path), winslash, mustWork) :
-  path[1]="[…]\Miniconda\envs\tf/python.exe": Het systeem kan het opgegeven bestand niet vinden
-
-Restarting R session...
-
-NVIDIA’s platforms and application frameworks enable developers to build a wide array of AI applications. Consider potential algorithmic bias when choosing or creating the models being deployed. Work with the model’s developer to ensure that it meets the requirements for the relevant industry and use case; that the necessary instruction and documentation are provided to understand error rates, confidence intervals, and results; and that the model is being used under the conditions and in the manner intended.
-</pre>
-<ol start="9" style="list-style-type: decimal">
-<li>Test tensorflow using the command below</li>
-</ol>
-<div class="sourceCode" id="cb96"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb96-1"><a href="installation.html#cb96-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb96-2"><a href="installation.html#cb96-2"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
-<span id="cb96-3"><a href="installation.html#cb96-3"></a></span>
-<span id="cb96-4"><a href="installation.html#cb96-4"></a>tf.random.set_seed(<span class="dv">1</span>)</span>
-<span id="cb96-5"><a href="installation.html#cb96-5"></a></span>
-<span id="cb96-6"><a href="installation.html#cb96-6"></a>model <span class="op">=</span> tf.keras.Sequential([tf.keras.layers.Dense( <span class="op">\</span></span>
-<span id="cb96-7"><a href="installation.html#cb96-7"></a>  units <span class="op">=</span> <span class="dv">1</span>, input_shape <span class="op">=</span> [<span class="dv">1</span>])], )</span>
-<span id="cb96-8"><a href="installation.html#cb96-8"></a></span>
-<span id="cb96-9"><a href="installation.html#cb96-9"></a><span class="bu">print</span>(tf.reduce_sum(tf.random.normal([<span class="dv">1000</span>, <span class="dv">1000</span>])))</span></code></pre></div>
-<pre>
-2020-09-17 15:06:29.340924: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library nvcuda.dll
-2020-09-17 15:06:29.365342: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
-pciBusID: 0000:01:00.0 name: GeForce GTX 1650 computeCapability: 7.5
-coreClock: 1.56GHz coreCount: 16 deviceMemorySize: 4.00GiB deviceMemoryBandwidth: 119.24GiB/s
-2020-09-17 15:06:29.365627: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
-2020-09-17 15:06:29.368816: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
-2020-09-17 15:06:29.371298: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cufft64_10.dll
-2020-09-17 15:06:29.372145: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library curand64_10.dll
-2020-09-17 15:06:29.375605: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusolver64_10.dll
-2020-09-17 15:06:29.377715: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusparse64_10.dll
-2020-09-17 15:06:29.385621: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
-2020-09-17 15:06:29.385907: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
-2020-09-17 15:06:29.386607: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2
-To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2020-09-17 15:06:29.489348: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x20dd8509930 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2020-09-17 15:06:29.489640: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2020-09-17 15:06:29.490043: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
-pciBusID: 0000:01:00.0 name: GeForce GTX 1650 computeCapability: 7.5
-coreClock: 1.56GHz coreCount: 16 deviceMemorySize: 4.00GiB deviceMemoryBandwidth: 119.24GiB/s
-2020-09-17 15:06:29.490402: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
-2020-09-17 15:06:29.490567: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
-2020-09-17 15:06:29.490775: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cufft64_10.dll
-2020-09-17 15:06:29.491080: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library curand64_10.dll
-2020-09-17 15:06:29.491298: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusolver64_10.dll
-2020-09-17 15:06:29.491542: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusparse64_10.dll
-2020-09-17 15:06:29.491784: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
-2020-09-17 15:06:29.492628: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
-2020-09-17 15:06:30.261351: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1257] Device interconnect StreamExecutor with strength 1 edge matrix:
-2020-09-17 15:06:30.261492: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1263]      0 
-2020-09-17 15:06:30.261571: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1276] 0:   N 
-2020-09-17 15:06:30.261943: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1402] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 2907 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1650, pci bus id: 0000:01:00.0, compute capability: 7.5)
-2020-09-17 15:06:30.289124: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x20e0e74be40 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
-2020-09-17 15:06:30.289298: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce GTX 1650, Compute Capability 7.5
-
-tf.Tensor(22.580101, shape=(), dtype=float32)
-</pre>
-</div>
-<div id="waar-vind-ik-hulp" class="section level2">
-<h2><span class="header-section-number">E.7</span> Waar vind ik hulp</h2>
-<p>Als je een bepaalde actie wil uitvoeren in R, maar je kent de naam van het pakket niet, dan zijn <a href="https://www.r-bloggers.com/">R Bloggers</a> en <a href="https://stackoverflow.com/">Stack Overflow</a> vermoedelijk de beste plaatsen om te zoeken. Gaat over de RStudio IDE, dan is de <a href="https://community.rstudio.com/">RStudio Community</a> misschien wel iets. Zoek je toch op Google, voeg dan de term <code>package</code> toe aan de lijst van zoektermen om betere resultaten te bekomen. Heb je de naam van een R pakket of een functie en werk je met RStudio, dan moet je meestal de IDE niet te verlaten. Wil je meer weten over een bepaald pakket, dan zijn er vignettes (soort handleiding) en documentatie. Vignettes roep je aan d.m.v. de <code>vignette()</code> functie, documentatie met <code>?</code> of <code>help()</code>. Verder heeft R ook demo’s en kan je rechtstreeks de voorbeelden uit de technische documentatie uitvoeren zonder de code te moeten kopiëren.</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="installation.html#cb97-1"></a><span class="co"># Start</span></span>
-<span id="cb97-2"><a href="installation.html#cb97-2"></a><span class="kw">help.start</span>()</span>
-<span id="cb97-3"><a href="installation.html#cb97-3"></a></span>
-<span id="cb97-4"><a href="installation.html#cb97-4"></a><span class="co"># Documentatie</span></span>
-<span id="cb97-5"><a href="installation.html#cb97-5"></a>?magrittr</span>
-<span id="cb97-6"><a href="installation.html#cb97-6"></a>?magrittr<span class="op">::</span>extract</span>
-<span id="cb97-7"><a href="installation.html#cb97-7"></a></span>
-<span id="cb97-8"><a href="installation.html#cb97-8"></a><span class="co"># Zoeken naar hulp op basis van term</span></span>
-<span id="cb97-9"><a href="installation.html#cb97-9"></a><span class="kw">help.search</span>(<span class="st">&quot;pipes&quot;</span>)</span>
-<span id="cb97-10"><a href="installation.html#cb97-10"></a></span>
-<span id="cb97-11"><a href="installation.html#cb97-11"></a><span class="co"># Informatie/handleiding specifiek pakket</span></span>
-<span id="cb97-12"><a href="installation.html#cb97-12"></a><span class="kw">vignette</span>(<span class="st">&#39;magrittr&#39;</span>)</span>
-<span id="cb97-13"><a href="installation.html#cb97-13"></a></span>
-<span id="cb97-14"><a href="installation.html#cb97-14"></a><span class="co"># Lijst pakketten van gekoppelde bibliotheken</span></span>
-<span id="cb97-15"><a href="installation.html#cb97-15"></a><span class="kw">vignette</span>(<span class="dt">all =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb97-16"><a href="installation.html#cb97-16"></a></span>
-<span id="cb97-17"><a href="installation.html#cb97-17"></a><span class="co"># Lijst pakketten geïnstalleerde bibliotheken</span></span>
-<span id="cb97-18"><a href="installation.html#cb97-18"></a><span class="kw">vignette</span>(<span class="dt">all =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb97-19"><a href="installation.html#cb97-19"></a></span>
-<span id="cb97-20"><a href="installation.html#cb97-20"></a><span class="co"># Lijst alle vignettes</span></span>
-<span id="cb97-21"><a href="installation.html#cb97-21"></a><span class="kw">browseVignettes</span>()</span>
-<span id="cb97-22"><a href="installation.html#cb97-22"></a></span>
-<span id="cb97-23"><a href="installation.html#cb97-23"></a><span class="co"># Demonstratie</span></span>
-<span id="cb97-24"><a href="installation.html#cb97-24"></a><span class="kw">demo</span>(image)</span>
-<span id="cb97-25"><a href="installation.html#cb97-25"></a></span>
-<span id="cb97-26"><a href="installation.html#cb97-26"></a><span class="co"># Voorbeeld-code uit documentatie</span></span>
-<span id="cb97-27"><a href="installation.html#cb97-27"></a><span class="kw">example</span>(<span class="st">&quot;stl&quot;</span>)</span>
-<span id="cb97-28"><a href="installation.html#cb97-28"></a></span>
-<span id="cb97-29"><a href="installation.html#cb97-29"></a><span class="co"># Pakket info (auteur, versie, ...)</span></span>
-<span id="cb97-30"><a href="installation.html#cb97-30"></a><span class="kw">library</span>(<span class="dt">help =</span> <span class="st">&quot;magrittr&quot;</span>)</span>
-<span id="cb97-31"><a href="installation.html#cb97-31"></a></span>
-<span id="cb97-32"><a href="installation.html#cb97-32"></a><span class="co"># R site</span></span>
-<span id="cb97-33"><a href="installation.html#cb97-33"></a><span class="kw">RSiteSearch</span>(<span class="st">&quot;magrittr&quot;</span>)</span>
-<span id="cb97-34"><a href="installation.html#cb97-34"></a></span>
-<span id="cb97-35"><a href="installation.html#cb97-35"></a><span class="co"># CRAN repository pakketten</span></span>
-<span id="cb97-36"><a href="installation.html#cb97-36"></a><span class="kw">browseURL</span>(<span class="st">&quot;https://cran.r-project.org/web/packages/available_packages_by_name.html&quot;</span>)</span>
-<span id="cb97-37"><a href="installation.html#cb97-37"></a></span>
-<span id="cb97-38"><a href="installation.html#cb97-38"></a><span class="co"># CRAN repo specifiek pakket</span></span>
-<span id="cb97-39"><a href="installation.html#cb97-39"></a><span class="kw">browseURL</span>(<span class="st">&quot;https://cran.r-project.org/web/packages/magrittr/index.html&quot;</span>)</span>
-<span id="cb97-40"><a href="installation.html#cb97-40"></a></span>
-<span id="cb97-41"><a href="installation.html#cb97-41"></a><span class="co"># CRAN task views</span></span>
-<span id="cb97-42"><a href="installation.html#cb97-42"></a><span class="kw">browseURL</span>(<span class="st">&quot;https://cran.r-project.org/web/views/&quot;</span>)</span>
-<span id="cb97-43"><a href="installation.html#cb97-43"></a></span>
-<span id="cb97-44"><a href="installation.html#cb97-44"></a><span class="co"># CRAN speciefieke task view</span></span>
-<span id="cb97-45"><a href="installation.html#cb97-45"></a><span class="kw">browseURL</span>(<span class="st">&quot;https://cran.r-project.org/web/views/Hydrology.html&quot;</span>)</span></code></pre></div>
-<p>Voor Python en andere talen verwijs ik naar <a href="https://stackoverflow.com/">Stack Overflow</a>. Zie ook volgende paragraaf voor wat meer info over rond Python.</p>
-</div>
-<div id="waar-vind-ik-leeralgoritmen-terugvinden" class="section level2">
-<h2><span class="header-section-number">E.8</span> Waar vind ik leeralgoritmen terugvinden</h2>
-<p>Laten we beginnen met waar je de verscheidene leeralgoritmen kunt terugvinden. In sommige gevallen, zoals voor een enkelvoudig <em>perceptron</em>, kan je het zelf gewoon coderen maar meestal worden de algoritmen gelukkig ter beschikking gesteld. Omdat wiskundigen eerder R gebruiken zullen de nieuwere leeralgoritmen gewoonlijk eerst in R verschijnen en pas later in Python. Bij het publiceren van nieuwe methoden wordt er immers vaak van de auteurs verwacht dat ze het algoritme als een peer-reviewed R pakket (eng: <em>package</em>) registreren en publiek ter beschikking stellen. Het Comprehensive R Archive Network (<a href="https://cran.r-project.org/">CRAN</a>), dat de R pakketten beheert en erop toeziet dat de pakketten zowel wiskundig als programmatorisch aan bepaalde standaarden voldoet, stelt zogenaamde <em>task views</em> op met telkens een overzicht van de pakketten die kunnen helpen bij een welbepaalde taak. Zoeken we naar “machine learning”, komen we op honderden pakketten uit van <code>ahaz</code> tot <code>xgboost</code><a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> en vele van deze pakketten geven toegang tot tientallen verschillende typen leeralgoritmen. Maar dat is niet alles. Op de webpagina met het <a href="https://cran.r-project.org/web/views/">overzicht van alle task views</a>, vinden we bijvoorbeeld het onderwerp natuurlijke taalverwerking (eng: <em>natural language processing</em>; NLP) met nog eens tientallen pakketten specifiek rond dit thema.</p>
-<p>Voor Python ontwikkeling verwijzen we voor leeralgoritmen eerst en vooral naar <a href="https://scikit-learn.org/stable/">scikit-learn</a>. Deze bibliotheek biedt een ruime gereedschapskist aan voor beginnende datawetenschappers. De naam komt trouwens van Science-kit <span class="math inline">\(\rightarrow\)</span> scikit <span class="math inline">\(\rightarrow\)</span> sk. Dan is er <a href="https://www.tensorflow.org/">Tensorflow</a> waar in de cursus dieper op wordt ingegaan. Ook hier vind je een rijke schat aan informatie. Python biedt een aantal voordelen voor ML en het belangrijkste voordeel is misschien wel dat Python een algemene programmeertaal is waarmee je gemakkelijker volwaardige applicaties kunt maken of met hardware interfacen. De bewering dat Python ‘krachtiger’ of ‘performanter’ zou zijn dan R neem ik eerder met een korreltje zout. Op de weinige momenten waarop beide platformen op eerlijke wijze vergeleken worden is het verschil onbeduidend en bovendien moet je voornamelijk rekening houden met ontwikkeltijd en daar biedt Python zeker geen voordeel. Tenslotte vermeld ik hier nog even <a href="https://julialang.org/">Julia</a>, een opkomende taal waarin ML eenvoudiger moet worden.</p>
-</div>
-</div>
-<h3>Bronvermelding</h3>
-<div id="refs" class="references">
-<div id="ref-campbell2019rstudio">
-<p>Campbell, M., 2019. RStudio views, in: Learn Rstudio Ide. Springer, pp. 29–38.</p>
-</div>
-<div id="ref-RvsPython">
-<p>Upadhyay, R., 2016. R vs python – a comparison [WWW Document] <em>Accessed: 2020-08-28</em>.</p>
-</div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="4">
-<li id="fn4"><p>zie <a href="https://cran.r-project.org/web/views/MachineLearning.html" class="uri">https://cran.r-project.org/web/views/MachineLearning.html</a>.<a href="installation.html#fnref4" class="footnote-back">↩︎</a></p></li>
-</ol>
+<p>Dus, twee transformaties op een reeks getallen die al-bij-al toch vrij verschillend zijn. Hieronder wordt met code en met beelden de verschillen nog verder verduidelijkt. We grijpen hiervoor terug naar de lengtes van de kelkbladen van de irissen.</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="normaliseren-versus-standaardiseren.html#cb88-1"></a>normalize &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb88-2"><a href="normaliseren-versus-standaardiseren.html#cb88-2"></a>  x_min &lt;-<span class="st"> </span><span class="kw">min</span>(x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb88-3"><a href="normaliseren-versus-standaardiseren.html#cb88-3"></a>  x_max &lt;-<span class="st"> </span><span class="kw">max</span>(x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb88-4"><a href="normaliseren-versus-standaardiseren.html#cb88-4"></a>  </span>
+<span id="cb88-5"><a href="normaliseren-versus-standaardiseren.html#cb88-5"></a>  (x <span class="op">-</span><span class="st"> </span>x_min) <span class="op">/</span><span class="st"> </span>(x_max <span class="op">-</span><span class="st"> </span>x_min)</span>
+<span id="cb88-6"><a href="normaliseren-versus-standaardiseren.html#cb88-6"></a>}</span>
+<span id="cb88-7"><a href="normaliseren-versus-standaardiseren.html#cb88-7"></a></span>
+<span id="cb88-8"><a href="normaliseren-versus-standaardiseren.html#cb88-8"></a>x &lt;-<span class="st"> </span>iris<span class="op">$</span>Sepal.Length</span>
+<span id="cb88-9"><a href="normaliseren-versus-standaardiseren.html#cb88-9"></a></span>
+<span id="cb88-10"><a href="normaliseren-versus-standaardiseren.html#cb88-10"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">1</span>), <span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">2</span>))</span>
+<span id="cb88-11"><a href="normaliseren-versus-standaardiseren.html#cb88-11"></a></span>
+<span id="cb88-12"><a href="normaliseren-versus-standaardiseren.html#cb88-12"></a>x <span class="op">%&gt;%</span><span class="st"> </span>density <span class="op">%&gt;%</span></span>
+<span id="cb88-13"><a href="normaliseren-versus-standaardiseren.html#cb88-13"></a><span class="st">  </span><span class="kw">plot</span>(<span class="dt">col =</span> <span class="dv">2</span>, <span class="dt">main =</span> <span class="st">&quot;Origineel&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dichtheid&quot;</span>)</span>
+<span id="cb88-14"><a href="normaliseren-versus-standaardiseren.html#cb88-14"></a><span class="kw">rug</span>(x, <span class="dt">col =</span> <span class="dv">2</span>)</span>
+<span id="cb88-15"><a href="normaliseren-versus-standaardiseren.html#cb88-15"></a></span>
+<span id="cb88-16"><a href="normaliseren-versus-standaardiseren.html#cb88-16"></a>x_norm &lt;-<span class="st"> </span>x <span class="op">%&gt;%</span><span class="st"> </span>normalize</span>
+<span id="cb88-17"><a href="normaliseren-versus-standaardiseren.html#cb88-17"></a>x_norm <span class="op">%&gt;%</span><span class="st"> </span>density <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mirror</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb88-18"><a href="normaliseren-versus-standaardiseren.html#cb88-18"></a><span class="st">  </span><span class="kw">plot</span>(<span class="dt">col =</span> <span class="dv">2</span>, <span class="dt">main =</span> <span class="st">&quot;Normalisatie&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dichtheid&quot;</span>)</span>
+<span id="cb88-19"><a href="normaliseren-versus-standaardiseren.html#cb88-19"></a><span class="kw">rug</span>(x_norm, <span class="dt">col =</span> <span class="dv">2</span>)</span>
+<span id="cb88-20"><a href="normaliseren-versus-standaardiseren.html#cb88-20"></a></span>
+<span id="cb88-21"><a href="normaliseren-versus-standaardiseren.html#cb88-21"></a>x_stand &lt;-<span class="st"> </span>x <span class="op">%&gt;%</span><span class="st"> </span>scale</span>
+<span id="cb88-22"><a href="normaliseren-versus-standaardiseren.html#cb88-22"></a>x_stand <span class="op">%&gt;%</span><span class="st"> </span>density <span class="op">%&gt;%</span></span>
+<span id="cb88-23"><a href="normaliseren-versus-standaardiseren.html#cb88-23"></a><span class="st">  </span><span class="kw">plot</span>(<span class="dt">col =</span> <span class="dv">2</span>, <span class="dt">main =</span> <span class="st">&quot;Standaardisatie&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dichtheid&quot;</span>)</span>
+<span id="cb88-24"><a href="normaliseren-versus-standaardiseren.html#cb88-24"></a><span class="kw">rug</span>(x_stand, <span class="dt">col =</span> <span class="dv">2</span>)</span>
+<span id="cb88-25"><a href="normaliseren-versus-standaardiseren.html#cb88-25"></a><span class="kw">abline</span>(<span class="dt">v =</span> <span class="dv">0</span>, <span class="dt">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/norm-vs-stand-1.png" width="480" /></p>
+<p>Merk op dat de verdeling grotendeels ongewijzigd blijft, behalve aan de randen bij de normalisatie als gevolg van de <code>mirror</code>-operatie, enkel de x-as wijzigt. De functie <code>mirror</code> is een interne functie op de densiteitscurve (niet de data) binnen de extremen te houden om een wijze die licht verschilt van het <code>cut</code> argument op <code>density</code>.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="computations-using-gpu.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="git.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="de-logaritme.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="inwendig-product-matrix-vermenigvuldiging-vectoren-en-tensoren.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
