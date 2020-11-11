@@ -262,6 +262,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.5" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#long-short-term-momory-lstm"><i class="fa fa-check"></i><b>11.5</b> Long short-term momory (LSTM)</a></li>
 <li class="chapter" data-level="11.6" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#sentiment-analyse"><i class="fa fa-check"></i><b>11.6</b> Sentiment analyse</a></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html"><i class="fa fa-check"></i><b>12</b> Neurale Netwerken met Extern Geheugen</a><ul>
+<li class="chapter" data-level="12.1" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#inleiding"><i class="fa fa-check"></i><b>12.1</b> Inleiding</a></li>
+<li class="chapter" data-level="12.2" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#neurale-turing-machines"><i class="fa fa-check"></i><b>12.2</b> Neurale Turing Machines</a></li>
+<li class="chapter" data-level="12.3" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#lezen-uit-en-schrijven-naar-een-ntm-geheugen"><i class="fa fa-check"></i><b>12.3</b> Lezen uit en schrijven naar een NTM geheugen</a></li>
+<li class="chapter" data-level="12.4" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#adressering-van-ntm-geheugens"><i class="fa fa-check"></i><b>12.4</b> Adressering van NTM geheugens</a></li>
+<li class="chapter" data-level="12.5" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#inhoud-gebaseerde-adressering"><i class="fa fa-check"></i><b>12.5</b> Inhoud-gebaseerde adressering</a></li>
+<li class="chapter" data-level="12.6" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#locatie-gebaseerde-adressering"><i class="fa fa-check"></i><b>12.6</b> Locatie-gebaseerde adressering</a></li>
+<li class="chapter" data-level="12.7" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#adresseringsmechanisme"><i class="fa fa-check"></i><b>12.7</b> Adresseringsmechanisme</a></li>
+<li class="chapter" data-level="12.8" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#de-nadelen-van-ntms"><i class="fa fa-check"></i><b>12.8</b> De nadelen van NTMs</a></li>
+<li class="chapter" data-level="12.9" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#de-differentiële-neurale-computer"><i class="fa fa-check"></i><b>12.9</b> De differentiële neurale computer</a></li>
+<li class="chapter" data-level="12.10" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#implementatie-dnc"><i class="fa fa-check"></i><b>12.10</b> Implementatie DNC</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html"><i class="fa fa-check"></i><b>13</b> Deep Reinforcement Learning</a></li>
+<li class="chapter" data-level="14" data-path="rapporteren.html"><a href="rapporteren.html"><i class="fa fa-check"></i><b>14</b> Rapporteren</a><ul>
+<li class="chapter" data-level="14.1" data-path="rapporteren.html"><a href="rapporteren.html#reproduceerbaarheid"><i class="fa fa-check"></i><b>14.1</b> Reproduceerbaarheid</a></li>
+<li class="chapter" data-level="14.2" data-path="rapporteren.html"><a href="rapporteren.html#beduidende-cijfers"><i class="fa fa-check"></i><b>14.2</b> Beduidende cijfers</a></li>
+<li class="chapter" data-level="14.3" data-path="rapporteren.html"><a href="rapporteren.html#representativiteit-en-randvoorwaarden"><i class="fa fa-check"></i><b>14.3</b> Representativiteit en randvoorwaarden</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="ethisch-ml.html"><a href="ethisch-ml.html"><i class="fa fa-check"></i><b>15</b> Ethisch ML</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="de-logaritme.html"><a href="de-logaritme.html"><i class="fa fa-check"></i><b>A</b> De Logaritme</a></li>
 <li class="chapter" data-level="B" data-path="normaliseren-versus-standaardiseren.html"><a href="normaliseren-versus-standaardiseren.html"><i class="fa fa-check"></i><b>B</b> Normaliseren versus Standaardiseren</a></li>
@@ -498,8 +517,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div></li>
 <li><p><code>ivstart</code> en <code>ivstop</code><em>days from enrollment to the start of IV antibiotics</em> en <em>days from enrollment to the cessation of IV antibiotics</em> (IV staat voor intraveneus) Deze laatste twee variabelen zijn weer verschillend: het gaat om discrete aantallen (<span class="math inline">\(\subset \mathbb{N}\)</span>), dus geen kommagetallen, maar, tegen de verwachting, wél negatief kunnen zijn. Bovendien zijn er erg veel ontbrekende waarden:</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data-exploratie.html#cb45-1"></a>rhDNase<span class="op">$</span>ivstart <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">head</span>(<span class="dv">32</span>)</span></code></pre></div>
-<pre><code>##  [1]  NA  NA  65  NA  NA  NA  NA  90  NA   8  63  60  83  50  NA  99  35  71  NA   8  NA  NA  NA  20  62
-## [26]  85  NA  13  51 166  37  65</code></pre>
+<pre><code>##  [1]  NA  NA  65  NA  NA  NA  NA  90  NA   8  63  60  83  50  NA  99  35  71  NA   8  NA  NA  NA  20  62  85
+## [27]  NA  13  51 166  37  65</code></pre>
 <div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data-exploratie.html#cb47-1"></a>rhDNase<span class="op">$</span>ivstart <span class="op">%&gt;%</span><span class="st"> </span>is.na <span class="op">%&gt;%</span><span class="st"> </span>table</span></code></pre></div>
 <pre><code>## .
 ## FALSE  TRUE 

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A De Logaritme | Machine Learning</title>
+  <title>Hoofdstuk 12 Neurale Netwerken met Extern Geheugen | Machine Learning</title>
   <meta name="description" content="Artificial intelligence course at the AP University College." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A De Logaritme | Machine Learning" />
+  <meta property="og:title" content="Hoofdstuk 12 Neurale Netwerken met Extern Geheugen | Machine Learning" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A De Logaritme | Machine Learning" />
+  <meta name="twitter:title" content="Hoofdstuk 12 Neurale Netwerken met Extern Geheugen | Machine Learning" />
   
   <meta name="twitter:description" content="Artificial intelligence course at the AP University College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="ethisch-ml.html"/>
-<link rel="next" href="normaliseren-versus-standaardiseren.html"/>
+<link rel="prev" href="sequentie-analyse.html"/>
+<link rel="next" href="deep-reinforcement-learning.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -318,59 +318,175 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="de-logaritme" class="section level1">
-<h1><span class="header-section-number">A</span> De Logaritme</h1>
-<p>De logaritme is een functie en die als het omgekeerde van een exponentiële functie beschouwd kan worden:</p>
+<div id="neurale-netwerken-met-extern-geheugen" class="section level1">
+<h1><span class="header-section-number">Hoofdstuk 12</span> Neurale Netwerken met Extern Geheugen</h1>
+<div id="inleiding" class="section level2">
+<h2><span class="header-section-number">12.1</span> Inleiding</h2>
+<p>Als uitbreiding op de seq-2-seq-type neurale netweken, RNNs en LSTMs is men een aantal jaren geleden beginnen experimenteren met het toevoegen van een soort extern geheugen aan ANNs. Bij de eerder besproken LSTMs netwerken was er reeds sprake van een soort <em>werkgeheugen</em>, maar de bedoeling is hier om het computationeel gedeelde van het ANN beter te scheiden van het geheugen gedeelte. Het gevolg is dat we bijvoorbeeld de grootte van het geheugen kunnen aanpassen zonder de grootte en complexiteit van het netwerk te wijzigen.</p>
+<p>Het resultaat van een zelfstandig extern geheugen is de productie van een zelfstandige ‘computer’ die uit voorbeelden kan leren. We bespreken hier twee types netwerken: Neurale Turing Machines (eng: <em>Neural Turing Machines</em> of <em>NTM</em>) en Differentiële Neurale Netwerken (eng: <em>Differential Neural Networks</em> of <em>DNC</em>).</p>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Seagate_ST33232A_hard_disk_head_and_platters_detail.jpg" alt="" />
+<p class="caption">Schrijf- en leeskop van een harde schijf</p>
+</div>
+<p><small>Bron afbeelding: <a href="https://commons.wikimedia.org/wiki/File:Seagate_ST33232A_hard_disk_head_and_platters_detail.jpg">Eric Gaba</a> onder een <i>Creative Commons Attribution-Share Alike 3.0 Unported</i> licentie</small></p>
+</div>
+<div id="neurale-turing-machines" class="section level2">
+<h2><span class="header-section-number">12.2</span> Neurale Turing Machines</h2>
+<p>Neural Turing Machines (NTMs) werden bedacht door Google’s DeepMind team (zie <span class="citation">Graves et al. (<a href="#ref-graves" role="doc-biblioref">2014</a>)</span>). Net als bij LSTM is het doel van NTMs om de lange-termijn afhankelijkheden te capteren. NTMs verschillen echter van eerdere RNN in dat ze zogenaamde aandacht mechanismen (eng: <em>attention mechanisms</em>) gebruiken om het lezen en schrijven naar het extern geheugen efficiënter te laten verlopen. De abstrahering van de architectuur van een NTM vind je in Figuur <a href="neurale-netwerken-met-extern-geheugen.html#fig:ntm">12.1</a>.</p>
+<div class="figure"><span id="fig:ntm"></span>
+<img src="img/ntm.svg" alt="Architectuur van een Neurale Turing Machine (NTM). Een controller vormt het eigenlijk ANN (bijvoorbeeld een RNN) terwijl de schrijfkop en leeskop (naar analogie met fysieke gegevensdragers) instaan vormt de informatie-overdracht naar het extern werkgeheugen."  />
+<p class="caption">
+Figuur 12.1: Architectuur van een Neurale Turing Machine (NTM). Een controller vormt het eigenlijk ANN (bijvoorbeeld een RNN) terwijl de schrijfkop en leeskop (naar analogie met fysieke gegevensdragers) instaan vormt de informatie-overdracht naar het extern werkgeheugen.
+</p>
+</div>
+
+<p>Het komt erop neer dat en RNN wordt uitgebreid met het extern geheugen en dit geheugen bestaat uit niets meer dan een tabel of matrix met één <em>herinnering</em> per rij. Een extern geheugen is natuurlijk pas nuttig als je er gegevens uit kunt lezen en nieuwe gegevens kunt in plaatsen.</p>
+</div>
+<div id="lezen-uit-en-schrijven-naar-een-ntm-geheugen" class="section level2">
+<h2><span class="header-section-number">12.3</span> Lezen uit en schrijven naar een NTM geheugen</h2>
+<p>Het ophalen en het manipuleren van het geheugen gebeurt op een probabilistische wijze door gebruik van gewichten. Het principe is als volgt. Stel dat een (voor de eenvoud één-dimensionaal) extern geheugen bestaat uit de rij <span class="math inline">\(M := (12, 87, 45, 65, 49)\)</span>. Ontwikkelaars zijn gewoon om een element uit zulk een rij op te halen door middel van een index, i.e. deterministische wijze: <span class="math inline">\(M_3 = 45\)</span>. In plaats daarvan, gaan we <span class="math inline">\(M\)</span> als een vector beschouwen en deze vermenigvuldigen met een co-vector <span class="math inline">\(w := (0, 0.1, 0.7, 0.2, 0)\)</span> die we de aandachtsvector noemen (eng: <em>attention vector</em>), waarbij <span class="math inline">\(\sum_{i}w_i=1\)</span> (zie Appendix voor uitleg over vectoren, co-vectoren en tensoren). Deze vermenigvuldiging komt overeen met wat je zou kunnen noemen een ‘probabilistische selectie’ of <a href="https://nl.wikipedia.org/wiki/Gewogen_gemiddelde">gewogen gemiddelde</a> met de ‘aandacht’ op het derde element uit de rij:</p>
 <p><span class="math display">\[
-y = ^g\!log(x) \\
-g^y=x
+M_w=M^\intercal w\\ =0\cdot12+0.1\cdot87+0.7\cdot45+0.2\cdot65+0\cdot4 \\
+=53.2
 \]</span></p>
-<p>waarbij <span class="math inline">\(g\)</span> het grondtal is. Indien het niet meegegeven wordt, veronderstelt men dat <span class="math inline">\(g\)</span> gelijk is aan <span class="math inline">\(e = 2.718281828..\)</span> en komt de logaritme overeen met de <em>natuurlijk logaritme</em> dat in <em>België en sommige andere delen van de wereld</em> aangeduid wordt met <span class="math inline">\(ln(x)\)</span>.</p>
-<p>Een belangrijke reden om een variabele te transformeren met de logaritme is omdat de verdeling ervan een grote scheefheid vertoond waardoor:</p>
+<p>Waarom zo moeilijk doen?</p>
+
+<div class="definition">
+<p><span id="def:why-probabilistic-selection" class="definition"><strong>Stelling 12.1  (Waarom geen discrete selectie van geheugen elementen)  </strong></span>De traditionele manier om elementen uit een rij of matrix te selecteren, zoals bij <span class="math inline">\(M_3\)</span>, maakt gebruik van discrete indices (<span class="math inline">\(M_i\)</span> met <span class="math inline">\(i \subset {1, 2, ...}\)</span>). Tijdens het leerproces zal de NTM de ideale indices trachten te voorspellen. Willen we echter gebruik maken van het Backpropagation algoritme en van de gradiënt-afdaling waarvan eerder sprake, dan moet deze indices differentieerbaar zijn. Discrete waarden zijn dat <em>niet</em>. Het is immers absurd om zoiets als het volgende te onderzoeken: wat is het effect van een kleine wijziging in de index (bijvoorbeeld van 3 naar 3.0001) op de accuraatheid van de voorspelling. Vandaar de noodzaak om een continue indexering te gebruiken i.p.v. een discrete indexering.</p>
+<blockquote>
+Belangrijke noot: de gradieënt-afdaling is geen verplichting, het maakt een ANN mogelijk eenvoudiger, maar er zijn evenzeer specialisten die vinden dat het blijven vasthouden aan de gradiënt-afdaling eerder een belemmering is en stellen de noodzaak ervan in vraag.
+</div>
+</blockquote>
+<p>Op het bovenstaande principe zijn de lees- en schrijf operaties ten aanzien van het extern geheugen van een NTM gebaseerd. Het lezen gebeurt a.d.h.v. een aandachtsvector (eng: <em>attention vector</em>) die op een continue wijze een geheugenplaats selecteert (zie Figuur <a href="neurale-netwerken-met-extern-geheugen.html#fig:ntm-read">12.2</a>).</p>
+<div class="figure"><span id="fig:ntm-read"></span>
+<img src="img/ntm_read.svg" alt="De lees-operatie uit een extern NTM geheugen-matrix. In dit geval is er een ‘focus’ op de 6e geheugenplaats."  />
+<p class="caption">
+Figuur 12.2: De lees-operatie uit een extern NTM geheugen-matrix. In dit geval is er een ‘focus’ op de 6<sup>e</sup> geheugenplaats.
+</p>
+</div>
+
+<p>Het schrijven is iets complexer. Het bestaat uit twee afzonderlijke operaties. De eerste operatie dient om te vergeten, i.e. om bestaande gegevens uit het extern NTM geheugen te wissen. De tweede operatie dient om nieuwe gegevens te ‘onthouden’. Deze beide operaties zijn veel fijngevoeliger dan de lees-operatie en kunnen op individuele geheugenplaatsen inwerken. Dit gebeurt door een combinatie van een aandachtsvector enerzijds en een wis-vector (eng: <em>erase vector</em>) of schrijf-vector (eng: <em>write vector</em>) anderzijds. Figuur <a href="neurale-netwerken-met-extern-geheugen.html#fig:ntm-write">12.3</a> laat zien hoe de schrijf-operatie in zijn werk gaat.</p>
+<div class="figure"><span id="fig:ntm-write"></span>
+<img src="img/ntm_write.png" alt="De werking van een schrijf-operatie te aanzien van een extern NTM geheugen. \(E\) is een eenheidsmatrix met gepaste dimensies (een matrix gevuld met enen), \(\circ\) is het Hadamardproduct. Als in de grijswaarde matrices lichte vlakken hogere waarden voorstellen, dan komt de weergegeven schrijf-operatie overeen met het wissen van de waarde in cel (5, 1) en het verhogen van de waarde in cel (5, 2). Tinten van oranje zijn hier eerder indicatief en niet als exact te interpreteren." width="868" />
+<p class="caption">
+Figuur 12.3: De werking van een schrijf-operatie te aanzien van een extern NTM geheugen. <span class="math inline">\(E\)</span> is een eenheidsmatrix met gepaste dimensies (een matrix gevuld met enen), <span class="math inline">\(\circ\)</span> is het <a href="https://nl.wikipedia.org/wiki/Hadamardproduct">Hadamardproduct</a>. Als in de grijswaarde matrices lichte vlakken hogere waarden voorstellen, dan komt de weergegeven schrijf-operatie overeen met het wissen van de waarde in cel (5, 1) en het verhogen van de waarde in cel (5, 2). Tinten van oranje zijn hier eerder indicatief en niet als exact te interpreteren.
+</p>
+</div>
+
+</div>
+<div id="adressering-van-ntm-geheugens" class="section level2">
+<h2><span class="header-section-number">12.4</span> Adressering van NTM geheugens</h2>
+<p>Het adresseren van een NTM geheugen kan op twee manieren plaatsvinden.</p>
+<ul>
+<li><em>Op basis van locatie</em>: Dit is de methode waarop in vorige paragraaf werd gealludeerd, namelijk het selecteren van een geheugenplaats op basis van een index.</li>
+<li><em>Op basis van inhoud</em>: Er is echter nog een tweede manier nog om een Turing machine te ontwerpen, namelijk het selecteren van een geheugenplaats op basis van zijn inhoud.</li>
+</ul>
+</div>
+<div id="inhoud-gebaseerde-adressering" class="section level2">
+<h2><span class="header-section-number">12.5</span> Inhoud-gebaseerde adressering</h2>
+<p>De controller van een NTM kan aanleren om een geheugenplaats (een rij binnen de geheugen matrix) terug te vinden dat zo geooed mogelijk overeenstemt met een vooropgestelde sleutelvector <span class="math inline">\(\mathbf{k_t}\)</span> (eng: <em>key vector</em>). Hiervoor wordt de aandachtsvector als volgt berekend:</p>
+<p><span class="math display">\[
+w_t^c=\frac{\exp\left(\beta_t\mathscr{D}\left(M_t,\mathbf{k_t}\right)\right)}{\sum_{i=0}^{N}\exp\left(\beta_t\mathscr{D}\left(M_t,\mathbf{k_t}\right)\right)}
+\]</span></p>
+<p>, waarbij <span class="math inline">\(\beta\)</span> hier voor een vermenigvuldigingsfactor staat (eng: <em>key strength</em>) en waarbij <span class="math inline">\(\mathscr{D}\)</span> voor een afstand-functie staat (eng: <em>similarity function</em>). Voor <span class="math inline">\(\mathscr{D}\)</span> wordt meestal de <a href="https://nl.wikipedia.org/wiki/Cosinusgelijkenis">cosinusgelijkenis</a> genomen. Je zal merken dat bovenstaande vergelijking erg lijkt op de softmax en inderdaad, het komt neer op een genormaliseerde versie van de softmax. De parameter <span class="math inline">\(\beta\)</span> is geen hyperparameter. Het wordt door de controller aangeleverd en aangeleerd. Een hogere waarde voor <span class="math inline">\(\beta\)</span> zal ervoor zorgen dat een onbesliste sleutel-vector (in het extreme geval een eenheidsvector) toch een duidelijk gefocusseerde aandachtsvector oplevert.</p>
+</div>
+<div id="locatie-gebaseerde-adressering" class="section level2">
+<h2><span class="header-section-number">12.6</span> Locatie-gebaseerde adressering</h2>
+<p>Deze adressering moet toelaten dat de controller aanleert om bepaalde geheugenplaatsen op te roepen en om te navigeren naar een naburige geheugenplaats. Dit gebeurt door op de aandachtsvector een rottionele convolutie uit te voeren (i.e. filter operatie) met een zogenaamde <em>shift weighting</em> <span class="math inline">\(\mathbf{s_t}\)</span>:</p>
+<div class="figure">
+<img src="img/ntm_conv_shift.svg" alt="(ref:ntm_conv_shift)"  />
+<p class="caption">
+(#fig:ntm_conv_shift)(ref:ntm_conv_shift)
+</p>
+</div>
+<p>(ref:ntm_conv_shift) Voorbeeld van een convolutionele shift-operatie om de focus één plaats naar onder te verschuiven. Merk op dat dit een cyclisch gebeuren is in de zin dat de cel van de aandachtsvector <span class="math inline">\(w_t\)</span> die a.h.w. van de vector valt bovenaan wordt gerecycleerd (i.e. <span class="math inline">\(\widetilde{w}_{t,1} = w_{t, 6}\)</span>).</p>
+</div>
+<div id="adresseringsmechanisme" class="section level2">
+<h2><span class="header-section-number">12.7</span> Adresseringsmechanisme</h2>
+<p>Hier volgt een beschrijving van het volledig adresseringsmechanisme.</p>
+<div class="figure"><span id="fig:ntm-address"></span>
+<img src="img/ntm_address.svg" alt="(ref:ntm-address)"  />
+<p class="caption">
+Figuur 12.4: (ref:ntm-address)
+</p>
+</div>
 <ol style="list-style-type: decimal">
-<li>de verdeling moeilijker te interpreteren is en</li>
-<li>de verdeling te sterk afwijkt van normaliteit, een assumptie waar erg veel statistieken van afhangen</li>
+<li><p>Zoek een geheugenplaats op basis van de sleutelvector <span class="math inline">\(\mathbf{k_t}\)</span> en de vermenigvuldigingsfactor <span class="math inline">\(beta\)</span></p></li>
+<li><p>Interpoleer de resulterende aandachtsvector <span class="math inline">\(w_t^c\)</span> met de aandachtsvector <span class="math inline">\(w_{t-1}\)</span> van het vorige tijdstip:</p>
+<p><span class="math display">\[
+w_t^g=g_t w_t^c + (1-g_t)w_{t-1}
+\]</span></p>
+<p>, waarbij <span class="math inline">\(g_t\)</span> en <span class="math inline">\(w_t^g\)</span> de <em>interpolation gate</em> en de <em>gated weighting</em> zijn</p></li>
+<li><p>In deze stap kan de controller aanleren om zich te verplaatsen in het geheugen (i.e. locatie gebaseerde adressering)</p></li>
+<li><p>Om te voorkomen dat als gevolg van voorgaande filter operatie er een vervagingseffect optreedt (eng: <em>blurring effect</em>), wordt er een verscherping-operatie uitgevoerd door de aangeleerde verscherpingsfactor <span class="math inline">\(\gamma_t\)</span> die ook door de controller wordt beheerd. De formule voor de verscherping is als volgt:</p>
+<p><span class="math display">\[
+w_t=\frac{\tilde{w}_t^{\gamma_t}}{\sum_{i=0}^{N}\tilde{w}_{t, i}^{\gamma_t}}
+\]</span></p></li>
 </ol>
-<p>In het R pakket <code>MASS</code> vinden we een heel simpele dataset <code>mammals</code> met gemiddelde lichaamsgewichten en hersenen-massa’s. Deze data laat het probleem alsook het effect van de log-transformatie visueel zien:</p>
-<div class="figure"><span id="fig:logaritme"></span>
-<img src="_main_files/figure-html/logaritme-1.png" alt="Lichaamsgewichten alleenstaand als verdelingen (boven) of tegenover hersenen-massa’s (onder) in de lineaire schaal (links) of de logaritmische schaal (links). De blauwe balken geven het gemiddelde (volle blauwe lijn) weer ± standaardafwijking (blauwe stippellijnen)." width="672" />
+</div>
+<div id="de-nadelen-van-ntms" class="section level2">
+<h2><span class="header-section-number">12.8</span> De nadelen van NTMs</h2>
+<p>De uitvinding van NTMs was zonder meer revolutionair, maar toch bleken er al snel een aantal gebreken te bestaan.</p>
+<ol style="list-style-type: decimal">
+<li>Omdat het hele mechanisme om informatie weg te schrijven naar het extern geheugen differentieerbaar moest zijn treedt er ook vaak interferentie op waarbij de weggeschreven informatie enigszins overlapt met eerder weggeschreven informatie. Zeker wanneer de aandachtsvector onvoldoende gefocusseerd is, treedt dit fenomeen op.</li>
+<li>Er is ook een probleem met het overschrijven van data. Typisch zal de controller aanleren om nieuwe data te plaatsen in een vrije locatie van het extern geheugen terwijl soms het overschrijven van bestaande informatie een voordeel biedt</li>
+<li>De controller zou moeten kunnen aanleren om een sprong te maken in het extern geheugen, daar een bepaalde operatie uit te voeren en daarna terug te springen naar de oorspronkelijke locatie. De controller mist deze vaardigheid omdat hij geen kruimelspoor bijhoudt.</li>
+</ol>
+<p>Deze beperkingen werden door dezelfde auteurs onderzocht waarop ze met een verbeterde versie kwamen voor de NTM: de differentiële neurale computer (eng: <em>Differentiable Neural Computer</em> of <em>DNC</em>; zie <span class="citation">Graves et al. (<a href="#ref-graves2" role="doc-biblioref">2016</a>)</span>).</p>
+</div>
+<div id="de-differentiële-neurale-computer" class="section level2">
+<h2><span class="header-section-number">12.9</span> De differentiële neurale computer</h2>
+<div class="figure">
+<img src="https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fcom.ft.imagepublish.prod.s3.amazonaws.com%2Fd4d0912c-8fd4-11e6-a72e-b428cb934b78?fit=scale-down&amp;source=next&amp;width=700" alt="" />
+<p class="caption">An artist’s impression of Google’s Differentiable Neural Computer © Google DeepMind</p>
+</div>
+<p>Bron afbeelding: Adam Cain, een artist bij het DeepMind team.</p>
+<p>We gaan ons hier niet verder verdiepen in de architectuur van een DNC, maar ik geef toch even mee wat de verschillen zijn t.o.v. een NTM:</p>
+
+<div class="definition">
+<span id="def:dnc-def" class="definition"><strong>Stelling 12.2  (DNC versus NTM)  </strong></span>- De DNC heeft meerdere leeskoppen
+- De DNC werkt met een <em>interface vector</em> waarin a.h.w. de query vervat zit om de lees- en schrijf-opdrachten uit te voeren
+- De DNC maakt gebruik van een <em>link matrix</em>, een <em>voorrangsvector</em> (eng: <em>precendence vector</em>) en een gebruiksvector (eng: <em>usage vector</em>).
+</div>
+
+<p>Samengevat komt het er enerzijds op neer dat er bij het combineren van lees- en schrijf-operaties en voldoende geheugen-beheer moet plaatsvinden om problemen rond overlap te voorkomen. Anderzijds was het ook de bedoeling dat DNCs in staat zijn om te onthouden in welke volgorde eerder informatie werd weggeschreven naar het geheugen.</p>
+<div class="figure"><span id="fig:dnc"></span>
+<img src="img/dnc.svg" alt="Overzicht van de architectuur van aan DNC."  />
 <p class="caption">
-Figuur A.1: Lichaamsgewichten alleenstaand als verdelingen (boven) of tegenover hersenen-massa’s (onder) in de lineaire schaal (links) of de logaritmische schaal (links). De blauwe balken geven het gemiddelde (volle blauwe lijn) weer ± standaardafwijking (blauwe stippellijnen).
+Figuur 12.5: Overzicht van de architectuur van aan DNC.
 </p>
 </div>
 
-<p>Bedenk wel dat enkel <a href="https://nl.wikipedia.org/wiki/Positief_getal#:~:text=Getallen%20groter%20dan%20nul%20worden,dus%20noch%20positief%2C%20noch%20negatief.">strikt positieve</a> lineair-numerieke meetwaarden (<span class="math inline">\(\mathbb{R}^+\)</span>) voor een log-transformatie in aanmerking komen.</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="de-logaritme.html#cb139-1"></a><span class="kw">curve</span>(<span class="kw">log</span>(x), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">10</span>), <span class="dt">col =</span> dyad[<span class="dv">16</span>], <span class="dt">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb139-2"><a href="de-logaritme.html#cb139-2"></a><span class="kw">polygon</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">7</span>, <span class="dv">-7</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">-3</span>),</span>
-<span id="cb139-3"><a href="de-logaritme.html#cb139-3"></a>  <span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">density =</span> <span class="dv">10</span>, <span class="dt">col =</span> dyad[<span class="dv">16</span>])</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
-<p>Op internet kan je trucjes vinden om log-transformaties te doen op data die 0 waarden bevatten. Een voorbeeld van zo een trucje is om bij elke waarde ½ bij op te tellen. Zulke procedures kunnen helpen voor de visualisatie maar hebben vaak geen statistische grondslag, dus opgelet hiermee.</p>
-<p>We staan er niet meer bij stil hoe fantastisch het eigenlijk is om in een machine <code>log(2.34651)</code> te kunnen opgeven. Wil je weten hoe men vroeger logs berekende? Net als voor andere functies (<code>sin</code>, <code>tanh</code>, …) gebeurde dit aan de hand van tabellen:</p>
-<div class="figure"><span id="fig:log-tabellen"></span>
-<img src="img/log-tables.png" alt="Zo ging men vroeger te werk voor het berekenen van een logaritme!" width="432" />
-<p class="caption">
-Figuur A.2: Zo ging men vroeger te werk voor het berekenen van een logaritme!
-</p>
+<p>De link matrix en de gebruiksvector vormen een onderdeel van een zogenaamde <a href="https://en.wikipedia.org/wiki/Free_list#:~:text=A%20free%20list%20is%20a,a%20pointer%20to%20the%20next.">vrije lijst</a> (eng: <em>free list</em>) data structuur die de controller instaat stelt om zelf te beslissen om een bepaalde geheugenplaats toegekend moet worden of niet.</p>
 </div>
+<div id="implementatie-dnc" class="section level2">
+<h2><span class="header-section-number">12.10</span> Implementatie DNC</h2>
+<p>Hiervoor kijken me naar een video-clip van DeepMind zelf. Het laat zien hoe een DNC ons in staat stelt om eerdere onoplosbare vraagstukken te laten oplossen:</p>
+<iframe width="566" height="318" src="https://www.youtube.com/embed/B9U8sI7TcMY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p>DNC zijn instaat om allerlei vragen te beantwoorden over een graaf-gestructureerde gegevens zoals sociale netwerken, parse-trees, knowledge graphs en dergelijke zelfs als de gegevens in een lineaire vormen worden gevoed aan het algoritme.</p>
+<p>In een ander voorbeeld, dat gerelateerd is met het aanleren van concepten (denk aan het concept ‘boom’ uit de eerste les), wil men bijvoorbeeld een ANN het volgende ‘raadsel’ proberen oplossen:</p>
+<p><q>Alice gaat naar de keuken, alwaar ze een glas milk neemt. Onderweg naar de living neemt ze een appel uit de fruitmand.<br><br>Vraag: Hoeveel objecten heeft Alice bij zich?</q></p>
+<p>Het lijkt verschrikkelijke overkill om hiervoor zulk een complex netwerk op te zetten. Maar wat als je niet op voorhand weet welke vraag er gesteld gaat worden?</p>
 
-
-<div class="exercise">
-<span id="exr:log-test" class="exercise"><strong>Oefening A.1  (Probeer het uit)  </strong></span>Maak nu zelf eens een vector van negen waarden gaande van <code>1E-4</code> tot <code>1E4</code> en neem de logaritme van deze vector.
 </div>
-
-
-<div class="exercise">
-<span id="exr:anti-log" class="exercise"><strong>Oefening A.2  (Anti-log)  </strong></span>Deze paragraaf begon met de stelling dat de logaritme als het omgekeerde van een exponentiële functie kan beschouwd worden. Toon dat eens voor jezelf aan. Probeer eens zeer kleine en zeer grote waarden uit voor <span class="math inline">\(x\)</span> en probeer eens verschillende grondtallen uit.
 </div>
-
+<h3>Bronvermelding</h3>
+<div id="refs" class="references">
+<div id="ref-graves">
+<p>Graves, A., Wayne, G., Danihelka, I., 2014. Neural turing machines. CoRR abs/1410.5401.</p>
+</div>
+<div id="ref-graves2">
+<p>Graves, A., Wayne, G., Reynolds, M., Harley, T., Danihelka, I., Grabska-Barwińska, A., Colmenarejo, S.G., Grefenstette, E., Ramalho, T., Agapiou, J., others, 2016. Hybrid computing using a neural network with dynamic external memory. Nature 538, 471–476.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="ethisch-ml.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="normaliseren-versus-standaardiseren.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sequentie-analyse.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="deep-reinforcement-learning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -400,7 +516,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ddhaese/machine-learning-source/98_Appendix.Rmd",
+"link": "https://github.com/ddhaese/machine-learning-source/13_Memory_Augmented_NN.Rmd",
 "text": "Bron"
 },
 "download": null,

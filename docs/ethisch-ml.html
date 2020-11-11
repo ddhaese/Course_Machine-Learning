@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A De Logaritme | Machine Learning</title>
+  <title>Hoofdstuk 15 Ethisch ML | Machine Learning</title>
   <meta name="description" content="Artificial intelligence course at the AP University College." />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A De Logaritme | Machine Learning" />
+  <meta property="og:title" content="Hoofdstuk 15 Ethisch ML | Machine Learning" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A De Logaritme | Machine Learning" />
+  <meta name="twitter:title" content="Hoofdstuk 15 Ethisch ML | Machine Learning" />
   
   <meta name="twitter:description" content="Artificial intelligence course at the AP University College." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="ethisch-ml.html"/>
-<link rel="next" href="normaliseren-versus-standaardiseren.html"/>
+<link rel="prev" href="rapporteren.html"/>
+<link rel="next" href="de-logaritme.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -318,59 +318,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="de-logaritme" class="section level1">
-<h1><span class="header-section-number">A</span> De Logaritme</h1>
-<p>De logaritme is een functie en die als het omgekeerde van een exponentiële functie beschouwd kan worden:</p>
-<p><span class="math display">\[
-y = ^g\!log(x) \\
-g^y=x
-\]</span></p>
-<p>waarbij <span class="math inline">\(g\)</span> het grondtal is. Indien het niet meegegeven wordt, veronderstelt men dat <span class="math inline">\(g\)</span> gelijk is aan <span class="math inline">\(e = 2.718281828..\)</span> en komt de logaritme overeen met de <em>natuurlijk logaritme</em> dat in <em>België en sommige andere delen van de wereld</em> aangeduid wordt met <span class="math inline">\(ln(x)\)</span>.</p>
-<p>Een belangrijke reden om een variabele te transformeren met de logaritme is omdat de verdeling ervan een grote scheefheid vertoond waardoor:</p>
-<ol style="list-style-type: decimal">
-<li>de verdeling moeilijker te interpreteren is en</li>
-<li>de verdeling te sterk afwijkt van normaliteit, een assumptie waar erg veel statistieken van afhangen</li>
-</ol>
-<p>In het R pakket <code>MASS</code> vinden we een heel simpele dataset <code>mammals</code> met gemiddelde lichaamsgewichten en hersenen-massa’s. Deze data laat het probleem alsook het effect van de log-transformatie visueel zien:</p>
-<div class="figure"><span id="fig:logaritme"></span>
-<img src="_main_files/figure-html/logaritme-1.png" alt="Lichaamsgewichten alleenstaand als verdelingen (boven) of tegenover hersenen-massa’s (onder) in de lineaire schaal (links) of de logaritmische schaal (links). De blauwe balken geven het gemiddelde (volle blauwe lijn) weer ± standaardafwijking (blauwe stippellijnen)." width="672" />
-<p class="caption">
-Figuur A.1: Lichaamsgewichten alleenstaand als verdelingen (boven) of tegenover hersenen-massa’s (onder) in de lineaire schaal (links) of de logaritmische schaal (links). De blauwe balken geven het gemiddelde (volle blauwe lijn) weer ± standaardafwijking (blauwe stippellijnen).
-</p>
-</div>
-
-<p>Bedenk wel dat enkel <a href="https://nl.wikipedia.org/wiki/Positief_getal#:~:text=Getallen%20groter%20dan%20nul%20worden,dus%20noch%20positief%2C%20noch%20negatief.">strikt positieve</a> lineair-numerieke meetwaarden (<span class="math inline">\(\mathbb{R}^+\)</span>) voor een log-transformatie in aanmerking komen.</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="de-logaritme.html#cb139-1"></a><span class="kw">curve</span>(<span class="kw">log</span>(x), <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">10</span>), <span class="dt">col =</span> dyad[<span class="dv">16</span>], <span class="dt">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb139-2"><a href="de-logaritme.html#cb139-2"></a><span class="kw">polygon</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">7</span>, <span class="dv">-7</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="kw">c</span>(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">-3</span>),</span>
-<span id="cb139-3"><a href="de-logaritme.html#cb139-3"></a>  <span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">density =</span> <span class="dv">10</span>, <span class="dt">col =</span> dyad[<span class="dv">16</span>])</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
-<p>Op internet kan je trucjes vinden om log-transformaties te doen op data die 0 waarden bevatten. Een voorbeeld van zo een trucje is om bij elke waarde ½ bij op te tellen. Zulke procedures kunnen helpen voor de visualisatie maar hebben vaak geen statistische grondslag, dus opgelet hiermee.</p>
-<p>We staan er niet meer bij stil hoe fantastisch het eigenlijk is om in een machine <code>log(2.34651)</code> te kunnen opgeven. Wil je weten hoe men vroeger logs berekende? Net als voor andere functies (<code>sin</code>, <code>tanh</code>, …) gebeurde dit aan de hand van tabellen:</p>
-<div class="figure"><span id="fig:log-tabellen"></span>
-<img src="img/log-tables.png" alt="Zo ging men vroeger te werk voor het berekenen van een logaritme!" width="432" />
-<p class="caption">
-Figuur A.2: Zo ging men vroeger te werk voor het berekenen van een logaritme!
-</p>
-</div>
-
-
-<div class="exercise">
-<span id="exr:log-test" class="exercise"><strong>Oefening A.1  (Probeer het uit)  </strong></span>Maak nu zelf eens een vector van negen waarden gaande van <code>1E-4</code> tot <code>1E4</code> en neem de logaritme van deze vector.
-</div>
-
-
-<div class="exercise">
-<span id="exr:anti-log" class="exercise"><strong>Oefening A.2  (Anti-log)  </strong></span>Deze paragraaf begon met de stelling dat de logaritme als het omgekeerde van een exponentiële functie kan beschouwd worden. Toon dat eens voor jezelf aan. Probeer eens zeer kleine en zeer grote waarden uit voor <span class="math inline">\(x\)</span> en probeer eens verschillende grondtallen uit.
-</div>
+<div id="ethisch-ml" class="section level1">
+<h1><span class="header-section-number">Hoofdstuk 15</span> Ethisch ML</h1>
+<p>(Komt nog.)</p>
 
 </div>
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="ethisch-ml.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="normaliseren-versus-standaardiseren.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="rapporteren.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="de-logaritme.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -400,7 +362,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/ddhaese/machine-learning-source/98_Appendix.Rmd",
+"link": "https://github.com/ddhaese/machine-learning-source/16_Ethisch_ML.Rmd",
 "text": "Bron"
 },
 "download": null,

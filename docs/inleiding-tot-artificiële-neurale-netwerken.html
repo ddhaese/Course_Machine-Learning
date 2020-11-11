@@ -262,6 +262,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.5" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#long-short-term-momory-lstm"><i class="fa fa-check"></i><b>11.5</b> Long short-term momory (LSTM)</a></li>
 <li class="chapter" data-level="11.6" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#sentiment-analyse"><i class="fa fa-check"></i><b>11.6</b> Sentiment analyse</a></li>
 </ul></li>
+<li class="chapter" data-level="12" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html"><i class="fa fa-check"></i><b>12</b> Neurale Netwerken met Extern Geheugen</a><ul>
+<li class="chapter" data-level="12.1" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#inleiding"><i class="fa fa-check"></i><b>12.1</b> Inleiding</a></li>
+<li class="chapter" data-level="12.2" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#neurale-turing-machines"><i class="fa fa-check"></i><b>12.2</b> Neurale Turing Machines</a></li>
+<li class="chapter" data-level="12.3" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#lezen-uit-en-schrijven-naar-een-ntm-geheugen"><i class="fa fa-check"></i><b>12.3</b> Lezen uit en schrijven naar een NTM geheugen</a></li>
+<li class="chapter" data-level="12.4" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#adressering-van-ntm-geheugens"><i class="fa fa-check"></i><b>12.4</b> Adressering van NTM geheugens</a></li>
+<li class="chapter" data-level="12.5" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#inhoud-gebaseerde-adressering"><i class="fa fa-check"></i><b>12.5</b> Inhoud-gebaseerde adressering</a></li>
+<li class="chapter" data-level="12.6" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#locatie-gebaseerde-adressering"><i class="fa fa-check"></i><b>12.6</b> Locatie-gebaseerde adressering</a></li>
+<li class="chapter" data-level="12.7" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#adresseringsmechanisme"><i class="fa fa-check"></i><b>12.7</b> Adresseringsmechanisme</a></li>
+<li class="chapter" data-level="12.8" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#de-nadelen-van-ntms"><i class="fa fa-check"></i><b>12.8</b> De nadelen van NTMs</a></li>
+<li class="chapter" data-level="12.9" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#de-differentiële-neurale-computer"><i class="fa fa-check"></i><b>12.9</b> De differentiële neurale computer</a></li>
+<li class="chapter" data-level="12.10" data-path="neurale-netwerken-met-extern-geheugen.html"><a href="neurale-netwerken-met-extern-geheugen.html#implementatie-dnc"><i class="fa fa-check"></i><b>12.10</b> Implementatie DNC</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html"><i class="fa fa-check"></i><b>13</b> Deep Reinforcement Learning</a></li>
+<li class="chapter" data-level="14" data-path="rapporteren.html"><a href="rapporteren.html"><i class="fa fa-check"></i><b>14</b> Rapporteren</a><ul>
+<li class="chapter" data-level="14.1" data-path="rapporteren.html"><a href="rapporteren.html#reproduceerbaarheid"><i class="fa fa-check"></i><b>14.1</b> Reproduceerbaarheid</a></li>
+<li class="chapter" data-level="14.2" data-path="rapporteren.html"><a href="rapporteren.html#beduidende-cijfers"><i class="fa fa-check"></i><b>14.2</b> Beduidende cijfers</a></li>
+<li class="chapter" data-level="14.3" data-path="rapporteren.html"><a href="rapporteren.html#representativiteit-en-randvoorwaarden"><i class="fa fa-check"></i><b>14.3</b> Representativiteit en randvoorwaarden</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="ethisch-ml.html"><a href="ethisch-ml.html"><i class="fa fa-check"></i><b>15</b> Ethisch ML</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="de-logaritme.html"><a href="de-logaritme.html"><i class="fa fa-check"></i><b>A</b> De Logaritme</a></li>
 <li class="chapter" data-level="B" data-path="normaliseren-versus-standaardiseren.html"><a href="normaliseren-versus-standaardiseren.html"><i class="fa fa-check"></i><b>B</b> Normaliseren versus Standaardiseren</a></li>
@@ -340,9 +359,9 @@ Figuur 7.2: Een ANN om op basis van twee eigenschappen van de kelkbladeren van i
 </ul>
 <p>De resultaten van bovenstaand netwerk kunnen als matrix <span class="math inline">\(\mathbf{\theta}\)</span> worden weergegeven. Laten we deze matrix voor de volledigheid eens bekijken:</p>
 <p><span class="math display">\[\theta=\begin{bmatrix}
-0.773&amp;1.789&amp;-1.566 \\
+0.775&amp;1.788&amp;-1.568 \\
 -0.374&amp;0.014&amp;0.360 \\
-0.572&amp;-0.504&amp;-0.067 \\
+0.571&amp;-0.503&amp;-0.067 \\
 \end{bmatrix}\]</span></p>
 <p>De totale fout waarvan hierboven sprake is, is evenredig met de som van de kwadraten van de deviaties tussen <span class="math inline">\(y\)</span> en <span class="math inline">\(\hat{y}\)</span> en wordt berekend met de kost-functie <span class="math inline">\(c\)</span> (eng: <em>cost function</em>):</p>
 <p><span class="math display" id="eq:kwadratensom">\[\begin{equation}
@@ -351,10 +370,10 @@ Figuur 7.2: Een ANN om op basis van twee eigenschappen van de kelkbladeren van i
 \end{equation}\]</span></p>
 <p>Behalve een invoer-laag en een uitvoer-laag, kan een netwerk ook worden opgebouwd uit tussenliggende <em>verborgen lagen</em> (eng: <em>hidden layers</em>). Figuur <a href="inleiding-tot-artificiële-neurale-netwerken.html#fig:nn-iris-1">7.3</a> laat zien wat er gebeurt indien we aan het Iris-netwerk een verborgen laag toevoegen met daarin 3 noden.</p>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="inleiding-tot-artificiële-neurale-netwerken.html#cb77-1"></a><span class="kw">library</span>(neuralnet)</span>
-<span id="cb77-2"><a href="inleiding-tot-artificiële-neurale-netwerken.html#cb77-2"></a></span>
+<span id="cb77-2"><a href="inleiding-tot-artificiële-neurale-netwerken.html#cb77-2"></a> </span>
 <span id="cb77-3"><a href="inleiding-tot-artificiële-neurale-netwerken.html#cb77-3"></a>nn =<span class="st"> </span><span class="kw">neuralnet</span>(Species <span class="op">~</span><span class="st"> </span>Sepal.Length <span class="op">+</span><span class="st"> </span>Sepal.Width,</span>
 <span id="cb77-4"><a href="inleiding-tot-artificiële-neurale-netwerken.html#cb77-4"></a>  <span class="dt">data =</span> iris, <span class="dt">hidden =</span> <span class="dv">3</span>, <span class="dt">linear.output =</span> <span class="ot">TRUE</span>) </span>
-<span id="cb77-5"><a href="inleiding-tot-artificiële-neurale-netwerken.html#cb77-5"></a>nn <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">plot</span>(<span class="dt">rep =</span> <span class="st">&quot;best&quot;</span>)</span></code></pre></div>
+<span id="cb77-5"><a href="inleiding-tot-artificiële-neurale-netwerken.html#cb77-5"></a>nn <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">plot</span>(<span class="dt">rep =</span> <span class="st">&quot;best&quot;</span>) </span></code></pre></div>
 <div class="figure"><span id="fig:nn-iris-1"></span>
 <img src="_main_files/figure-html/nn-iris-1-1.png" alt="Idem als voor Figuur 7.2, maar nu met toevoeging van een verborgen laag met 3 neuronen." width="672" />
 <p class="caption">
