@@ -329,6 +329,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="caption">Schrijf- en leeskop van een harde schijf</p>
 </div>
 <p><small>Bron afbeelding: <a href="https://commons.wikimedia.org/wiki/File:Seagate_ST33232A_hard_disk_head_and_platters_detail.jpg">Eric Gaba</a> onder een <i>Creative Commons Attribution-Share Alike 3.0 Unported</i> licentie</small></p>
+
+<div class="theorem">
+<p><span id="thm:alan-turing" class="theorem"><strong>Persoonlijkheid 12.1  (Alan Turing)  </strong></span></p>
+<p><img src="img/alan_turing.jpg" /></p>
+<em>Alan Turing</em> was een Britse wiskundige, theoretische bioloog en computerpionier. Een ronduit briljante persoonlijkheid aan wie we erg veel te danken hebben, te veel om hier zelfs op te noemen, incluis vrede in Europa! Als je deze persoonlijkheid niet kent, bekijk zijn <a href="https://nl.wikipedia.org/wiki/Alan_Turing">Wikipedia pagina</a> en kijk naar <a href="https://nl.wikipedia.org/wiki/The_Imitation_Game"><em>The Imitation Game</em></a>. Om aan te geven hoe belangrijk hij was heeft de Bank of England aangekondigd dat vanaf eind 2021 Alan Turing op het 50 pond biljet zal prijken.
+</div>
+
 </div>
 <div id="neurale-turing-machines" class="section level2">
 <h2><span class="header-section-number">12.2</span> Neurale Turing Machines</h2>
@@ -352,9 +359,9 @@ M_w=M^\intercal w\\ =0\cdot12+0.1\cdot87+0.7\cdot45+0.2\cdot65+0\cdot4 \\
 <p>Waarom zo moeilijk doen?</p>
 
 <div class="definition">
-<p><span id="def:why-probabilistic-selection" class="definition"><strong>Stelling 12.1  (Waarom geen discrete selectie van geheugen elementen)  </strong></span>De traditionele manier om elementen uit een rij of matrix te selecteren, zoals bij <span class="math inline">\(M_3\)</span>, maakt gebruik van discrete indices (<span class="math inline">\(M_i\)</span> met <span class="math inline">\(i \subset {1, 2, ...}\)</span>). Tijdens het leerproces zal de NTM de ideale indices trachten te voorspellen. Willen we echter gebruik maken van het Backpropagation algoritme en van de gradiënt-afdaling waarvan eerder sprake, dan moet deze indices differentieerbaar zijn. Discrete waarden zijn dat <em>niet</em>. Het is immers absurd om zoiets als het volgende te onderzoeken: wat is het effect van een kleine wijziging in de index (bijvoorbeeld van 3 naar 3.0001) op de accuraatheid van de voorspelling. Vandaar de noodzaak om een continue indexering te gebruiken i.p.v. een discrete indexering.</p>
+<p><span id="def:why-probabilistic-selection" class="definition"><strong>Stelling 12.1  (Waarom geen discrete selectie van geheugen elementen)  </strong></span>De traditionele manier om elementen uit een rij of matrix te selecteren, zoals bij <span class="math inline">\(M_3\)</span>, maakt gebruik van discrete indices (<span class="math inline">\(M_i\)</span> met <span class="math inline">\(i \subset {1, 2, ...}\)</span>). Tijdens het leerproces zal de NTM de ideale indices trachten te voorspellen. Willen we echter gebruik maken van het Backpropagation algoritme en van de gradiënt-afdaling waarvan eerder sprake, dan moet deze indices differentieerbaar zijn. Discrete waarden zijn dat <em>niet</em>. Het is immers absurd om zoiets als het volgende te onderzoeken: wat is het effect van een kleine wijziging in de index (bijvoorbeeld van 3 naar 3.0001) op de accuraatheid van de voorspelling? Vandaar de noodzaak om een continue indexering te gebruiken i.p.v. een discrete indexering.</p>
 <blockquote>
-Belangrijke noot: de gradieënt-afdaling is geen verplichting, het maakt een ANN mogelijk eenvoudiger, maar er zijn evenzeer specialisten die vinden dat het blijven vasthouden aan de gradiënt-afdaling eerder een belemmering is en stellen de noodzaak ervan in vraag.
+Belangrijke noot: de gradiënt-afdaling is geen verplichting, het maakt een ANN mogelijk eenvoudiger, maar er zijn evenzeer specialisten die vinden dat het blijven vasthouden aan de gradiënt-afdaling eerder een belemmering is en stellen de noodzaak ervan in vraag.
 </div>
 </blockquote>
 <p>Op het bovenstaande principe zijn de lees- en schrijf operaties ten aanzien van het extern geheugen van een NTM gebaseerd. Het lezen gebeurt a.d.h.v. een aandachtsvector (eng: <em>attention vector</em>) die op een continue wijze een geheugenplaats selecteert (zie Figuur <a href="neurale-netwerken-met-extern-geheugen.html#fig:ntm-read">12.2</a>).</p>
@@ -384,34 +391,35 @@ Figuur 12.3: De werking van een schrijf-operatie te aanzien van een extern NTM g
 </div>
 <div id="inhoud-gebaseerde-adressering" class="section level2">
 <h2><span class="header-section-number">12.5</span> Inhoud-gebaseerde adressering</h2>
-<p>De controller van een NTM kan aanleren om een geheugenplaats (een rij binnen de geheugen matrix) terug te vinden dat zo geooed mogelijk overeenstemt met een vooropgestelde sleutelvector <span class="math inline">\(\mathbf{k_t}\)</span> (eng: <em>key vector</em>). Hiervoor wordt de aandachtsvector als volgt berekend:</p>
+<p>De controller van een NTM kan aanleren om een geheugenplaats (een rij binnen de geheugen matrix) terug te vinden dat zo goed mogelijk overeenstemt met een vooropgestelde sleutelvector <span class="math inline">\(\mathbf{k_t}\)</span> (eng: <em>key vector</em>). Hiervoor wordt de aandachtsvector als volgt berekend:</p>
 <p><span class="math display">\[
 w_t^c=\frac{\exp\left(\beta_t\mathscr{D}\left(M_t,\mathbf{k_t}\right)\right)}{\sum_{i=0}^{N}\exp\left(\beta_t\mathscr{D}\left(M_t,\mathbf{k_t}\right)\right)}
 \]</span></p>
-<p>, waarbij <span class="math inline">\(\beta\)</span> hier voor een vermenigvuldigingsfactor staat (eng: <em>key strength</em>) en waarbij <span class="math inline">\(\mathscr{D}\)</span> voor een afstand-functie staat (eng: <em>similarity function</em>). Voor <span class="math inline">\(\mathscr{D}\)</span> wordt meestal de <a href="https://nl.wikipedia.org/wiki/Cosinusgelijkenis">cosinusgelijkenis</a> genomen. Je zal merken dat bovenstaande vergelijking erg lijkt op de softmax en inderdaad, het komt neer op een genormaliseerde versie van de softmax. De parameter <span class="math inline">\(\beta\)</span> is geen hyperparameter. Het wordt door de controller aangeleverd en aangeleerd. Een hogere waarde voor <span class="math inline">\(\beta\)</span> zal ervoor zorgen dat een onbesliste sleutel-vector (in het extreme geval een eenheidsvector) toch een duidelijk gefocusseerde aandachtsvector oplevert.</p>
+<p>, waarbij <span class="math inline">\(\beta\)</span> hier voor een vermenigvuldigingsfactor staat (eng: <em>key strength</em>) en waarbij <span class="math inline">\(\mathscr{D}\)</span> voor een afstand-functie staat (eng: <em>similarity function</em>). Voor <span class="math inline">\(\mathscr{D}\)</span> wordt meestal de <a href="https://nl.wikipedia.org/wiki/Cosinusgelijkenis">cosinusgelijkenis</a> genomen. Je zal merken dat bovenstaande vergelijking erg lijkt op de softmax en inderdaad, het komt neer op een genormaliseerde versie van de softmax. De parameter <span class="math inline">\(\beta\)</span> is geen hyperparameter. Het wordt door de controller aangeleverd en aangeleerd. Een hogere waarde voor <span class="math inline">\(\beta\)</span> zal ervoor zorgen dat een onbesliste sleutel-vector (tot bijna het extreme geval van een eenheidsvector) toch een duidelijk gefocusseerde aandachtsvector oplevert.</p>
 </div>
 <div id="locatie-gebaseerde-adressering" class="section level2">
 <h2><span class="header-section-number">12.6</span> Locatie-gebaseerde adressering</h2>
 <p>Deze adressering moet toelaten dat de controller aanleert om bepaalde geheugenplaatsen op te roepen en om te navigeren naar een naburige geheugenplaats. Dit gebeurt door op de aandachtsvector een rottionele convolutie uit te voeren (i.e. filter operatie) met een zogenaamde <em>shift weighting</em> <span class="math inline">\(\mathbf{s_t}\)</span>:</p>
-<div class="figure">
-<img src="img/ntm_conv_shift.svg" alt="(ref:ntm_conv_shift)"  />
+<div class="figure"><span id="fig:ntm-conv-shift"></span>
+<img src="img/ntm_conv_shift.svg" alt="Voorbeeld van een convolutionele shift-operatie om de focus één plaats naar onder te verschuiven. Merk op dat dit een cyclisch gebeuren is in de zin dat de cel van de aandachtsvector \(w_t\) die a.h.w. van de vector valt bovenaan wordt gerecycleerd (i.e. \(\widetilde{w}_{t,1} = w_{t, 6}\))."  />
 <p class="caption">
-(#fig:ntm_conv_shift)(ref:ntm_conv_shift)
+Figuur 12.4: Voorbeeld van een convolutionele shift-operatie om de focus één plaats naar onder te verschuiven. Merk op dat dit een cyclisch gebeuren is in de zin dat de cel van de aandachtsvector <span class="math inline">\(w_t\)</span> die a.h.w. van de vector valt bovenaan wordt gerecycleerd (i.e. <span class="math inline">\(\widetilde{w}_{t,1} = w_{t, 6}\)</span>).
 </p>
 </div>
-<p>(ref:ntm_conv_shift) Voorbeeld van een convolutionele shift-operatie om de focus één plaats naar onder te verschuiven. Merk op dat dit een cyclisch gebeuren is in de zin dat de cel van de aandachtsvector <span class="math inline">\(w_t\)</span> die a.h.w. van de vector valt bovenaan wordt gerecycleerd (i.e. <span class="math inline">\(\widetilde{w}_{t,1} = w_{t, 6}\)</span>).</p>
+
 </div>
 <div id="adresseringsmechanisme" class="section level2">
 <h2><span class="header-section-number">12.7</span> Adresseringsmechanisme</h2>
 <p>Hier volgt een beschrijving van het volledig adresseringsmechanisme.</p>
 <div class="figure"><span id="fig:ntm-address"></span>
-<img src="img/ntm_address.svg" alt="(ref:ntm-address)"  />
+<img src="img/ntm_address.svg" alt="Overzicht van het adresseringsmechanisme. Zie tekst voor meer uitleg."  />
 <p class="caption">
-Figuur 12.4: (ref:ntm-address)
+Figuur 12.5: Overzicht van het adresseringsmechanisme. Zie tekst voor meer uitleg.
 </p>
 </div>
+
 <ol style="list-style-type: decimal">
-<li><p>Zoek een geheugenplaats op basis van de sleutelvector <span class="math inline">\(\mathbf{k_t}\)</span> en de vermenigvuldigingsfactor <span class="math inline">\(beta\)</span></p></li>
+<li><p>Zoek een geheugenplaats op basis van de sleutelvector <span class="math inline">\(\mathbf{k_t}\)</span> en de vermenigvuldigingsfactor <span class="math inline">\(\beta\)</span></p></li>
 <li><p>Interpoleer de resulterende aandachtsvector <span class="math inline">\(w_t^c\)</span> met de aandachtsvector <span class="math inline">\(w_{t-1}\)</span> van het vorige tijdstip:</p>
 <p><span class="math display">\[
 w_t^g=g_t w_t^c + (1-g_t)w_{t-1}
@@ -440,7 +448,7 @@ w_t=\frac{\tilde{w}_t^{\gamma_t}}{\sum_{i=0}^{N}\tilde{w}_{t, i}^{\gamma_t}}
 <img src="https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fcom.ft.imagepublish.prod.s3.amazonaws.com%2Fd4d0912c-8fd4-11e6-a72e-b428cb934b78?fit=scale-down&amp;source=next&amp;width=700" alt="" />
 <p class="caption">An artist’s impression of Google’s Differentiable Neural Computer © Google DeepMind</p>
 </div>
-<p>Bron afbeelding: Adam Cain, een artist bij het DeepMind team.</p>
+<p><small>Bron afbeelding: Adam Cain, een artist bij het DeepMind team.</small></p>
 <p>We gaan ons hier niet verder verdiepen in de architectuur van een DNC, maar ik geef toch even mee wat de verschillen zijn t.o.v. een NTM:</p>
 
 <div class="definition">
@@ -453,7 +461,7 @@ w_t=\frac{\tilde{w}_t^{\gamma_t}}{\sum_{i=0}^{N}\tilde{w}_{t, i}^{\gamma_t}}
 <div class="figure"><span id="fig:dnc"></span>
 <img src="img/dnc.svg" alt="Overzicht van de architectuur van aan DNC."  />
 <p class="caption">
-Figuur 12.5: Overzicht van de architectuur van aan DNC.
+Figuur 12.6: Overzicht van de architectuur van aan DNC.
 </p>
 </div>
 
@@ -466,7 +474,7 @@ Figuur 12.5: Overzicht van de architectuur van aan DNC.
 </iframe>
 <p>DNC zijn instaat om allerlei vragen te beantwoorden over een graaf-gestructureerde gegevens zoals sociale netwerken, parse-trees, knowledge graphs en dergelijke zelfs als de gegevens in een lineaire vormen worden gevoed aan het algoritme.</p>
 <p>In een ander voorbeeld, dat gerelateerd is met het aanleren van concepten (denk aan het concept ‘boom’ uit de eerste les), wil men bijvoorbeeld een ANN het volgende ‘raadsel’ proberen oplossen:</p>
-<p><q>Alice gaat naar de keuken, alwaar ze een glas milk neemt. Onderweg naar de living neemt ze een appel uit de fruitmand.<br><br>Vraag: Hoeveel objecten heeft Alice bij zich?</q></p>
+<p><q>Alice gaat naar de keuken, alwaar ze een glas melk neemt. Onderweg naar de living neemt ze een appel uit de fruitmand.<br><br>Vraag: Hoeveel objecten heeft Alice bij zich?</q></p>
 <p>Het lijkt verschrikkelijke overkill om hiervoor zulk een complex netwerk op te zetten. Maar wat als je niet op voorhand weet welke vraag er gesteld gaat worden?</p>
 
 </div>
