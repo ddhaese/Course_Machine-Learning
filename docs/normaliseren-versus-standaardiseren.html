@@ -288,11 +288,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.5" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#varianten-van-deep-rl"><i class="fa fa-check"></i><b>13.5</b> Varianten van (Deep) RL</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="rapporteren.html"><a href="rapporteren.html"><i class="fa fa-check"></i><b>14</b> Rapporteren</a><ul>
-<li class="chapter" data-level="14.1" data-path="rapporteren.html"><a href="rapporteren.html#reproduceerbaarheid"><i class="fa fa-check"></i><b>14.1</b> Reproduceerbaarheid</a></li>
-<li class="chapter" data-level="14.2" data-path="rapporteren.html"><a href="rapporteren.html#beduidende-cijfers"><i class="fa fa-check"></i><b>14.2</b> Beduidende cijfers</a></li>
-<li class="chapter" data-level="14.3" data-path="rapporteren.html"><a href="rapporteren.html#representativiteit-en-randvoorwaarden"><i class="fa fa-check"></i><b>14.3</b> Representativiteit en randvoorwaarden</a></li>
+<li class="chapter" data-level="14.1" data-path="rapporteren.html"><a href="rapporteren.html#de-vraagstelling"><i class="fa fa-check"></i><b>14.1</b> De vraagstelling</a></li>
+<li class="chapter" data-level="14.2" data-path="rapporteren.html"><a href="rapporteren.html#de-probleemstelling"><i class="fa fa-check"></i><b>14.2</b> De probleemstelling</a></li>
+<li class="chapter" data-level="14.3" data-path="rapporteren.html"><a href="rapporteren.html#uitvoering-ai-project"><i class="fa fa-check"></i><b>14.3</b> Uitvoering AI project</a></li>
+<li class="chapter" data-level="14.4" data-path="rapporteren.html"><a href="rapporteren.html#reproduceerbare-willekeur"><i class="fa fa-check"></i><b>14.4</b> Reproduceerbare Willekeur</a></li>
+<li class="chapter" data-level="14.5" data-path="rapporteren.html"><a href="rapporteren.html#beduidende-cijfers"><i class="fa fa-check"></i><b>14.5</b> Beduidende cijfers</a></li>
+<li class="chapter" data-level="14.6" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#inleiding"><i class="fa fa-check"></i><b>14.6</b> Inleiding</a></li>
+<li class="chapter" data-level="14.7" data-path="rapporteren.html"><a href="rapporteren.html#methodiek"><i class="fa fa-check"></i><b>14.7</b> Methodiek</a></li>
+<li class="chapter" data-level="14.8" data-path="rapporteren.html"><a href="rapporteren.html#data-beschikbaar-maken"><i class="fa fa-check"></i><b>14.8</b> Data Beschikbaar maken</a></li>
+<li class="chapter" data-level="14.9" data-path="rapporteren.html"><a href="rapporteren.html#beschikbaar-maken-van-databanken"><i class="fa fa-check"></i><b>14.9</b> Beschikbaar maken van databanken</a></li>
+<li class="chapter" data-level="14.10" data-path="rapporteren.html"><a href="rapporteren.html#data-flow"><i class="fa fa-check"></i><b>14.10</b> Data-flow</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="ethisch-ml.html"><a href="ethisch-ml.html"><i class="fa fa-check"></i><b>15</b> Ethisch ML</a></li>
+<li class="chapter" data-level="15" data-path="ethisch-ml.html"><a href="ethisch-ml.html"><i class="fa fa-check"></i><b>15</b> Ethisch ML</a><ul>
+<li class="chapter" data-level="15.1" data-path="ethisch-ml.html"><a href="ethisch-ml.html#representativiteit-en-randvoorwaarden"><i class="fa fa-check"></i><b>15.1</b> Representativiteit en randvoorwaarden</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="de-logaritme.html"><a href="de-logaritme.html"><i class="fa fa-check"></i><b>A</b> De Logaritme</a></li>
 <li class="chapter" data-level="B" data-path="normaliseren-versus-standaardiseren.html"><a href="normaliseren-versus-standaardiseren.html"><i class="fa fa-check"></i><b>B</b> Normaliseren versus Standaardiseren</a></li>
@@ -344,31 +353,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 
 <p>Dus, twee transformaties op een reeks getallen die al-bij-al toch vrij verschillend zijn. Hieronder wordt met code en met beelden de verschillen nog verder verduidelijkt. We grijpen hiervoor terug naar de lengtes van de kelkbladen van de irissen.</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="normaliseren-versus-standaardiseren.html#cb140-1"></a>normalize &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
-<span id="cb140-2"><a href="normaliseren-versus-standaardiseren.html#cb140-2"></a>  x_min &lt;-<span class="st"> </span><span class="kw">min</span>(x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb140-3"><a href="normaliseren-versus-standaardiseren.html#cb140-3"></a>  x_max &lt;-<span class="st"> </span><span class="kw">max</span>(x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb140-4"><a href="normaliseren-versus-standaardiseren.html#cb140-4"></a>  </span>
-<span id="cb140-5"><a href="normaliseren-versus-standaardiseren.html#cb140-5"></a>  (x <span class="op">-</span><span class="st"> </span>x_min) <span class="op">/</span><span class="st"> </span>(x_max <span class="op">-</span><span class="st"> </span>x_min)</span>
-<span id="cb140-6"><a href="normaliseren-versus-standaardiseren.html#cb140-6"></a>}</span>
-<span id="cb140-7"><a href="normaliseren-versus-standaardiseren.html#cb140-7"></a></span>
-<span id="cb140-8"><a href="normaliseren-versus-standaardiseren.html#cb140-8"></a>x &lt;-<span class="st"> </span>iris<span class="op">$</span>Sepal.Length</span>
-<span id="cb140-9"><a href="normaliseren-versus-standaardiseren.html#cb140-9"></a></span>
-<span id="cb140-10"><a href="normaliseren-versus-standaardiseren.html#cb140-10"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">1</span>), <span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">2</span>))</span>
-<span id="cb140-11"><a href="normaliseren-versus-standaardiseren.html#cb140-11"></a></span>
-<span id="cb140-12"><a href="normaliseren-versus-standaardiseren.html#cb140-12"></a>x <span class="op">%&gt;%</span><span class="st"> </span>density <span class="op">%&gt;%</span></span>
-<span id="cb140-13"><a href="normaliseren-versus-standaardiseren.html#cb140-13"></a><span class="st">  </span><span class="kw">plot</span>(<span class="dt">col =</span> <span class="dv">2</span>, <span class="dt">main =</span> <span class="st">&quot;Origineel&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dichtheid&quot;</span>)</span>
-<span id="cb140-14"><a href="normaliseren-versus-standaardiseren.html#cb140-14"></a><span class="kw">rug</span>(x, <span class="dt">col =</span> <span class="dv">2</span>)</span>
-<span id="cb140-15"><a href="normaliseren-versus-standaardiseren.html#cb140-15"></a></span>
-<span id="cb140-16"><a href="normaliseren-versus-standaardiseren.html#cb140-16"></a>x_norm &lt;-<span class="st"> </span>x <span class="op">%&gt;%</span><span class="st"> </span>normalize</span>
-<span id="cb140-17"><a href="normaliseren-versus-standaardiseren.html#cb140-17"></a>x_norm <span class="op">%&gt;%</span><span class="st"> </span>density <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mirror</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb140-18"><a href="normaliseren-versus-standaardiseren.html#cb140-18"></a><span class="st">  </span><span class="kw">plot</span>(<span class="dt">col =</span> <span class="dv">2</span>, <span class="dt">main =</span> <span class="st">&quot;Normalisatie&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dichtheid&quot;</span>)</span>
-<span id="cb140-19"><a href="normaliseren-versus-standaardiseren.html#cb140-19"></a><span class="kw">rug</span>(x_norm, <span class="dt">col =</span> <span class="dv">2</span>)</span>
-<span id="cb140-20"><a href="normaliseren-versus-standaardiseren.html#cb140-20"></a></span>
-<span id="cb140-21"><a href="normaliseren-versus-standaardiseren.html#cb140-21"></a>x_stand &lt;-<span class="st"> </span>x <span class="op">%&gt;%</span><span class="st"> </span>scale</span>
-<span id="cb140-22"><a href="normaliseren-versus-standaardiseren.html#cb140-22"></a>x_stand <span class="op">%&gt;%</span><span class="st"> </span>density <span class="op">%&gt;%</span></span>
-<span id="cb140-23"><a href="normaliseren-versus-standaardiseren.html#cb140-23"></a><span class="st">  </span><span class="kw">plot</span>(<span class="dt">col =</span> <span class="dv">2</span>, <span class="dt">main =</span> <span class="st">&quot;Standaardisatie&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dichtheid&quot;</span>)</span>
-<span id="cb140-24"><a href="normaliseren-versus-standaardiseren.html#cb140-24"></a><span class="kw">rug</span>(x_stand, <span class="dt">col =</span> <span class="dv">2</span>)</span>
-<span id="cb140-25"><a href="normaliseren-versus-standaardiseren.html#cb140-25"></a><span class="kw">abline</span>(<span class="dt">v =</span> <span class="dv">0</span>, <span class="dt">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="normaliseren-versus-standaardiseren.html#cb148-1"></a>normalize &lt;-<span class="st"> </span><span class="cf">function</span>(x) {</span>
+<span id="cb148-2"><a href="normaliseren-versus-standaardiseren.html#cb148-2"></a>  x_min &lt;-<span class="st"> </span><span class="kw">min</span>(x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb148-3"><a href="normaliseren-versus-standaardiseren.html#cb148-3"></a>  x_max &lt;-<span class="st"> </span><span class="kw">max</span>(x, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb148-4"><a href="normaliseren-versus-standaardiseren.html#cb148-4"></a>  </span>
+<span id="cb148-5"><a href="normaliseren-versus-standaardiseren.html#cb148-5"></a>  (x <span class="op">-</span><span class="st"> </span>x_min) <span class="op">/</span><span class="st"> </span>(x_max <span class="op">-</span><span class="st"> </span>x_min)</span>
+<span id="cb148-6"><a href="normaliseren-versus-standaardiseren.html#cb148-6"></a>}</span>
+<span id="cb148-7"><a href="normaliseren-versus-standaardiseren.html#cb148-7"></a></span>
+<span id="cb148-8"><a href="normaliseren-versus-standaardiseren.html#cb148-8"></a>x &lt;-<span class="st"> </span>iris<span class="op">$</span>Sepal.Length</span>
+<span id="cb148-9"><a href="normaliseren-versus-standaardiseren.html#cb148-9"></a></span>
+<span id="cb148-10"><a href="normaliseren-versus-standaardiseren.html#cb148-10"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">1</span>), <span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">2</span>))</span>
+<span id="cb148-11"><a href="normaliseren-versus-standaardiseren.html#cb148-11"></a></span>
+<span id="cb148-12"><a href="normaliseren-versus-standaardiseren.html#cb148-12"></a>x <span class="op">%&gt;%</span><span class="st"> </span>density <span class="op">%&gt;%</span></span>
+<span id="cb148-13"><a href="normaliseren-versus-standaardiseren.html#cb148-13"></a><span class="st">  </span><span class="kw">plot</span>(<span class="dt">col =</span> <span class="dv">2</span>, <span class="dt">main =</span> <span class="st">&quot;Origineel&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dichtheid&quot;</span>)</span>
+<span id="cb148-14"><a href="normaliseren-versus-standaardiseren.html#cb148-14"></a><span class="kw">rug</span>(x, <span class="dt">col =</span> <span class="dv">2</span>)</span>
+<span id="cb148-15"><a href="normaliseren-versus-standaardiseren.html#cb148-15"></a></span>
+<span id="cb148-16"><a href="normaliseren-versus-standaardiseren.html#cb148-16"></a>x_norm &lt;-<span class="st"> </span>x <span class="op">%&gt;%</span><span class="st"> </span>normalize</span>
+<span id="cb148-17"><a href="normaliseren-versus-standaardiseren.html#cb148-17"></a>x_norm <span class="op">%&gt;%</span><span class="st"> </span>density <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mirror</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb148-18"><a href="normaliseren-versus-standaardiseren.html#cb148-18"></a><span class="st">  </span><span class="kw">plot</span>(<span class="dt">col =</span> <span class="dv">2</span>, <span class="dt">main =</span> <span class="st">&quot;Normalisatie&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dichtheid&quot;</span>)</span>
+<span id="cb148-19"><a href="normaliseren-versus-standaardiseren.html#cb148-19"></a><span class="kw">rug</span>(x_norm, <span class="dt">col =</span> <span class="dv">2</span>)</span>
+<span id="cb148-20"><a href="normaliseren-versus-standaardiseren.html#cb148-20"></a></span>
+<span id="cb148-21"><a href="normaliseren-versus-standaardiseren.html#cb148-21"></a>x_stand &lt;-<span class="st"> </span>x <span class="op">%&gt;%</span><span class="st"> </span>scale</span>
+<span id="cb148-22"><a href="normaliseren-versus-standaardiseren.html#cb148-22"></a>x_stand <span class="op">%&gt;%</span><span class="st"> </span>density <span class="op">%&gt;%</span></span>
+<span id="cb148-23"><a href="normaliseren-versus-standaardiseren.html#cb148-23"></a><span class="st">  </span><span class="kw">plot</span>(<span class="dt">col =</span> <span class="dv">2</span>, <span class="dt">main =</span> <span class="st">&quot;Standaardisatie&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;dichtheid&quot;</span>)</span>
+<span id="cb148-24"><a href="normaliseren-versus-standaardiseren.html#cb148-24"></a><span class="kw">rug</span>(x_stand, <span class="dt">col =</span> <span class="dv">2</span>)</span>
+<span id="cb148-25"><a href="normaliseren-versus-standaardiseren.html#cb148-25"></a><span class="kw">abline</span>(<span class="dt">v =</span> <span class="dv">0</span>, <span class="dt">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/norm-vs-stand-1.png" width="480" /></p>
 <p>Merk op dat de verdeling grotendeels ongewijzigd blijft, behalve aan de randen bij de normalisatie als gevolg van de <code>mirror</code>-operatie, enkel de x-as wijzigt. De functie <code>mirror</code> is een interne functie op de densiteitscurve (niet de data) binnen de extremen te houden om een wijze die licht verschilt van het <code>cut</code> argument op <code>density</code>.</p>
 </div>

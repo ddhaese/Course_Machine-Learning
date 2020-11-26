@@ -288,11 +288,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.5" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#varianten-van-deep-rl"><i class="fa fa-check"></i><b>13.5</b> Varianten van (Deep) RL</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="rapporteren.html"><a href="rapporteren.html"><i class="fa fa-check"></i><b>14</b> Rapporteren</a><ul>
-<li class="chapter" data-level="14.1" data-path="rapporteren.html"><a href="rapporteren.html#reproduceerbaarheid"><i class="fa fa-check"></i><b>14.1</b> Reproduceerbaarheid</a></li>
-<li class="chapter" data-level="14.2" data-path="rapporteren.html"><a href="rapporteren.html#beduidende-cijfers"><i class="fa fa-check"></i><b>14.2</b> Beduidende cijfers</a></li>
-<li class="chapter" data-level="14.3" data-path="rapporteren.html"><a href="rapporteren.html#representativiteit-en-randvoorwaarden"><i class="fa fa-check"></i><b>14.3</b> Representativiteit en randvoorwaarden</a></li>
+<li class="chapter" data-level="14.1" data-path="rapporteren.html"><a href="rapporteren.html#de-vraagstelling"><i class="fa fa-check"></i><b>14.1</b> De vraagstelling</a></li>
+<li class="chapter" data-level="14.2" data-path="rapporteren.html"><a href="rapporteren.html#de-probleemstelling"><i class="fa fa-check"></i><b>14.2</b> De probleemstelling</a></li>
+<li class="chapter" data-level="14.3" data-path="rapporteren.html"><a href="rapporteren.html#uitvoering-ai-project"><i class="fa fa-check"></i><b>14.3</b> Uitvoering AI project</a></li>
+<li class="chapter" data-level="14.4" data-path="rapporteren.html"><a href="rapporteren.html#reproduceerbare-willekeur"><i class="fa fa-check"></i><b>14.4</b> Reproduceerbare Willekeur</a></li>
+<li class="chapter" data-level="14.5" data-path="rapporteren.html"><a href="rapporteren.html#beduidende-cijfers"><i class="fa fa-check"></i><b>14.5</b> Beduidende cijfers</a></li>
+<li class="chapter" data-level="14.6" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#inleiding"><i class="fa fa-check"></i><b>14.6</b> Inleiding</a></li>
+<li class="chapter" data-level="14.7" data-path="rapporteren.html"><a href="rapporteren.html#methodiek"><i class="fa fa-check"></i><b>14.7</b> Methodiek</a></li>
+<li class="chapter" data-level="14.8" data-path="rapporteren.html"><a href="rapporteren.html#data-beschikbaar-maken"><i class="fa fa-check"></i><b>14.8</b> Data Beschikbaar maken</a></li>
+<li class="chapter" data-level="14.9" data-path="rapporteren.html"><a href="rapporteren.html#beschikbaar-maken-van-databanken"><i class="fa fa-check"></i><b>14.9</b> Beschikbaar maken van databanken</a></li>
+<li class="chapter" data-level="14.10" data-path="rapporteren.html"><a href="rapporteren.html#data-flow"><i class="fa fa-check"></i><b>14.10</b> Data-flow</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="ethisch-ml.html"><a href="ethisch-ml.html"><i class="fa fa-check"></i><b>15</b> Ethisch ML</a></li>
+<li class="chapter" data-level="15" data-path="ethisch-ml.html"><a href="ethisch-ml.html"><i class="fa fa-check"></i><b>15</b> Ethisch ML</a><ul>
+<li class="chapter" data-level="15.1" data-path="ethisch-ml.html"><a href="ethisch-ml.html#representativiteit-en-randvoorwaarden"><i class="fa fa-check"></i><b>15.1</b> Representativiteit en randvoorwaarden</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="de-logaritme.html"><a href="de-logaritme.html"><i class="fa fa-check"></i><b>A</b> De Logaritme</a></li>
 <li class="chapter" data-level="B" data-path="normaliseren-versus-standaardiseren.html"><a href="normaliseren-versus-standaardiseren.html"><i class="fa fa-check"></i><b>B</b> Normaliseren versus Standaardiseren</a></li>
@@ -333,7 +342,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="git" class="section level1">
 <h1><span class="header-section-number">F</span> Git</h1>
 <p><a href="https://nl.wikipedia.org/wiki/Git_(software)">Git</a> is een populair maar spijtig genoeg niet al te gebruiksvriendelijk versiebeheersysteem en tool om het werken in team-verband te stimuleren. In combinatie met github komt het hierop neer:</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="git.html#cb150-1"></a><span class="kw">include_graphics</span>(<span class="st">&quot;img/git.svg&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="git.html#cb158-1"></a><span class="kw">include_graphics</span>(<span class="st">&quot;img/git.svg&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:git"></span>
 <img src="img/git.svg" alt="De voornaamste (tijdelijke) opslag plaatsen zoals gedefinieerd door het git versiebeheersysteem met de belangrijkste acties die uitgevoerd kunnen en die te maken hebben met het verplaatsen van data van de ene naar de andere (tijdelijke) opslag. Typisch zal de remote master GitHub zijn."  />
 <p class="caption">
@@ -385,7 +394,7 @@ Changes to be committed:
 <ul>
 <li>Van een GitHub remote repository een lokale repository maken met lokale werk-folder. Eerst ga je naar GitHub, zoek je de repository en kopieer je de bijhorende link:</li>
 </ul>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="git.html#cb154-1"></a><span class="kw">include_graphics</span>(<span class="st">&quot;img/github-clone.png&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="git.html#cb162-1"></a><span class="kw">include_graphics</span>(<span class="st">&quot;img/github-clone.png&quot;</span>) </span></code></pre></div>
 <p><img src="img/github-clone.png" width="1322" /></p>
 <p>en daarna geef je de volgende opdrachten in (vervang de repo naam). Let erop dat de remote repo als subfolder wordt aangemaakt van de folder waarin je de opdracht geeft!:</p>
 <pre class="cmd"><code>&gt; git clone https://github.com/ddhaese/Tetris.git

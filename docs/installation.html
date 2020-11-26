@@ -288,11 +288,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.5" data-path="deep-reinforcement-learning.html"><a href="deep-reinforcement-learning.html#varianten-van-deep-rl"><i class="fa fa-check"></i><b>13.5</b> Varianten van (Deep) RL</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="rapporteren.html"><a href="rapporteren.html"><i class="fa fa-check"></i><b>14</b> Rapporteren</a><ul>
-<li class="chapter" data-level="14.1" data-path="rapporteren.html"><a href="rapporteren.html#reproduceerbaarheid"><i class="fa fa-check"></i><b>14.1</b> Reproduceerbaarheid</a></li>
-<li class="chapter" data-level="14.2" data-path="rapporteren.html"><a href="rapporteren.html#beduidende-cijfers"><i class="fa fa-check"></i><b>14.2</b> Beduidende cijfers</a></li>
-<li class="chapter" data-level="14.3" data-path="rapporteren.html"><a href="rapporteren.html#representativiteit-en-randvoorwaarden"><i class="fa fa-check"></i><b>14.3</b> Representativiteit en randvoorwaarden</a></li>
+<li class="chapter" data-level="14.1" data-path="rapporteren.html"><a href="rapporteren.html#de-vraagstelling"><i class="fa fa-check"></i><b>14.1</b> De vraagstelling</a></li>
+<li class="chapter" data-level="14.2" data-path="rapporteren.html"><a href="rapporteren.html#de-probleemstelling"><i class="fa fa-check"></i><b>14.2</b> De probleemstelling</a></li>
+<li class="chapter" data-level="14.3" data-path="rapporteren.html"><a href="rapporteren.html#uitvoering-ai-project"><i class="fa fa-check"></i><b>14.3</b> Uitvoering AI project</a></li>
+<li class="chapter" data-level="14.4" data-path="rapporteren.html"><a href="rapporteren.html#reproduceerbare-willekeur"><i class="fa fa-check"></i><b>14.4</b> Reproduceerbare Willekeur</a></li>
+<li class="chapter" data-level="14.5" data-path="rapporteren.html"><a href="rapporteren.html#beduidende-cijfers"><i class="fa fa-check"></i><b>14.5</b> Beduidende cijfers</a></li>
+<li class="chapter" data-level="14.6" data-path="sequentie-analyse.html"><a href="sequentie-analyse.html#inleiding"><i class="fa fa-check"></i><b>14.6</b> Inleiding</a></li>
+<li class="chapter" data-level="14.7" data-path="rapporteren.html"><a href="rapporteren.html#methodiek"><i class="fa fa-check"></i><b>14.7</b> Methodiek</a></li>
+<li class="chapter" data-level="14.8" data-path="rapporteren.html"><a href="rapporteren.html#data-beschikbaar-maken"><i class="fa fa-check"></i><b>14.8</b> Data Beschikbaar maken</a></li>
+<li class="chapter" data-level="14.9" data-path="rapporteren.html"><a href="rapporteren.html#beschikbaar-maken-van-databanken"><i class="fa fa-check"></i><b>14.9</b> Beschikbaar maken van databanken</a></li>
+<li class="chapter" data-level="14.10" data-path="rapporteren.html"><a href="rapporteren.html#data-flow"><i class="fa fa-check"></i><b>14.10</b> Data-flow</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="ethisch-ml.html"><a href="ethisch-ml.html"><i class="fa fa-check"></i><b>15</b> Ethisch ML</a></li>
+<li class="chapter" data-level="15" data-path="ethisch-ml.html"><a href="ethisch-ml.html"><i class="fa fa-check"></i><b>15</b> Ethisch ML</a><ul>
+<li class="chapter" data-level="15.1" data-path="ethisch-ml.html"><a href="ethisch-ml.html#representativiteit-en-randvoorwaarden"><i class="fa fa-check"></i><b>15.1</b> Representativiteit en randvoorwaarden</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="de-logaritme.html"><a href="de-logaritme.html"><i class="fa fa-check"></i><b>A</b> De Logaritme</a></li>
 <li class="chapter" data-level="B" data-path="normaliseren-versus-standaardiseren.html"><a href="normaliseren-versus-standaardiseren.html"><i class="fa fa-check"></i><b>B</b> Normaliseren versus Standaardiseren</a></li>
@@ -377,7 +386,7 @@ Figuur E.1: In an article on his channel called <em>YOU CANalytics</em>, Roopam 
 <li>Install <a href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> in a directory that contains <em>no spaces</em> (not automatically adding to Windows PATH variable as advised, but manually) and test by running the command <code>conda --version</code> anywhere at the command line prompt</li>
 <li>Add a python environment, here called <code>tf</code> (in the <code>Scripts</code> sub-folder of Miniconda installation folder), read and follow the advise given (if any) and test afterwards with the command <code>conda info --envs</code> or <code>conda env list</code>:</li>
 </ol>
-<div class="sourceCode" id="cb145"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb145-1"><a href="installation.html#cb145-1"></a><span class="ex">conda</span> create -n tf</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb153-1"><a href="installation.html#cb153-1"></a><span class="ex">conda</span> create -n tf</span></code></pre></div>
 <pre>
 Collecting package metadata (current_repodata.json): done
 Solving environment: done
@@ -410,7 +419,7 @@ Executing transaction: done
 <ol start="7" style="list-style-type: decimal">
 <li>Open RStudio and, using the console, install the helper package <code>tensorflow</code> that guides the installation:</li>
 </ol>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="installation.html#cb146-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;tensorflow&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="installation.html#cb154-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;tensorflow&quot;</span>)</span></code></pre></div>
 <pre>
 Installing package into […]
 (as ‘lib’ is unspecified)
@@ -447,7 +456,7 @@ The downloaded binary packages are in […]
 <ol start="8" style="list-style-type: decimal">
 <li>Still in RStudios console window, load the <code>tensorflow</code> package in memory (change <code>tf</code> if use you another environment name):</li>
 </ol>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="installation.html#cb147-1"></a><span class="kw">install_tensorflow</span>(<span class="dt">version =</span> <span class="st">&quot;nightly-gpu&quot;</span>, <span class="dt">envname =</span> <span class="st">&quot;tf&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="installation.html#cb155-1"></a><span class="kw">install_tensorflow</span>(<span class="dt">version =</span> <span class="st">&quot;nightly-gpu&quot;</span>, <span class="dt">envname =</span> <span class="st">&quot;tf&quot;</span>)</span></code></pre></div>
 <pre>Collecting package metadata (current_repodata.json): ...working... done<br>
 Solving environment: ...working... done
 
@@ -509,15 +518,15 @@ NVIDIA’s platforms and application frameworks enable developers to build a wid
 <ol start="9" style="list-style-type: decimal">
 <li>Test tensorflow using the command below</li>
 </ol>
-<div class="sourceCode" id="cb148"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb148-1"><a href="installation.html#cb148-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb148-2"><a href="installation.html#cb148-2"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
-<span id="cb148-3"><a href="installation.html#cb148-3"></a></span>
-<span id="cb148-4"><a href="installation.html#cb148-4"></a>tf.random.set_seed(<span class="dv">1</span>)</span>
-<span id="cb148-5"><a href="installation.html#cb148-5"></a></span>
-<span id="cb148-6"><a href="installation.html#cb148-6"></a>model <span class="op">=</span> tf.keras.Sequential([tf.keras.layers.Dense( <span class="op">\</span></span>
-<span id="cb148-7"><a href="installation.html#cb148-7"></a>  units <span class="op">=</span> <span class="dv">1</span>, input_shape <span class="op">=</span> [<span class="dv">1</span>])], )</span>
-<span id="cb148-8"><a href="installation.html#cb148-8"></a></span>
-<span id="cb148-9"><a href="installation.html#cb148-9"></a><span class="bu">print</span>(tf.reduce_sum(tf.random.normal([<span class="dv">1000</span>, <span class="dv">1000</span>])))</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb156-1"><a href="installation.html#cb156-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb156-2"><a href="installation.html#cb156-2"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
+<span id="cb156-3"><a href="installation.html#cb156-3"></a></span>
+<span id="cb156-4"><a href="installation.html#cb156-4"></a>tf.random.set_seed(<span class="dv">1</span>)</span>
+<span id="cb156-5"><a href="installation.html#cb156-5"></a></span>
+<span id="cb156-6"><a href="installation.html#cb156-6"></a>model <span class="op">=</span> tf.keras.Sequential([tf.keras.layers.Dense( <span class="op">\</span></span>
+<span id="cb156-7"><a href="installation.html#cb156-7"></a>  units <span class="op">=</span> <span class="dv">1</span>, input_shape <span class="op">=</span> [<span class="dv">1</span>])], )</span>
+<span id="cb156-8"><a href="installation.html#cb156-8"></a></span>
+<span id="cb156-9"><a href="installation.html#cb156-9"></a><span class="bu">print</span>(tf.reduce_sum(tf.random.normal([<span class="dv">1000</span>, <span class="dv">1000</span>])))</span></code></pre></div>
 <pre>
 2020-09-17 15:06:29.340924: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library nvcuda.dll
 2020-09-17 15:06:29.365342: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
@@ -559,56 +568,56 @@ tf.Tensor(22.580101, shape=(), dtype=float32)
 <div id="waar-vind-ik-hulp" class="section level2">
 <h2><span class="header-section-number">E.7</span> Waar vind ik hulp</h2>
 <p>Als je een bepaalde actie wil uitvoeren in R, maar je kent de naam van het pakket niet, dan zijn <a href="https://www.r-bloggers.com/">R Bloggers</a> en <a href="https://stackoverflow.com/">Stack Overflow</a> vermoedelijk de beste plaatsen om te zoeken. Gaat over de RStudio IDE, dan is de <a href="https://community.rstudio.com/">RStudio Community</a> misschien wel iets. Zoek je toch op Google, voeg dan de term <code>package</code> toe aan de lijst van zoektermen om betere resultaten te bekomen. Heb je de naam van een R pakket of een functie en werk je met RStudio, dan moet je meestal de IDE niet te verlaten. Wil je meer weten over een bepaald pakket, dan zijn er vignettes (soort handleiding) en documentatie. Vignettes roep je aan d.m.v. de <code>vignette()</code> functie, documentatie met <code>?</code> of <code>help()</code>. Verder heeft R ook demo’s en kan je rechtstreeks de voorbeelden uit de technische documentatie uitvoeren zonder de code te moeten kopiëren.</p>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="installation.html#cb149-1"></a><span class="co"># Start</span></span>
-<span id="cb149-2"><a href="installation.html#cb149-2"></a><span class="kw">help.start</span>()</span>
-<span id="cb149-3"><a href="installation.html#cb149-3"></a></span>
-<span id="cb149-4"><a href="installation.html#cb149-4"></a><span class="co"># Documentatie</span></span>
-<span id="cb149-5"><a href="installation.html#cb149-5"></a>?magrittr</span>
-<span id="cb149-6"><a href="installation.html#cb149-6"></a>?magrittr<span class="op">::</span>extract</span>
-<span id="cb149-7"><a href="installation.html#cb149-7"></a></span>
-<span id="cb149-8"><a href="installation.html#cb149-8"></a><span class="co"># Zoeken naar hulp op basis van term</span></span>
-<span id="cb149-9"><a href="installation.html#cb149-9"></a><span class="kw">help.search</span>(<span class="st">&quot;pipes&quot;</span>)</span>
-<span id="cb149-10"><a href="installation.html#cb149-10"></a></span>
-<span id="cb149-11"><a href="installation.html#cb149-11"></a><span class="co"># Informatie/handleiding specifiek pakket</span></span>
-<span id="cb149-12"><a href="installation.html#cb149-12"></a><span class="kw">vignette</span>(<span class="st">&#39;magrittr&#39;</span>)</span>
-<span id="cb149-13"><a href="installation.html#cb149-13"></a></span>
-<span id="cb149-14"><a href="installation.html#cb149-14"></a><span class="co"># Lijst pakketten van gekoppelde bibliotheken</span></span>
-<span id="cb149-15"><a href="installation.html#cb149-15"></a><span class="kw">vignette</span>(<span class="dt">all =</span> <span class="ot">FALSE</span>)</span>
-<span id="cb149-16"><a href="installation.html#cb149-16"></a></span>
-<span id="cb149-17"><a href="installation.html#cb149-17"></a><span class="co"># Lijst pakketten geïnstalleerde bibliotheken</span></span>
-<span id="cb149-18"><a href="installation.html#cb149-18"></a><span class="kw">vignette</span>(<span class="dt">all =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb149-19"><a href="installation.html#cb149-19"></a></span>
-<span id="cb149-20"><a href="installation.html#cb149-20"></a><span class="co"># Lijst alle vignettes</span></span>
-<span id="cb149-21"><a href="installation.html#cb149-21"></a><span class="kw">browseVignettes</span>()</span>
-<span id="cb149-22"><a href="installation.html#cb149-22"></a></span>
-<span id="cb149-23"><a href="installation.html#cb149-23"></a><span class="co"># Demonstratie</span></span>
-<span id="cb149-24"><a href="installation.html#cb149-24"></a><span class="kw">demo</span>(image)</span>
-<span id="cb149-25"><a href="installation.html#cb149-25"></a></span>
-<span id="cb149-26"><a href="installation.html#cb149-26"></a><span class="co"># Voorbeeld-code uit documentatie</span></span>
-<span id="cb149-27"><a href="installation.html#cb149-27"></a><span class="kw">example</span>(<span class="st">&quot;stl&quot;</span>)</span>
-<span id="cb149-28"><a href="installation.html#cb149-28"></a></span>
-<span id="cb149-29"><a href="installation.html#cb149-29"></a><span class="co"># Pakket info (auteur, versie, ...)</span></span>
-<span id="cb149-30"><a href="installation.html#cb149-30"></a><span class="kw">library</span>(<span class="dt">help =</span> <span class="st">&quot;magrittr&quot;</span>)</span>
-<span id="cb149-31"><a href="installation.html#cb149-31"></a></span>
-<span id="cb149-32"><a href="installation.html#cb149-32"></a><span class="co"># R site</span></span>
-<span id="cb149-33"><a href="installation.html#cb149-33"></a><span class="kw">RSiteSearch</span>(<span class="st">&quot;magrittr&quot;</span>)</span>
-<span id="cb149-34"><a href="installation.html#cb149-34"></a></span>
-<span id="cb149-35"><a href="installation.html#cb149-35"></a><span class="co"># CRAN repository pakketten</span></span>
-<span id="cb149-36"><a href="installation.html#cb149-36"></a><span class="kw">browseURL</span>(<span class="st">&quot;https://cran.r-project.org/web/packages/available_packages_by_name.html&quot;</span>)</span>
-<span id="cb149-37"><a href="installation.html#cb149-37"></a></span>
-<span id="cb149-38"><a href="installation.html#cb149-38"></a><span class="co"># CRAN repo specifiek pakket</span></span>
-<span id="cb149-39"><a href="installation.html#cb149-39"></a><span class="kw">browseURL</span>(<span class="st">&quot;https://cran.r-project.org/web/packages/magrittr/index.html&quot;</span>)</span>
-<span id="cb149-40"><a href="installation.html#cb149-40"></a></span>
-<span id="cb149-41"><a href="installation.html#cb149-41"></a><span class="co"># CRAN task views</span></span>
-<span id="cb149-42"><a href="installation.html#cb149-42"></a><span class="kw">browseURL</span>(<span class="st">&quot;https://cran.r-project.org/web/views/&quot;</span>)</span>
-<span id="cb149-43"><a href="installation.html#cb149-43"></a></span>
-<span id="cb149-44"><a href="installation.html#cb149-44"></a><span class="co"># CRAN speciefieke task view</span></span>
-<span id="cb149-45"><a href="installation.html#cb149-45"></a><span class="kw">browseURL</span>(<span class="st">&quot;https://cran.r-project.org/web/views/Hydrology.html&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="installation.html#cb157-1"></a><span class="co"># Start</span></span>
+<span id="cb157-2"><a href="installation.html#cb157-2"></a><span class="kw">help.start</span>()</span>
+<span id="cb157-3"><a href="installation.html#cb157-3"></a></span>
+<span id="cb157-4"><a href="installation.html#cb157-4"></a><span class="co"># Documentatie</span></span>
+<span id="cb157-5"><a href="installation.html#cb157-5"></a>?magrittr</span>
+<span id="cb157-6"><a href="installation.html#cb157-6"></a>?magrittr<span class="op">::</span>extract</span>
+<span id="cb157-7"><a href="installation.html#cb157-7"></a></span>
+<span id="cb157-8"><a href="installation.html#cb157-8"></a><span class="co"># Zoeken naar hulp op basis van term</span></span>
+<span id="cb157-9"><a href="installation.html#cb157-9"></a><span class="kw">help.search</span>(<span class="st">&quot;pipes&quot;</span>)</span>
+<span id="cb157-10"><a href="installation.html#cb157-10"></a></span>
+<span id="cb157-11"><a href="installation.html#cb157-11"></a><span class="co"># Informatie/handleiding specifiek pakket</span></span>
+<span id="cb157-12"><a href="installation.html#cb157-12"></a><span class="kw">vignette</span>(<span class="st">&#39;magrittr&#39;</span>)</span>
+<span id="cb157-13"><a href="installation.html#cb157-13"></a></span>
+<span id="cb157-14"><a href="installation.html#cb157-14"></a><span class="co"># Lijst pakketten van gekoppelde bibliotheken</span></span>
+<span id="cb157-15"><a href="installation.html#cb157-15"></a><span class="kw">vignette</span>(<span class="dt">all =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb157-16"><a href="installation.html#cb157-16"></a></span>
+<span id="cb157-17"><a href="installation.html#cb157-17"></a><span class="co"># Lijst pakketten geïnstalleerde bibliotheken</span></span>
+<span id="cb157-18"><a href="installation.html#cb157-18"></a><span class="kw">vignette</span>(<span class="dt">all =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb157-19"><a href="installation.html#cb157-19"></a></span>
+<span id="cb157-20"><a href="installation.html#cb157-20"></a><span class="co"># Lijst alle vignettes</span></span>
+<span id="cb157-21"><a href="installation.html#cb157-21"></a><span class="kw">browseVignettes</span>()</span>
+<span id="cb157-22"><a href="installation.html#cb157-22"></a></span>
+<span id="cb157-23"><a href="installation.html#cb157-23"></a><span class="co"># Demonstratie</span></span>
+<span id="cb157-24"><a href="installation.html#cb157-24"></a><span class="kw">demo</span>(image)</span>
+<span id="cb157-25"><a href="installation.html#cb157-25"></a></span>
+<span id="cb157-26"><a href="installation.html#cb157-26"></a><span class="co"># Voorbeeld-code uit documentatie</span></span>
+<span id="cb157-27"><a href="installation.html#cb157-27"></a><span class="kw">example</span>(<span class="st">&quot;stl&quot;</span>)</span>
+<span id="cb157-28"><a href="installation.html#cb157-28"></a></span>
+<span id="cb157-29"><a href="installation.html#cb157-29"></a><span class="co"># Pakket info (auteur, versie, ...)</span></span>
+<span id="cb157-30"><a href="installation.html#cb157-30"></a><span class="kw">library</span>(<span class="dt">help =</span> <span class="st">&quot;magrittr&quot;</span>)</span>
+<span id="cb157-31"><a href="installation.html#cb157-31"></a></span>
+<span id="cb157-32"><a href="installation.html#cb157-32"></a><span class="co"># R site</span></span>
+<span id="cb157-33"><a href="installation.html#cb157-33"></a><span class="kw">RSiteSearch</span>(<span class="st">&quot;magrittr&quot;</span>)</span>
+<span id="cb157-34"><a href="installation.html#cb157-34"></a></span>
+<span id="cb157-35"><a href="installation.html#cb157-35"></a><span class="co"># CRAN repository pakketten</span></span>
+<span id="cb157-36"><a href="installation.html#cb157-36"></a><span class="kw">browseURL</span>(<span class="st">&quot;https://cran.r-project.org/web/packages/available_packages_by_name.html&quot;</span>)</span>
+<span id="cb157-37"><a href="installation.html#cb157-37"></a></span>
+<span id="cb157-38"><a href="installation.html#cb157-38"></a><span class="co"># CRAN repo specifiek pakket</span></span>
+<span id="cb157-39"><a href="installation.html#cb157-39"></a><span class="kw">browseURL</span>(<span class="st">&quot;https://cran.r-project.org/web/packages/magrittr/index.html&quot;</span>)</span>
+<span id="cb157-40"><a href="installation.html#cb157-40"></a></span>
+<span id="cb157-41"><a href="installation.html#cb157-41"></a><span class="co"># CRAN task views</span></span>
+<span id="cb157-42"><a href="installation.html#cb157-42"></a><span class="kw">browseURL</span>(<span class="st">&quot;https://cran.r-project.org/web/views/&quot;</span>)</span>
+<span id="cb157-43"><a href="installation.html#cb157-43"></a></span>
+<span id="cb157-44"><a href="installation.html#cb157-44"></a><span class="co"># CRAN speciefieke task view</span></span>
+<span id="cb157-45"><a href="installation.html#cb157-45"></a><span class="kw">browseURL</span>(<span class="st">&quot;https://cran.r-project.org/web/views/Hydrology.html&quot;</span>)</span></code></pre></div>
 <p>Voor Python en andere talen verwijs ik naar <a href="https://stackoverflow.com/">Stack Overflow</a>. Zie ook volgende paragraaf voor wat meer info over rond Python.</p>
 </div>
 <div id="waar-vind-ik-leeralgoritmen-terugvinden" class="section level2">
 <h2><span class="header-section-number">E.8</span> Waar vind ik leeralgoritmen terugvinden</h2>
-<p>Laten we beginnen met waar je de verscheidene leeralgoritmen kunt terugvinden. In sommige gevallen, zoals voor een enkelvoudig <em>perceptron</em>, kan je het zelf gewoon coderen maar meestal worden de algoritmen gelukkig ter beschikking gesteld. Omdat wiskundigen eerder R gebruiken zullen de nieuwere leeralgoritmen gewoonlijk eerst in R verschijnen en pas later in Python. Bij het publiceren van nieuwe methoden wordt er immers vaak van de auteurs verwacht dat ze het algoritme als een peer-reviewed R pakket (eng: <em>package</em>) registreren en publiek ter beschikking stellen. Het Comprehensive R Archive Network (<a href="https://cran.r-project.org/">CRAN</a>), dat de R pakketten beheert en erop toeziet dat de pakketten zowel wiskundig als programmatorisch aan bepaalde standaarden voldoet, stelt zogenaamde <em>task views</em> op met telkens een overzicht van de pakketten die kunnen helpen bij een welbepaalde taak. Zoeken we naar “machine learning”, komen we op honderden pakketten uit van <code>ahaz</code> tot <code>xgboost</code><a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> en vele van deze pakketten geven toegang tot tientallen verschillende typen leeralgoritmen. Maar dat is niet alles. Op de webpagina met het <a href="https://cran.r-project.org/web/views/">overzicht van alle task views</a>, vinden we bijvoorbeeld het onderwerp natuurlijke taalverwerking (eng: <em>natural language processing</em>; NLP) met nog eens tientallen pakketten specifiek rond dit thema.</p>
+<p>Laten we beginnen met waar je de verscheidene leeralgoritmen kunt terugvinden. In sommige gevallen, zoals voor een enkelvoudig <em>perceptron</em>, kan je het zelf gewoon coderen maar meestal worden de algoritmen gelukkig ter beschikking gesteld. Omdat wiskundigen eerder R gebruiken zullen de nieuwere leeralgoritmen gewoonlijk eerst in R verschijnen en pas later in Python. Bij het publiceren van nieuwe methoden wordt er immers vaak van de auteurs verwacht dat ze het algoritme als een peer-reviewed R pakket (eng: <em>package</em>) registreren en publiek ter beschikking stellen. Het Comprehensive R Archive Network (<a href="https://cran.r-project.org/">CRAN</a>), dat de R pakketten beheert en erop toeziet dat de pakketten zowel wiskundig als programmatorisch aan bepaalde standaarden voldoet, stelt zogenaamde <em>task views</em> op met telkens een overzicht van de pakketten die kunnen helpen bij een welbepaalde taak. Zoeken we naar “machine learning”, komen we op honderden pakketten uit van <code>ahaz</code> tot <code>xgboost</code><a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> en vele van deze pakketten geven toegang tot tientallen verschillende typen leeralgoritmen. Maar dat is niet alles. Op de webpagina met het <a href="https://cran.r-project.org/web/views/">overzicht van alle task views</a>, vinden we bijvoorbeeld het onderwerp natuurlijke taalverwerking (eng: <em>natural language processing</em>; NLP) met nog eens tientallen pakketten specifiek rond dit thema.</p>
 <p>Voor Python ontwikkeling verwijzen we voor leeralgoritmen eerst en vooral naar <a href="https://scikit-learn.org/stable/">scikit-learn</a>. Deze bibliotheek biedt een ruime gereedschapskist aan voor beginnende datawetenschappers. De naam komt trouwens van Science-kit <span class="math inline">\(\rightarrow\)</span> scikit <span class="math inline">\(\rightarrow\)</span> sk. Dan is er <a href="https://www.tensorflow.org/">Tensorflow</a> waar in de cursus dieper op wordt ingegaan. Ook hier vind je een rijke schat aan informatie. Python biedt een aantal voordelen voor ML en het belangrijkste voordeel is misschien wel dat Python een algemene programmeertaal is waarmee je gemakkelijker volwaardige applicaties kunt maken of met hardware interfacen. De bewering dat Python ‘krachtiger’ of ‘performanter’ zou zijn dan R neem ik eerder met een korreltje zout. Op de weinige momenten waarop beide platformen op eerlijke wijze vergeleken worden is het verschil onbeduidend en bovendien moet je voornamelijk rekening houden met ontwikkeltijd en daar biedt Python zeker geen voordeel. Tenslotte vermeld ik hier nog even <a href="https://julialang.org/">Julia</a>, een opkomende taal waarin ML eenvoudiger moet worden.</p>
 </div>
 </div>
@@ -623,8 +632,8 @@ tf.Tensor(22.580101, shape=(), dtype=float32)
 </div>
 <div class="footnotes">
 <hr />
-<ol start="10">
-<li id="fn10"><p>zie <a href="https://cran.r-project.org/web/views/MachineLearning.html" class="uri">https://cran.r-project.org/web/views/MachineLearning.html</a>.<a href="installation.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<ol start="11">
+<li id="fn11"><p>zie <a href="https://cran.r-project.org/web/views/MachineLearning.html" class="uri">https://cran.r-project.org/web/views/MachineLearning.html</a>.<a href="installation.html#fnref11" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
