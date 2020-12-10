@@ -1,3 +1,6 @@
+::-moz-selection { background: yellow; }
+::selection { background: yellow; }
+
 .tag{
   background-color: #D2EAEF;
   border-radius: 5px;
